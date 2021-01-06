@@ -1,0 +1,12 @@
+
+
+.ion-text-center{ 
+
+    text-align: center;
+
+}
+
+.ion-text-justify{
+    text-align: justify; 
+    text-align-last: center;
+}
