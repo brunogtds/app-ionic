@@ -20,7 +20,7 @@ import {
   IonDatetime,
   IonSlides,
   IonSlide,
-  
+
   
 } from "@ionic/react";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
@@ -29,9 +29,10 @@ import './Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
-
 const Tab2: React.FC = () => {
 
+                                          
+                                       
   const {control, handleSubmit} = useForm();
 
   
@@ -40,8 +41,7 @@ const Tab2: React.FC = () => {
     console.log('submiting to database', data);
   } 
 
-  
-  
+    
   return (
     <IonPage>
       <IonHeader>
@@ -59,6 +59,7 @@ const Tab2: React.FC = () => {
        {/* <ExploreContainer name="Tab 2 page" /> */}
 
        <form className="ion-padding" onSubmit={handleSubmit(submitForm)}>
+
          <IonItem>
            <IonLabel position="floating">Email:</IonLabel>
           
@@ -67,8 +68,10 @@ const Tab2: React.FC = () => {
            name= "email"
            control= {control}
            onChangeName= "onIonChange" />
-         </IonItem>
+         </IonItem> 
 
+        
+         
          <IonItem>
            <IonLabel position="floating">Idade:</IonLabel>
            <IonInput/>
@@ -246,11 +249,13 @@ const Tab2: React.FC = () => {
             Register
           </IonButton>
 
+          
+
        </form>
         
       </IonContent>
     </IonPage>
   );
-};
+  };
 
 export default Tab2;
