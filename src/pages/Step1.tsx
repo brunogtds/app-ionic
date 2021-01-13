@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import {StepComponentProps} from "react-step-builder";
 
 import { Steps, Step } from "react-step-builder";
@@ -30,15 +30,20 @@ import { IonApp,
 
   import './Forms.css';
 
-    import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
-    import {useState} from 'react';
+import {useState, ChangeEvent} from 'react';
+import { setConstantValue } from "typescript";
+
+
+
+
 
 const Step1 = (props: StepComponentProps) => {
 
 
                                           
-  const {control, handleSubmit} = useForm();
+  const {control, watch, handleSubmit} = useForm();
 
   
 
@@ -48,20 +53,27 @@ const Step1 = (props: StepComponentProps) => {
 
   const [showOptions, setShowOptions] = React.useState(false);
 
-  const onClick = (_event:any) =>{
-      const value= _event.target.value;
+  const watchGender= watch("sexo", "");
+  
+{/*
+ const onChange = ((e: React.ChangeEvent<HTMLIonSelectElement>) : void => {
+    const value = e.currentTarget.value;
 
-      if (value == "feminino"){
+    console.log(value);
+   
+    if (value == "feminino"){
         setShowOptions(true);
-        console.log('feminino')
-      }
-      else {
-          setShowOptions(false);
-          console.log('masculino')
-      }
+       
+    }
+    else if (value == "masculino"){
+        setShowOptions(false);
+    }
+      
 
+    })
 
-  }
+*/}
+    
 
     return (
         <IonContent fullscreen>
@@ -86,24 +98,26 @@ const Step1 = (props: StepComponentProps) => {
                          <IonItem>
                             <IonLabel >Sexo:</IonLabel>
 
-                            <Controller as = {
-                            <IonSelect placeholder="Por favor, selecione...">
-                                <IonSelectOption value="feminino" >Feminino</IonSelectOption>
-                                <IonSelectOption value="masculino">Masculino</IonSelectOption>
+                            <Controller render={({onChange}) => ( 
+                            <IonSelect placeholder="Por favor, selecione..." id="sexo" onIonChange={(e) => {
+                                onChange(e.detail.value)
+                            }}>
+                                    <IonSelectOption value="feminino" >Feminino</IonSelectOption>
+                                    <IonSelectOption value="masculino">Masculino</IonSelectOption>
                             </IonSelect> 
-                            }
+                            
+
+                            )}
+
                             control={control}
                             name="sexo"
-                            onChange={onClick}
                             
-                            />
-
                             
+                            
+                            />    
                          </IonItem>
 
-                        
-
-                        {showOptions ? 
+                        {watchGender == "feminino" ? 
                         <IonItem>
                             <IonLabel position="floating">Primeira dia da última menstruação:</IonLabel>
                             <IonDatetime placeholder="Selecione data"></IonDatetime>
