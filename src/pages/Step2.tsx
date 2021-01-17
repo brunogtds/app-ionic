@@ -29,9 +29,21 @@ import { IonApp,
 
   import './Forms.css';
 
+  import { useForm, Controller } from "react-hook-form";
+  import {useState, ChangeEvent} from 'react';
 
 
 const Step2 = (props: StepComponentProps) => {
+
+    const {control, watch, handleSubmit} = useForm();
+
+   {/* const watchGender= watch("sexo", ""); */}
+
+   const [showOptions, setShowOptions] = React.useState(false);
+
+  
+
+   
 
     return (
         <IonContent fullscreen>
@@ -89,22 +101,28 @@ const Step2 = (props: StepComponentProps) => {
                             
                             <IonRadioGroup>
 
+                             
+
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
                                 <IonRadio color="primary"></IonRadio>
-                                </IonItem>
+                                </IonItem> 
+                                
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
                                 <IonRadio color="primary"></IonRadio>
-                                </IonItem>
+                                </IonItem> 
                             </IonRadioGroup>
                         </IonItem>
-
+                      
+                        {showOptions ?
                         <IonItem>
                             
                             <IonTextarea placeholder="Quais medicações?"/>
-                        </IonItem>
+                        </IonItem> : null
+                        }
+                       
        
                         <IonItem>
                             <IonLabel>Você faz uso frequente de medicações sem orientação médica?</IonLabel>

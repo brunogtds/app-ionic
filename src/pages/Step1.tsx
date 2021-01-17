@@ -58,7 +58,6 @@ const Step1 = (props: StepComponentProps) => {
 {/*
  const onChange = ((e: React.ChangeEvent<HTMLIonSelectElement>) : void => {
     const value = e.currentTarget.value;
-
     console.log(value);
    
     if (value == "feminino"){
@@ -69,9 +68,7 @@ const Step1 = (props: StepComponentProps) => {
         setShowOptions(false);
     }
       
-
     })
-
 */}
     
 
@@ -83,11 +80,11 @@ const Step1 = (props: StepComponentProps) => {
                         <IonItem>
                             <IonLabel position="floating">Email:</IonLabel>
                             
-                            <Controller as =          
+                            <Controller control= {control} as =          
                             {<IonInput type="email"/>}
                             name= "email"
-                            control= {control}
-                            onChangeName= "onIonChange" />
+                            rules= {{required:true}} />
+                            
                         </IonItem> 
 
                          <IonItem>
@@ -100,6 +97,7 @@ const Step1 = (props: StepComponentProps) => {
 
                             <Controller render={({onChange}) => ( 
                             <IonSelect placeholder="Por favor, selecione..." id="sexo" onIonChange={(e) => {
+                                console.log(e);
                                 onChange(e.detail.value)
                             }}>
                                     <IonSelectOption value="feminino" >Feminino</IonSelectOption>
@@ -111,7 +109,7 @@ const Step1 = (props: StepComponentProps) => {
 
                             control={control}
                             name="sexo"
-                            
+                            rules={{required: true}}
                             
                             
                             />    
