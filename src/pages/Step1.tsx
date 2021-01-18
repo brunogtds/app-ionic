@@ -80,16 +80,35 @@ const Step1 = (props: StepComponentProps) => {
                         <IonItem>
                             <IonLabel position="floating">Email:</IonLabel>
                             
-                            <Controller control= {control} as =          
-                            {<IonInput type="email"/>}
+                            <Controller  render={({onChange}) => (
+                               <IonInput type="email" id="email" onIonChange={(e) => {
+                                console.log(e);
+                                onChange(e.detail.value)
+                            }} />    
+                                
+                            )}          
+                            
                             name= "email"
-                            rules= {{required:true}} />
+                            rules= {{required:true}}
+                            control= {control} />
                             
                         </IonItem> 
 
                          <IonItem>
                             <IonLabel position="floating">Idade:</IonLabel>
-                            <IonInput/>
+                            
+                            <Controller render={({onChange}) => (
+                                <IonInput type="number" id="idade" onIonChange={(e)=> {
+                                    console.log(e);
+                                    onChange(e.detail.value) }}
+                                    />
+                            )}
+                            name= "email"
+                            rules= {{required: true}}
+                            control= {control}            
+                            />
+                            
+                            
                          </IonItem>
 
                          <IonItem>
@@ -118,19 +137,41 @@ const Step1 = (props: StepComponentProps) => {
                         {watchGender == "feminino" ? 
                         <IonItem>
                             <IonLabel position="floating">Primeira dia da última menstruação:</IonLabel>
-                            <IonDatetime placeholder="Selecione data"></IonDatetime>
+
+                            <Controller render={({onChange}) => (
+                                <IonDatetime placeholder="Selecione data" id="dateMenstruação" onIonChange={(e)=> {
+                                    console.log(e);
+                                    onChange(e.detail.value) }} ></IonDatetime>
+                            )}
+                            name="dateMenstruação"
+                            control={control}
+                            />
                         </IonItem>
                         : null}
                         
                         <IonItem>
                             <IonLabel position="floating">Peso (em kg):</IonLabel>
-                            <IonInput/>
+
+                            <Controller render={({onChange}) => (
+                            <IonInput id="peso" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }} />
+                            )}
+                            name="peso"
+                            control={control} />
                             <IonNote >Se você não sabe seu peso exato, pode ser um valor aproximado.</IonNote>
                          </IonItem>
 
                          <IonItem>
                             <IonLabel position="floating">Altura (em cm): </IonLabel>
-                            <IonInput/>
+
+                            <Controller render={({onChange}) => (
+                            <IonInput id="altura" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }} />
+                            )}
+                            name="altura"
+                            control={control}/>
                             <IonNote >Responda com o valor em centímetros, por ex: 1,70m = 170cm - escrever 170.</IonNote>
                         </IonItem>
 
@@ -138,9 +179,11 @@ const Step1 = (props: StepComponentProps) => {
                        
                             <IonLabel>Estado do Brasil:</IonLabel>
 
-                          
+                            <Controller render={({onChange}) => (
                                
-                                <IonSelect placeholder="Por favor, selecione...">
+                                <IonSelect placeholder="Por favor, selecione..." id="estado" onIonChange={(e)=> {
+                                    console.log(e);
+                                    onChange(e.detail.value) }} >
                                 <IonSelectOption>RS</IonSelectOption>
                                 <IonSelectOption>SP</IonSelectOption>
                                 <IonSelectOption>Moro fora do país</IonSelectOption>
@@ -170,7 +213,13 @@ const Step1 = (props: StepComponentProps) => {
                                 <IonSelectOption>TO</IonSelectOption>
                                 <IonSelectOption>DF</IonSelectOption>
                             </IonSelect>
-                            
+                            )}
+
+                            name="estado"
+                            control={control}
+                            />
+
+
                          </IonItem>
 
                          

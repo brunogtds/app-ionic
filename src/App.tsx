@@ -13,7 +13,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Home';
 import Tab2 from './pages/Forms';
-import Tab3 from './pages/Tab3';
+import Tab3 from './pages/Recommendation';
 
 import {home, bed, person} from  'ionicons/icons';
 
@@ -59,7 +59,7 @@ const App: React.FC = () => (
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={person} />
-            <IonLabel>Perfil</IonLabel>
+            <IonLabel>Recomendações</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
