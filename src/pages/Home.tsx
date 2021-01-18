@@ -5,6 +5,11 @@ import './Home.css';
 
 import { IonGrid, IonRow, IonCol } from '@ionic/react';
 
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/react';
+
+
+import distanciamentoExp from '../../src/img/distanciamentoExp.png';
+
 const Tab1: React.FC = () => {
   return (
     <IonPage>
@@ -41,7 +46,27 @@ const Tab1: React.FC = () => {
            <p>Antes de começar a responder, na próxima página, você poderá ler mais sobre nosso estudo. 
            Caso desista de participar, basta fechar o navegador ou aplicativo a qualquer momento. </p>
         </div>
+
+        {/*
+        <IonCard>
+          <IonCardContent>
+        <div>
+          <img width="940" height="446" src={distanciamentoExp}/>
+        </div>
+        <IonCardHeader>
+          <IonCardSubtitle>Qual a diferença entre distanciamento social, isolamento e quarentena?</IonCardSubtitle>
+          <IonCardTitle>Antes de começarmos, você sabe o que é distanciamento social? Confira a explicação e depois clique em "Próximo" no final da página para iniciar a pesquisa:</IonCardTitle>
+        </IonCardHeader>
+        </IonCardContent>
+        
+
+        </IonCard>
+        */}
+
        
+        <div>
+          <img src={distanciamentoExp}/>
+        </div>
         
         </IonGrid>
       </IonContent>
