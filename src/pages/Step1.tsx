@@ -225,52 +225,83 @@ const Step1 = (props: StepComponentProps) => {
                          
                         <IonItem>
                             <IonLabel position="floating">Profissão: </IonLabel>
-                            <IonInput/>
+
+                            <Controller render={({onChange}) => (
+                            <IonInput onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}/>
+
+                            )}
+                            control={control}
+                            name="profissão"
+                            />
                         </IonItem>
 
                                         
                         <IonItem>
-                        
-                        
+  
                         <IonLabel>Atualmente sou:</IonLabel>
                             
-                            <IonList>
+                            <Controller render={({onChange}) => (
+                            <IonList >
 
                             <IonItem>
-                            <IonCheckbox color="primary"></IonCheckbox>
+                            <IonCheckbox color="primary" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}></IonCheckbox>
                             <IonLabel>Estudante</IonLabel>
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary"></IonCheckbox>
+                            <IonCheckbox color="primary" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}></IonCheckbox>
                             <IonLabel>Assalariado</IonLabel>
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary"></IonCheckbox>
+                            <IonCheckbox color="primary" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}></IonCheckbox>
                             <IonLabel>Autônomo</IonLabel>
                             </IonItem>
                             
                             <IonItem>
-                            <IonCheckbox color="primary"></IonCheckbox>
+                            <IonCheckbox color="primary" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}></IonCheckbox>
                             <IonLabel>Desempregado</IonLabel>
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary"></IonCheckbox>
+                            <IonCheckbox color="primary" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}></IonCheckbox>
                             <IonLabel>Aposentado</IonLabel>
                             </IonItem>
 
                             <IonItem>
                                 <IonLabel>Outros: </IonLabel>
-                                <IonInput/>
+                                <IonInput onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}/>
                             </IonItem>
                             </IonList>
+
+                            )}
+                            control={control}
+                            name={"profissãoAtualmente"}
+                            />
                         </IonItem>
 
                         <IonItem>
                             <IonLabel>Escolaridade:</IonLabel>
-                            <IonSelect placeholder="Por favor, selecione...">
+
+                            <Controller render={({onChange}) => (
+
+                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}>
                             <IonSelectOption>Ensino Fundamental Incompleto</IonSelectOption>
                             <IonSelectOption>Ensino Fundamental Completo</IonSelectOption>
                             <IonSelectOption>Ensino Médio Incompleto</IonSelectOption>
@@ -280,27 +311,51 @@ const Step1 = (props: StepComponentProps) => {
                             <IonSelectOption>Mestrado</IonSelectOption>
                             <IonSelectOption>Doutorado</IonSelectOption>
                             </IonSelect>
+
+                            )}
+                            control={control}
+                            name={"escolaridade"}
+                            />
                           </IonItem>
 
                           <IonItem>
                                 <IonLabel>Estado Civil:</IonLabel>
-                                <IonSelect placeholder="Por favor, selecione...">
+
+                                <Controller render={({onChange}) => (
+                                <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
+                                    console.log(e);
+                                    onChange(e.detail.value) }}>
                                 <IonSelectOption>Solteiro(a)</IonSelectOption>
                                 <IonSelectOption>Casado(a)</IonSelectOption>
                                 <IonSelectOption>Separado(a)/Divorciado(a)</IonSelectOption>
                                 <IonSelectOption>Viúvo(a)</IonSelectOption>
              
                                 </IonSelect>
+                                )}
+                                control={control}
+                                name={"estadoCivil"}
+                                />
                          </IonItem>
 
                          <IonItem>
                             <IonLabel>Número de pessoas dependentes:</IonLabel>
-                            <IonInput/>
+                            <Controller  render={({onChange}) => (
+                            <IonInput onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }} />
+                            )}
+                            control={control}
+                            name={"nDependentes"}
+                            />
                         </IonItem>
        
                         <IonItem>
-                            <IonLabel>Quantas pessoas estão morendo na sua residência, além de você?</IonLabel>
-                            <IonSelect placeholder="Por favor, selecione...">
+                            <IonLabel>Quantas pessoas estão morando na sua residência, além de você?</IonLabel>
+
+                            <Controller render={({onChange}) => (
+                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}>
                             <IonSelectOption>0</IonSelectOption>
                             <IonSelectOption>1</IonSelectOption>
                             <IonSelectOption>2</IonSelectOption>
@@ -312,24 +367,37 @@ const Step1 = (props: StepComponentProps) => {
                             <IonSelectOption>8</IonSelectOption>
                             <IonSelectOption>Mais que 8</IonSelectOption>
                             </IonSelect>
+                            )}
+                            control={control}
+                            name={"nPessoas"}
+                            />
                             
                         </IonItem>
 
                         <IonItem>
                             <IonLabel>Moro em uma área: </IonLabel>
 
+                            <Controller render={({onChange}) => (
                             <IonList>
                                 <IonItem>
-                                <IonCheckbox color="primary"></IonCheckbox>
+                                <IonCheckbox color="primary" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}></IonCheckbox>
                                 <IonLabel>Urbana</IonLabel>
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary"></IonCheckbox>
+                                <IonCheckbox color="primary" onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value) }}></IonCheckbox>
                                 <IonLabel>Rural</IonLabel>
                                 </IonItem>
 
                              </IonList>
+                             )}
+                             control={control}
+                             name={"areaResidencia"}
+                             />
                          </IonItem>
                          <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
                          <IonButton onClick={props.next}>Próximo</IonButton>
