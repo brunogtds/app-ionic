@@ -476,23 +476,28 @@ const Step2 = (props: StepComponentProps) => {
 
                         </IonList>
 
+                        <IonList>
+
                         <IonItem>
                             <IonLabel>Você faz uso de algum estimulante diariamente (café, chimarrão)?</IonLabel>
                             
-                            <IonRadioGroup>
+                            <Controller render={({onChange}) => (
+                            <IonRadioGroup value={estimulantes} onIonChange={e => setEstimulantes(e.detail.value)}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="não"></IonRadio>
                                 </IonItem>
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"estimulantes"}/>
                         </IonItem>
 
+
+                        {estimulantes == "sim" ? 
                         <IonItem>
                             <IonLabel>Em qual(is) momento(s) do dia você usa com mais frequência? </IonLabel>
 
@@ -514,8 +519,9 @@ const Step2 = (props: StepComponentProps) => {
 
 
                              </IonList>
-                            </IonItem>
-
+                            </IonItem>: null }
+                            
+                        </IonList>
 
                 <IonButton onClick={props.prev}>Anterior</IonButton>
                 <IonButton onClick={props.next}>Próximo</IonButton>

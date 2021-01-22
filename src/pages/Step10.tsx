@@ -53,6 +53,7 @@ const Step10 = (props: StepComponentProps) => {
 
             <p>Email: {props.getState("email", "")}</p>
             <p>Idade: {props.state.idade}</p>
+            <p>Recomendações...</p>
             
             <IonButton disabled={props.isFirst()} onClick={props.prev}>Anterior</IonButton>
             <IonButton disabled={props.isLast()} onClick={props.next}>Próximo</IonButton>

@@ -400,7 +400,7 @@ const Step1 = (props: StepComponentProps) => {
                              />
                          </IonItem>
                          <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
-                         <IonButton onClick={props.next}>Próximo</IonButton>
+                         <IonButton onClick={props.next} className={"btnProximo"}>Próximo</IonButton>
                 </form>
            
         </div>

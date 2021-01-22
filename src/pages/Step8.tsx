@@ -23,7 +23,10 @@ import { IonApp,
     IonSlides,
     IonSlide,
     IonNote,
-    IonItemDivider
+    IonItemDivider,
+    IonGrid,
+    IonRow,
+    IonCol
     
   } from "@ionic/react";
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
@@ -39,13 +42,90 @@ import { setConstantValue } from "typescript";
 import { object, string, number } from 'yup';
 
 const Step8 = (props: StepComponentProps) => {
+    const {control, watch, handleSubmit} = useForm();
+    const [problemasSono, setProblemasSono] = useState();
  
     return(
         <IonContent fullscreen> 
         <div>
             <form className={"ion-padding"}>
             
-            <IonLabel>pagina 8</IonLabel>
+            <IonItem>
+                <IonLabel>Você tem tido problemas com seu sono?</IonLabel>
+
+                <Controller render={({onChange}) => (
+                            <IonRadioGroup value={problemasSono} onIonChange={e => setProblemasSono(e.detail.value)}>
+
+                                <IonItem>
+                                <IonLabel>Sim</IonLabel>
+                                <IonRadio color="primary" value="sim"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Não</IonLabel>
+                                <IonRadio color="primary" value="não"></IonRadio>
+                                </IonItem>
+                            </IonRadioGroup> )} control={control} name={"estimulantes"}/>
+            </IonItem>
+
+            {problemasSono == "sim" ? 
+            <IonItem>
+                <IonLabel>Por favor, avalie a gravidade da sua insônia nas duas últiams semanas, em relação a:</IonLabel>
+                <IonGrid fixed={true}>
+                            <IonRow>
+                                <IonCol> </IonCol>
+                                <IonCol>Nenhuma</IonCol>
+                                <IonCol>Leve</IonCol>
+                                <IonCol>Moderada</IonCol>
+                                <IonCol>Grave</IonCol>
+                                <IonCol>Muito grave</IonCol>
+  
+                             </IonRow>
+                             <IonRadioGroup>
+                             <IonRow>
+                            
+                                <IonCol>Dificuldade de pegar no sono.</IonCol>
+                                    
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                   
+                              
+                             </IonRow>
+                             </IonRadioGroup> 
+                             <IonRadioGroup>
+                             <IonRow>
+                             
+                                <IonCol>Dificuldade de manter o sono.	 </IonCol>
+                                    
+                                <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                               
+                             </IonRow>
+                             </IonRadioGroup>  
+
+                            <IonRadioGroup>
+                              <IonRow>
+                             
+                                <IonCol>Problema de despertar muito cedo. </IonCol>
+                                    
+                                <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                               
+                             </IonRow>
+                             </IonRadioGroup>
+
+   
+                        </IonGrid>
+            </IonItem>:null }
             
             <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
             <IonButton onClick={props.next}>Próximo</IonButton>
