@@ -27,10 +27,14 @@ import { IonApp,
   } from "@ionic/react";
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
+
+  import {checkmark, close } from  'ionicons/icons';
   import './Forms.css';
 
   import { useForm, Controller } from "react-hook-form";
   import {useState, ChangeEvent} from 'react';
+
+  import { IonProgressBar} from '@ionic/react';
 
 
 const Step2 = (props: StepComponentProps) => {
@@ -55,6 +59,7 @@ const Step2 = (props: StepComponentProps) => {
         <div>
            
              <form className="ion-padding">
+             <IonProgressBar value={0.2} buffer={0.2}></IonProgressBar>
              <IonItem>
                         
                         

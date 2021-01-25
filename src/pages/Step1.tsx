@@ -3,6 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 
 import { Steps, Step } from "react-step-builder";
 
+
 import { IonApp,
     IonItem,
     IonLabel,
@@ -35,7 +36,7 @@ import { useForm, Controller } from "react-hook-form";
 import {useState, ChangeEvent} from 'react';
 import { setConstantValue } from "typescript";
 
-
+import { IonProgressBar} from '@ionic/react';
 
 
 
@@ -75,8 +76,11 @@ const Step1 = (props: StepComponentProps) => {
     return (
         <IonContent fullscreen>
         <div>
-            
+        
                 <form className="ion-padding">
+
+                        <IonProgressBar value={0.1} buffer={0.1}></IonProgressBar>
+
                         <IonItem>
                             <IonLabel position="floating">Email:</IonLabel>
                             

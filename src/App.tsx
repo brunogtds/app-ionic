@@ -38,16 +38,29 @@ import './theme/variables.css';
 
 import Main from './pages/Main';
 
+/*Tela login*/
+
+import Login from './pages/Login';
+
+
+
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+    <IonRouterOutlet>
+      <Route path="/login" component={Login} exact={true}/>
+    
       <IonTabs>
         <IonRouterOutlet>
+        
+
           <Route path="/tab1" component={Tab1} exact={true} />
           <Route path="/tab2" component={Main} exact={true} />
           <Route path="/tab3" component={Tab3} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
+        
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={home} />
@@ -63,8 +76,26 @@ const App: React.FC = () => (
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
+
+
+      </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );
 
-export default App;
+export default App; 
+
+/*
+const App: React.FC = () => (
+  <IonApp>
+    <IonReactRouter>
+    <IonRouterOutlet>
+      <Route path="/login" component={Login} exact={true}/>
+      <Route path="/dashboard" component={Dashboard} exact={true}/>
+
+      </IonRouterOutlet>
+    </IonReactRouter>
+  </IonApp>
+);
+
+export default App; */

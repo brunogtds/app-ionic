@@ -38,6 +38,7 @@ import { useForm, Controller } from "react-hook-form";
 import {useState, ChangeEvent} from 'react';
 import { setConstantValue } from "typescript";
 
+import { IonProgressBar} from '@ionic/react';
 
 import { object, string, number } from 'yup';
 
@@ -49,6 +50,8 @@ const Step8 = (props: StepComponentProps) => {
         <IonContent fullscreen> 
         <div>
             <form className={"ion-padding"}>
+
+            <IonProgressBar value={0.8} buffer={0.8}></IonProgressBar>
             
             <IonItem>
                 <IonLabel>Você tem tido problemas com seu sono?</IonLabel>

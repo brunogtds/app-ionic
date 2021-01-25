@@ -38,6 +38,8 @@ import { IonApp,
  
  import {useState, ChangeEvent} from 'react';
 
+ import { IonProgressBar} from '@ionic/react';
+
 const Step3 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit} = useForm();
@@ -58,6 +60,8 @@ const Step3 = (props: StepComponentProps) => {
             <div>
                
                 <form className="ion-padding">
+
+                <IonProgressBar value={0.3} buffer={0.3}></IonProgressBar>
 
                         <IonList>
                         
@@ -640,224 +644,9 @@ const Step3 = (props: StepComponentProps) => {
                         <IonLabel>Em relação a situação atual, em um nível de 1 (não me traz ansiedade) a 5 (me deixa muito ansioso), o quanto estas preocupações te deixam ansioso?</IonLabel>
                         </IonItem>
 
-                        {/*}
-
-                        <IonItem>
-                            
-                            
-                                <IonItemDivider> <IonLabel>Possibilidade de contágio</IonLabel></IonItemDivider>
-                                <IonRadioGroup>
-
-                                <IonItem>
-                                <IonLabel>1</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                               
-                                <IonItem>
-                                <IonLabel>2</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>3</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>4</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>5</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                                
-                                <IonItem>
-                                <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                            </IonRadioGroup>
-                        
-                            <IonItemDivider> <IonLabel>Perder o emprego</IonLabel></IonItemDivider>
-                                <IonRadioGroup>
-
-                                <IonItem>
-                                <IonLabel>1</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                               
-                                <IonItem>
-                                <IonLabel>2</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>3</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>4</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>5</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                                
-                                <IonItem>
-                                <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                            </IonRadioGroup>
-                                
-                            <IonItemDivider> <IonLabel>Não ter mais fonte de renda</IonLabel></IonItemDivider>
-                                <IonRadioGroup>
-
-                                <IonItem>
-                                <IonLabel>1</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                               
-                                <IonItem>
-                                <IonLabel>2</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>3</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>4</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>5</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                                
-                                <IonItem>
-                                <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                            </IonRadioGroup>
-
-                            <IonItemDivider> <IonLabel>Terminar o relacionamento</IonLabel></IonItemDivider>
-                                <IonRadioGroup>
-
-                                <IonItem>
-                                <IonLabel>1</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                               
-                                <IonItem>
-                                <IonLabel>2</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>3</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>4</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>5</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                                
-                                <IonItem>
-                                <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                            </IonRadioGroup>
-
-                            <IonItemDivider> <IonLabel>Contagiar alguém</IonLabel></IonItemDivider>
-                                <IonRadioGroup>
-
-                                <IonItem>
-                                <IonLabel>1</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                               
-                                <IonItem>
-                                <IonLabel>2</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>3</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>4</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>5</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                                
-                                <IonItem>
-                                <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                            </IonRadioGroup>
-
-                            <IonItemDivider> <IonLabel>Familiares e/ou amigos na linha de frente ao combate ao vírus</IonLabel></IonItemDivider>
-                                <IonRadioGroup>
-
-                                <IonItem>
-                                <IonLabel>1</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                               
-                                <IonItem>
-                                <IonLabel>2</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>3</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>4</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonLabel>5</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                                
-                                <IonItem>
-                                <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
-                                </IonItem>
-                            </IonRadioGroup>
-                                
-                        </IonItem>
-
-                            */}
-
-                        {/*OUTRAS PERGUNTAS*/}
-
                         <IonItem>
                        
-                        <IonGrid fixed={true}>
+                        <IonGrid fixed={true} className={"ion-col"}>
                             <IonRow>
                                 <IonCol> </IonCol>
                                 <IonCol>1</IonCol>
