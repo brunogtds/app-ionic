@@ -1,11 +1,17 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonSlides, IonSlide} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonSlides, IonSlide, IonIcon} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Recommendation.css';
 
 import img_lightbulb from '../../src/img/lightbulb.png';
 import img_washing_hands from '../../src/img/washing-hands.png';
 import img_mask from '../../src/img/medical-mask.png';
+
+import Modo1 from './Mode1';
+import Modo2 from './Mode2';
+import Modo3 from './Mode3';
+
+import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
 
 const Recommendation: React.FC = () => {
   return (
@@ -21,30 +27,18 @@ const Recommendation: React.FC = () => {
             <IonTitle size="large">Recomendações</IonTitle>
           </IonToolbar>
         </IonHeader>
-        
-
-        <IonSlides>
-          
-          <IonSlide className={"slide"}>
-            <img src={img_mask}/>
-            <h2>Máscara</h2>
-            <p>Usar máscara como medida de prevenção da COVID-19.</p>
-          </IonSlide>
-        
-          <IonSlide className={"slide"}>
-            <img src={img_washing_hands}/>
-            <h2>Lavar as mãos</h2>
-            <p>Usar máscara como medida de prevenção da COVID-19.</p>
-          </IonSlide>
-
-          <IonSlide className={"slide"}>
-            <img src={img_lightbulb}/>
-            <h2>Lavar as mãos</h2>
-            <p>Minimizar a exposição à luz antes de dormir.</p>
-          </IonSlide>
-        
-        </IonSlides>
-       
+      
+      
+      <div>
+      <IonButton routerLink={"./Mode1"} size="large"> <IonIcon slot="start" icon={bandage} />Modulo 1</IonButton>
+      </div>
+      <div>
+      <IonButton routerLink={"./Mode2"} size="large"> <IonIcon slot="start" icon={cloudyNight} />Modulo 2</IonButton>
+      </div>
+      <div>
+      <IonButton routerLink={"./Mode3"} size="large"> <IonIcon slot="start" icon={home} />Modulo 3</IonButton>
+      </div>
+      
       </IonContent>
     </IonPage>
   );

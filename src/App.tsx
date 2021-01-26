@@ -42,6 +42,10 @@ import Main from './pages/Main';
 
 import Login from './pages/Login';
 
+/*Módulos recomendações*/
+import Mode1 from './pages/Mode1';
+import Mode2 from './pages/Mode2';
+import Mode3 from './pages/Mode3';
 
 
 
@@ -59,6 +63,9 @@ const App: React.FC = () => (
           <Route path="/tab2" component={Main} exact={true} />
           <Route path="/tab3" component={Tab3} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+          <Route path="/mode1" component={Mode1}/>
+          <Route path="/mode2" component={Mode2}/>
+          <Route path="/mode3" component={Mode3}/>
         </IonRouterOutlet>
         
         <IonTabBar slot="bottom">

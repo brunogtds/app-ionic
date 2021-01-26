@@ -6,11 +6,7 @@ btnProximo {
 ion-col {
   border: 1px solid grey;
   text-align: center;
+  
 
---ion-grid-width-xs:              100%;
---ion-grid-width-sm:              540px;
---ion-grid-width-md:              720px;
---ion-grid-width-lg:              960px;
---ion-grid-width-xl:              1140px;
 }
 

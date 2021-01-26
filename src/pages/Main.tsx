@@ -27,6 +27,8 @@ import { IonApp,
   } from "@ionic/react";
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
+
+
   import './Forms.css';
 
   import Step1 from '../pages/Step1';
@@ -54,7 +56,7 @@ import { IonApp,
         <IonContent fullscreen>
            
                 <Steps>
-                <Step component={Step1} />
+                <Step component={Step1} /> 
                 <Step component={Step2} />
                 <Step component= {Step3}/>
                 <Step component= {Step4}/>
