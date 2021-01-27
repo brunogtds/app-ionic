@@ -5,6 +5,31 @@
 
   ion-slides {
     height: 100%;
+   
+  }
+
+  .orange{
+    background-color: #f46a61;;
+  }
+
+  .blue{
+    background-color: #dcf6ff;;
+  }
+
+  .light-orange{
+    background-color: #f9c37a;
+  }
+  
+  .whitish{
+    background-color: #fdfaf5;
+  }
+  
+  .blue-darken{
+    background-color: #2e377f;
+  }
+
+  .light-blue{
+    background-color: #dcf6ff;
   }
 
   .swiper-slide {

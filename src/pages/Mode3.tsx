@@ -7,6 +7,19 @@ import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel} from '@ionic/re
 
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 
+import natural_light from '../img/natural_light.svg';
+import light_bulb from '../img/light_bulb.svg';
+import screen_light from '../img/screen_light.svg';
+import yellow_screen from '../img/yellow_screen.svg';
+import routine from '../img/routine.svg';
+import schedule from '../img/schedule.svg';
+import naps from '../img/naps.svg';
+import problems from '../img/problems.svg';
+import room_sleep from '../img/room_sleep.svg';
+import food from '../img/food.svg';
+import coffee from '../img/coffee.svg';
+import exercises from '../img/exercises.svg';
+
 const Mode3: React.FC = () => {
 
     return (
@@ -26,24 +39,79 @@ const Mode3: React.FC = () => {
 
         <IonSlides>
 
-            <IonLabel>Mode3</IonLabel>
-          
-          <IonSlide className={"slide"}>
             
-            <h2>Máscara</h2>
-            <p>Usar máscara como medida de prevenção da COVID-19.</p>
+          
+          <IonSlide className={"slide blue-darken"}>
+            <img src={natural_light}/>
+            <h2>Exponha-se à luz natural durante o dia.</h2>
           </IonSlide>
         
-          <IonSlide className={"slide"}>
+          <IonSlide className={"slide light-blue"}>
            
-            <h2>Lavar as mãos</h2>
-            <p>Usar máscara como medida de prevenção da COVID-19.</p>
+            <img src={light_bulb}/>
+            <h2>Apague a luz à noite.</h2>
           </IonSlide>
 
-          <IonSlide className={"slide"}>
-            
-            <h2>Lavar as mãos</h2>
-            <p>Minimizar a exposição à luz antes de dormir.</p>
+          <IonSlide className={"slide blue-darken"}>
+          
+            <img src={screen_light}/>
+            <h2>Reduza o tempo excessivo na frente das telas, em especial à noite.</h2>
+          </IonSlide>
+
+          <IonSlide className={"slide light-blue"}>
+          
+            <img src={yellow_screen}/>
+            <h2>Use apps que deixem a tela mais 'amarelada' à noite.</h2>
+          </IonSlide>
+
+          <IonSlide className={"slide blue-darken"}>
+          
+            <img src={routine}/>
+            <h2>Organize sua rotina pensando em seu cronotipo.</h2>
+          </IonSlide>
+
+          <IonSlide className={"slide light-blue"}>
+          
+            <img src={schedule}/>
+            <h2>Mantenha horários regulares.</h2>
+          </IonSlide>
+
+          <IonSlide className={"slide blue-darken"}>
+          
+            <img src={naps}/>
+            <h2>Evite cochilos prolongados.</h2>
+          </IonSlide>
+
+          <IonSlide className={"slide light-blue"}>
+          
+            <img src={problems}/>
+            <h2>Na hora de deitar, evite ficar pensando nos problemas.</h2>
+          </IonSlide>
+
+          <IonSlide className={"slide blue-darken"}>
+          
+            <img src={room_sleep}/>
+            <h2>Torne o seu quarto um ambiente que facilite o sono.</h2>
+          </IonSlide>
+
+          <IonSlide className={"slide light-blue"}>
+          
+            <img src={food}/>
+            <h2>Evite alimentos pesados muito próximo da hora de dormir.</h2>
+          </IonSlide>
+
+          
+          <IonSlide className={"slide blue-darken"}>
+          
+            <img src={coffee}/>
+            <h2>Evite ingerir cafeína ou álcool perto da hora de dormir.</h2>
+          </IonSlide>
+
+          
+          <IonSlide className={"slide light-blue"}>
+          
+            <img src={exercises}/>
+            <h2>Planeje os horários dos seus exercícios considerando seu sono.</h2>
           </IonSlide>
         
         </IonSlides>

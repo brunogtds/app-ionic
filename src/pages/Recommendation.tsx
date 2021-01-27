@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonSlides, IonSlide, IonIcon} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonSlides, IonSlide, IonIcon, IonRow, IonCol} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Recommendation.css';
 
@@ -12,6 +12,8 @@ import Modo2 from './Mode2';
 import Modo3 from './Mode3';
 
 import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
+
+import thinking from '../img/thinking.png';
 
 const Recommendation: React.FC = () => {
   return (
@@ -29,16 +31,22 @@ const Recommendation: React.FC = () => {
         </IonHeader>
       
       
+      <IonContent className="ion-padding">
       <div>
-      <IonButton routerLink={"./Mode1"} size="large"> <IonIcon slot="start" icon={bandage} />Modulo 1</IonButton>
-      </div>
-      <div>
-      <IonButton routerLink={"./Mode2"} size="large"> <IonIcon slot="start" icon={cloudyNight} />Modulo 2</IonButton>
-      </div>
-      <div>
-      <IonButton routerLink={"./Mode3"} size="large"> <IonIcon slot="start" icon={home} />Modulo 3</IonButton>
+        <img src={thinking} height="100px" width="100px"/>
       </div>
       
+
+      <div>
+      <IonButton routerLink={"./Mode1"} size="large"> <IonIcon slot="start" icon={bandage} />COVID-19</IonButton>
+      </div>
+      <div>
+      <IonButton routerLink={"./Mode2"} size="large"> <IonIcon slot="start" icon={cloudyNight}/>Bons hábitos</IonButton>
+      </div>
+      <div>
+      <IonButton routerLink={"./Mode3"} size="large"> <IonIcon slot="start" icon={home} />Sono</IonButton>
+      </div>
+      </IonContent>
       </IonContent>
     </IonPage>
   );
