@@ -180,14 +180,16 @@ const Step1 = (props: StepComponentProps) => {
                         </IonItem>
 
                         <IonItem>
-                       
+                        
                             <IonLabel>Estado do Brasil:</IonLabel>
-
+                            
+                            
                             <Controller render={({onChange}) => (
                                
                                 <IonSelect placeholder="Por favor, selecione..." id="estado" onIonChange={(e)=> {
                                     console.log(e);
                                     onChange(e.detail.value) }} >
+                                        
                                 <IonSelectOption>RS</IonSelectOption>
                                 <IonSelectOption>SP</IonSelectOption>
                                 <IonSelectOption>Moro fora do país</IonSelectOption>
@@ -217,13 +219,14 @@ const Step1 = (props: StepComponentProps) => {
                                 <IonSelectOption>TO</IonSelectOption>
                                 <IonSelectOption>DF</IonSelectOption>
                             </IonSelect>
+                            
                             )}
 
                             name="estado"
                             control={control}
                             />
 
-
+                        
                          </IonItem>
 
                          

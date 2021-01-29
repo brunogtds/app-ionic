@@ -39,6 +39,7 @@ import { IonApp,
  import {useState, ChangeEvent} from 'react';
 
  import { IonProgressBar} from '@ionic/react';
+import { trainOutline, trashOutline } from "ionicons/icons";
 
 const Step3 = (props: StepComponentProps) => {
 
@@ -57,30 +58,32 @@ const Step3 = (props: StepComponentProps) => {
 
         return (
             <IonContent fullscreen>
-            <div>
+            <div className="ion-text-wrap">
                
                 <form className="ion-padding">
 
+                <div className="ion-text-wrap">
                 <IonProgressBar value={0.3} buffer={0.3}></IonProgressBar>
 
                         <IonList>
                         
+                        
                         <IonItem>
-                            <IonLabel>Estou em distanciamento social:</IonLabel>
+                            <IonLabel className="ion-text-wrap">Estou em distanciamento social:</IonLabel>
 
                             <Controller render={({onChange}) => (
 
                             <IonSelect placeholder="Por favor, selecione..." value={distanciamento} onIonChange={e => setDistanciamento(e.detail.value)}>
-                            <IonSelectOption value="todoTempo">Todo o tempo</IonSelectOption>
-                            <IonSelectOption value="maiorParte">A maior parte do tempo</IonSelectOption>
-                            <IonSelectOption value="menosMetade">Menos da metade do tempo</IonSelectOption>
-                            <IonSelectOption value="não">Não estou em distanciamento social</IonSelectOption>
+                            <IonSelectOption value="todoTempo" >Todo o tempo</IonSelectOption>
+                            <IonSelectOption value="maiorParte" >A maior parte do tempo</IonSelectOption>
+                            <IonSelectOption value="menosMetade" >Menos da metade do tempo</IonSelectOption>
+                            <IonSelectOption value="não" >Não estou em distanciamento social</IonSelectOption>
                             </IonSelect> )} control={control} name={"distanciamentoSocial"}/>
                          </IonItem>
 
                         {((distanciamento == "todoTempo") || (distanciamento == "maiorParte") || (distanciamento == "menosMetade") ) ? 
                          <IonItem>
-                            <IonLabel position="floating">Desde que dia você está em distanciamento social (evitando sair de casa)?</IonLabel>
+                            <IonLabel position="floating" className="ion-text-wrap" >Desde que dia você está em distanciamento social (evitando sair de casa)?</IonLabel>
 
                             <Controller render={({onChange}) => (
                             <IonDatetime placeholder="Selecione data"></IonDatetime> )} control={control} name={"diaDistanciamento"}/>
@@ -91,7 +94,7 @@ const Step3 = (props: StepComponentProps) => {
                         <IonList>
                         
                          <IonItem>
-                            <IonLabel>Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
+                            <IonLabel className="ion-text-wrap">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={isolamento} onIonChange={e => setIsolamento(e.detail.value)}>
@@ -646,41 +649,45 @@ const Step3 = (props: StepComponentProps) => {
 
                         <IonItem>
                        
-                        <IonGrid fixed={true} className={"ion-col"}>
+                        <IonGrid  className={"ion-padding"} fixed={true}>
+                            
                             <IonRow>
-                                <IonCol> </IonCol>
+                                <IonCol size="2"> </IonCol>
                                 <IonCol>1</IonCol>
                                 <IonCol>2</IonCol>
                                 <IonCol>3</IonCol>
                                 <IonCol>4</IonCol>
                                 <IonCol>5</IonCol>
-                                <IonCol>Sem resposta</IonCol>
+                                <IonCol size="2">Sem resposta</IonCol>
                              </IonRow>
-                             <IonRadioGroup>
-                             <IonRow>
-                            
-                                <IonCol>Possibilidade de contágio. </IonCol>
-                                    
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                              
-                             </IonRow>
-                             </IonRadioGroup> 
+                             
+                             
                              <IonRadioGroup>
                              <IonRow>
                              
-                                <IonCol>Perder o emprego. </IonCol>
+                                <IonCol size="2">Possibilidade de contágio. </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2" ><IonRadio color="primary"></IonRadio></IonCol>
+                              
+                             </IonRow>
+                             </IonRadioGroup> 
+                            
+                             <IonRadioGroup>
+                             <IonRow>
+                             
+                                <IonCol size="2">Perder o emprego. </IonCol>
+                                    
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>  
@@ -688,14 +695,14 @@ const Step3 = (props: StepComponentProps) => {
                             <IonRadioGroup>
                               <IonRow>
                              
-                                <IonCol>Não ter mais fonte de renda. </IonCol>
+                                <IonCol size="2">Não ter mais fonte de renda. </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>
@@ -703,14 +710,14 @@ const Step3 = (props: StepComponentProps) => {
                              <IonRadioGroup>
                               <IonRow>
                              
-                                <IonCol>Terminar o relacionamento. </IonCol>
+                                <IonCol size="2">Terminar o relacionamento. </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>
@@ -718,14 +725,14 @@ const Step3 = (props: StepComponentProps) => {
                              <IonRadioGroup>
                               <IonRow>
                              
-                                <IonCol>Contagiar alguém. </IonCol>
+                                <IonCol size="2">Contagiar alguém. </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>
@@ -733,14 +740,14 @@ const Step3 = (props: StepComponentProps) => {
                              <IonRadioGroup>
                               <IonRow>
                              
-                                <IonCol>Familiares e/ou amigos na linha de frente de combate ao vírus. </IonCol>
+                                <IonCol size="2">Familiares e/ou amigos na linha de frente de combate ao vírus. </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>
@@ -748,14 +755,14 @@ const Step3 = (props: StepComponentProps) => {
                              <IonRadioGroup>
                               <IonRow>
                              
-                                <IonCol>Vida não voltar a ser como era antes. </IonCol>
+                                <IonCol size="2">Vida não voltar a ser como era antes. </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>
@@ -763,14 +770,14 @@ const Step3 = (props: StepComponentProps) => {
                              <IonRadioGroup>
                               <IonRow>
                              
-                                <IonCol>Perder o contato com amigos ou colegas.	 </IonCol>
+                                <IonCol size="2">Perder o contato com amigos ou colegas.	 </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>
@@ -778,14 +785,14 @@ const Step3 = (props: StepComponentProps) => {
                              <IonRadioGroup>
                               <IonRow>
                              
-                                <IonCol>Educação dos filhos.	 </IonCol>
+                                <IonCol size="2">Educação dos filhos.	 </IonCol>
                                     
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
                                     <IonCol><IonRadio color="primary"></IonRadio></IonCol>
-                                    <IonCol><IonRadio color="primary"></IonRadio></IonCol>
+                                    <IonCol size="2"><IonRadio color="primary"></IonRadio></IonCol>
                                
                              </IonRow>
                              </IonRadioGroup>
@@ -793,9 +800,13 @@ const Step3 = (props: StepComponentProps) => {
                         </IonGrid>
                         </IonItem>
 
-                         <IonItem>
-                            <IonLabel>Você ou alguém da família contraiu o vírus? </IonLabel>
+                       
 
+                        <IonItem>
+                            
+                            <IonLabel>Você ou alguém da família contraiu o vírus? </IonLabel>
+                            
+                            
                             <IonList>
                                 <IonItem>
                                 <IonCheckbox color="primary"></IonCheckbox>
@@ -840,6 +851,7 @@ const Step3 = (props: StepComponentProps) => {
                 <IonButton onClick={props.prev}>Anterior</IonButton>
                 <IonButton onClick={props.next}>Próximo</IonButton>
                    
+                   </div>
                 </form>
                 
             </div>

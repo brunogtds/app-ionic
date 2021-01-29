@@ -56,8 +56,8 @@ import { IonApp,
         <IonContent fullscreen>
            
                 <Steps>
-                <Step component={Step1} /> 
-                <Step component={Step2} />
+             {/*  <Step component={Step1} /> 
+                <Step component={Step2} /> */}
                 <Step component= {Step3}/>
                 <Step component= {Step4}/>
                 <Step component= {Step5}/>
