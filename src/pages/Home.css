@@ -10,3 +10,46 @@
     text-align: justify; 
     text-align-last: center;
 }
+
+ion-slides {
+    height: 100%;
+  }
+
+  .img{
+      height: 500px;
+      width: 500px;
+  }
+
+  .light-color{
+    background-color: #fffdf1;
+  }
+
+  .blue-light{
+      background-color: #eff3ff;
+      color: #2b4cdf;
+  }
+
+  .orange-light{
+      background-color: #fdf8f0;
+      color: #e89038;
+  }
+
+  .red-light{
+      background-color: #ffebed;
+      color: #d63a4b;
+  }
+
+  .swiper-slide {
+    display: block;
+  }
+
+  .swiper-slide h2 {
+    margin-top: 2.8rem;
+  }
+
+  .swiper-slide img {
+    max-height: 50%;
+    max-width: 80%;
+    margin: 60px 0 40px;
+    pointer-events: none;
+  }

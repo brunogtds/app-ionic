@@ -32,7 +32,7 @@ const Mode1: React.FC = () => {
         </IonHeader>
         
 
-        <IonSlides>
+        <IonSlides pager={true} scrollbar={true}>
           
           <IonSlide className={"slide orange"}>
             <img src={washing_hands}/>

@@ -37,7 +37,7 @@ const Mode3: React.FC = () => {
         </IonHeader>
         
 
-        <IonSlides>
+        <IonSlides pager={true} scrollbar={true}>
 
             
           
