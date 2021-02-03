@@ -38,6 +38,10 @@ import './theme/variables.css';
 
 import Main from './pages/Main';
 
+/*ExplanationSlides*/
+
+import ExplanationSlides from './pages/ExplanationSlides';
+
 /*Tela login*/
 
 import Login from './pages/Login';
@@ -62,10 +66,11 @@ const App: React.FC = () => (
           <Route path="/tab1" component={Tab1} exact={true} />
           <Route path="/tab2" component={Main} exact={true} />
           <Route path="/tab3" component={Tab3} />
-          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+          <Route path="/explanationslides" component={ExplanationSlides}/>
           <Route path="/mode1" component={Mode1}/>
           <Route path="/mode2" component={Mode2}/>
           <Route path="/mode3" component={Mode3}/>
+          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         
         <IonTabBar slot="bottom">

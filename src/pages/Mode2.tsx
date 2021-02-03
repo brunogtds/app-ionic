@@ -15,6 +15,12 @@ import posture from '../img/posture.svg';
 import oral_hygiene from '../img/oral_hygiene.svg';
 import healthy_food from '../img/healthy_food.svg';
 
+const slideOpts = {
+  initialSlide: 0,
+  speed: 400
+};
+
+
 const Mode2: React.FC = () => {
 
     return (
@@ -32,7 +38,7 @@ const Mode2: React.FC = () => {
         </IonHeader>
         
 
-        <IonSlides pager={true} scrollbar={true}>
+        <IonSlides pager={true} scrollbar={true} options={slideOpts}>
           
        
           <IonSlide className={"slide light-orange"}>

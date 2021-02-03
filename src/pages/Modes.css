@@ -9,55 +9,88 @@
   }
 
   .orange{
-    background-color: #f46a61;;
+    background-color: #f46a61;
+    color: #2e377f;
   }
 
   .blue{
     background-color: #dcf6ff;;
+    color: #2e377f;
   }
 
   .light-orange{
     background-color: #f9c37a;
+    color: #7e4d72;
   }
   
   .whitish{
     background-color: #fdfaf5;
+    color: #7e4d72;
   }
   
   .blue-darken{
     background-color: #2e377f;
+    color: #ffdd8a;
   }
 
   .light-blue{
     background-color: #dcf6ff;
+    color: #2e377f;
+  }
+
+  .light-yellow{
+    background-color: #fffdf1;
+  }
+
+  .blue{
+    background-color: #eff3ff;
+    color: #2b4cdf;
+
+  }
+
+  .orange{
+    background-color: #fdf8f0;
+    color: #e89038;
+  }
+
+  .red{
+    background-color: #ffebed;
+    color: #d63a4b;
   }
 
   .swiper-slide {
     display: block;
+    overflow-y: auto;  
   }
 
   .swiper-slide h2 {
-    margin-top: 2.8rem;
+    margin-top: 0;
   }
 
   .swiper-slide img {
     max-height: 50%;
     max-width: 80%;
-    margin: 60px 0 40px;
-    pointer-events: none;
+   pointer-events: none;
   }
 
-  b {
-    font-weight: 500;
-  }
 
-  p {
-    padding: 0 40px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--ion-color-step-600, #60646b);
-  }
+ b {
+  font-weight: 500;
+}
 
-  p b {
-    color: var(--ion-text-color, #000000);
-  }
+p {
+  padding: 0 40px;
+  font-size: 20px;
+  line-height: 1.0;
+  color: var(--ion-color-step-600, #60646b);
+}
+
+p b {
+  color: var(--ion-text-color, #000000);
+}
+
+ul li {
+
+  display: inline;
+  
+}

@@ -20,6 +20,11 @@ import food from '../img/food.svg';
 import coffee from '../img/coffee.svg';
 import exercises from '../img/exercises.svg';
 
+const slideOpts = {
+  initialSlide: 0,
+  speed: 400
+};
+
 const Mode3: React.FC = () => {
 
     return (
@@ -37,7 +42,7 @@ const Mode3: React.FC = () => {
         </IonHeader>
         
 
-        <IonSlides pager={true} scrollbar={true}>
+        <IonSlides pager={true} scrollbar={true} options={slideOpts}>
 
             
           

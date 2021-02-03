@@ -14,6 +14,10 @@ import sneeze from '../img/sneeze.svg';
 import mask from '../img/mask.svg';
 import home from '../img/home.svg';
 
+const slideOpts = {
+  initialSlide: 0,
+  speed: 400
+};
 
 const Mode1: React.FC = () => {
 
@@ -32,12 +36,14 @@ const Mode1: React.FC = () => {
         </IonHeader>
         
 
-        <IonSlides pager={true} scrollbar={true}>
+        <IonSlides pager={true} scrollbar={true} options={slideOpts}>
           
           <IonSlide className={"slide orange"}>
             <img src={washing_hands}/>
             <h2>Lave as mãos regularmente com água e sabão ou use álcool em gel 70%.</h2>
+         
            
+
           
           </IonSlide>
         
@@ -45,7 +51,7 @@ const Mode1: React.FC = () => {
            
             <img src={home}/> 
             <h2>Evite ao máximo sair de casa.</h2>
-            
+          
           </IonSlide>
 
           <IonSlide className={"slide orange"}>

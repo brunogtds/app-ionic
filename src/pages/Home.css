@@ -11,22 +11,13 @@
     text-align-last: center;
 }
 
-ion-slides {
-    height: 100%;
-  }
-
-  .img{
-      height: 500px;
-      width: 500px;
-  }
-
   .light-color{
     background-color: #fffdf1;
   }
 
   .blue-light{
       background-color: #eff3ff;
-      color: #2b4cdf;
+      color: #2b4cdf;  
   }
 
   .orange-light{
@@ -37,6 +28,23 @@ ion-slides {
   .red-light{
       background-color: #ffebed;
       color: #d63a4b;
+  }
+
+  .blue-text{
+      color: #2b4cdf;
+  }
+
+  .red-text{
+      color: #dc3a4b;
+  }
+
+  .orange-text{
+      color: #e89038;
+  }
+
+
+  ion-slides {
+    height: 100%;
   }
 
   .swiper-slide {
@@ -53,3 +61,20 @@ ion-slides {
     margin: 60px 0 40px;
     pointer-events: none;
   }
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 40px;
+    font-size: 30px;
+    line-height: 1.5;
+    color: var(--ion-color-step-600, #60646b);
+  }
+
+  p b {
+    color: var(--ion-text-color, #000000);
+  }
+
+ 
