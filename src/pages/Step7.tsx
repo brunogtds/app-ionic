@@ -366,8 +366,8 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="10Question"/>
             </IonItem>
 
-            <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
-            <IonButton onClick={props.next}>Próximo</IonButton>
+            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
             </form>
 
         </div>

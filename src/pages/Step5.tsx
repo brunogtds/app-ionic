@@ -59,6 +59,7 @@ const Step5 = (props: StepComponentProps) => {
             </IonItem>
 
 
+            {/*
             <IonItem>
             <IonGrid fixed={true}>
                             <IonRow>
@@ -171,10 +172,218 @@ const Step5 = (props: StepComponentProps) => {
 
                             
                              
-                        </IonGrid>
-            </IonItem>            
-            <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
-            <IonButton onClick={props.next}>Próximo</IonButton>
+                        </IonGrid> 
+            </IonItem>            */}
+
+
+                 <IonItem>
+
+                             <IonLabel>Sentir-se nervoso, ansioso ou no limite.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma vez</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Vários dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Mais da metade dos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                     <IonItem>
+
+                             <IonLabel>Não ser capaz de parar ou controlar as preocupações.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma vez</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Vários dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Mais da metade dos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                     <IonItem>
+
+                             <IonLabel>Preocupar-se muito com coisas diferentes.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma vez</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Vários dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Mais da metade dos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                     <IonItem>
+
+                             <IonLabel>Dificuldade de relaxar.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma vez</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Vários dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Mais da metade dos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                     <IonItem>
+
+                             <IonLabel>Ser tão inquieto que é difícil ficar parado.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma vez</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Vários dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Mais da metade dos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                     <IonItem>
+
+                             <IonLabel>Tonar-se facilmente irritado ou irritável.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma vez</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Vários dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Mais da metade dos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                     <IonItem>
+
+                             <IonLabel>Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma vez</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Vários dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Mais da metade dos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos dias</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+
+
+
+            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
             </form>
 
         </div>

@@ -71,7 +71,8 @@ const Step8 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"estimulantes"}/>
             </IonItem>
 
-            {problemasSono == "sim" ? 
+              {/*
+            
             <IonItem>
                 <IonLabel>Por favor, avalie a gravidade da sua insônia nas duas últiams semanas, em relação a:</IonLabel>
                 <IonGrid fixed={true}>
@@ -127,11 +128,131 @@ const Step8 = (props: StepComponentProps) => {
                              </IonRadioGroup>
 
    
-                        </IonGrid>
-            </IonItem>:null }
+            </IonGrid> 
+            </IonItem>*/}
+
+            {problemasSono == "sim" ?
+            <IonItem>
+
+            <IonLabel>Por favor, avalie a gravidade da sua insônia nas duas últiams semanas, em relação a:</IonLabel>
+            </IonItem>
+            :null }
+
+            {problemasSono == "sim" ?
             
-            <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
-            <IonButton onClick={props.next}>Próximo</IonButton>
+                
+                <IonItem>
+
+                             <IonLabel>Dificuldade de pegar no sono.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Leve</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Moderada</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Grave</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Muito grave</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+      
+                            </IonRadioGroup>
+                    </IonItem>  :null }
+
+                    {problemasSono == "sim" ?
+                <IonItem>
+
+                             <IonLabel>Dificuldade de manter o sono.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Leve</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Moderada</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Grave</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Muito grave</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+      
+                            </IonRadioGroup>
+                    </IonItem> :null }
+
+                    {problemasSono == "sim" ?
+                    <IonItem>
+
+                             <IonLabel>Problema de despertar muito cedo.</IonLabel>
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>Nenhuma</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Leve</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Moderada</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Grave</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Muito grave</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+      
+                            </IonRadioGroup>
+                    </IonItem>
+
+           
+            
+            
+            
+            :null }
+            
+            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
             </form>
 
         </div>

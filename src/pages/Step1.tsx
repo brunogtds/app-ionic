@@ -247,7 +247,7 @@ const Step1 = (props: StepComponentProps) => {
                                         
                         <IonItem>
   
-                        <IonLabel>Atualmente sou:</IonLabel>
+                        <IonLabel className="ion-text-wrap">Atualmente sou:</IonLabel>
                             
                             <Controller render={({onChange}) => (
                             <IonList >
@@ -256,39 +256,39 @@ const Step1 = (props: StepComponentProps) => {
                             <IonCheckbox color="primary" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}></IonCheckbox>
-                            <IonLabel>Estudante</IonLabel>
+                            <IonLabel className="ion-text-wrap">Estudante</IonLabel>
                             </IonItem>
 
                             <IonItem>
                             <IonCheckbox color="primary" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}></IonCheckbox>
-                            <IonLabel>Assalariado</IonLabel>
+                            <IonLabel className="ion-text-wrap">Assalariado</IonLabel>
                             </IonItem>
 
                             <IonItem>
                             <IonCheckbox color="primary" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}></IonCheckbox>
-                            <IonLabel>Autônomo</IonLabel>
+                            <IonLabel className="ion-text-wrap">Autônomo</IonLabel>
                             </IonItem>
                             
                             <IonItem>
                             <IonCheckbox color="primary" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}></IonCheckbox>
-                            <IonLabel>Desempregado</IonLabel>
+                            <IonLabel className="ion-text-wrap">Desempregado</IonLabel>
                             </IonItem>
 
                             <IonItem>
                             <IonCheckbox color="primary" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}></IonCheckbox>
-                            <IonLabel>Aposentado</IonLabel>
+                            <IonLabel className="ion-text-wrap">Aposentado</IonLabel>
                             </IonItem>
 
                             <IonItem>
-                                <IonLabel>Outros: </IonLabel>
+                                <IonLabel className="ion-text-wrap">Outros: </IonLabel>
                                 <IonInput onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}/>
@@ -309,8 +309,8 @@ const Step1 = (props: StepComponentProps) => {
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}>
-                            <IonSelectOption>Ensino Fundamental Incompleto</IonSelectOption>
-                            <IonSelectOption>Ensino Fundamental Completo</IonSelectOption>
+                            <IonSelectOption className="ion-text-wrap">Ensino Fundamental Incompleto</IonSelectOption>
+                            <IonSelectOption className="ion-text-wrap">Ensino Fundamental Completo</IonSelectOption>
                             <IonSelectOption>Ensino Médio Incompleto</IonSelectOption>
                             <IonSelectOption>Ensino Médio Completo</IonSelectOption>
                             <IonSelectOption>Ensino Superior Incompleto</IonSelectOption>
@@ -345,7 +345,7 @@ const Step1 = (props: StepComponentProps) => {
                          </IonItem>
 
                          <IonItem>
-                            <IonLabel>Número de pessoas dependentes:</IonLabel>
+                            <IonLabel className="ion-text-wrap">Número de pessoas dependentes:</IonLabel>
                             <Controller  render={({onChange}) => (
                             <IonInput onIonChange={(e)=> {
                                 console.log(e);
@@ -357,7 +357,7 @@ const Step1 = (props: StepComponentProps) => {
                         </IonItem>
        
                         <IonItem>
-                            <IonLabel>Quantas pessoas estão morando na sua residência, além de você?</IonLabel>
+                            <IonLabel className="ion-text-wrap">Quantas pessoas estão morando na sua residência, além de você?</IonLabel>
 
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
@@ -406,8 +406,8 @@ const Step1 = (props: StepComponentProps) => {
                              name={"areaResidencia"}
                              />
                          </IonItem>
-                         <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
-                         <IonButton onClick={props.next} className={"btnProximo"}>Próximo</IonButton>
+                         <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
+                         <IonButton onClick={props.next} className={"btnProximo"} size="large" >Próximo</IonButton>
                 </form>
            
         </div>

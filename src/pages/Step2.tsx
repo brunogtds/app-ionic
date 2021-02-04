@@ -528,8 +528,8 @@ const Step2 = (props: StepComponentProps) => {
                             
                         </IonList>
 
-                <IonButton onClick={props.prev}>Anterior</IonButton>
-                <IonButton onClick={props.next}>Próximo</IonButton>
+                <IonButton onClick={props.prev} size="large">Anterior</IonButton>
+                <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
                 </form>
             
         </div>

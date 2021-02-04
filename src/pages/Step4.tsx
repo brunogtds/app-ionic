@@ -26,7 +26,7 @@ import { IonApp,
     IonItemDivider
     
   } from "@ionic/react";
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonRow, IonCol } from '@ionic/react';
 
   import './Forms.css';
 
@@ -54,8 +54,18 @@ const Step4 = (props: StepComponentProps) => {
             <IonProgressBar value={0.4} buffer={0.4}></IonProgressBar>
             
             <IonItem>
+            <IonRow>
+                <IonCol>
+            <div>
             <p>As perguntas a seguir se referem ao seu comportamento de sono nos dias de trabalho e dias livres. Por favor, responda de acordo com o que ocorreu mais frequentemente nas duas últimas semanas. Considere também estudos e seus afazeres de casa. </p>
+            </div>
+            </IonCol>
+            <IonCol>
+            <div>
             <p><b>Por favor, responda todas as questões a seguir utilizando a escala de 24h (por exemplo, 23:00 no lugar de 11:00). Se você é um estudante, preencha os dias de trabalho considerando os dias de aula.</b></p>
+            </div>
+            </IonCol>
+            </IonRow>
             </IonItem>
 
             <IonItem>
@@ -228,8 +238,8 @@ const Step4 = (props: StepComponentProps) => {
 
 
 
-            <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
-            <IonButton onClick={props.next}>Próximo</IonButton>
+            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
             </form>
 
         </div>

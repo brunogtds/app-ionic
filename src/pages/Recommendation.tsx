@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonSlides, IonSlide, IonIcon, IonRow, IonCol} from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+
 import './Recommendation.css';
 
 import img_lightbulb from '../../src/img/lightbulb.png';

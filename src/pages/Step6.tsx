@@ -62,6 +62,7 @@ const Step6 = (props: StepComponentProps) => {
                 <IonLabel>Nas últimas duas semanas...</IonLabel>
             </IonItem>
 
+            {/*
             <IonItem>
             <IonGrid fixed={true}>
                             <IonRow>
@@ -149,9 +150,213 @@ const Step6 = (props: StepComponentProps) => {
                              </IonRadioGroup>
    
                         </IonGrid>
-            </IonItem>            
-            <IonButton disabled={props.isFirst()}onClick={props.prev}>Anterior</IonButton>
-            <IonButton onClick={props.next}>Próximo</IonButton>
+            </IonItem>            */}
+
+            <IonLabel className={"ion-text-wrapper"}>... eu estava alegre e de bom humor</IonLabel>
+            <IonItem>
+
+
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>o tempo todo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>a maioria do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>mais do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>às vezes</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>menos do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>em nenhum momento</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+                    <IonLabel className={"ion-text-wrapper"}>... eu estava alegre e de bom humor</IonLabel>
+                    <IonItem>
+
+                            
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>o tempo todo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>a maioria do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>mais do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>às vezes</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>menos do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>em nenhum momento</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                    <IonLabel className={"ion-text-wrapper"}>... me senti disposto e renovado ao acordar</IonLabel>
+                    <IonItem>
+
+                             
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>o tempo todo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>a maioria do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>mais do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>às vezes</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>menos do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>em nenhum momento</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                    <IonLabel className={"ion-text-wrapper"}>... me senti cheio de energia e ativo</IonLabel>
+                    <IonItem>
+
+                            
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>o tempo todo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>a maioria do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>mais do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>às vezes</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>menos do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>em nenhum momento</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+
+                    <IonLabel className={"ion-text-wrapper"}>... o meu dia foi cheio de coisas que interessavam</IonLabel>
+                    <IonItem>
+
+                             
+
+                             <IonRadioGroup>
+
+                                <IonItem>
+                                <IonLabel>o tempo todo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>a maioria do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>mais do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>às vezes</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>menos do que metade do tempo</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>em nenhum momento</IonLabel>
+                                <IonRadio color="primary"></IonRadio>
+                                </IonItem>
+                               
+                            </IonRadioGroup>
+                    </IonItem>
+                    
+                
+
+
+
+            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
             </form>
 
         </div>

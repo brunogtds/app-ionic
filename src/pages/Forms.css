@@ -1,6 +1,11 @@
-btnProximo {
+.btnProximo {
     align-items: right;
-    color: red;
+    float: right;
+}
+
+.btnAnterior {
+  align-items: left;
+  float: left;
 }
 
 ion-col {
@@ -10,3 +15,25 @@ ion-col {
 
 }
 
+ion-select{
+  max-width: 100% !important;
+  
+  }
+
+ 
+
+.alert-tappable.alert-radio {
+      height: auto;
+      contain: content;
+  }
+  
+  .alert-radio-label.sc-ion-alert-md,
+  .alert-radio-label.sc-ion-alert-ios {
+      white-space: normal;
+  }
+
+ion-label {
+    white-space: normal !important;
+    max-width: none !important;
+    width: 100%;
+ }
