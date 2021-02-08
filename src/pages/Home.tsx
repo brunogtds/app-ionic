@@ -32,12 +32,7 @@ const Tab1: React.FC = () => {
 
         <IonGrid>
 
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
+        
        
        {/* <ExploreContainer name="Tab 1 page" /> */}
        <IonCard>

@@ -45,6 +45,7 @@ import ExplanationSlides from './pages/ExplanationSlides';
 /*Tela login*/
 
 import Login from './pages/Login';
+import Cadastro from './pages/Cadastro';
 
 /*Módulos recomendações*/
 import Mode1 from './pages/Mode1';
@@ -58,6 +59,7 @@ const App: React.FC = () => (
     <IonReactRouter>
     <IonRouterOutlet>
       <Route path="/login" component={Login} exact={true}/>
+      <Route path="/cadastro" component={Cadastro} exact={true}/>
     
       <IonTabs>
         <IonRouterOutlet>
@@ -70,6 +72,7 @@ const App: React.FC = () => (
           <Route path="/mode1" component={Mode1}/>
           <Route path="/mode2" component={Mode2}/>
           <Route path="/mode3" component={Mode3}/>
+         
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         

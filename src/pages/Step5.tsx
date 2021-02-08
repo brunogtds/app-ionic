@@ -176,9 +176,10 @@ const Step5 = (props: StepComponentProps) => {
             </IonItem>            */}
 
 
+                <IonLabel>Sentir-se nervoso, ansioso ou no limite.</IonLabel>
                  <IonItem>
 
-                             <IonLabel>Sentir-se nervoso, ansioso ou no limite.</IonLabel>
+                             
 
                              <IonRadioGroup>
 
@@ -205,9 +206,11 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
+                    <IonLabel>Não ser capaz de parar ou controlar as preocupações.</IonLabel>
+
                      <IonItem>
 
-                             <IonLabel>Não ser capaz de parar ou controlar as preocupações.</IonLabel>
+                             
 
                              <IonRadioGroup>
 
@@ -234,9 +237,10 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
+                    <IonLabel>Preocupar-se muito com coisas diferentes.</IonLabel>
                      <IonItem>
 
-                             <IonLabel>Preocupar-se muito com coisas diferentes.</IonLabel>
+                             
 
                              <IonRadioGroup>
 
@@ -263,9 +267,10 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
+                    <IonLabel>Dificuldade de relaxar.</IonLabel>
                      <IonItem>
 
-                             <IonLabel>Dificuldade de relaxar.</IonLabel>
+                            
 
                              <IonRadioGroup>
 
@@ -292,9 +297,10 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
+                    <IonLabel>Ser tão inquieto que é difícil ficar parado.</IonLabel>
                      <IonItem>
 
-                             <IonLabel>Ser tão inquieto que é difícil ficar parado.</IonLabel>
+                            
 
                              <IonRadioGroup>
 
@@ -321,9 +327,11 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
+
+                    <IonLabel>Tonar-se facilmente irritado ou irritável.</IonLabel>
                      <IonItem>
 
-                             <IonLabel>Tonar-se facilmente irritado ou irritável.</IonLabel>
+                             
 
                              <IonRadioGroup>
 
@@ -350,9 +358,10 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
+                    <IonLabel>Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
                      <IonItem>
 
-                             <IonLabel>Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
+                             
 
                              <IonRadioGroup>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import './Home.css';
@@ -12,18 +12,18 @@ import Tab1 from './Home';
 import distanciamentoExp from '../../src/img/distanciamentoExp.png';
 
 import thinking from '../../src/img/thinking.png';
+import {useState, ChangeEvent} from 'react';
 
+const Cadastro: React.FC = () => {
 
-
-const Login: React.FC = () => {
-
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
-
-  function LoginUser(){
-
-    console.log("Email:" + email, "senha:" + senha);
-}
+    const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
+    const [csenha, setCSenha] = useState();
+  
+    function CadastroUser(){
+  
+      console.log("email:" + email, "senha:" + senha, "csenha:" + csenha);
+  }
 
   return (
     <IonPage>
@@ -58,8 +58,15 @@ const Login: React.FC = () => {
 
       <div>
       
-      <IonButton onClick={LoginUser} size="large">Login</IonButton>
-      <IonButton size="large" href="/Cadastro">Cadastro</IonButton>
+      <IonLabel>Confirme sua senha</IonLabel>
+      <IonInput type="password" placeholder="Confirme a senha" id="csenha" onIonChange={(e:any) => setCSenha(e.target.value)}/>
+      
+      </div>
+
+      <div>
+      
+      <IonButton href="/Tab1" size="large">Login</IonButton>
+      <IonButton size="large" onClick={CadastroUser}>Cadastro</IonButton>
       
       </div>
       </div>
@@ -69,4 +76,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Cadastro;

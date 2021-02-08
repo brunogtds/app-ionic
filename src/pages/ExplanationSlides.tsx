@@ -25,12 +25,7 @@ const ExplanationSlides: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-text-center">
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Medidas</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
+        
        <IonSlides scrollbar={true} pager={true} options={slideOpts}>
 
           <IonSlide className={"slide light-yellow"}>

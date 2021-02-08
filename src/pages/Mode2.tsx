@@ -31,12 +31,7 @@ const Mode2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-text-center">
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Mode 2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        
+      
 
         <IonSlides pager={true} scrollbar={true} options={slideOpts}>
           

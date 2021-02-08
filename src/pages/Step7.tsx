@@ -54,10 +54,11 @@ const Step7 = (props: StepComponentProps) => {
                 <IonLabel>Agora vamos falar sobre como você tem se sentido nas duas últimas semanas.</IonLabel>
             </IonItem>
             
+            <IonLabel>Nas últimas duas semanas, quantos dias você teve pouco interesse ou pouco prazer em fazer as coisas?</IonLabel>
             <IonItem>
 
  
-                <IonLabel>Nas últimas duas semanas, quantos dias você teve pouco interesse ou pouco prazer em fazer as coisas?</IonLabel>
+                
                 <Controller render={({onChange}) => (
                 <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
@@ -86,10 +87,11 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name="1Question"/>
             </IonItem>
 
+            <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
             <IonItem>
 
  
-            <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
+            
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -118,9 +120,11 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="2Question"/>
             </IonItem>
 
-            <IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você teve dificuldade para pegar no sono ou permanecer dormindo ou dormiu mais do que de costume?</IonLabel>
+            <IonItem>
+
+            
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -149,9 +153,10 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="3Question"/>
             </IonItem>
 
+            <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
             <IonItem>
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
+           
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -180,9 +185,10 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="4Question"/>
             </IonItem>
                 
+            <IonLabel> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
             <IonItem>
 
-            <IonLabel> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
+            
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -211,9 +217,10 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="5Question"/>
             </IonItem>
                 
+            <IonLabel> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
             <IonItem>
 
-            <IonLabel> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
+            
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -242,9 +249,10 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="6Question"/>
             </IonItem>
 
+            <IonLabel> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
             <IonItem>
 
-            <IonLabel> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
+           
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -273,9 +281,10 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="7Question"/>
             </IonItem>
 
+            <IonLabel>Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
             <IonItem>
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
+            
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -304,9 +313,10 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="8Question"/>
             </IonItem>
 
+            <IonLabel>Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
             <IonItem>
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
+            
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);
@@ -335,9 +345,11 @@ const Step7 = (props: StepComponentProps) => {
             </IonRadioGroup> )} control={control} name="9Question"/>
             </IonItem>
 
-            <IonItem>
 
             <IonLabel>Considerando as últimas duas semanas, os sintomas anteriores lhe causaram algum tipo de dificuldade para trabalhar ou estudar ou tomar conta das coisas em casa ou para se relacionar com as pessoas?</IonLabel>
+            <IonItem>
+
+            
             <Controller render={({onChange}) => (
             <IonRadioGroup onIonChange={(e)=> {
                 console.log(e);

@@ -191,7 +191,7 @@ const Step6 = (props: StepComponentProps) => {
                                
                             </IonRadioGroup>
                     </IonItem>
-                    <IonLabel className={"ion-text-wrapper"}>... eu estava alegre e de bom humor</IonLabel>
+                    <IonLabel className={"ion-text-wrapper"}>... me senti calmo e relaxado</IonLabel>
                     <IonItem>
 
                             

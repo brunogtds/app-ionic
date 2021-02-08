@@ -81,6 +81,7 @@ const Step1 = (props: StepComponentProps) => {
 
                         <IonProgressBar value={0.1} buffer={0.1}></IonProgressBar>
 
+                        {/*
                         <IonItem>
                             <IonLabel position="floating">Email:</IonLabel>
                             
@@ -96,7 +97,7 @@ const Step1 = (props: StepComponentProps) => {
                             rules= {{required:true}}
                             control= {control} />
                             
-                        </IonItem> 
+                        </IonItem> */}
 
                          <IonItem>
                             <IonLabel position="floating">Idade:</IonLabel>
@@ -247,7 +248,7 @@ const Step1 = (props: StepComponentProps) => {
                                         
                         <IonItem>
   
-                        <IonLabel className="ion-text-wrap">Atualmente sou:</IonLabel>
+                        <IonLabel >Atualmente sou:</IonLabel>
                             
                             <Controller render={({onChange}) => (
                             <IonList >

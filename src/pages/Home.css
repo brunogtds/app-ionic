@@ -77,4 +77,38 @@
     color: var(--ion-text-color, #000000);
   }
 
- 
+ .login-screen{
+  margin-top: 0 auto;
+  
+  border: 1px solid black;
+  width: 50%;
+ }
+
+#inner{
+  display: table;
+  margin: 0 auto;
+  margin-top: 50px;
+  
+}
+
+#outer{
+  
+  width:100%
+}
+
+#email {
+  background-color: lightgrey;
+}
+
+#senha {
+  background-color: lightgrey;
+}
+
+#csenha {
+  background-color: lightgrey;
+}
+
+#logo {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

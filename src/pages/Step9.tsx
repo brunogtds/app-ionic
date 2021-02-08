@@ -287,8 +287,9 @@ const Step9 = (props: StepComponentProps) => {
               <IonLabel>No mês passado quantas vezes você...</IonLabel>
             </IonItem>
 
+            <IonLabel>...ficou chateado(a) por causa de algo que aconteceu inesperadamente?</IonLabel>
              <IonItem>
-                    <IonLabel>...ficou chateado(a) por causa de algo que aconteceu inesperadamente?</IonLabel>
+                    
 
                              <IonRadioGroup>
 
@@ -320,8 +321,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
                     
-                    <IonItem>
                     <IonLabel>...se sentiu incapaz de controlar as coisas importantes na sua vida?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -353,8 +355,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...se sentiu nervoso(a) ou estressado(a)?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -386,8 +389,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...lidou com sucesso com os problemas e aborrecimentos do dia a dia?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -419,8 +423,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...sentiu que estava lidando de forma eficaz com as mudanças importantes que estavam acontecendo em sua vida?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -452,8 +457,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...se sentiu confiante nas suas capacidades para lidar com os seus problemas pessoais?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -485,8 +491,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...sentiu que as coisas estavam ocorrendo a sua maneira (do seu jeito)?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -518,8 +525,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...percebeu que não poderia lidar com todas as coisas que você tinha para fazer?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -551,8 +559,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...foi capaz de controlar as irritações da sua vida?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -584,8 +593,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...sentiu que estava no topo das coisas (no controle das coisas)?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -617,8 +627,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...se irritou por coisas que aconteceram que estavam fora do seu controle?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -650,8 +661,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...deu por si pensando nas coisas que tinha que fazer?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -683,8 +695,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...foi capaz de controlar a maneira de como gastar seu tempo?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
@@ -716,8 +729,9 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                     </IonItem>
 
-                    <IonItem>
                     <IonLabel>...sentiu que as dificuldades estavam se acumulando tanto que você não poderia superá-las?</IonLabel>
+                    <IonItem>
+                    
 
                              <IonRadioGroup>
 
