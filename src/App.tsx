@@ -7,7 +7,7 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs, IonLoading
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
@@ -16,6 +16,7 @@ import Tab1 from './pages/Home';
 import Tab3 from './pages/Recommendation';
 
 import {home, bed, person} from  'ionicons/icons';
+import {useState, ChangeEvent} from 'react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -52,6 +53,8 @@ import Mode1 from './pages/Mode1';
 import Mode2 from './pages/Mode2';
 import Mode3 from './pages/Mode3';
 
+/*context*/
+import { observer, MobXProviderContext } from "mobx-react";
 
 
 const App: React.FC = () => (
@@ -60,8 +63,8 @@ const App: React.FC = () => (
     <IonRouterOutlet>
       <Route path="/login" component={Login} exact={true}/>
       <Route path="/cadastro" component={Cadastro} exact={true}/>
-    
-      <IonTabs>
+  
+        <IonTabs>
         <IonRouterOutlet>
         
 
@@ -114,3 +117,4 @@ const App: React.FC = () => (
 );
 
 export default App; */
+

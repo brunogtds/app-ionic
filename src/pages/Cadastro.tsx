@@ -5,7 +5,7 @@ import './Home.css';
 
 import { IonGrid, IonRow, IonCol, IonButton, IonItem } from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,} from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonToast} from '@ionic/react';
 
 import Tab1 from './Home';
 
@@ -13,6 +13,9 @@ import distanciamentoExp from '../../src/img/distanciamentoExp.png';
 
 import thinking from '../../src/img/thinking.png';
 import {useState, ChangeEvent} from 'react';
+import { toast } from '../toast';
+
+import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
 const Cadastro: React.FC = () => {
 
@@ -20,9 +23,26 @@ const Cadastro: React.FC = () => {
     const [senha, setSenha] = useState();
     const [csenha, setCSenha] = useState();
   
-    function CadastroUser(){
+   async function Cadastro(){
   
-      console.log("email:" + email, "senha:" + senha, "csenha:" + csenha);
+      /*console.log("email:" + email, "senha:" + senha, "csenha:" + csenha);*/
+
+      if (senha !== csenha){
+        return toast ('As senhas não são iguais')
+      }
+
+      //.trim()
+      if (email === '' || senha === '' ) {
+        return toast ('Email e senha são requeridos')
+      }
+
+      const res= await cadastroUser(email, senha)
+
+      if (res){
+        toast('Cadastro feito com sucesso')
+      }
+
+
   }
 
   return (
@@ -65,8 +85,8 @@ const Cadastro: React.FC = () => {
 
       <div>
       
-      <IonButton href="/Tab1" size="large">Login</IonButton>
-      <IonButton size="large" onClick={CadastroUser}>Cadastro</IonButton>
+      <IonButton href="/Login" size="large">Login</IonButton>
+      <IonButton size="large" onClick={Cadastro}>Cadastro</IonButton>
       
       </div>
       </div>

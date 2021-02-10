@@ -13,17 +13,29 @@ import distanciamentoExp from '../../src/img/distanciamentoExp.png';
 
 import thinking from '../../src/img/thinking.png';
 
-
+import {loginUser} from '../firebaseConfig/firebaseConfig';
+import { toast } from '../toast';
 
 const Login: React.FC = () => {
 
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
 
-  function LoginUser(){
+  const [error, setError]= useState();
 
-    console.log("Email:" + email, "senha:" + senha);
-}
+
+  async function Login(){
+
+      const res= await loginUser(email, senha)
+
+      if (!res){
+        toast('Erro no Login', 4000)
+      } 
+      else {
+        toast('Login feito com sucesso', 4000)
+      }
+      
+    }
 
   return (
     <IonPage>
@@ -58,7 +70,7 @@ const Login: React.FC = () => {
 
       <div>
       
-      <IonButton onClick={LoginUser} size="large">Login</IonButton>
+      <IonButton onClick={Login} size="large">Login</IonButton>
       <IonButton size="large" href="/Cadastro">Cadastro</IonButton>
       
       </div>
