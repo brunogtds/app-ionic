@@ -5,7 +5,7 @@ import './Home.css';
 
 import { IonGrid, IonRow, IonCol, IonButton, IonItem } from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonToast} from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonToast, IonLoading} from '@ionic/react';
 
 import Tab1 from './Home';
 
@@ -22,24 +22,30 @@ const Cadastro: React.FC = () => {
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
     const [csenha, setCSenha] = useState();
+
+    const [loader, setLoader]= useState<boolean>(false)
   
    async function Cadastro(){
   
       /*console.log("email:" + email, "senha:" + senha, "csenha:" + csenha);*/
 
+      setLoader(true)
       if (senha !== csenha){
         return toast ('As senhas não são iguais')
+        setLoader(false)
       }
 
       //.trim()
       if (email === '' || senha === '' ) {
         return toast ('Email e senha são requeridos')
+        setLoader(false)
       }
 
       const res= await cadastroUser(email, senha)
 
       if (res){
         toast('Cadastro feito com sucesso')
+        setLoader(false)
       }
 
 
@@ -52,6 +58,7 @@ const Cadastro: React.FC = () => {
           <IonTitle>Início</IonTitle>
         </IonToolbar>
       </IonHeader>
+      <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
       <IonContent fullscreen className="ion-text-center">
 
       <div id="outer">
