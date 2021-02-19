@@ -1,6 +1,10 @@
 import firebase from 'firebase';
 import { toast } from '../toast';
 
+import "firebase/auth";
+import "firebase/firestore";
+
+
 
 const config = {
     apiKey: "AIzaSyCnE1bpDQ3qwKvfFxBy4T5R7kEfJmpcfuM",
@@ -14,6 +18,9 @@ const config = {
 
 firebase.initializeApp(config)
 
+export const auth= firebase.auth();
+export const firestore= firebase.firestore();
+
 export async function loginUser (email: any, password: any) {
 
    try{
@@ -24,20 +31,29 @@ export async function loginUser (email: any, password: any) {
         toast('Erro no login', 4000)
         return false
     }
-   
-
 
 };
+
+export async function logoutUser(){
+    try{
+        const res= await firebase.auth().signOut();
+        return true
+    } 
+    catch(error){
+        toast('Erro no logout', 4000)
+        return false
+}};
 
 export async function cadastroUser (email: any, senha: any){
 
     try{
         const res= await firebase.auth().createUserWithEmailAndPassword(email, senha)
         console.log(res)
+        
         return true
     }
     catch(error){
         toast('Erro no cadastro', 4000)
         return false
     }
-}
+};

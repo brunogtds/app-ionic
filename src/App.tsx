@@ -53,11 +53,25 @@ import Mode1 from './pages/Mode1';
 import Mode2 from './pages/Mode2';
 import Mode3 from './pages/Mode3';
 
-/*context*/
-import { observer, MobXProviderContext } from "mobx-react";
+/*auth */
+
+import {useAuthInit, AuthContext} from './firebaseConfig/auth';
 
 
-const App: React.FC = () => (
+
+
+const App: React.FC = () => {
+
+  const {loading, auth}= useAuthInit();
+
+  if (loading) {
+    return <IonLoading isOpen translucent />;
+  }
+  if (auth) {
+    console.log("logou", auth);
+  }
+
+  return (
   <IonApp>
     <IonReactRouter>
     <IonRouterOutlet>
@@ -76,7 +90,7 @@ const App: React.FC = () => (
           <Route path="/mode2" component={Mode2}/>
           <Route path="/mode3" component={Mode3}/>
          
-          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+          <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
         </IonRouterOutlet>
         
         <IonTabBar slot="bottom">
@@ -99,22 +113,10 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
+  )
+  };
 
 export default App; 
 
-/*
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-    <IonRouterOutlet>
-      <Route path="/login" component={Login} exact={true}/>
-      <Route path="/dashboard" component={Dashboard} exact={true}/>
 
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
-
-export default App; */
 

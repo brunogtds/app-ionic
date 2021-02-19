@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 
@@ -7,7 +7,7 @@ import './Home.css';
 
 import { IonGrid, IonRow, IonCol, IonSlides, IonSlide } from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider} from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider, IonButton, IonLoading} from '@ionic/react';
 
 
 import distanciamentoExp from '../../src/img/distanciamentoExp.png';
@@ -19,15 +19,46 @@ import quarantine from '../../src/img/quarantine.svg';
 
 import ExplanationSlides from '../../src/pages/ExplanationSlides';
 
+import {auth} from '../../src/firebaseConfig/firebaseConfig';
+import  { Redirect, useHistory } from 'react-router-dom' 
+
+import {logoutUser} from '../../src/firebaseConfig/firebaseConfig';
+import { toast } from '../toast';
+
 
 const Tab1: React.FC = () => {
+
+  const history= useHistory();
+  const [loader, setLoader]= useState<boolean>(false);
+
+  function redirectLogin(){
+    
+      history.push('/login');
+ 
+  }
+  
+  async function Logout(){
+    setLoader(true)
+    const res=  await logoutUser();
+
+    if (res === true){
+      toast('Logout efetuado!')
+      redirectLogin();    
+      setLoader(false); 
+      
+    }
+  }
+
   return (
     <IonPage>
       <IonHeader color="primary">
         <IonToolbar>
           <IonTitle>Início</IonTitle>
         </IonToolbar>
+
+        <IonButton onClick={Logout}>Sair</IonButton>
       </IonHeader>
+      <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
       <IonContent fullscreen className="ion-text-center ion-padding">
 
         <IonGrid>
@@ -85,7 +116,7 @@ const Tab1: React.FC = () => {
           <img src={distanciamentoExp}/>
        </div> */}
 
-      
+
         
         </IonGrid>
       </IonContent>

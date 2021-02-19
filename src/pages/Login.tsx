@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import './Home.css';
@@ -15,10 +15,14 @@ import thinking from '../../src/img/thinking.png';
 
 import {loginUser} from '../firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
-
+import {useHistory} from 'react-router';
 
 
 import  { Redirect } from 'react-router-dom' 
+
+import {AuthContext} from '../../src/firebaseConfig/auth';
+
+
 
 
 const Login: React.FC = () => {
@@ -30,6 +34,8 @@ const Login: React.FC = () => {
 
   const [loader, setLoader]= useState<boolean>(false)
 
+  const history= useHistory();
+  const userContext= useContext(AuthContext);
 
   async function Login(){
 
@@ -44,11 +50,15 @@ const Login: React.FC = () => {
       else {
         toast('Login feito com sucesso', 4000)
         setLoader(false)
-        return <Redirect to="/tab1" />
+       // history.push('/tab1');
       } 
       
       
     }
+
+  if (userContext.loggedIn===true){
+    return <Redirect to='/tab1'/>
+  }
 
   return (
     <IonPage>
