@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import './Home.css';
@@ -13,16 +13,13 @@ import distanciamentoExp from '../../src/img/distanciamentoExp.png';
 
 import thinking from '../../src/img/thinking.png';
 
-import {loginUser} from '../firebaseConfig/firebaseConfig';
+import {loginUser, user} from '../firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
 
-import  { Redirect } from 'react-router-dom' 
-
-import {AuthContext} from '../../src/firebaseConfig/auth';
-
-
+import  { Redirect} from 'react-router-dom' 
+import {auth} from '../firebaseConfig/firebaseConfig';
 
 
 const Login: React.FC = () => {
@@ -35,13 +32,11 @@ const Login: React.FC = () => {
   const [loader, setLoader]= useState<boolean>(false)
 
   const history= useHistory();
-  const userContext= useContext(AuthContext);
-
+   
   async function Login(){
 
       setLoader(true)
       const res= await loginUser(email, senha)
-      
 
       if (!res){
         toast('Erro no Login', 4000)
@@ -49,16 +44,12 @@ const Login: React.FC = () => {
       } 
       else {
         toast('Login feito com sucesso', 4000)
+        history.replace('/tab1');
         setLoader(false)
-       // history.push('/tab1');
+        
       } 
-      
-      
+ 
     }
-
-  if (userContext.loggedIn===true){
-    return <Redirect to='/tab1'/>
-  }
 
   return (
     <IonPage>
