@@ -118,7 +118,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {/*PRECISOU SE ISOLAR -> SIM */}
 
-                        {isolamento == "sim" ?
+                        {isolamento === "sim" ?
                         <IonItem>
                             <IonLabel>Em que mês(meses) você precisou se isolar?</IonLabel>
 
@@ -265,7 +265,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {/*MAIS QUE 0*/}
 
-                        {((diasTrabalho == "1") || (diasTrabalho == "2") || (diasTrabalho == "3") || (diasTrabalho == "4") || (diasTrabalho == "5") || (diasTrabalho == "6") || (diasTrabalho == "7") || (diasTrabalho == "8") || (diasTrabalho == "9") || (diasTrabalho == "10") || (diasTrabalho == "11") || (diasTrabalho == "12") || (diasTrabalho == "13") || (diasTrabalho == "14"))              ?
+                        {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))              ?
 
                         <IonItem>
                             <IonLabel>Quantas horas em média você trabalhou/estudou nestes dias? </IonLabel>
@@ -278,7 +278,7 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect>
                          </IonItem>:null  }
 
-                        {((diasTrabalho == "1") || (diasTrabalho == "2") || (diasTrabalho == "3") || (diasTrabalho == "4") || (diasTrabalho == "5") || (diasTrabalho == "6") || (diasTrabalho == "7") || (diasTrabalho == "8") || (diasTrabalho == "9") || (diasTrabalho == "10") || (diasTrabalho == "11") || (diasTrabalho == "12") || (diasTrabalho == "13") || (diasTrabalho == "14"))  ?
+                        {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))  ?
                          <IonItem>
                             <IonLabel>Você pôde escolher seus horários de trabalho/estudo?</IonLabel>
                             
@@ -298,7 +298,7 @@ const Step3 = (props: StepComponentProps) => {
                         </IonItem>:null }
 
                         
-                        {((diasTrabalho == "1") || (diasTrabalho == "2") || (diasTrabalho == "3") || (diasTrabalho == "4") || (diasTrabalho == "5") || (diasTrabalho == "6") || (diasTrabalho == "7") || (diasTrabalho == "8") || (diasTrabalho == "9") || (diasTrabalho == "10") || (diasTrabalho == "11") || (diasTrabalho == "12") || (diasTrabalho == "13") || (diasTrabalho == "14")) ?
+                        {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
                         <IonItem>
                             <IonLabel>O quão regular foram seus horários de trabalho/estudo nas últimas duas semanas: </IonLabel>
 
@@ -315,7 +315,7 @@ const Step3 = (props: StepComponentProps) => {
 
                          {/*REGULARES OU MUITO REGULARES: */}
                         
-                        {((diasTrabalho == "1") || (diasTrabalho == "2") || (diasTrabalho == "3") || (diasTrabalho == "4") || (diasTrabalho == "5") || (diasTrabalho == "6") || (diasTrabalho == "7") || (diasTrabalho == "8") || (diasTrabalho == "9") || (diasTrabalho == "10") || (diasTrabalho == "11") || (diasTrabalho == "12") || (diasTrabalho == "13") || (diasTrabalho == "14")) && ((horasTrabalhoRegulares == "regulares") || (horasTrabalhoRegulares == "muitoRegulares")) ?
+                        {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) && ((horasTrabalhoRegulares === "regulares") || (horasTrabalhoRegulares === "muitoRegulares")) ?
                         
                          <IonItem>
                              <IonLabel>Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel>
@@ -361,14 +361,14 @@ const Step3 = (props: StepComponentProps) => {
 
                          {/*REGULARES OU MUITO REGULARES*/}
 
-                         {((rotinaAlimento == "regulares") || (rotinaAlimento == "muitoRegulares")) ?
+                         {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
 
                          <IonItem>
                              <IonLabel>Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias de trabalho ou de semana?</IonLabel>
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"></IonDatetime>
                          </IonItem> :null }
 
-                         {((rotinaAlimento == "regulares") || (rotinaAlimento == "muitoRegulares")) ?
+                         {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
                          <IonItem>
                              <IonLabel>Em que horário, em média, você se alimentou pela última vez no dia, nas últimas duas semanas?</IonLabel>
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"></IonDatetime>
@@ -395,13 +395,13 @@ const Step3 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"comparaHorarios"}/>
                         </IonItem>
 
-                        {((rotinaAlimento == "regulares") || (rotinaAlimento == "muitoRegulares") || (horarioAlimento == "sim")) ?
+                        {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
                          <IonItem>
                              <IonLabel>Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias livres ou fins de semana?</IonLabel>
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"></IonDatetime>
                          </IonItem>: null} 
 
-                         {((rotinaAlimento == "regulares") || (rotinaAlimento == "muitoRegulares") || (horarioAlimento == "sim")) ?
+                         {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
                          <IonItem>
                              <IonLabel>Em que horário, em média, nas últimas duas semanas, você se alimentou pela última vez no dia, nos dias livres ou fins de semana?</IonLabel>
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"></IonDatetime>
@@ -511,7 +511,7 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect>
                          </IonItem>:null }
 
-                         {atividadeFisica == "sim" ?
+                         {atividadeFisica === "sim" ?
                          <IonItem>
                             <IonLabel>Quão regulares, nas últimas duas semanas, foram os horários que praticou exercício?</IonLabel>
                             <Controller render={({onChange}) => (
@@ -523,7 +523,7 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={"horarioAtividadeFisica"} />
                           </IonItem>:null }
 
-                        {atividadeFisica == "sim" ? 
+                        {atividadeFisica === "sim" ? 
                          <IonItem>
                             <IonLabel>Qual foi, nas últimas duas semanas, a duração da sua atividade física em média?</IonLabel>
                             <IonSelect placeholder="Por favor, selecione...">
@@ -537,7 +537,7 @@ const Step3 = (props: StepComponentProps) => {
 
                          {/*ATIVIDADE FÍSICA REGULAR -> */}
 
-                         {((atividadeFisica == "sim") && ((horarioAtividadeFisica == "regulares") || (horarioAtividadeFisica == "muitoRegulares")) )? 
+                         {((atividadeFisica === "sim") && ((horarioAtividadeFisica === "regulares") || (horarioAtividadeFisica === "muitoRegulares")) )? 
 
                          <IonItem>
                              <IonLabel>Em que horário, em média, nas últimas duas semanas, você começou a praticar exercícios?</IonLabel>
@@ -561,7 +561,7 @@ const Step3 = (props: StepComponentProps) => {
                         {/*LUZ -> QUALQUER RESPOSTA QUE NÃO SEJA NUNCA */}
 
 
-                        {((frequenciaLuzNatural == "menosMetade") || (frequenciaLuzNatural == "maisMetade") || (frequenciaLuzNatural == "todosDias")) ? 
+                        {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
                         <IonItem>
                             <IonLabel>Nesses dias, a quantas horas de luz natural (em um ambiente aberto) você se expôs em média?</IonLabel>
                             <IonSelect placeholder="Por favor, selecione...">
@@ -574,7 +574,7 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect>
                          </IonItem>:null }
 
-                         {((frequenciaLuzNatural == "menosMetade") || (frequenciaLuzNatural == "maisMetade") || (frequenciaLuzNatural == "todosDias")) ? 
+                         {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
                          <IonItem>
                             <IonLabel>Quão regulares foram os horários em que se expõe à luz natural?</IonLabel>
                             <IonSelect placeholder="Por favor, selecione...">
@@ -586,7 +586,7 @@ const Step3 = (props: StepComponentProps) => {
                          </IonItem>:null}
 
                         <IonList>
-                         {((frequenciaLuzNatural == "menosMetade") || (frequenciaLuzNatural == "maisMetade") || (frequenciaLuzNatural == "todosDias")) ? 
+                         {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
                          <IonItem>
                             <IonLabel>Seus horários de expor à luz foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana)?</IonLabel>
                             <Controller render={({onChange}) => (
@@ -607,20 +607,20 @@ const Step3 = (props: StepComponentProps) => {
 
                         {/*HORÁRIOS DE LUZ REGULARES -> SIM */}
 
-                        {(((frequenciaLuzNatural == "menosMetade") || (frequenciaLuzNatural == "maisMetade") || (frequenciaLuzNatural == "todosDias")) && (horarioLuzNatural == "sim")) ? 
+                        {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ? 
                         <IonItem>
                              <IonLabel>Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias trabalho ou de semana?</IonLabel>
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"></IonDatetime>
                          </IonItem>:null}
 
-                         {(((frequenciaLuzNatural == "menosMetade") || (frequenciaLuzNatural == "maisMetade") || (frequenciaLuzNatural == "todosDias")) && (horarioLuzNatural == "sim")) ?
+                         {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ?
                          <IonItem>
                              <IonLabel>Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias livres ou fins de semana?</IonLabel>
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"></IonDatetime>
                          </IonItem>:null}
                         {/*HORÁRIOS DE LUZ REGULARES -> NÃO */}
 
-                        {(((frequenciaLuzNatural == "menosMetade") || (frequenciaLuzNatural == "maisMetade") || (frequenciaLuzNatural == "todosDias")) && (horarioLuzNatural == "não")) ?
+                        {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "não")) ?
                         <IonItem>
                              <IonLabel>Em que horário, em média, você se expôs à luz natural, nas últimas duas semanas?</IonLabel>
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"></IonDatetime>

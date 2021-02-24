@@ -149,7 +149,7 @@ const Step2 = (props: StepComponentProps) => {
                             />
                         </IonItem>
                       
-                        {selected == "sim" ?
+                        {selected === "sim" ?
                         
                         <IonItem>
                             <Controller render={({onChange}) => (
@@ -182,7 +182,7 @@ const Step2 = (props: StepComponentProps) => {
                             />
                         </IonItem>
 
-                        {selectedNoOrientation == "sim" ?
+                        {selectedNoOrientation === "sim" ?
                         <IonItem>
                             <Controller render={({onChange}) => (
                             <IonTextarea placeholder="Quais medicações?" onIonChange={(e)=> {
@@ -246,7 +246,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {/*VOCÊ FUMA? -> SIM */}
 
-                        {fuma == "sim" ? 
+                        {fuma === "sim" ? 
                         <IonItem>
                             <IonLabel>Quantos cigarros você fuma por dia?</IonLabel>
                             <IonSelect placeholder="Por favor, selecione...">
@@ -257,7 +257,7 @@ const Step2 = (props: StepComponentProps) => {
                             </IonSelect>
                           </IonItem> : null}
 
-                        {fuma == "sim" ? 
+                        {fuma === "sim" ? 
                         <IonItem>
                             <IonLabel>Há quanto tempo você fuma? (em anos) </IonLabel>
                             <IonInput/> 
@@ -290,7 +290,7 @@ const Step2 = (props: StepComponentProps) => {
                         
                         {/*VOCÊ FUMOU ANTES? -> SIM */}
 
-                        {fumou == "sim" ?
+                        {fumou === "sim" ?
                         <IonItem>
                             <IonLabel>Quantos cigarros você fumava por dia?</IonLabel>
 
@@ -303,13 +303,13 @@ const Step2 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={"nCigarros"} />
                           </IonItem> :null  }
 
-                        {fumou == "sim" ? 
+                        {fumou === "sim" ? 
                           <IonItem>
                             <IonLabel>Por quanto tempo você fumou? (em anos) </IonLabel>
                             <IonInput/>
                         </IonItem>: null }
 
-                        {fumou == "sim" ?
+                        {fumou === "sim" ?
                         <IonItem>
                             <IonLabel>Há quanto tempo você parou de fumar? </IonLabel>
                             <IonInput/>
@@ -340,7 +340,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {/*VOCÊ CONSOME BEBIDAS ALCÓOLICAS -> SIM */}
 
-                        {bebe == "sim" ?
+                        {bebe === "sim" ?
                         <IonItem>
                             <IonLabel>Alguma vez você sentiu que deveria diminuir a quantidade de bebida?</IonLabel>
                             
@@ -358,7 +358,7 @@ const Step2 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                         </IonItem>: null }
 
-                        {bebe == "sim" ? 
+                        {bebe === "sim" ? 
                         <IonItem>
                             <IonLabel>As pessoas o aborrecem porque criticam o seu modo de beber?</IonLabel>
                             
@@ -376,7 +376,7 @@ const Step2 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                         </IonItem>: null }
 
-                        {bebe == "sim" ?
+                        {bebe === "sim" ?
                         <IonItem>
                             <IonLabel>Você se sente culpado pela maneira como bebe?</IonLabel>
                             
@@ -394,7 +394,7 @@ const Step2 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                         </IonItem>: null }
 
-                        {bebe == "sim" ?
+                        {bebe === "sim" ?
                         <IonItem>
                             <IonLabel>Você costuma beber de manhã para diminuir o nervosimo ou ressaca?</IonLabel>
                             
@@ -438,7 +438,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {/*DROGAS -> SIM */}
 
-                        {drogas == "sim" ? 
+                        {drogas === "sim" ? 
                         <IonItem>
                         
                         
@@ -473,7 +473,7 @@ const Step2 = (props: StepComponentProps) => {
                             </IonList>
                         </IonItem> : null }
 
-                        {drogas == "sim" ?
+                        {drogas === "sim" ?
                         <IonItem>
                             <IonLabel>Há quantos anos você usa essa droga diariamente?</IonLabel>
                             <IonInput/>
@@ -502,7 +502,7 @@ const Step2 = (props: StepComponentProps) => {
                         </IonItem>
 
 
-                        {estimulantes == "sim" ? 
+                        {estimulantes === "sim" ? 
                         <IonItem>
                             <IonLabel>Em qual(is) momento(s) do dia você usa com mais frequência? </IonLabel>
 

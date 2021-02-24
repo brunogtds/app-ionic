@@ -7,18 +7,18 @@ import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel} from '@ionic/re
 
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 
-import natural_light from '../img/natural_light.svg';
-import light_bulb from '../img/light_bulb.svg';
-import screen_light from '../img/screen_light.svg';
-import yellow_screen from '../img/yellow_screen.svg';
-import routine from '../img/routine.svg';
-import schedule from '../img/schedule.svg';
-import naps from '../img/naps.svg';
-import problems from '../img/problems.svg';
-import room_sleep from '../img/room_sleep.svg';
-import food from '../img/food.svg';
-import coffee from '../img/coffee.svg';
-import exercises from '../img/exercises.svg';
+import natural_light from '../../img/natural_light.svg';
+import light_bulb from '../../img/light_bulb.svg';
+import screen_light from '../../img/screen_light.svg';
+import yellow_screen from '../../img/yellow_screen.svg';
+import routine from '../../img/routine.svg';
+import schedule from '../../img/schedule.svg';
+import naps from '../../img/naps.svg';
+import problems from '../../img/problems.svg';
+import room_sleep from '../../img/room_sleep.svg';
+import food from '../../img/food.svg';
+import coffee from '../../img/coffee.svg';
+import exercises from '../../img/exercises.svg';
 
 const slideOpts = {
   initialSlide: 0,

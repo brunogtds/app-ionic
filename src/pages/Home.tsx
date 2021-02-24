@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 
 
 import './Home.css';
@@ -7,7 +7,7 @@ import './Home.css';
 
 import { IonGrid, IonRow, IonCol, IonSlides, IonSlide } from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider, IonButton, IonLoading} from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider, IonButton, IonLoading, IonLabel} from '@ionic/react';
 
 
 import distanciamentoExp from '../../src/img/distanciamentoExp.png';
@@ -25,17 +25,18 @@ import  { Redirect, useHistory } from 'react-router-dom'
 import {logoutUser} from '../../src/firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 
+import {useUser} from 'reactfire';
+
+
+import {AuthCheck} from 'reactfire';
+
 
 const Tab1: React.FC = () => {
 
   const history= useHistory();
   const [loader, setLoader]= useState<boolean>(false);
+  const {data: user}= useUser();
 
-  function redirectLogin(){
-    
-      history.push('/login');
- 
-  }
   
   async function Logout(){
     setLoader(true)
@@ -43,7 +44,7 @@ const Tab1: React.FC = () => {
 
     if (res === true){
       toast('Logout efetuado!')
-      redirectLogin();    
+      history.replace('/login');
       setLoader(false); 
       
     }
@@ -54,9 +55,13 @@ const Tab1: React.FC = () => {
       <IonHeader color="primary">
         <IonToolbar>
           <IonTitle>Início</IonTitle>
+            <div id="header-items">
+              <AuthCheck fallback={<IonText>Bem vindo!</IonText>}><IonText>Bem vindo {user.email}!</IonText></AuthCheck>
+              <IonButton onClick={Logout}>Sair</IonButton>
+            </div>
+          
         </IonToolbar>
-
-        <IonButton onClick={Logout}>Sair</IonButton>
+       
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
       <IonContent fullscreen className="ion-text-center ion-padding">

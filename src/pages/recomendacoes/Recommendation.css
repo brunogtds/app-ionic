@@ -6,3 +6,7 @@
   .recommendation {
     padding: 10px;
   }
+
+  #header-items{
+    float: right;
+  }

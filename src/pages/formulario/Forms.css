@@ -37,3 +37,7 @@ ion-label {
     max-width: none !important;
     width: 100%;
  }
+ 
+ #header-items{
+  float: right;
+}

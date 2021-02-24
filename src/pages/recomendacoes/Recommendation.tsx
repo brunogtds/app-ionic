@@ -13,7 +13,7 @@ import Modo3 from './Mode3';
 
 import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
 
-import thinking from '../img/thinking.png';
+import thinking from '../../img/thinking.png';
 
 const Recommendation: React.FC = () => {
   return (

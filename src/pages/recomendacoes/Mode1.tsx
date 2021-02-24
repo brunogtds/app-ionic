@@ -7,12 +7,12 @@ import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel} from '@ionic/re
 
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 
-import washing_hands from '../img/washing_hands.svg';
-import stay_home from '../img/stay_home.svg';
-import social_distancing from '../img/social_distancing.svg';
-import sneeze from '../img/sneeze.svg';
-import mask from '../img/mask.svg';
-import home from '../img/home.svg';
+import washing_hands from '../../img/washing_hands.svg';
+import stay_home from '../../img/stay_home.svg';
+import social_distancing from '../../img/social_distancing.svg';
+import sneeze from '../../img/sneeze.svg';
+import mask from '../../img/mask.svg';
+import home from '../../img/home.svg';
 
 const slideOpts = {
   initialSlide: 0,

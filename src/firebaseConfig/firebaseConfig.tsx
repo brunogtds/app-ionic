@@ -6,25 +6,27 @@ import "firebase/firestore";
 
 
 
-const config = {
-    apiKey: "AIzaSyCnE1bpDQ3qwKvfFxBy4T5R7kEfJmpcfuM",
-    authDomain: "appsono-157c2.firebaseapp.com",
-    databaseURL: "https://appsono-157c2-default-rtdb.firebaseio.com",
-    projectId: "appsono-157c2",
-    storageBucket: "appsono-157c2.appspot.com",
-    messagingSenderId: "220391668930",
-    appId: "1:220391668930:web:ebd56be8de039df0278f5b"
+export const config = {
+apiKey: process.env.REACT_APP_API_KEY,
+authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+databaseURL: process.env.REACT_APP_DATABASE_URL,
+projectId:  process.env.REACT_APP_PROJECT_ID,
+storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+appId: process.env.REACT_APP_ID
 }
 
 firebase.initializeApp(config)
 
 export const auth= firebase.auth();
+export const user= firebase.auth().currentUser;
 export const firestore= firebase.firestore();
 
 export async function loginUser (email: any, password: any) {
 
    try{
        const res= await firebase.auth().signInWithEmailAndPassword(email, password);
+       
        return true
     }
     catch(error){
@@ -33,6 +35,7 @@ export async function loginUser (email: any, password: any) {
     }
 
 };
+
 
 export async function logoutUser(){
     try{

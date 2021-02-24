@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
-import './Modes.css';
+import '../pages/recomendacoes/Modes.css';
 
-import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel, IonInfiniteScroll} from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel, IonInfiniteScroll, IonText, IonButton} from '@ionic/react';
 
 import social_distancing from '../../src/img/social_distancing.svg';
 import distancing from '../../src/img/distancing.svg';
 import isolation from '../../src/img/isolation.svg';
 import quarantine from '../../src/img/quarantine.svg';
+
+
+
+
 
 const slideOpts = {
     initialSlide: 0,
@@ -17,11 +21,14 @@ const slideOpts = {
 
 const ExplanationSlides: React.FC = () => {
 
+    
+
     return (
         <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Medidas</IonTitle>
+         
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-text-center">

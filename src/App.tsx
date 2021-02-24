@@ -1,5 +1,5 @@
-import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React, {useContext, useEffect} from 'react';
+import { Redirect, Route, useHistory } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
@@ -7,13 +7,13 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs, IonLoading
+  IonTabs, IonLoading, IonToast
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Home';
 
-import Tab3 from './pages/Recommendation';
+import Tab3 from './pages/recomendacoes/Recommendation';
 
 import {home, bed, person} from  'ionicons/icons';
 import {useState, ChangeEvent} from 'react';
@@ -37,7 +37,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import Main from './pages/Main';
+import Main from './pages/formulario/Main';
 
 /*ExplanationSlides*/
 
@@ -49,29 +49,86 @@ import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 
 /*Módulos recomendações*/
-import Mode1 from './pages/Mode1';
-import Mode2 from './pages/Mode2';
-import Mode3 from './pages/Mode3';
+import Mode1 from './pages/recomendacoes/Mode1';
+import Mode2 from './pages/recomendacoes/Mode2';
+import Mode3 from './pages/recomendacoes/Mode3';
 
 /*auth */
 
-import {useAuthInit, AuthContext} from './firebaseConfig/auth';
+import {config} from './firebaseConfig/firebaseConfig';
+import { FirebaseAppProvider, AuthCheck } from "reactfire";
+import {Suspense} from "react";
 
+const PublicRoutes: React.FC = () => {
 
+  return(
+    <IonRouterOutlet>
+      <Route path="/login" component={Login} exact={true}/>
+      <Route path="/cadastro" component={Cadastro} exact={true}/>
+      <Redirect exact path="/" to="/login"/>
+      
+    </IonRouterOutlet>
+  )
+};
 
+const PrivateRoutes: React.FC = () => {
+
+  return(
+    <IonTabs>
+        <IonRouterOutlet>
+        
+
+          <Route path="/tab1" component={Tab1} exact={true} />
+          <Route path="/tab2" component={Main} exact={true} />
+          <Route path="/tab3" component={Tab3} />
+          <Route path="/explanationslides" component={ExplanationSlides}/>
+          <Route path="/mode1" component={Mode1}/>
+          <Route path="/mode2" component={Mode2}/>
+          <Route path="/mode3" component={Mode3}/>
+         
+          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+        </IonRouterOutlet>
+        
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="tab1" href="/tab1">
+            <IonIcon icon={home} />
+            <IonLabel>Início</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab2" href="/tab2">
+            <IonIcon icon={bed} />
+            <IonLabel>Formulário</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tab3">
+            <IonIcon icon={person} />
+            <IonLabel>Recomendações</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
+  )
+};
 
 const App: React.FC = () => {
 
-  const {loading, auth}= useAuthInit();
+    return (
+      <FirebaseAppProvider firebaseConfig={config}>
+        <IonApp>
+          <IonReactRouter>
+            <Suspense fallback={<IonLoading isOpen={true} />}>
+              <AuthCheck fallback={<PublicRoutes/>}>
+                <PublicRoutes/>
+                <PrivateRoutes/>
+              </AuthCheck>
+            </Suspense>
+          </IonReactRouter>
+        </IonApp>
+      </FirebaseAppProvider>
+    );
+};
+export default App;
 
-  if (loading) {
-    return <IonLoading isOpen translucent />;
-  }
-  if (auth) {
-    console.log("logou", auth);
-  }
+/*
 
-  return (
+const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
     <IonRouterOutlet>
@@ -90,7 +147,7 @@ const App: React.FC = () => {
           <Route path="/mode2" component={Mode2}/>
           <Route path="/mode3" component={Mode3}/>
          
-          <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
+          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         
         <IonTabBar slot="bottom">
@@ -113,10 +170,8 @@ const App: React.FC = () => {
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-  )
-  };
+);
 
-export default App; 
-
+export default App; */
 
 

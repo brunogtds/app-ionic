@@ -7,13 +7,13 @@ import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel} from '@ionic/re
 
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 
-import news from '../img/news.svg';
-import relaxing_body from '../img/relaxing_body.svg';
-import recreation from '../img/recreation.svg';
-import physical_activities from '../img/physical_activities.svg';
-import posture from '../img/posture.svg';
-import oral_hygiene from '../img/oral_hygiene.svg';
-import healthy_food from '../img/healthy_food.svg';
+import news from '../../img/news.svg';
+import relaxing_body from '../../img/relaxing_body.svg';
+import recreation from '../../img/recreation.svg';
+import physical_activities from '../../img/physical_activities.svg';
+import posture from '../../img/posture.svg';
+import oral_hygiene from '../../img/oral_hygiene.svg';
+import healthy_food from '../../img/healthy_food.svg';
 
 const slideOpts = {
   initialSlide: 0,
