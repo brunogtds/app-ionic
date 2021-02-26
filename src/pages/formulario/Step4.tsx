@@ -70,25 +70,35 @@ const Step4 = (props: StepComponentProps) => {
 
             <IonItem>
                 <IonLabel>Fiz plantão noturno.</IonLabel>
-                <IonRadioGroup>
+                <Controller render={({onChange}) => (
+                <IonRadioGroup  onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value);
+                    if (e.detail.value != undefined) 
+                    props.setState('nightShift', e.detail.value )  }}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup>
+                </IonRadioGroup>  )}
+                             control={control}
+                             name={"nightShif"}
+                             />
             </IonItem>
 
             <IonItem>
                 <IonLabel>Trabalhei/estudei _ dias por semana.</IonLabel>
                 <Controller render={({onChange}) => ( 
-                            <IonSelect placeholder="Por favor, selecione..." value={nDiasTrabalhoSemana} onIonChange={e => setNDiasTrabalhoSemana(e.detail.value)}>
+                            <IonSelect placeholder="Por favor, selecione..." value={nDiasTrabalhoSemana} onIonChange={(e) => {setNDiasTrabalhoSemana(e.detail.value);
+                                if (e.detail.value != undefined) 
+                                props.setState('workDaysN', e.detail.value )  }}>
                                     <IonSelectOption value="0">0</IonSelectOption>
                                     <IonSelectOption value="1">1</IonSelectOption>
                                     <IonSelectOption value="2">2</IonSelectOption>
@@ -103,7 +113,7 @@ const Step4 = (props: StepComponentProps) => {
                             )}
 
                             control={control}
-                            name="sexo"
+                            name="workDaysN"
                             rules={{required: true}}
         
                             />    
@@ -120,7 +130,9 @@ const Step4 = (props: StepComponentProps) => {
                     <Controller render={({onChange}) => (
                      <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}></IonDatetime> )} control={control} name={"horárioSonoSemTrabalho"}/>
+                    onChange(e.detail.value);
+                    if (e.detail.value != undefined) 
+                    props.setState('sleepWD', e.detail.value )  }}></IonDatetime> )} control={control} name={"sleepWD"}/>
                 </IonItem>
                 
                 <IonItem>
@@ -128,7 +140,9 @@ const Step4 = (props: StepComponentProps) => {
                     <Controller render={({onChange}) => (
                      <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}></IonDatetime> )} control={control} name={"horárioAcordouSemTrabalho"}/>
+                    onChange(e.detail.value);
+                    if (e.detail.value != undefined) 
+                    props.setState('wakeUpWD', e.detail.value )  }}></IonDatetime> )} control={control} name={"wakeUpWD"}/>
                 </IonItem>
                
                
@@ -137,19 +151,21 @@ const Step4 = (props: StepComponentProps) => {
                         <Controller render={({onChange})=> (
                         <IonRadioGroup onIonChange={(e)=> {
                             console.log(e);
-                            onChange(e.detail.value) }}>
+                            onChange(e.detail.value);
+                            if (e.detail.value != undefined) 
+                            props.setState('alarmWD', e.detail.value ) }}>
 
                                         <IonItem>
                                         <IonLabel>Sim</IonLabel>
-                                        <IonRadio color="primary"></IonRadio>
+                                        <IonRadio color="primary" value="sim"></IonRadio>
                                         </IonItem>
                                     
                                         <IonItem>
                                         <IonLabel>Não</IonLabel>
-                                        <IonRadio color="primary"></IonRadio>
+                                        <IonRadio color="primary" value="não"></IonRadio>
                                         </IonItem>
                                     
-                        </IonRadioGroup> )} control={control} name={"usouDespertador"}/>
+                        </IonRadioGroup> )} control={control} name={"alarmWD"}/>
             </IonItem>
                 
             </IonList> :null} 
@@ -164,7 +180,9 @@ const Step4 = (props: StepComponentProps) => {
                     <Controller render={({onChange}) => (
                      <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}></IonDatetime> )} control={control} name={"horárioSonoTrabalho"}/>
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) 
+                    props.setState('sleepOnWork', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepOnWork"}/>
                 </IonItem>
 
                 <IonItem>
@@ -172,7 +190,9 @@ const Step4 = (props: StepComponentProps) => {
                     <Controller render={({onChange}) => (
                      <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}></IonDatetime> )} control={control} name={"horárioAcordeiTrabalho"}/>
+                    onChange(e.detail.value);
+                    if (e.detail.value != undefined) 
+                    props.setState('wakeUpOnWork', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpOnWork"}/>
                 </IonItem>
 
                 <IonItem>
@@ -181,19 +201,21 @@ const Step4 = (props: StepComponentProps) => {
                         <Controller render={({onChange})=> (
                         <IonRadioGroup onIonChange={(e)=> {
                             console.log(e);
-                            onChange(e.detail.value) }}>
+                            onChange(e.detail.value);
+                            if (e.detail.value != undefined) 
+                            props.setState('alarmOnWork', e.detail.value ) }}>
 
                                         <IonItem>
                                         <IonLabel>Sim</IonLabel>
-                                        <IonRadio color="primary"></IonRadio>
+                                        <IonRadio color="primary" value="sim"></IonRadio>
                                         </IonItem>
                                     
                                         <IonItem>
                                         <IonLabel>Não</IonLabel>
-                                        <IonRadio color="primary"></IonRadio>
+                                        <IonRadio color="primary" value="não"></IonRadio>
                                         </IonItem>
                                     
-                        </IonRadioGroup> )} control={control} name={"usouDespertadorTrabalho"}/>
+                        </IonRadioGroup> )} control={control} name={"alarmOnWork"}/>
                 </IonItem>
 
             </IonList> :null}
@@ -204,7 +226,9 @@ const Step4 = (props: StepComponentProps) => {
                 <Controller render={({onChange}) => (
                 <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}></IonDatetime> )} control={control} name={"horárioSonoDiasLivres"}/>
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) 
+                    props.setState('sleepFD', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepFD"}/>
             </IonItem>
 
             <IonItem>
@@ -212,7 +236,9 @@ const Step4 = (props: StepComponentProps) => {
                 <Controller render={({onChange}) => (
                 <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}></IonDatetime> )} control={control} name={"horárioAcordouDiasLivres"}/>
+                    onChange(e.detail.value);
+                    if (e.detail.value != undefined) 
+                    props.setState('wakeUpFD', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpFD"}/>
             </IonItem>
 
             <IonItem>
@@ -221,19 +247,21 @@ const Step4 = (props: StepComponentProps) => {
                 <Controller render={({onChange})=> (
                 <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}>
+                    onChange(e.detail.value);
+                    if (e.detail.value != undefined) 
+                    props.setState('alarmFD', e.detail.value ) }}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name={"usouDespertadorDiasLivres"}/>
+                </IonRadioGroup> )} control={control} name={"alarmFD"}/>
             </IonItem>
 
 

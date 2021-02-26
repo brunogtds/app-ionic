@@ -41,3 +41,11 @@ ion-label {
  #header-items{
   float: right;
 }
+
+
+.ion-text-center{ 
+
+  text-align: center;
+  margin-top: 50px;
+
+}

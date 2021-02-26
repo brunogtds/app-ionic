@@ -69,7 +69,7 @@ import { IonApp,
         <IonContent fullscreen>
            
                 <Steps>
-                <Step component={Step1} /> 
+               <Step component={Step1} /> 
                 <Step component={Step2} /> 
                 <Step component= {Step3}/>
                 <Step component= {Step4}/>
@@ -77,7 +77,7 @@ import { IonApp,
                 <Step component= {Step6}/>
                 <Step component= {Step7}/>
                 <Step component= {Step8}/>
-                <Step component= {Step9}/>
+                <Step component= {Step9}/> 
                 <Step component= {Step10}/>
                 
                 </Steps>

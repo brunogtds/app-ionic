@@ -14,6 +14,7 @@ import distanciamentoExp from '../../src/img/distanciamentoExp.png';
 import thinking from '../../src/img/thinking.png';
 import {useState, ChangeEvent} from 'react';
 import { toast } from '../toast';
+import {useHistory} from 'react-router';
 
 import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
@@ -24,6 +25,7 @@ const Cadastro: React.FC = () => {
     const [csenha, setCSenha] = useState();
 
     const [loader, setLoader]= useState<boolean>(false)
+    const history= useHistory();
   
    async function Cadastro(){
   
@@ -45,6 +47,7 @@ const Cadastro: React.FC = () => {
 
       if (res){
         toast('Cadastro feito com sucesso')
+        history.replace('/tab1');
         setLoader(false)
       }
 

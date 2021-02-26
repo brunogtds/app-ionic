@@ -176,34 +176,39 @@ const Step5 = (props: StepComponentProps) => {
             </IonItem>            */}
 
 
+                <IonList>
                 <IonLabel>Sentir-se nervoso, ansioso ou no limite.</IonLabel>
                  <IonItem>
 
-                             
+                 <Controller render={({onChange}) => (
 
-                             <IonRadioGroup>
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('gad7_gad01', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad01"}/>
                     </IonItem>
 
                     <IonLabel>Não ser capaz de parar ou controlar as preocupações.</IonLabel>
@@ -212,29 +217,35 @@ const Step5 = (props: StepComponentProps) => {
 
                              
 
-                             <IonRadioGroup>
+                             <Controller render={({onChange}) => (
+
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('gad7_gad02', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad02"}/>
                     </IonItem>
 
                     <IonLabel>Preocupar-se muito com coisas diferentes.</IonLabel>
@@ -242,29 +253,35 @@ const Step5 = (props: StepComponentProps) => {
 
                              
 
-                             <IonRadioGroup>
+                            <Controller render={({onChange}) => (
+
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('gad7_gad03', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad03"}/>
                     </IonItem>
 
                     <IonLabel>Dificuldade de relaxar.</IonLabel>
@@ -272,59 +289,73 @@ const Step5 = (props: StepComponentProps) => {
 
                             
 
-                             <IonRadioGroup>
+                            <Controller render={({onChange}) => (
+
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('gad7_gad04', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad04"}/>
                     </IonItem>
 
                     <IonLabel>Ser tão inquieto que é difícil ficar parado.</IonLabel>
                      <IonItem>
+                     
+                        <Controller render={({onChange}) => (
 
-                            
-
-                             <IonRadioGroup>
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('gad7_gad05', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad05"}/>
+                            
+
+                                                        
+
                     </IonItem>
 
 
@@ -333,61 +364,72 @@ const Step5 = (props: StepComponentProps) => {
 
                              
 
-                             <IonRadioGroup>
+                            <Controller render={({onChange}) => (
+
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('gad7_gad06', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad06"}/>
                     </IonItem>
 
                     <IonLabel>Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
                      <IonItem>
 
-                             
+                             <Controller render={({onChange}) => (
 
-                             <IonRadioGroup>
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('gad7_gad07', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
-                    </IonItem>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad07"}/>
 
+                    </IonItem>
+                    </IonList>
 
 
 

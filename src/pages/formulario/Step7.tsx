@@ -62,29 +62,31 @@ const Step7 = (props: StepComponentProps) => {
                 <Controller render={({onChange}) => (
                 <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
-                    onChange(e.detail.value) }}>
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php01', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="nenhum dia"></IonRadio>
+                                <IonRadio color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="menos de uma semana"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
+                                <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name="1Question"/>
+                </IonRadioGroup> )} control={control} name='php01'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
@@ -93,31 +95,33 @@ const Step7 = (props: StepComponentProps) => {
  
             
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php02', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="2Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php02'/>
             </IonItem>
 
 
@@ -126,31 +130,33 @@ const Step7 = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php03', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="3Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php03'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
@@ -158,31 +164,33 @@ const Step7 = (props: StepComponentProps) => {
 
            
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php04', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="4Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php04'/>
             </IonItem>
                 
             <IonLabel> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
@@ -190,31 +198,33 @@ const Step7 = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php05', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="5Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php05'/>
             </IonItem>
                 
             <IonLabel> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
@@ -222,31 +232,33 @@ const Step7 = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php06', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="6Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php06'/>
             </IonItem>
 
             <IonLabel> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
@@ -254,31 +266,33 @@ const Step7 = (props: StepComponentProps) => {
 
            
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php07', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="7Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php07'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
@@ -286,31 +300,33 @@ const Step7 = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php08', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="8Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php08'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
@@ -318,31 +334,33 @@ const Step7 = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php09', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhum dia</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Menos de uma semana</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Uma semana ou mais</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Quase todos os dias</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="9Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php09'/>
             </IonItem>
 
 
@@ -351,31 +369,33 @@ const Step7 = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-            <IonRadioGroup onIonChange={(e)=> {
-                console.log(e);
-                onChange(e.detail.value) }}>
+           <IonRadioGroup onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) {
+                    props.setState('php10', e.detail.value )}}}>
 
-                            <IonItem>
-                            <IonLabel>Nenhuma dificuldade</IonLabel>
-                            <IonRadio color="primary" value="nenhum dia"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Pouca dificuldade</IonLabel>
-                            <IonRadio color="primary" value="menos de uma semana"></IonRadio>
-                            </IonItem>
+                                <IonItem>
+                                <IonLabel>Nenhum dia</IonLabel>
+                                <IonRadio color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Menos de uma semana</IonLabel>
+                                <IonRadio color="primary" value="1"></IonRadio>
+                                </IonItem>
 
-                            <IonItem>
-                            <IonLabel>Muita dificuldade</IonLabel>
-                            <IonRadio color="primary" value="uma semana ou mais"></IonRadio>
-                            </IonItem>
-                        
-                            <IonItem>
-                            <IonLabel>Extrema dificuldade</IonLabel>
-                            <IonRadio color="primary" value= "quase todos os dias"></IonRadio>
-                            </IonItem>
-                        
-            </IonRadioGroup> )} control={control} name="10Question"/>
+                                <IonItem>
+                                <IonLabel>Uma semana ou mais</IonLabel>
+                                <IonRadio color="primary" value="2"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Quase todos os dias</IonLabel>
+                                <IonRadio color="primary" value= "3"></IonRadio>
+                                </IonItem>
+                               
+                </IonRadioGroup> )} control={control} name='php10'/>
             </IonItem>
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>

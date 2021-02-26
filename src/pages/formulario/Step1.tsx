@@ -63,7 +63,7 @@ const Step1 = (props: StepComponentProps) => {
         }
      }
     
-    function updateUserDataQuest1(dataUser: any){
+   /* function updateUserDataQuest1(dataUser: any){
        
         if(user){
             firebase.firestore().collection('users').doc(user.uid).set({
@@ -83,7 +83,7 @@ const Step1 = (props: StepComponentProps) => {
             }, {merge: true})
         }
     
-    }
+    } */
     
   
     if (user){
@@ -91,13 +91,13 @@ const Step1 = (props: StepComponentProps) => {
     }
 
  
-
+/*
   const onSubmit = (data: any) => {
    
      // console.log(JSON.stringify(dataUser, null, 2));
       setData(dataUser);
       updateUserDataQuest1(dataUser);
-  }
+  } */
                                           
   const {control, watch, handleSubmit} = useForm();
 
@@ -138,7 +138,7 @@ const Step1 = (props: StepComponentProps) => {
         <IonContent fullscreen>
         <div>
         
-                <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
+                <form className="ion-padding">
 
                         <IonProgressBar value={0.1} buffer={0.1}></IonProgressBar>
 
@@ -519,7 +519,7 @@ const Step1 = (props: StepComponentProps) => {
                          </IonItem>
                          <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
                          <IonButton onClick={props.next} className={"btnProximo"} size="large" >Próximo</IonButton>
-                         <IonButton onClick={onSubmit}>Submeter</IonButton>
+                        
                          
                 </form>
            

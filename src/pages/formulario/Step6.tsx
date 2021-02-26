@@ -156,199 +156,219 @@ const Step6 = (props: StepComponentProps) => {
             <IonItem>
 
 
-
-                             <IonRadioGroup>
+                            <Controller render={({onChange}) => (
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('who5_SQ001', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"who5_SQ001"}/>
                     </IonItem>
                     <IonLabel className={"ion-text-wrapper"}>... me senti calmo e relaxado</IonLabel>
                     <IonItem>
 
                             
-
-                             <IonRadioGroup>
+                    <Controller render={({onChange}) => (
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('who5_SQ002', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"who5_SQ002"}/>
                     </IonItem>
 
                     <IonLabel className={"ion-text-wrapper"}>... me senti disposto e renovado ao acordar</IonLabel>
                     <IonItem>
 
                              
-
-                             <IonRadioGroup>
+                    <Controller render={({onChange}) => (
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('who5_SQ003', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"who5_SQ003"}/>
                     </IonItem>
 
                     <IonLabel className={"ion-text-wrapper"}>... me senti cheio de energia e ativo</IonLabel>
                     <IonItem>
 
                             
-
-                             <IonRadioGroup>
+                    <Controller render={({onChange}) => (
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('who5_SQ004', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"who5_SQ004"}/>
                     </IonItem>
 
                     <IonLabel className={"ion-text-wrapper"}>... o meu dia foi cheio de coisas que interessavam</IonLabel>
                     <IonItem>
 
                              
-
-                             <IonRadioGroup>
+                    <Controller render={({onChange}) => (
+                             <IonRadioGroup onIonChange={(e)=> {
+                                console.log(e);
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('who5_SQ005', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary"></IonRadio>
+                                <IonRadio color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup>
+                            </IonRadioGroup> )} control={control} name={"who5_SQ005"}/>
                     </IonItem>
                     
                 
