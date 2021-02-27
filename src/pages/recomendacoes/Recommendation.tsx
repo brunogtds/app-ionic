@@ -15,6 +15,8 @@ import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
 
 import thinking from '../../img/thinking.png';
 
+/*Recomendações estão divididas em módulos linkados aqui */
+
 const Recommendation: React.FC = () => {
   return (
     <IonPage>

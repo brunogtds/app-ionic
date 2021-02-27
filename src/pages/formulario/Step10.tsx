@@ -1,28 +1,24 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { Steps, Step } from "react-step-builder";
+import {IonButton, } from "@ionic/react";
+import { IonContent, IonLoading } from '@ionic/react';
+import './Forms.css';
 
-import { IonLabel,IonButton, } from "@ionic/react";
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonLoading } from '@ionic/react';
+import { useForm} from "react-hook-form";
 
-  import './Forms.css';
+import {useState} from 'react';
 
-import { useForm, Controller } from "react-hook-form";
 
-import {useState, ChangeEvent} from 'react';
-import { setConstantValue } from "typescript";
+import { IonProgressBar} from '@ionic/react';
 
-import { IonProgressBar, IonItem} from '@ionic/react';
-
-import { object, string, number } from 'yup';
 import thinking from '../../img/thinking.png';
-
 import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
 import {toast} from '../../toast';
 
+/*STEP 10 => função updataUserDataQuest1 envia os dados após o onSubmit para a tabela no FireStore*/
 
 const Step10 = (props: StepComponentProps) => {
 
@@ -179,8 +175,6 @@ const Step10 = (props: StepComponentProps) => {
 }
 
 const onSubmit = (data: any) => {
-   
-  // console.log(JSON.stringify(dataUser, null, 2));
    setData(dataUser);
    updateUserDataQuest1(dataUser);
 }

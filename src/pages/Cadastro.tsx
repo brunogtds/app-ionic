@@ -3,16 +3,11 @@ import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolba
 
 import './Home.css';
 
-import { IonGrid, IonRow, IonCol, IonButton, IonItem } from '@ionic/react';
+import { IonButton} from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonToast, IonLoading} from '@ionic/react';
-
-import Tab1 from './Home';
-
-import distanciamentoExp from '../../src/img/distanciamentoExp.png';
-
+import { IonLoading} from '@ionic/react';
 import thinking from '../../src/img/thinking.png';
-import {useState, ChangeEvent} from 'react';
+import {useState} from 'react';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
@@ -29,15 +24,12 @@ const Cadastro: React.FC = () => {
   
    async function Cadastro(){
   
-      /*console.log("email:" + email, "senha:" + senha, "csenha:" + csenha);*/
-
       setLoader(true)
       if (senha !== csenha){
         return toast ('As senhas não são iguais')
         setLoader(false)
       }
 
-      //.trim()
       if (email === '' || senha === '' ) {
         return toast ('Email e senha são requeridos')
         setLoader(false)

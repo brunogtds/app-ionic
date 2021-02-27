@@ -1,25 +1,19 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, {useState } from 'react';
 import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import './Home.css';
 
-import { IonGrid, IonRow, IonCol, IonButton, IonItem } from '@ionic/react';
+import {IonButton} from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonLoading} from '@ionic/react';
+import {IonLoading} from '@ionic/react';
 
-import Tab1 from './Home';
-
-import distanciamentoExp from '../../src/img/distanciamentoExp.png';
 
 import thinking from '../../src/img/thinking.png';
 
-import {loginUser, user} from '../firebaseConfig/firebaseConfig';
+import {loginUser} from '../firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
-
-import  { Redirect} from 'react-router-dom' 
-import {auth} from '../firebaseConfig/firebaseConfig';
 
 
 const Login: React.FC = () => {
