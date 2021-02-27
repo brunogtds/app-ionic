@@ -1,45 +1,15 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { Steps, Step } from "react-step-builder";
-
-import { IonApp,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonRadioGroup,
-    IonListHeader,
-    IonRadio,
-    IonSelect,
-    IonSelectOption,
-    IonRange,
-    IonButton,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-    IonCheckbox,
-    IonList,
-    IonDatetime,
-    IonSlides,
-    IonSlide,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonItemDivider
-
-  
-    
-  } from "@ionic/react";
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-
-  import './Forms.css';
-
- import { useForm, Controller } from "react-hook-form";
+import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime} from "@ionic/react";
+import { IonContent} from '@ionic/react';
  
- import {useState, ChangeEvent} from 'react';
+import './Forms.css';
 
- import { IonProgressBar} from '@ionic/react';
-import { trainOutline, trashOutline } from "ionicons/icons";
+import { useForm, Controller } from "react-hook-form";
+import {useState} from 'react';
+
+import { IonProgressBar} from '@ionic/react';
 
 const Step3 = (props: StepComponentProps) => {
 
@@ -829,7 +799,7 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={"beck02"}/>
                          </IonItem>
 
-                        {/*
+                        {/* TABELA COM RADIOBUTTONS AO INVÉS DE ITEMS DE RADIOBUTTONS => Por enquanto comentada pela responsividade
 
                         <IonItem>
                         <IonLabel>Em relação a situação atual, em um nível de 1 (não me traz ansiedade) a 5 (me deixa muito ansioso), o quanto estas preocupações te deixam ansioso?</IonLabel>

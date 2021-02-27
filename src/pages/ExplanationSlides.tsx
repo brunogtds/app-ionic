@@ -10,9 +10,7 @@ import distancing from '../../src/img/distancing.svg';
 import isolation from '../../src/img/isolation.svg';
 import quarantine from '../../src/img/quarantine.svg';
 
-
-
-
+/*Imagem de explicação quarentena, distanciamento social e isolamento transformada em um pagina */
 
 const slideOpts = {
     initialSlide: 0,
@@ -20,8 +18,7 @@ const slideOpts = {
   };
 
 const ExplanationSlides: React.FC = () => {
-
-    
+  
 
     return (
         <IonPage>

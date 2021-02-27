@@ -1,31 +1,9 @@
-import React, {useState} from "react";
-import {StepComponentProps} from "react-step-builder";
+import React from "react";
+
 
 import { Steps, Step } from "react-step-builder";
 
-import { IonApp,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonRadioGroup,
-    IonListHeader,
-    IonRadio,
-    IonSelect,
-    IonSelectOption,
-    IonRange,
-    IonButton,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-    IonCheckbox,
-    IonList,
-    IonDatetime,
-    IonSlides,
-    IonSlide,
-  
-    
-  } from "@ionic/react";
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText, IonLoading } from '@ionic/react';
+  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 
 
 
@@ -41,14 +19,9 @@ import { IonApp,
   import Step8 from '../../pages/formulario/Step8';
   import Step9 from '../../pages/formulario/Step9';
   import Step10 from '../../pages/formulario/Step10';
-
-  import {AuthCheck} from 'reactfire';
-  import {useUser} from 'reactfire';
-
-  import  { useHistory } from 'react-router-dom';
-  import {logoutUser} from '../../firebaseConfig/firebaseConfig';
-  import {toast} from '../../toast';
   
+  /*React-multi-step form 
+  Cada página do formulário é um step no app*/
   
   function App() {
 

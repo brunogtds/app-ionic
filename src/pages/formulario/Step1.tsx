@@ -1,40 +1,14 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { Steps, Step } from "react-step-builder";
-
-
-import { IonApp,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonRadioGroup,
-    IonListHeader,
-    IonRadio,
-    IonSelect,
-    IonSelectOption,
-    IonRange,
-    IonButton,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-    IonCheckbox,
-    IonList,
-    IonDatetime,
-    IonSlides,
-    IonSlide,
-    IonNote,
-    IonItemDivider
-    
-  } from "@ionic/react";
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-
-  import './Forms.css';
+import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote } from "@ionic/react";
+import { IonContent} from '@ionic/react';
+import './Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
-import {useState, ChangeEvent} from 'react';
-import { setConstantValue } from "typescript";
+import {useState} from 'react';
+
 
 import { IonProgressBar} from '@ionic/react';
 
@@ -42,12 +16,9 @@ import { IonProgressBar} from '@ionic/react';
 
 import {useUser} from 'reactfire';
 import firebase from 'firebase';
-import { powerSharp } from "ionicons/icons";
 
-//imports firestore
-
-//import {createDatabaseQuest1, updateUserDataQuest1} from '../../firebaseConfig/firestoreConfig';
-
+/*STEP 1 => Página 1 do formulário
+Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
 const Step1 = (props: StepComponentProps) => {
 
@@ -62,76 +33,18 @@ const Step1 = (props: StepComponentProps) => {
                 email: user.email, }, { merge: true }); 
         }
      }
-    
-   /* function updateUserDataQuest1(dataUser: any){
-       
-        if(user){
-            firebase.firestore().collection('users').doc(user.uid).set({
-                age: Number(props.state.age),
-                sex: String(props.state.sex),
-                dateMenstruation: String(props.state.dateMenstruation),
-                weight: Number(props.state.weight),
-                height: Number(props.state.height),
-                BRstate: String(props.state.BRstate),
-                occupation: String(props.state.occupation),
-                currentOccupation: String(props.state.currentOccupation),
-                schooling: String(props.state.schooling),
-                married: String(props.state.married),
-                depend: Number(props.state.depend),
-                isolationComp: String(props.state.isolationComp),
-                area: String(props.state.area)
-            }, {merge: true})
-        }
-    
-    } */
-    
+   
+   
   
     if (user){
       createDatabaseQuest1();
     }
-
- 
-/*
-  const onSubmit = (data: any) => {
-   
-     // console.log(JSON.stringify(dataUser, null, 2));
-      setData(dataUser);
-      updateUserDataQuest1(dataUser);
-  } */
-                                          
+                                  
   const {control, watch, handleSubmit} = useForm();
-
-  /*
-  const [data, setData]= useState();
-
-  if (user){
-    console.log('creating user data');
-    createUserData();
-  } 
-
-
-  const onSubmit = (data: any) => {console.log(data);
-    console.log(JSON.stringify(data, null, 2)); setData(data);
-    updateUserData(data);
-    } */
-
-  
-/*
-  const submitForm = (data: any) => {
-    console.log('submiting to database', data);
-  } */
 
   const [showOptions, setShowOptions] = React.useState(false);
 
   const watchGender= watch("sex", "");
-  
-/*
- const onChange = ((e: React.ChangeEvent<HTMLIonSelectElement>) : void => {
-    const value = e.currentTarget.value;
-    value.props.handleChange;
-      
-    }) */
-
     
 
     return (
@@ -142,44 +55,20 @@ const Step1 = (props: StepComponentProps) => {
 
                         <IonProgressBar value={0.1} buffer={0.1}></IonProgressBar>
 
-                        {/*
-                        <IonItem>
-                            <IonLabel position="floating">Email:</IonLabel>
-                            
-                            <Controller  render={({onChange}) => (
-                               <IonInput type="email" id="email" onIonChange={(e) => {
-                                console.log(e);
-                                onChange(e.detail.value)
-                            }} />    
-                                
-                            )}          
-                            
-                            name= "email"
-                            rules= {{required:true}}
-                            control= {control} />
-                            
-                        </IonItem> */}
-
                          <IonItem>
                             <IonLabel position="floating">Idade:</IonLabel>
                             
                             <Controller render={({onChange}) => (
                                 <IonInput type="number" value= {props.getState("age", "")} onIonChange={
                                     (e)=> {
-                                    
-                                    //if (e.detail.value != undefined) onChange(props.handleChange);
                                     console.log(e);
-                                    //console.log("props:" + props.state);
-                                    
                                     onChange(e.detail.value);
-                                    //const value = e.detail.value;
                                     if (e.detail.value != undefined) 
                                     props.setState('age', e.detail.value ); }}
                                         
                                     />
                             )}
                             name= "age"
-                            //onChange={props.handleChange}
                             rules= {{required: true}}
                             control= {control}            
                             />

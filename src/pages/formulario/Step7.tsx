@@ -1,43 +1,16 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { Steps, Step } from "react-step-builder";
+import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
+import { IonContent} from '@ionic/react';
 
-import { IonApp,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonRadioGroup,
-    IonListHeader,
-    IonRadio,
-    IonSelect,
-    IonSelectOption,
-    IonRange,
-    IonButton,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-    IonCheckbox,
-    IonList,
-    IonDatetime,
-    IonSlides,
-    IonSlide,
-    IonNote,
-    IonItemDivider
-    
-  } from "@ionic/react";
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-
-  import './Forms.css';
+import './Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
-import {useState, ChangeEvent} from 'react';
-import { setConstantValue } from "typescript";
-
 import { IonProgressBar} from '@ionic/react';
 
-import { object, string, number } from 'yup';
+
 
 const Step7 = (props: StepComponentProps) => {
 

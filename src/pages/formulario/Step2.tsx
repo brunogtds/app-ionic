@@ -1,47 +1,20 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { IonApp,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonRadioGroup,
-    IonListHeader,
-    IonRadio,
-    IonSelect,
-    IonSelectOption,
-    IonRange,
-    IonButton,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-    IonCheckbox,
-    IonList,
-    IonDatetime,
-    IonSlides,
-    IonSlide,
-    IonTextarea,
-  
-  
-    
-  } from "@ionic/react";
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonTextarea} from "@ionic/react";
+import { IonContent} from '@ionic/react';
+ 
+import './Forms.css';
 
+import { useForm, Controller } from "react-hook-form";
+import {useState} from 'react';
 
-  import {checkmark, close } from  'ionicons/icons';
-  import './Forms.css';
-
-  import { useForm, Controller } from "react-hook-form";
-  import {useState, ChangeEvent} from 'react';
-
-  import { IonProgressBar} from '@ionic/react';
+import { IonProgressBar} from '@ionic/react';
 
 
 const Step2 = (props: StepComponentProps) => {
 
-    const {control, watch, handleSubmit} = useForm();
-
-   {/* const watchGender= watch("sexo", ""); */}
+   const {control, watch, handleSubmit} = useForm();
 
    const [showOptions, setShowOptions] = React.useState(false);
 

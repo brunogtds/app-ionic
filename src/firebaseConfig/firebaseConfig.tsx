@@ -4,7 +4,7 @@ import { toast } from '../toast';
 import "firebase/auth";
 import "firebase/firestore";
 
-
+/*Credenciais do Firebase vão num arquivo .env.local e .gitignore */
 
 export const config = {
 apiKey: process.env.REACT_APP_API_KEY,
@@ -21,6 +21,8 @@ firebase.initializeApp(config)
 export const auth= firebase.auth();
 export const user= firebase.auth().currentUser;
 export const firestore= firebase.firestore();
+
+/*Funções Login, Cadastro e Logout */
 
 export async function loginUser (email: any, password: any) {
 
