@@ -5,7 +5,7 @@ import {StepComponentProps} from "react-step-builder";
 import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime} from "@ionic/react";
 import { IonContent, IonRow, IonCol } from '@ionic/react';
 
-import './Forms.css';
+import '../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -97,7 +97,7 @@ const Step4 = (props: StepComponentProps) => {
 
             {/*DIAS DE TRABALHO ->0 */}
 
-            {nDiasTrabalhoSemana == "0" ?
+            {nDiasTrabalhoSemana === "0" ?
             <IonList>
                 
                 <IonItem>

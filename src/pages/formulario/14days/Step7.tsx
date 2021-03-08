@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import './Forms.css';
+import '../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -37,7 +37,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php01', e.detail.value )}}}>
+                    props.setState('phq01', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -59,7 +59,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php01'/>
+                </IonRadioGroup> )} control={control} name='phq01'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
@@ -72,7 +72,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php02', e.detail.value )}}}>
+                    props.setState('phq02', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -94,7 +94,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php02'/>
+                </IonRadioGroup> )} control={control} name='phq02'/>
             </IonItem>
 
 
@@ -107,7 +107,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php03', e.detail.value )}}}>
+                    props.setState('phq03', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -129,7 +129,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php03'/>
+                </IonRadioGroup> )} control={control} name='phq03'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
@@ -141,7 +141,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php04', e.detail.value )}}}>
+                    props.setState('phq04', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -163,7 +163,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php04'/>
+                </IonRadioGroup> )} control={control} name='phq04'/>
             </IonItem>
                 
             <IonLabel> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
@@ -175,7 +175,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php05', e.detail.value )}}}>
+                    props.setState('phq05', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -197,7 +197,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php05'/>
+                </IonRadioGroup> )} control={control} name='phq05'/>
             </IonItem>
                 
             <IonLabel> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
@@ -209,7 +209,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php06', e.detail.value )}}}>
+                    props.setState('phq06', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -231,7 +231,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php06'/>
+                </IonRadioGroup> )} control={control} name='phq06'/>
             </IonItem>
 
             <IonLabel> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
@@ -243,7 +243,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php07', e.detail.value )}}}>
+                    props.setState('phq07', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -265,7 +265,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php07'/>
+                </IonRadioGroup> )} control={control} name='phq07'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
@@ -277,7 +277,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php08', e.detail.value )}}}>
+                    props.setState('phq08', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -299,7 +299,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php08'/>
+                </IonRadioGroup> )} control={control} name='phq08'/>
             </IonItem>
 
             <IonLabel>Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
@@ -311,7 +311,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php09', e.detail.value )}}}>
+                    props.setState('phq09', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -333,7 +333,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php09'/>
+                </IonRadioGroup> )} control={control} name='phq09'/>
             </IonItem>
 
 
@@ -346,7 +346,7 @@ const Step7 = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
-                    props.setState('php10', e.detail.value )}}}>
+                    props.setState('phq10', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
@@ -368,7 +368,7 @@ const Step7 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
-                </IonRadioGroup> )} control={control} name='php10'/>
+                </IonRadioGroup> )} control={control} name='phq10'/>
             </IonItem>
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>

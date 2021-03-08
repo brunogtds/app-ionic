@@ -1,5 +1,5 @@
 import React, {useState } from 'react';
-import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
 
 import './Home.css';
 
@@ -14,18 +14,23 @@ import {loginUser} from '../firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
-
+import {eye} from  'ionicons/icons';
 
 const Login: React.FC = () => {
 
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
+  const [showSenha, setShowSenha]= useState(false);
 
   const [error, setError]= useState();
 
   const [loader, setLoader]= useState<boolean>(false)
 
   const history= useHistory();
+
+  const passwordVisibility = () => {
+    setShowSenha(showSenha ? false: true)
+  }
    
   async function Login(){
 
@@ -74,16 +79,25 @@ const Login: React.FC = () => {
       
       <div>
       
-      <IonLabel>Senha</IonLabel>
-      <IonInput type="password" placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}/>
+      <IonLabel>Senha</IonLabel> 
+      <IonInput type={showSenha ? "text" : "password"} placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}> <IonIcon onClick={passwordVisibility} icon={eye} slot="end"></IonIcon></IonInput> 
+     
+      
+      
       
       </div>
+
+      
 
       <div>
       
       <IonButton onClick={Login} size="large">Login</IonButton>
       <IonButton size="large" href="/Cadastro">Cadastro</IonButton>
       
+      </div>
+
+      <div>
+        Esqueceu a senha? Clique aqui.
       </div>
       </div>
       </div>

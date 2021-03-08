@@ -57,14 +57,15 @@ const Tab1: React.FC = () => {
           <IonTitle>Início</IonTitle>
             <div id="header-items">
               <AuthCheck fallback={<IonText>Bem vindo!</IonText>}><IonText>Bem vindo {user.email}!</IonText></AuthCheck>
-              <IonButton onClick={Logout}>Sair</IonButton>
+             
             </div>
           
         </IonToolbar>
+        <IonButton onClick={Logout} className={"logout-button"}>Sair</IonButton>
        
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-      <IonContent fullscreen className="ion-text-center ion-padding">
+      <IonContent fullscreen className="ion-text-center">
 
         <IonGrid>
 
@@ -78,7 +79,7 @@ const Tab1: React.FC = () => {
         <IonItem>
     
        
-        <div className="ion-text-justify">
+        <div className="ion-text-wrap">
         
 
         <p>Caro participante, </p>
@@ -95,17 +96,7 @@ const Tab1: React.FC = () => {
         </div>
         
         </IonItem>
-        <IonItemDivider>
-        <IonItem>
-          <div>
-          <p>Equipe do estudo <b>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</b></p>
-          <p>Laboratório de Cronobiologia e Sono - HCPA/ UFRGS</p>
-          <p>Laboratório de Neurofisiologia e Neuroquímica da Excitabilidade Neuronal e Plasticidade Sináptica - UFRGS</p>
-          <p>Laboratório de Neurobiologia da Pineal - UNIFESP</p>
-          </div>
-        </IonItem>
-        </IonItemDivider>
-
+        
         <IonItem>
         <div className={"ion-text-justify red-text"}>
           <p><b><span className={"red-text"}>Antes de começarmos, você sabe o que é distanciamento social? Confira a explicação <a href={"/ExplanationSlides"}>aqui</a> e depois clique na aba "Formulário" para iniciar a pesquisa.</span></b></p>

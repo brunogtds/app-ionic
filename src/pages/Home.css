@@ -116,3 +116,13 @@
 #header-items{
   float: right;
 }
+
+.logout-button{
+  float: right;
+  
+}
+
+ion-icon:hover{
+  color:green;
+ 
+}

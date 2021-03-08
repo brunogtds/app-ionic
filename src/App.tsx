@@ -15,7 +15,7 @@ import Tab1 from './pages/Home';
 
 import Tab3 from './pages/recomendacoes/Recommendation';
 
-import {home, bed, person} from  'ionicons/icons';
+import {home, bed, person, informationCircle} from  'ionicons/icons';
 import {useState, ChangeEvent} from 'react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -37,7 +37,10 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+//import Main from './pages/formulario/14days/Main14Days';
 import Main from './pages/formulario/Main';
+import Main14Days from './pages/formulario/14days/Main14Days';
+import Main14DaysP2 from './pages/formulario/14daysP2/Main14DaysP2';
 
 /*ExplanationSlides*/
 
@@ -52,6 +55,9 @@ import Cadastro from './pages/Cadastro';
 import Mode1 from './pages/recomendacoes/Mode1';
 import Mode2 from './pages/recomendacoes/Mode2';
 import Mode3 from './pages/recomendacoes/Mode3';
+
+/*Sobre */
+import Sobre from './pages/Sobre';
 
 /*auth */
 
@@ -80,11 +86,14 @@ const PrivateRoutes: React.FC = () => {
 
           <Route path="/tab1" component={Tab1} exact={true} />
           <Route path="/tab2" component={Main} exact={true} />
+          <Route path="/main14days" component={Main14Days} exact={true}/>
+          <Route path="/main14daysP2" component={Main14DaysP2} exact={true}/>
           <Route path="/tab3" component={Tab3} />
           <Route path="/explanationslides" component={ExplanationSlides}/>
           <Route path="/mode1" component={Mode1}/>
           <Route path="/mode2" component={Mode2}/>
           <Route path="/mode3" component={Mode3}/>
+          <Route path="/sobre" component={Sobre}/>
          
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
@@ -96,11 +105,15 @@ const PrivateRoutes: React.FC = () => {
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={bed} />
-            <IonLabel>Formulário</IonLabel>
+            <IonLabel>Formulários</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={person} />
             <IonLabel>Recomendações</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="sobre" href="/sobre">
+            <IonIcon icon={informationCircle} />
+            <IonLabel>Sobre</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
@@ -125,53 +138,4 @@ const App: React.FC = () => {
     );
 };
 export default App;
-
-/*
-
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-    <IonRouterOutlet>
-      <Route path="/login" component={Login} exact={true}/>
-      <Route path="/cadastro" component={Cadastro} exact={true}/>
-  
-        <IonTabs>
-        <IonRouterOutlet>
-        
-
-          <Route path="/tab1" component={Tab1} exact={true} />
-          <Route path="/tab2" component={Main} exact={true} />
-          <Route path="/tab3" component={Tab3} />
-          <Route path="/explanationslides" component={ExplanationSlides}/>
-          <Route path="/mode1" component={Mode1}/>
-          <Route path="/mode2" component={Mode2}/>
-          <Route path="/mode3" component={Mode3}/>
-         
-          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
-        </IonRouterOutlet>
-        
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={home} />
-            <IonLabel>Início</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={bed} />
-            <IonLabel>Formulário</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={person} />
-            <IonLabel>Recomendações</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-
-
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
-
-export default App; */
-
 

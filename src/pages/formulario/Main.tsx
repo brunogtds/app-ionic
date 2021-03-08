@@ -1,66 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar, IonIcon} from '@ionic/react';
+
+import './Forms.css';
+
+import { IonButton} from '@ionic/react';
+
+import  {Redirect, useHistory } from 'react-router-dom' 
+
+import {useUser} from 'reactfire';
+
+import {AuthCheck} from 'reactfire';
+
+import thinking from '../../img/thinking.png';
+
+import {alarm} from  'ionicons/icons';
+
+import Main14Days from '../formulario/14days/Main14Days';
+import Main14DaysP2 from '../formulario/14daysP2/Main14DaysP2';
 
 
-import { Steps, Step } from "react-step-builder";
+const Main: React.FC = () => {
 
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+  const history= useHistory();
 
-
-
-  import './Forms.css';
-
-  import Step1 from '../../pages/formulario/Step1';
-  import Step2 from '../../pages/formulario/Step2';
-  import Step3 from '../../pages/formulario/Step3';
-  import Step4 from '../../pages/formulario/Step4';
-  import Step5 from '../../pages/formulario/Step5';
-  import Step6 from '../../pages/formulario/Step6';
-  import Step7 from '../../pages/formulario/Step7';
-  import Step8 from '../../pages/formulario/Step8';
-  import Step9 from '../../pages/formulario/Step9';
-  import Step10 from '../../pages/formulario/Step10';
-  
-  /*React-multi-step form 
-  Cada página do formulário é um step no app*/
-  
-  function App() {
-
-    return (
-
-    <IonPage>
-
-        <IonHeader>
-            <IonToolbar>
-                <IonTitle>AppSono</IonTitle>
-                  <div id="header-items">
-                   
-                  </div>
-            </IonToolbar>
-        </IonHeader>
-
-
-        <IonContent fullscreen>
-           
-                <Steps>
-               <Step component={Step1} /> 
-                <Step component={Step2} /> 
-                <Step component= {Step3}/>
-                <Step component= {Step4}/>
-                <Step component= {Step5}/>
-                <Step component= {Step6}/>
-                <Step component= {Step7}/>
-                <Step component= {Step8}/>
-                <Step component= {Step9}/> 
-                <Step component= {Step10}/>
-                
-                </Steps>
-            
-
-      </IonContent>
-
-      </IonPage>
-    );
+  function main14days(){
+    history.push('/Main14Days');
   }
-  
 
-  export default App;
+  function main14daysp2(){
+    history.push('/Main14DaysP2')
+  }
+
+  return (
+    <IonPage>
+      <IonHeader color="primary">
+        <IonToolbar>
+          <IonTitle>Estudos</IonTitle>
+        </IonToolbar>
+       
+      </IonHeader>
+     
+      <IonContent fullscreen className="ion-text-center ion-padding">
+        <div className="ion-text-center">
+            <img src={thinking} height="100px" width="100px"/>
+            <div>
+            <IonButton size="large" onClick={main14days}><IonIcon slot="start" icon={alarm}/>Diário inicial</IonButton>
+            <IonButton size="large"  onClick={main14daysp2}><IonIcon slot="start" icon={alarm}/>Diário final</IonButton>
+            </div>
+        </div>
+      </IonContent>
+    </IonPage>
+  );
+};
+
+export default Main;

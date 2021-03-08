@@ -3,7 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 
 import {IonButton, } from "@ionic/react";
 import { IonContent, IonLoading } from '@ionic/react';
-import './Forms.css';
+import '../Forms.css';
 
 import { useForm} from "react-hook-form";
 
@@ -12,11 +12,11 @@ import {useState} from 'react';
 
 import { IonProgressBar} from '@ionic/react';
 
-import thinking from '../../img/thinking.png';
+import thinking from '../../../img/thinking.png';
 import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
-import {toast} from '../../toast';
+import {toast} from '../../../toast';
 
 /*STEP 10 => função updataUserDataQuest1 envia os dados após o onSubmit para a tabela no FireStore*/
 
@@ -138,16 +138,16 @@ const Step10 = (props: StepComponentProps) => {
             who5_SQ003: Number(props.state.who5_SQ003),
             who5_SQ004: Number(props.state.who5_SQ004),
             who5_SQ005: Number(props.state.who5_SQ005),
-            php01: Number(props.state.pqhp01), //STEP 7
-            php02: Number(props.state.pqhp02), 
-            php03: Number(props.state.pqhp03), 
-            php04: Number(props.state.pqhp04), 
-            php05: Number(props.state.pqhp05), 
-            php06: Number(props.state.pqhp06), 
-            php07: Number(props.state.pqhp07), 
-            php08: Number(props.state.pqhp08), 
-            php09: Number(props.state.pqhp09), 
-            php10: Number(props.state.pqhp10), 
+            phq01: Number(props.state.pqhp01), //STEP 7
+            phq02: Number(props.state.pqhp02), 
+            phq03: Number(props.state.pqhp03), 
+            phq04: Number(props.state.pqhp04), 
+            phq05: Number(props.state.pqhp05), 
+            phq06: Number(props.state.pqhp06), 
+            phq07: Number(props.state.pqhp07), 
+            phq08: Number(props.state.pqhp08), 
+            phq09: Number(props.state.pqhp09), 
+            phq10: Number(props.state.pqhp10), 
             sleepProblem: String(props.state.sleepProblem), //STEP 8 
             isi_isi01: Number(props.state.isi_isi01),
             isi_isi02: Number(props.state.isi_isi02),

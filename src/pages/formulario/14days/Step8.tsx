@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import './Forms.css';
+import '../Forms.css';
 import { useForm, Controller } from "react-hook-form";
 import {useState} from 'react';
 
@@ -44,7 +44,7 @@ const Step8 = (props: StepComponentProps) => {
             {problemasSono == "sim" ?
             <IonItem>
 
-            <IonLabel>Por favor, avalie a gravidade da sua insônia nas duas últiams semanas, em relação a:</IonLabel>
+            <IonLabel>Por favor, avalie a gravidade da sua insônia nas duas últimas semanas, em relação a:</IonLabel>
             </IonItem>
             :null }
 

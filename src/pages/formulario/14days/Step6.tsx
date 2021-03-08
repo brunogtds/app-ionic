@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import './Forms.css';
+import '../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
