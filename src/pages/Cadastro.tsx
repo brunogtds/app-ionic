@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
 
 import './Home.css';
 
@@ -13,14 +13,27 @@ import {useHistory} from 'react-router';
 
 import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
+import {eye} from  'ionicons/icons';
+
 const Cadastro: React.FC = () => {
 
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
     const [csenha, setCSenha] = useState();
 
+    const [showSenha, setShowSenha]= useState(false);
+    const [showCSenha, setShowCSenha]= useState(false);
+
     const [loader, setLoader]= useState<boolean>(false)
     const history= useHistory();
+
+    const passwordVisibility = () => {
+      setShowSenha(showSenha ? false: true)
+    }
+
+    const cpasswordVisibility = () => {
+      setShowCSenha(showCSenha ? false: true)
+    }
   
    async function Cadastro(){
   
@@ -74,14 +87,14 @@ const Cadastro: React.FC = () => {
       <div>
       
       <IonLabel>Senha</IonLabel>
-      <IonInput type="password" placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}/>
+      <IonInput type={showSenha ? "text" : "password"} placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}><IonIcon onClick={passwordVisibility} icon={eye} slot="end"></IonIcon></IonInput>
       
       </div>
 
       <div>
       
-      <IonLabel>Confirme sua senha</IonLabel>
-      <IonInput type="password" placeholder="Confirme a senha" id="csenha" onIonChange={(e:any) => setCSenha(e.target.value)}/>
+      <IonLabel>Confirme sua senha</IonLabel>Regras dentro do formulário estudo 14 dias/parte 1 (não deixar passar sem preencher as perguntas obrigatórias)
+      <IonInput type={showCSenha ? "text" : "password"} placeholder="Confirme a senha" id="csenha" onIonChange={(e:any) => setCSenha(e.target.value)}><IonIcon onClick={cpasswordVisibility} icon={eye} slot="end"></IonIcon></IonInput>
       
       </div>
 
