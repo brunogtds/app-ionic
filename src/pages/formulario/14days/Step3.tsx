@@ -1276,6 +1276,7 @@ const Step3 = (props: StepComponentProps) => {
                             </IonItem>
 
                             <IonItem>
+                            <IonLabel>Perder contato com amigos ou colegas.</IonLabel>
                             <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);

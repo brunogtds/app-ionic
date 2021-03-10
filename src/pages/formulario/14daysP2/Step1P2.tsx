@@ -261,7 +261,7 @@ const Step1P2 = (props: StepComponentProps) => {
 
                          <IonItem>
                             <IonLabel>O seu consumo de bebidas alcóolicas, em comparação a antes da pandemia:</IonLabel>
-                            <IonNote>Escolha uma das seguintes respostas:</IonNote>
+                            
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e) => {
                                 console.log(e);
@@ -294,7 +294,7 @@ const Step1P2 = (props: StepComponentProps) => {
 
                         <IonItem>
                             <IonLabel>O seu consumo de estimulantes (café, chimarrão), em comparação a antes da pandemia:</IonLabel>
-                            <IonNote>Escolha uma das seguintes respostas:</IonNote>
+                            
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e) => {
                                 console.log(e);
@@ -326,7 +326,7 @@ const Step1P2 = (props: StepComponentProps) => {
 
                         <IonItem>
                             <IonLabel>Se você fuma, em comparação a antes da pandemia, o número de cigarros que você fuma por dia:</IonLabel>
-                            <IonNote>Escolha uma das seguintes respostas:</IonNote>
+                            
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e) => {
                                 console.log(e);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonSlides, IonSlide, IonIcon, IonRow, IonCol} from '@ionic/react';
 
 import './Recommendation.css';
@@ -15,9 +15,38 @@ import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
 
 import thinking from '../../img/thinking.png';
 
+import {useUser} from 'reactfire';
+import firebase from 'firebase';
+
 /*Recomendações estão divididas em módulos linkados aqui */
 
 const Recommendation: React.FC = () => {
+
+  const {data: user}= useUser();
+
+  function randomNumber(){
+    const min=1;
+    const max=4;
+    const rand= (Math.floor(Math.random() * (max - min + 1)) + min)
+    
+    return rand;
+  }
+  const randomValue = React.useMemo(() => Math.floor(Math.random() * (4 - 1) + 1), [])
+
+  function controlGroup(){
+    
+  
+    if(user){
+      firebase.firestore().collection('users').doc(user.uid).set({
+          group: randomValue, }, { merge: true }); 
+    }
+  }
+
+  if (user){
+    controlGroup();
+  }
+
+
   return (
     <IonPage>
       <IonHeader>
@@ -36,13 +65,13 @@ const Recommendation: React.FC = () => {
       </div>
       
 
-      <div>
+      <div id="covid19">
       <IonButton routerLink={"./Mode1"} size="large"> <IonIcon slot="start" icon={bandage} />COVID-19</IonButton>
       </div>
-      <div>
+      <div id="habits">
       <IonButton routerLink={"./Mode2"} size="large"> <IonIcon slot="start" icon={cloudyNight}/>Bons hábitos</IonButton>
       </div>
-      <div>
+      <div id="sleep">
       <IonButton routerLink={"./Mode3"} size="large"> <IonIcon slot="start" icon={home} />Sono</IonButton>
       </div>
       </IonContent>

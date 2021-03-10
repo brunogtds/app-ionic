@@ -93,7 +93,7 @@ const Cadastro: React.FC = () => {
 
       <div>
       
-      <IonLabel>Confirme sua senha</IonLabel>Regras dentro do formulário estudo 14 dias/parte 1 (não deixar passar sem preencher as perguntas obrigatórias)
+      <IonLabel>Confirme sua senha</IonLabel>
       <IonInput type={showCSenha ? "text" : "password"} placeholder="Confirme a senha" id="csenha" onIonChange={(e:any) => setCSenha(e.target.value)}><IonIcon onClick={cpasswordVisibility} icon={eye} slot="end"></IonIcon></IonInput>
       
       </div>
