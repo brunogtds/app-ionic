@@ -1,3 +1,5 @@
+
+
 import React, {useState} from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
@@ -9,6 +11,11 @@ import social_distancing from '../../src/img/social_distancing.svg';
 import distancing from '../../src/img/distancing.svg';
 import isolation from '../../src/img/isolation.svg';
 import quarantine from '../../src/img/quarantine.svg';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+
+
 
 /*Imagem de explicação quarentena, distanciamento social e isolamento transformada em um pagina */
 
@@ -36,7 +43,7 @@ const ExplanationSlides: React.FC = () => {
              
           
           <img src={social_distancing} />
-          <h2>Qual a diferença entre <span className={"blue-text"}><u>distanciamento social</u></span>, <span className={"orange-text"}><u>quarentena</u></span>  e <span className={"red-text"}><u>isolamento?</u></span> </h2>
+          <h2>Qual a diferença entre <span className={"blue-text"}>distanciamento social</span>, <span className={"orange-text"}>quarentena</span>  e <span className={"red-text"}>isolamento?</span> Deslize para o lado para saber <FontAwesomeIcon icon={faArrowRight} /> </h2>
          
           <p>Laboratório de Cronobiologia e Sono - UFRGS/HCPA | Laboratório de Neurobiologia da Pineal - UNIFESP |
           Laboratório de Neurofisiologia e Neuroquímica de Excitabilidade Neuronal e Plasticidade Sináptica - UFRGS</p>
@@ -49,7 +56,7 @@ const ExplanationSlides: React.FC = () => {
           <h2>Distanciamento social</h2>
              
             
-              <p className={"slide blue"}>São medidas para aumentar o espaço entre as pessoas e conter a transmissão do vírus. Incluem: 
+              <p className={"slide blue"}>São medidas para aumentar o espaço entre as pessoas e conter a transmissão do vírus. Incluem: </p>
               
               <ul>
                 <li>Evitar contato físico (como apertos de mão e abraços); </li>
@@ -58,7 +65,7 @@ const ExplanationSlides: React.FC = () => {
                 <li>Fazer telefonemas e videochamadas ao invés de encontros físicos; </li>
                 <li>Cancelar/adiar conferências, festivais e outros eventos com aglomerações. </li>
               </ul> 
-              É importante que todos pratiquem distanciamento social, não apenas pessoas doentes.</p>
+              <p className={"slide blue"}>É importante que todos pratiquem distanciamento social, não apenas pessoas doentes.</p>
               <p className={"slide blue"}>Fonte: John Hopkins Medicine.</p>
             
           </IonSlide>

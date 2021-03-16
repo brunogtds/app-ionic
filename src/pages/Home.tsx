@@ -54,54 +54,59 @@ const Tab1: React.FC = () => {
     <IonPage>
       <IonHeader color="primary">
         <IonToolbar>
-          <IonTitle>Início</IonTitle>
-            <div id="header-items">
-              <AuthCheck fallback={<IonText>Bem vindo!</IonText>}><IonText>Bem vindo {user.email}!</IonText></AuthCheck>
-             
-            </div>
+          <div>
+           <AuthCheck fallback={<IonTitle><b>Bem vindo!</b></IonTitle>}><IonTitle><b>Bem vindo, {user.email}!</b></IonTitle></AuthCheck>
+           <IonButton onClick={Logout} className={"logout-button"} color="tertiary">Sair</IonButton> 
+          </div>  
+          
+
           
         </IonToolbar>
-        <IonButton onClick={Logout} className={"logout-button"}>Sair</IonButton>
+        
        
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-      <IonContent fullscreen className="ion-text-center">
+      <IonContent fullscreen className="ion-padding" >
 
         <IonGrid>
-
-        
+       
        
        {/* <ExploreContainer name="Tab 1 page" /> */}
        <IonCard>
-         
+      <IonCardHeader>
+        <IonCardSubtitle>Pesquisa</IonCardSubtitle>
        <IonCardTitle>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</IonCardTitle> 
-
-        <IonItem>
+       </IonCardHeader>
+      <IonCardContent>
     
        
         <div className="ion-text-wrap">
         
-
-        <p>Caro participante, </p>
- 
-        <p>Agradecemos a sua disposição em nos ajudar a entender as consequências do <b>distanciamento social</b>. 
-          Com esse estudo, pretendemos encontrar maneiras de estar melhor preparados e munidos de mais informação para diminuir as consequências 
-           do distanciamento social na saúde mental. Além disso, poderemos avaliar quais são as recomendações mais 
-           importantes para quem está passando por tal situação. </p>
-          
-           <p>Antes de começar a responder, na próxima página, você poderá ler mais sobre nosso estudo. 
-           Caso desista de participar, basta fechar o navegador ou aplicativo a qualquer momento. </p>
-
-           <p>Muito obrigado!</p>
+        <div>
+        Caro participante, 
         </div>
-        
-        </IonItem>
-        
-        <IonItem>
-        <div className={"ion-text-justify red-text"}>
-          <p><b><span className={"red-text"}>Antes de começarmos, você sabe o que é distanciamento social? Confira a explicação <a href={"/ExplanationSlides"}>aqui</a> e depois clique na aba "Formulário" para iniciar a pesquisa.</span></b></p>
+        <div>
+        Agradecemos a sua disposição em nos ajudar a entender as consequências do <b>distanciamento social</b>.
+        Com esse estudo, pretendemos encontrar maneiras de estar melhor preparados e munidos de mais informação para diminuir as consequências 
+           do distanciamento social na saúde mental. 
+         Além disso, poderemos avaliar quais são as recomendações mais 
+           importantes para quem está passando por tal situação. </div>
+          <div>
+          Antes de começar a responder, na próxima página, você poderá ler mais sobre nosso estudo. 
+           Caso desista de participar, basta fechar o aplicativo a qualquer momento.
+           </div>
+           <div>
+           Muito obrigado!
+           </div>
         </div>
-        </IonItem>
+        </IonCardContent>
+      
+        
+        <IonCardContent>
+        <div className={"ion-text"}>
+          <b><span className={"red-text"}>Antes de começarmos, você sabe o que é distanciamento social? Confira a explicação <a href={"/ExplanationSlides"}>aqui</a> e depois clique na aba "Formulário" para iniciar a pesquisa.</span></b>
+        </div>
+        </IonCardContent>
 
         
       

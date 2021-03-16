@@ -15,7 +15,7 @@ import Tab1 from './pages/Home';
 
 import Tab3 from './pages/recomendacoes/Recommendation';
 
-import {home, bed, person, informationCircle} from  'ionicons/icons';
+import {home, bed, person, informationCircle, thumbsUp} from  'ionicons/icons';
 import {useState, ChangeEvent} from 'react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -108,7 +108,7 @@ const PrivateRoutes: React.FC = () => {
             <IonLabel>Formulários</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={person} />
+            <IonIcon icon={thumbsUp} />
             <IonLabel>Recomendações</IonLabel>
           </IonTabButton>
           <IonTabButton tab="sobre" href="/sobre">
