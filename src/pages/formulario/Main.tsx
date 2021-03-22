@@ -17,6 +17,7 @@ import {alarm} from  'ionicons/icons';
 
 import Main14Days from '../formulario/14days/Main14Days';
 import Main14DaysP2 from '../formulario/14daysP2/Main14DaysP2';
+import Modulos from '../formulario/modulos/Modulos';
 
 
 const Main: React.FC = () => {
@@ -31,11 +32,15 @@ const Main: React.FC = () => {
     history.push('/Main14DaysP2')
   }
 
+  function modulos(){
+    history.push('/modulos')
+  }
+
   return (
     <IonPage>
       <IonHeader color="primary">
         <IonToolbar>
-          <IonTitle>Estudos</IonTitle>
+          <IonTitle><b>Estudos</b></IonTitle>
         </IonToolbar>
        
       </IonHeader>
@@ -44,8 +49,9 @@ const Main: React.FC = () => {
         <div className="ion-text-center">
             <img src={thinking} height="100px" width="100px"/>
             <div>
-            <IonButton size="large" onClick={main14days}><IonIcon slot="start" icon={alarm}/>Diário inicial</IonButton>
-            <IonButton size="large"  onClick={main14daysp2}><IonIcon slot="start" icon={alarm}/>Diário final</IonButton>
+            {/* <IonButton size="large" onClick={main14days} color="tertiary">Diário inicial</IonButton>
+            <IonButton size="large"  onClick={main14daysp2} color="tertiary">Diário final</IonButton> */}
+            <IonButton size="large" onClick={modulos} color="tertiary">Questionário</IonButton>
             </div>
         </div>
       </IonContent>

@@ -56,11 +56,10 @@ const Tab1: React.FC = () => {
         <IonToolbar>
           <div>
            <AuthCheck fallback={<IonTitle><b>Bem vindo!</b></IonTitle>}><IonTitle><b>Bem vindo, {user.email}!</b></IonTitle></AuthCheck>
-           <IonButton onClick={Logout} className={"logout-button"} color="tertiary">Sair</IonButton> 
+           
           </div>  
-          
-
-          
+          <IonButton onClick={Logout} className={"logout-button"} color="tertiary">Sair</IonButton> 
+                    
         </IonToolbar>
         
        

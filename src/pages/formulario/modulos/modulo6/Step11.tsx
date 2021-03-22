@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -12,7 +12,7 @@ import { useForm, Controller } from "react-hook-form";
 import { IonProgressBar} from '@ionic/react';
 
 
-const Step6 = (props: StepComponentProps) => {
+const Step11 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit} = useForm();
  
@@ -28,14 +28,14 @@ const Step6 = (props: StepComponentProps) => {
             
             
             <IonItem>
-                 <IonLabel>Por favor, marque a alternativa que melhor descreva como a Sra./Sr. tenha se sentido nas últimas duas semanas.</IonLabel>
+                 <IonLabel className="questions">Por favor, marque a alternativa que melhor descreva como a Sra./Sr. tenha se sentido nas últimas duas semanas.</IonLabel>
             </IonItem>
             
             <IonItem>
-                <IonLabel>Nas últimas duas semanas...</IonLabel>
+                <IonLabel className="questions">Nas últimas duas semanas...</IonLabel>
             </IonItem>
 
-            <IonLabel className={"ion-text-wrapper"}>... eu estava alegre e de bom humor</IonLabel>
+            <IonLabel className={"ion-text-wrapper questions"}>... eu estava alegre e de bom humor</IonLabel>
             <IonItem>
 
 
@@ -78,7 +78,7 @@ const Step6 = (props: StepComponentProps) => {
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ001"}/>
                     </IonItem>
-                    <IonLabel className={"ion-text-wrapper"}>... me senti calmo e relaxado</IonLabel>
+                    <IonLabel className={"ion-text-wrapper questions"}>... me senti calmo e relaxado</IonLabel>
                     <IonItem>
 
                             
@@ -122,7 +122,7 @@ const Step6 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"who5_SQ002"}/>
                     </IonItem>
 
-                    <IonLabel className={"ion-text-wrapper"}>... me senti disposto e renovado ao acordar</IonLabel>
+                    <IonLabel className={"ion-text-wrapper questions"}>... me senti disposto e renovado ao acordar</IonLabel>
                     <IonItem>
 
                              
@@ -166,7 +166,7 @@ const Step6 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"who5_SQ003"}/>
                     </IonItem>
 
-                    <IonLabel className={"ion-text-wrapper"}>... me senti cheio de energia e ativo</IonLabel>
+                    <IonLabel className={"ion-text-wrapper questions"}>... me senti cheio de energia e ativo</IonLabel>
                     <IonItem>
 
                             
@@ -210,7 +210,7 @@ const Step6 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"who5_SQ004"}/>
                     </IonItem>
 
-                    <IonLabel className={"ion-text-wrapper"}>... o meu dia foi cheio de coisas que interessavam</IonLabel>
+                    <IonLabel className={"ion-text-wrapper questions"}>... o meu dia foi cheio de coisas que interessavam</IonLabel>
                     <IonItem>
 
                              
@@ -259,7 +259,7 @@ const Step6 = (props: StepComponentProps) => {
 
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Submeter</IonButton>
             </form>
 
         </div>
@@ -268,5 +268,5 @@ const Step6 = (props: StepComponentProps) => {
     )
 }
 
-export default Step6; 
+export default Step11; 
 

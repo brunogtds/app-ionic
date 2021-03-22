@@ -45,47 +45,50 @@ const Sobre: React.FC = () => {
     <IonPage>
       <IonHeader color="primary">
         <IonToolbar>
-          <IonTitle>Sobre</IonTitle>
+          <IonTitle><b>AppSono</b></IonTitle>
        
         </IonToolbar>
   
       </IonHeader>
     
-      <IonContent fullscreen className="ion-text-center ion-padding">
+      <IonContent fullscreen className="ion-padding">
 
         <IonGrid>
 
        <IonCard>
-         
-       <IonCardTitle>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</IonCardTitle> 
-       <p>Texto sobre o aplicativo.</p>
 
-        <IonItem>
-    
-          
-        </IonItem>
-        <IonItemDivider>
-        <IonItem>
-          <div>
-          <p>Equipe do estudo <b>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</b></p>
-          <p>Laboratório de Cronobiologia e Sono - HCPA/ UFRGS</p>
-          <p>Laboratório de Neurofisiologia e Neuroquímica da Excitabilidade Neuronal e Plasticidade Sináptica - UFRGS</p>
-          <p>Laboratório de Neurobiologia da Pineal - UNIFESP</p>
-          </div>
-        </IonItem>
-        </IonItemDivider>
+      <IonCardHeader>
+       <IonCardTitle>Sobre o aplicativo</IonCardTitle> 
+       </IonCardHeader> 
+       <IonCardContent>
+       Texto sobre o aplicativo.
        
+          <div>
+         Equipe do estudo <b>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</b></div>
+         <div>
+          Laboratório de Cronobiologia e Sono - HCPA/ UFRGS
+          </div>
+          <div>
+          Laboratório de Neurofisiologia e Neuroquímica da Excitabilidade Neuronal e Plasticidade Sináptica - UFRGS
+          </div>
+          <div>
+          Laboratório de Neurobiologia da Pineal - UNIFESP
+          </div>
+       
+        <IonItem>
         <div>
-            <img src={logo_crono} width="230px" height="230px"/>
-            <img src={logo_clinicas} width="230px" height="230px"/>
-            <img src={logo_innovaspace} width="230px" height="230px"/>
-            <img src={logo_neurobio} width="230px" height="230px"/>
-            <img src={logo_nnnesp} width="230px" height="230px"/>
-            <img src={logo_ufrgs} width="230px" height="230px"/>
-            <img src={logo_unifesp} width="230px" height="230px"/>
+            <img src={logo_crono} width="210px" height="230px"/>
+            <img src={logo_clinicas} width="210px" height="230px"/>
+            <img src={logo_innovaspace} width="210px" height="230px"/>
+            <img src={logo_neurobio} width="210px" height="230px"/>
+            <img src={logo_nnnesp} width="210px" height="230px"/>
+            <img src={logo_ufrgs} width="210px" height="230px"/>
+            <img src={logo_unifesp} width="210px" height="230px"/>
             
         </div>
-      
+        </IonItem>
+       </IonCardContent>
+  
         </IonCard>
 
         

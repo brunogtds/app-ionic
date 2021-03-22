@@ -49,3 +49,13 @@ ion-label {
   margin-top: 50px;
 
 }
+
+.options {
+  float: right;
+  background-color: green;
+}
+
+.questions{
+  font-weight: bold;
+}
+

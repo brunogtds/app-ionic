@@ -3,7 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton,} from "@ionic/react";
 import { IonContent } from '@ionic/react';
-import '../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -11,7 +11,7 @@ import { IonProgressBar} from '@ionic/react';
 
 
 
-const Step9 = (props: StepComponentProps) => {
+const Step14 = (props: StepComponentProps) => {
     
     const {control, watch, handleSubmit} = useForm();
 
@@ -27,10 +27,10 @@ const Step9 = (props: StepComponentProps) => {
             
           
             <IonItem>
-              <IonLabel>No mês passado quantas vezes você...</IonLabel>
+              <IonLabel className="questions"> No mês passado quantas vezes você...</IonLabel>
             </IonItem>
 
-            <IonLabel>...ficou chateado(a) por causa de algo que aconteceu inesperadamente?</IonLabel>
+            <IonLabel className="questions">...ficou chateado(a) por causa de algo que aconteceu inesperadamente?</IonLabel>
              <IonItem>
                     
                 <Controller render={({onChange}) => (
@@ -68,7 +68,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss01"}/>
                     </IonItem>
                     
-                    <IonLabel>...se sentiu incapaz de controlar as coisas importantes na sua vida?</IonLabel>
+                    <IonLabel className="questions">...se sentiu incapaz de controlar as coisas importantes na sua vida?</IonLabel>
                     <IonItem>
                     
 
@@ -107,7 +107,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss02"}/>
                     </IonItem>
 
-                    <IonLabel>...se sentiu nervoso(a) ou estressado(a)?</IonLabel>
+                    <IonLabel className="questions">...se sentiu nervoso(a) ou estressado(a)?</IonLabel>
                     <IonItem>
                     
 
@@ -146,7 +146,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss03"}/>
                     </IonItem>
 
-                    <IonLabel>...lidou com sucesso com os problemas e aborrecimentos do dia a dia?</IonLabel>
+                    <IonLabel className="questions">...lidou com sucesso com os problemas e aborrecimentos do dia a dia?</IonLabel>
                     <IonItem>
                     
 
@@ -185,7 +185,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss04"}/>
                     </IonItem>
 
-                    <IonLabel>...sentiu que estava lidando de forma eficaz com as mudanças importantes que estavam acontecendo em sua vida?</IonLabel>
+                    <IonLabel className="questions">...sentiu que estava lidando de forma eficaz com as mudanças importantes que estavam acontecendo em sua vida?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -223,7 +223,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss05"}/>
                     </IonItem>
 
-                    <IonLabel>...se sentiu confiante nas suas capacidades para lidar com os seus problemas pessoais?</IonLabel>
+                    <IonLabel className="questions">...se sentiu confiante nas suas capacidades para lidar com os seus problemas pessoais?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -261,7 +261,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss06"}/>
                     </IonItem>
 
-                    <IonLabel>...sentiu que as coisas estavam ocorrendo a sua maneira (do seu jeito)?</IonLabel>
+                    <IonLabel className="questions">...sentiu que as coisas estavam ocorrendo a sua maneira (do seu jeito)?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -299,7 +299,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss07"}/>
                     </IonItem>
 
-                    <IonLabel>...percebeu que não poderia lidar com todas as coisas que você tinha para fazer?</IonLabel>
+                    <IonLabel className="questions">...percebeu que não poderia lidar com todas as coisas que você tinha para fazer?</IonLabel>
                     <IonItem>
                     <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
@@ -336,7 +336,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss08"}/>
                     </IonItem>
 
-                    <IonLabel>...foi capaz de controlar as irritações da sua vida?</IonLabel>
+                    <IonLabel className="questions">...foi capaz de controlar as irritações da sua vida?</IonLabel>
                     <IonItem>
                     
 
@@ -375,7 +375,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss09"}/>
                     </IonItem>
 
-                    <IonLabel>...sentiu que estava no topo das coisas (no controle das coisas)?</IonLabel>
+                    <IonLabel className="questions">...sentiu que estava no topo das coisas (no controle das coisas)?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -413,7 +413,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss10"}/>
                     </IonItem>
 
-                    <IonLabel>...se irritou por coisas que aconteceram que estavam fora do seu controle?</IonLabel>
+                    <IonLabel className="questions">...se irritou por coisas que aconteceram que estavam fora do seu controle?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -451,7 +451,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss11"}/>
                     </IonItem>
 
-                    <IonLabel>...deu por si pensando nas coisas que tinha que fazer?</IonLabel>
+                    <IonLabel className="questions">...deu por si pensando nas coisas que tinha que fazer?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -489,7 +489,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss12"}/>
                     </IonItem>
 
-                    <IonLabel>...foi capaz de controlar a maneira de como gastar seu tempo?</IonLabel>
+                    <IonLabel className="questions">...foi capaz de controlar a maneira de como gastar seu tempo?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -527,7 +527,7 @@ const Step9 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"pss_pss13"}/>
                     </IonItem>
 
-                    <IonLabel>...sentiu que as dificuldades estavam se acumulando tanto que você não poderia superá-las?</IonLabel>
+                    <IonLabel className="questions">...sentiu que as dificuldades estavam se acumulando tanto que você não poderia superá-las?</IonLabel>
                     <IonItem>
                     
                     <Controller render={({onChange}) => (
@@ -566,7 +566,7 @@ const Step9 = (props: StepComponentProps) => {
                     </IonItem>
             
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Submeter</IonButton>
             </form>
 
         </div>
@@ -575,4 +575,4 @@ const Step9 = (props: StepComponentProps) => {
     )
 }
 
-export default Step9; 
+export default Step14; 

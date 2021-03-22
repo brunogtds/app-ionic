@@ -4,14 +4,14 @@ import {StepComponentProps} from "react-step-builder";
 import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonList} from "@ionic/react";
 import { IonContent } from '@ionic/react';
 
-import '../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
 import { IonProgressBar} from '@ionic/react';
 
 
-const Step5 = (props: StepComponentProps) => {
+const Step10 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit} = useForm();
  
@@ -26,11 +26,11 @@ const Step5 = (props: StepComponentProps) => {
 
             
             <IonItem>
-                <IonLabel>Nas últimas duas semanas, com que frequência você foi incomodado pelos seguintes problemas: </IonLabel>
+                <IonLabel className="questions">Nas últimas duas semanas, com que frequência você foi incomodado pelos seguintes problemas: </IonLabel>
             </IonItem>
 
                 <IonList>
-                <IonLabel>Sentir-se nervoso, ansioso ou no limite.</IonLabel>
+                <IonLabel className="questions">Sentir-se nervoso, ansioso ou no limite.</IonLabel>
                  <IonItem>
 
                  <Controller render={({onChange}) => (
@@ -64,7 +64,7 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"gad7_gad01"}/>
                     </IonItem>
 
-                    <IonLabel>Não ser capaz de parar ou controlar as preocupações.</IonLabel>
+                    <IonLabel className="questions">Não ser capaz de parar ou controlar as preocupações.</IonLabel>
 
                      <IonItem>
 
@@ -101,7 +101,7 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"gad7_gad02"}/>
                     </IonItem>
 
-                    <IonLabel>Preocupar-se muito com coisas diferentes.</IonLabel>
+                    <IonLabel className="questions">Preocupar-se muito com coisas diferentes.</IonLabel>
                      <IonItem>
 
                              
@@ -137,7 +137,7 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"gad7_gad03"}/>
                     </IonItem>
 
-                    <IonLabel>Dificuldade de relaxar.</IonLabel>
+                    <IonLabel className="questions">Dificuldade de relaxar.</IonLabel>
                      <IonItem>
 
                             
@@ -173,7 +173,7 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"gad7_gad04"}/>
                     </IonItem>
 
-                    <IonLabel>Ser tão inquieto que é difícil ficar parado.</IonLabel>
+                    <IonLabel className="questions">Ser tão inquieto que é difícil ficar parado.</IonLabel>
                      <IonItem>
                      
                         <Controller render={({onChange}) => (
@@ -212,7 +212,7 @@ const Step5 = (props: StepComponentProps) => {
                     </IonItem>
 
 
-                    <IonLabel>Tonar-se facilmente irritado ou irritável.</IonLabel>
+                    <IonLabel className="questions">Tonar-se facilmente irritado ou irritável.</IonLabel>
                      <IonItem>
 
                              
@@ -248,7 +248,7 @@ const Step5 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"gad7_gad06"}/>
                     </IonItem>
 
-                    <IonLabel>Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
+                    <IonLabel className="questions">Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
                      <IonItem>
 
                              <Controller render={({onChange}) => (
@@ -287,7 +287,7 @@ const Step5 = (props: StepComponentProps) => {
 
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Submeter</IonButton>
             </form>
 
         </div>
@@ -296,4 +296,4 @@ const Step5 = (props: StepComponentProps) => {
     )
 }
 
-export default Step5; 
+export default Step10; 

@@ -25,7 +25,7 @@ const Mode1: React.FC = () => {
         <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Recomendações</IonTitle>
+          <IonTitle><b>Recomendações</b></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-text-center">

@@ -30,13 +30,22 @@ const Step2 = (props: StepComponentProps) => {
     return (
         <IonContent fullscreen>
         <div>
+
+        <div>
+        <IonItem>
+       
+        
+        </IonItem>
+        </div>
            
              <form className="ion-padding">
-             <IonProgressBar value={0.2} buffer={0.2}></IonProgressBar>
+
+             <IonLabel className="questions">Doenças diagnosticadas:</IonLabel>
+             
              <IonItem>
                         
                         
-                        <IonLabel>Doenças diagnosticadas:</IonLabel>
+                        
 
                             <Controller render={({onChange}) => (
                             
@@ -97,10 +106,10 @@ const Step2 = (props: StepComponentProps) => {
                             </IonItem>
 
                             <IonItem>
-                                <IonLabel>Outros: </IonLabel>
-                                <IonInput value= {props.getState("disorders", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value) }}/>
+                               
+                                <IonInput placeholder="Outros" type="text" onIonChange={(e)=> {
+                                if (e.detail.value != undefined) 
+                                props.setState('disorders', e.detail.value ) }}/>
                             </IonItem>
                             </IonList>
                             )}
@@ -110,9 +119,10 @@ const Step2 = (props: StepComponentProps) => {
                         </IonItem>
 
 
+            <IonLabel className="questions">Você faz uso frequente de medicações por orientação médica?</IonLabel>
                         <IonList>
                         <IonItem>
-                            <IonLabel>Você faz uso frequente de medicações por orientação médica?</IonLabel>
+                            
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={selected} onIonChange={(e) => {setSelected(e.detail.value); 
@@ -150,8 +160,9 @@ const Step2 = (props: StepComponentProps) => {
                        </IonList>
        
                         <IonList>
+                        <IonLabel className="questions">Você faz uso frequente de medicações sem orientação médica?</IonLabel>
                         <IonItem>
-                            <IonLabel>Você faz uso frequente de medicações sem orientação médica?</IonLabel>
+                            
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={selectedNoOrientation} onIonChange={(e) => {setSelectedNoOrientation(e.detail.value); 
                                 if (e.detail.value != undefined) 
@@ -184,8 +195,9 @@ const Step2 = (props: StepComponentProps) => {
                         </IonItem>: null }
                         </IonList> 
 
+                        <IonLabel className="questions">Você fez psicoterapia nas últimas duas semanas? </IonLabel>        
                         <IonItem>
-                            <IonLabel>Você fez psicoterapia nas últimas duas semanas? </IonLabel>
+                           
 
                             <Controller render={({onChange}) => (
                             <IonList>
@@ -224,8 +236,9 @@ const Step2 = (props: StepComponentProps) => {
                          </IonItem>
 
                         <IonList>
+                        <IonLabel className="questions">Você fuma?</IonLabel>
                          <IonItem>
-                            <IonLabel>Você fuma?</IonLabel>
+                            
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={fuma} onIonChange={(e) => {setFuma(e.detail.value);
@@ -249,7 +262,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {fuma === "sim" ? 
                         <IonItem>
-                            <IonLabel>Quantos cigarros você fuma por dia?</IonLabel>
+                            <IonLabel className="questions">Quantos cigarros você fuma por dia?</IonLabel>
                             <Controller render={({onChange})=> (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
@@ -265,9 +278,9 @@ const Step2 = (props: StepComponentProps) => {
 
                         {fuma === "sim" ? 
                         <IonItem>
-                            <IonLabel>Há quanto tempo você fuma? (em anos) </IonLabel>
+                            
                             <Controller render={({onChange})=> (
-                            <IonInput onIonChange={(e)=> {
+                            <IonInput placeholder="Há quanto tempo você fuma? (em anos)" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -280,8 +293,9 @@ const Step2 = (props: StepComponentProps) => {
                         </IonList>               
                        
                         <IonList>
+                        <IonLabel className="questions">Você fumou antes?</IonLabel>
                         <IonItem>
-                            <IonLabel>Você fumou antes?</IonLabel>
+                          
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={fumou} onIonChange={(e) => {setFumou(e.detail.value); 
@@ -305,7 +319,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {fumou === "sim" ?
                         <IonItem>
-                            <IonLabel>Quantos cigarros você fumava por dia?</IonLabel>
+                            <IonLabel className="questions">Quantos cigarros você fumava por dia?</IonLabel>
 
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
@@ -322,9 +336,9 @@ const Step2 = (props: StepComponentProps) => {
 
                         {fumou === "sim" ? 
                           <IonItem>
-                            <IonLabel>Por quanto tempo você fumou? (em anos) </IonLabel>
+                            
                             <Controller render={({onChange}) => (
-                            <IonInput onIonChange={(e)=> {
+                            <IonInput placeholder="Por quanto tempo você fumou? (em anos) " onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -333,9 +347,9 @@ const Step2 = (props: StepComponentProps) => {
 
                         {fumou === "sim" ?
                         <IonItem>
-                            <IonLabel>Há quanto tempo você parou de fumar? </IonLabel>
+                            
                             <Controller render={({onChange}) => (
-                            <IonInput onIonChange={(e)=> {
+                            <IonInput placeholder="Há quanto tempo você parou de fumar?" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -346,8 +360,9 @@ const Step2 = (props: StepComponentProps) => {
                         {/*VOCÊ FUMOU ANTES -> SIM */}
 
                         <IonList>
+                        <IonLabel className="questions">Você consome bebidas alcoólicas?</IonLabel>
                         <IonItem>
-                            <IonLabel>Você consome bebidas alcoólicas?</IonLabel>
+                            
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={bebe} onIonChange={(e) => {setBebe(e.detail.value);
@@ -371,7 +386,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {bebe === "sim" ?
                         <IonItem>
-                            <IonLabel>Alguma vez você sentiu que deveria diminuir a quantidade de bebida?</IonLabel>
+                            <IonLabel className="questions">Alguma vez você sentiu que deveria diminuir a quantidade de bebida?</IonLabel>
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e)=> {
@@ -394,7 +409,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {bebe === "sim" ? 
                         <IonItem>
-                            <IonLabel>As pessoas o aborrecem porque criticam o seu modo de beber?</IonLabel>
+                            <IonLabel className="questions">As pessoas o aborrecem porque criticam o seu modo de beber?</IonLabel>
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e)=> {
@@ -417,7 +432,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {bebe === "sim" ?
                         <IonItem>
-                            <IonLabel>Você se sente culpado pela maneira como bebe?</IonLabel>
+                            <IonLabel className="questions">Você se sente culpado pela maneira como bebe?</IonLabel>
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -439,7 +454,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {bebe === "sim" ?
                         <IonItem>
-                            <IonLabel>Você costuma beber de manhã para diminuir o nervosimo ou ressaca?</IonLabel>
+                            <IonLabel className="questions">Você costuma beber de manhã para diminuir o nervosimo ou ressaca?</IonLabel>
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e)=> {
@@ -465,8 +480,9 @@ const Step2 = (props: StepComponentProps) => {
                         {/*VOCÊ BEBE -> SIM */}
 
                         <IonList>
+                        <IonLabel className="questions">Você faz uso de algum tipo de droga ilícita diariamente?</IonLabel>
                         <IonItem>
-                            <IonLabel>Você faz uso de algum tipo de droga ilícita diariamente?</IonLabel>
+                            
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={drogas} onIonChange={(e) => {setDrogas(e.detail.value);
@@ -492,7 +508,7 @@ const Step2 = (props: StepComponentProps) => {
                         <IonItem>
                         
                         
-                        <IonLabel>Qual(is) você usa com maior frequência?</IonLabel>
+                        <IonLabel className="questions">Qual(is) você usa com maior frequência?</IonLabel>
                         <Controller render={({onChange}) => (
                             <IonList>
 
@@ -533,8 +549,8 @@ const Step2 = (props: StepComponentProps) => {
                             </IonItem>
 
                             <IonItem>
-                                <IonLabel>Outros: </IonLabel>
-                                <IonInput onIonChange={(e)=> {
+                                
+                                <IonInput placeholder="Outros" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -545,9 +561,9 @@ const Step2 = (props: StepComponentProps) => {
 
                         {drogas === "sim" ?
                         <IonItem>
-                            <IonLabel>Há quantos anos você usa essa droga diariamente?</IonLabel>
+                         
                             <Controller render={({onChange}) => (
-                            <IonInput onIonChange={(e)=> {
+                            <IonInput placeholder="Há quantos anos você usa essa droga diariamente?" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -557,9 +573,11 @@ const Step2 = (props: StepComponentProps) => {
                         </IonList>
 
                         <IonList>
+                        
+                        <IonLabel className="questions">Você faz uso de algum estimulante diariamente (café, chimarrão)?</IonLabel>
 
                         <IonItem>
-                            <IonLabel>Você faz uso de algum estimulante diariamente (café, chimarrão)?</IonLabel>
+                            
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={estimulantes} onIonChange={(e) => {setEstimulantes(e.detail.value); 
@@ -581,7 +599,7 @@ const Step2 = (props: StepComponentProps) => {
 
                         {estimulantes === "sim" ? 
                         <IonItem>
-                            <IonLabel>Em qual(is) momento(s) do dia você usa com mais frequência? </IonLabel>
+                            <IonLabel className="questions">Em qual(is) momento(s) do dia você usa com mais frequência? </IonLabel>
                             <Controller render={({onChange}) => (
                             <IonList>
                                 <IonItem>

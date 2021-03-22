@@ -51,7 +51,7 @@ const Recommendation: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Recomendações</IonTitle>
+          <IonTitle><b>Recomendações</b></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-text-center">
@@ -66,13 +66,13 @@ const Recommendation: React.FC = () => {
       
 
       <div id="covid19">
-      <IonButton routerLink={"./Mode1"} size="large"> <IonIcon slot="start" icon={bandage} />COVID-19</IonButton>
+      <IonButton routerLink={"./Mode1"} size="large" color="tertiary"> <IonIcon slot="start" icon={bandage} />COVID-19</IonButton>
       </div>
       <div id="habits">
-      <IonButton routerLink={"./Mode2"} size="large"> <IonIcon slot="start" icon={cloudyNight}/>Bons hábitos</IonButton>
+      <IonButton routerLink={"./Mode2"} size="large" color="tertiary"> <IonIcon slot="start" icon={cloudyNight}/>Bons hábitos</IonButton>
       </div>
       <div id="sleep">
-      <IonButton routerLink={"./Mode3"} size="large"> <IonIcon slot="start" icon={home} />Sono</IonButton>
+      <IonButton routerLink={"./Mode3"} size="large" color="tertiary"> <IonIcon slot="start" icon={home} />Sono</IonButton>
       </div>
       </IonContent>
       </IonContent>

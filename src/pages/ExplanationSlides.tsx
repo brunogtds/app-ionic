@@ -31,8 +31,9 @@ const ExplanationSlides: React.FC = () => {
         <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Medidas</IonTitle>
          
+          <IonTitle><b>Medidas</b></IonTitle>
+          
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-text-center">

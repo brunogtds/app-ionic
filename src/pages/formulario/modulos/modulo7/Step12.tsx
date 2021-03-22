@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -12,7 +12,7 @@ import { IonProgressBar} from '@ionic/react';
 
 
 
-const Step7 = (props: StepComponentProps) => {
+const Step12 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit} = useForm();
  
@@ -28,10 +28,10 @@ const Step7 = (props: StepComponentProps) => {
                  
             
             <IonItem>
-                <IonLabel>Agora vamos falar sobre como você tem se sentido nas duas últimas semanas.</IonLabel>
+                <IonLabel className="questions">Agora vamos falar sobre como você tem se sentido nas duas últimas semanas.</IonLabel>
             </IonItem>
             
-            <IonLabel>Nas últimas duas semanas, quantos dias você teve pouco interesse ou pouco prazer em fazer as coisas?</IonLabel>
+            <IonLabel className="questions">Nas últimas duas semanas, quantos dias você teve pouco interesse ou pouco prazer em fazer as coisas?</IonLabel>
             <IonItem>
 
  
@@ -66,7 +66,7 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name='phq01'/>
             </IonItem>
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
+            <IonLabel className="questions">Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
             <IonItem>
 
  
@@ -102,7 +102,7 @@ const Step7 = (props: StepComponentProps) => {
             </IonItem>
 
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você teve dificuldade para pegar no sono ou permanecer dormindo ou dormiu mais do que de costume?</IonLabel>
+            <IonLabel className="questions">Nas últimas duas semanas, quantos dias você teve dificuldade para pegar no sono ou permanecer dormindo ou dormiu mais do que de costume?</IonLabel>
             <IonItem>
 
             
@@ -136,7 +136,7 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name='phq03'/>
             </IonItem>
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
+            <IonLabel className="questions">Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
             <IonItem>
 
            
@@ -170,7 +170,7 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name='phq04'/>
             </IonItem>
                 
-            <IonLabel> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
+            <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
             <IonItem>
 
             
@@ -204,7 +204,7 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name='phq05'/>
             </IonItem>
                 
-            <IonLabel> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
+            <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
             <IonItem>
 
             
@@ -238,7 +238,7 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name='phq06'/>
             </IonItem>
 
-            <IonLabel> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
+            <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
             <IonItem>
 
            
@@ -272,7 +272,7 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name='phq07'/>
             </IonItem>
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
+            <IonLabel className="questions">Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
             <IonItem>
 
             
@@ -306,7 +306,7 @@ const Step7 = (props: StepComponentProps) => {
                 </IonRadioGroup> )} control={control} name='phq08'/>
             </IonItem>
 
-            <IonLabel>Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
+            <IonLabel className="questions">Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
             <IonItem>
 
             
@@ -341,7 +341,7 @@ const Step7 = (props: StepComponentProps) => {
             </IonItem>
 
 
-            <IonLabel>Considerando as últimas duas semanas, os sintomas anteriores lhe causaram algum tipo de dificuldade para trabalhar ou estudar ou tomar conta das coisas em casa ou para se relacionar com as pessoas?</IonLabel>
+            <IonLabel className="questions">Considerando as últimas duas semanas, os sintomas anteriores lhe causaram algum tipo de dificuldade para trabalhar ou estudar ou tomar conta das coisas em casa ou para se relacionar com as pessoas?</IonLabel>
             <IonItem>
 
             
@@ -376,7 +376,7 @@ const Step7 = (props: StepComponentProps) => {
             </IonItem>
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
+            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Submeter</IonButton>
             </form>
 
         </div>
@@ -385,4 +385,4 @@ const Step7 = (props: StepComponentProps) => {
     )
 }
 
-export default Step7; 
+export default Step12; 
