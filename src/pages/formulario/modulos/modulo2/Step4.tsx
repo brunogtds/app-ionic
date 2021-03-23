@@ -2,7 +2,7 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonTextarea} from "@ionic/react";
+import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonTextarea, IonLoading} from "@ionic/react";
 import { IonContent} from '@ionic/react';
  
 import '../../Forms.css';
@@ -11,6 +11,13 @@ import { useForm, Controller } from "react-hook-form";
 import {useState} from 'react';
 
 import { IonProgressBar} from '@ionic/react';
+import  {Redirect, useHistory } from 'react-router-dom'
+import {toast} from '../../../../toast';
+
+//imports user context do reactfire
+
+import {useUser} from 'reactfire';
+import firebase from 'firebase';
 
 
 const Step4 = (props: StepComponentProps) => {
@@ -28,6 +35,59 @@ const Step4 = (props: StepComponentProps) => {
    const [drogas, setDrogas]= useState();
    const [estimulantes, setEstimulantes]= useState();
 
+   const {data: user}= useUser();
+   const [dataUser, setData] = useState()
+
+   const history= useHistory();
+   const [loader, setLoader]= useState<boolean>(false)
+
+  async function updateUserDataQuest1(dataUser: any){
+    
+ 
+    if(user){
+        firebase.firestore().collection('users').doc(user.uid).set({
+            disorders: String(props.state.disorders), //STEP 2 
+            meds: String(props.state.meds),
+            medsUsed: String(props.state.medsUsed),
+            medsOff: String(props.state.medsOff),
+            medsOffUsed: String(props.state.medsOffUsed),
+            psychother: String(props.state.psychoter),
+            smoke: String(props.state.smoke),
+            cigarrets: String(props.state.cigarrets),
+            smokeDur: Number(props.state.smokeDur),
+            smokeBef: String(props.state.smokeBef),
+            cigarretsBef: String(props.state.cigarretsBef),
+            smokeBefDur: Number(props.state.smokeBefDur),
+            smokeStop: Number(props.state.smokeStop),
+            alcohol: String(props.state.alcohol),
+            cage01: String(props.state.cage01),
+            cage02: String(props.state.cage02),
+            cage03: String(props.state.cage03),
+            cage04: String(props.state.cage04),
+            drugs: String(props.state.drugs),
+            drugsUsed: String(props.state.drugsUsed),
+            drugDur: Number(props.state.drugDur),
+            stimulants: String(props.state.stimulants),
+            stimulantTiming: String(props.state.stimulantTiming),   }, {merge: true})
+        }
+    
+        toast('Formulário submetido com sucesso!', 4000);
+        
+    
+    }
+
+    function voltaModulos (){
+        history.push('/modulos');
+    }
+        
+    const onSubmit = (data: any) => {
+       setData(dataUser);
+       setLoader(true);
+       updateUserDataQuest1(dataUser);
+       voltaModulos();
+       
+    }
+
     return (
         <IonContent fullscreen>
         <div>
@@ -39,7 +99,8 @@ const Step4 = (props: StepComponentProps) => {
         </IonItem>
         </div>
            
-             <form className="ion-padding">
+             <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
+             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
            
                         
@@ -447,7 +508,7 @@ const Step4 = (props: StepComponentProps) => {
 </IonList>
 
 <IonButton onClick={props.prev} size="large">Anterior</IonButton>
-<IonButton onClick={props.next} size="large" className={"btnProximo"}>Submeter</IonButton>
+<IonButton onClick={onSubmit} size="large" className={"btnProximo"}>Submeter</IonButton>
 </form>
 
 </div>

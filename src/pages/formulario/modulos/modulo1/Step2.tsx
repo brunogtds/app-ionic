@@ -1,7 +1,7 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonLoading } from "@ionic/react";
 import { IonContent} from '@ionic/react';
 import '../../Forms.css';
 
@@ -12,7 +12,9 @@ import {useState} from 'react';
 
 import { IonProgressBar} from '@ionic/react';
 
+import  {Redirect, useHistory } from 'react-router-dom' 
 
+import {toast} from '../../../../toast';
 
 //imports user context do reactfire
 
@@ -33,8 +35,48 @@ const Step2 = (props: StepComponentProps) => {
   const [showOptions, setShowOptions] = React.useState(false);
 
   const watchGender= watch("sex", "");
-    
+  
+  const history= useHistory();
+  const [loader, setLoader]= useState<boolean>(false)
 
+  async function updateUserDataQuest1(dataUser: any){
+    
+ 
+    if(user){
+        firebase.firestore().collection('users').doc(user.uid).set({
+            age: Number(props.state.age), //STEP 1
+            sex: String(props.state.sex),
+            dateMenstruation: String(props.state.dateMenstruation),
+            weight: Number(props.state.weight),
+            height: Number(props.state.height),
+            BRstate: String(props.state.BRstate),
+            occupation: String(props.state.occupation),
+            currentOccupation: String(props.state.currentOccupation),
+            schooling: String(props.state.schooling),
+            married: String(props.state.married),
+            depend: Number(props.state.depend),
+            isolationComp: String(props.state.isolationComp),
+            area: String(props.state.area),   }, {merge: true})
+        }
+    
+        toast('Formulário submetido com sucesso!', 4000);
+        
+    
+    }
+
+    function voltaModulos (){
+        history.push('/modulos');
+    }
+        
+    const onSubmit = (data: any) => {
+       setData(dataUser);
+       setLoader(true);
+       updateUserDataQuest1(dataUser);
+       voltaModulos();
+       
+    }
+    
+   
     return (
         <IonContent fullscreen>
         <div>
@@ -46,9 +88,9 @@ const Step2 = (props: StepComponentProps) => {
         </IonItem>
         </div>
         
-                <form className="ion-padding">
+                <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
 
-                   
+                <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
                 <IonLabel className="questions"> Escolaridade:</IonLabel>
                        
@@ -181,7 +223,7 @@ const Step2 = (props: StepComponentProps) => {
                             />
                         </IonItem>
                         <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-                        <IonButton onClick={props.next} className={"btnProximo"} size="large">Submeter</IonButton>
+                        <IonButton onClick={onSubmit} className={"btnProximo"} size="large">Submeter</IonButton>
                        
                         
                </form>

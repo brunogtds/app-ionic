@@ -1,7 +1,7 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
+import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonLoading} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
 import '../../Forms.css';
@@ -10,11 +10,63 @@ import { useForm, Controller } from "react-hook-form";
 
 import { IonProgressBar} from '@ionic/react';
 
+import {useState} from 'react';
+
+import  {Redirect, useHistory } from 'react-router-dom'
+import {toast} from '../../../../toast';
+
+//imports user context do reactfire
+
+import {useUser} from 'reactfire';
+import firebase from 'firebase';
+
+
 
 
 const Step12 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit} = useForm();
+
+    const {data: user}= useUser();
+   const [dataUser, setData] = useState()
+
+   const history= useHistory();
+   const [loader, setLoader]= useState<boolean>(false)
+
+  async function updateUserDataQuest1(dataUser: any){
+    
+ 
+    if(user){
+        firebase.firestore().collection('users').doc(user.uid).set({
+            phq01: Number(props.state.pqhp01), //STEP 7
+            phq02: Number(props.state.pqhp02), 
+            phq03: Number(props.state.pqhp03), 
+            phq04: Number(props.state.pqhp04), 
+            phq05: Number(props.state.pqhp05), 
+            phq06: Number(props.state.pqhp06), 
+            phq07: Number(props.state.pqhp07), 
+            phq08: Number(props.state.pqhp08), 
+            phq09: Number(props.state.pqhp09), 
+            phq10: Number(props.state.pqhp10),  }, {merge: true})
+        }
+    
+        toast('Formulário submetido com sucesso!', 4000);
+        
+    
+    }
+
+    function voltaModulos (){
+        history.push('/modulos');
+    }
+        
+    const onSubmit = (data: any) => {
+       setData(dataUser);
+       setLoader(true);
+       updateUserDataQuest1(dataUser);
+       voltaModulos();
+       
+    }
+ 
  
     return(
         <IonContent fullscreen> 
@@ -23,7 +75,8 @@ const Step12 = (props: StepComponentProps) => {
         
         </IonItem>
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding"} onSubmit={handleSubmit(onSubmit)}>
+            <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
                  
             
@@ -376,7 +429,7 @@ const Step12 = (props: StepComponentProps) => {
             </IonItem>
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Submeter</IonButton>
+            <IonButton onClick={onSubmit} size="large" className={"btnProximo"}>Submeter</IonButton>
             </form>
 
         </div>

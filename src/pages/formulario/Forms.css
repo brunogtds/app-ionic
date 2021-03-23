@@ -59,3 +59,32 @@ ion-label {
   font-weight: bold;
 }
 
+.button-text{
+  font-size: 12px;
+  position: relative;
+  display: inline-block;
+}
+#inner{
+  display: table;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  
+}
+
+#inner-modules{
+  display: table;
+  
+  margin: 0 auto;
+
+}
+
+
+#outer{
+  
+  width:100%
+}
+#toggle {
+  background-color: lightgrey;
+ 
+}

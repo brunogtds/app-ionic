@@ -1,7 +1,7 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime} from "@ionic/react";
+import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonLoading} from "@ionic/react";
 import { IonContent} from '@ionic/react';
  
 import '../../Forms.css';
@@ -11,7 +11,91 @@ import {useState} from 'react';
 
 import { IonProgressBar} from '@ionic/react';
 
+import  {Redirect, useHistory } from 'react-router-dom'
+import {toast} from '../../../../toast';
+
+//imports user context do reactfire
+
+import {useUser} from 'reactfire';
+import firebase from 'firebase';
+
 const Step7 = (props: StepComponentProps) => {
+
+    const {data: user}= useUser();
+   const [dataUser, setData] = useState()
+
+   const history= useHistory();
+   const [loader, setLoader]= useState<boolean>(false)
+
+  async function updateUserDataQuest1(dataUser: any){
+    
+ 
+    if(user){
+        firebase.firestore().collection('users').doc(user.uid).set({
+            socialDist: String(props.state.socialDist), //STEP 3
+            quarantine: String(props.state.qurantine),
+            quarantineDur: String(props.state.quarantineDur),
+            quarantineRoom: String(props.state.quarantineRoom),
+            quarantineRoomDur: String(props.state.quarantineRoomDur),
+            quarantineOutDur: String(props.state.quarantineOutDur),
+            internet: String(props.state.internet),
+            contactN: String(props.state.contactN),
+            workQ: String(props.state.workQ),
+            workDur: String(props.state.workWeek),
+            workChoice: String(props.state.workChooseHour),
+            workReg: String(props.state.workReg),
+            workStart: String(props.state.workStart),
+            sleepReg: String(props.state.sleepReg),
+            sleepQual: String(props.state.sleepQual),
+            feedReg: String(props.state.feedReg),
+            feedStartWD: String(props.state.feedStartWD),
+            feedEndWD: String(props.state.feedEndWD),
+            feedfdyn: String(props.state.fdyn),
+            feedStart: String(props.state.feedStart),
+            feedEnd: String(props.state.feedEnd),
+            snacks: String(props.state.snacks),
+            hobbiesFreq: String(props.state.hobbiesFreq),
+            exercise: String(props.state.exercise),
+            exerciseFreq: String(props.state.exerciseFreq),
+            exerciseReg: String(props.state.exerciseReg),
+            exerciseDur: String(props.state.exerciseDur),
+            exerciseTiming: String(props.state.exerciseTiming),
+            lightFreq: String(props.state.lightFreq),
+            light: String(props.state.light),
+            lightReg: String(props.state.lightReg),
+            lightwdfdyd: String(props.state.lightwdfdyd),
+            lightTiming: String(props.state.lightTiming),
+            lightTimingWD: String(props.state.lightTimingWD),
+            lightTimingFD: String(props.state.lightTimingFD),
+            beck02: String(props.state.beck02),
+            worries_PRcont: Number(props.state.worries_PRcont),
+            worries_PRJob: Number(props.state.worries_PRJob),
+            worries_PRincome: Number(props.state.worries_PRincome),
+            worries_PRrelationship: Number(props.state.worries_PRrelationship),
+            worries_PRcontSomeone: Number(props.state.worries_PRcontSomeone),
+            worries_PRfamilyFrontLine: Number(props.state.worries_PRfamilyFrontLine),
+            worries_PRlife: Number(props.state.worries_PRlife),
+            worries_PRcontact: Number(props.state.worries_PRcontact),
+            worries_PRchildren: Number(props.state.worries_PRchildren),
+            covid: String(props.state.covid),   }, {merge: true})
+        }
+    
+        toast('Formulário submetido com sucesso!', 4000);
+        
+    
+    }
+
+    function voltaModulos (){
+        history.push('/modulos');
+    }
+        
+    const onSubmit = (data: any) => {
+       setData(dataUser);
+       setLoader(true);
+       updateUserDataQuest1(dataUser);
+       voltaModulos();
+       
+    }
 
     const {control, watch, handleSubmit} = useForm();
     
@@ -35,7 +119,8 @@ const Step7 = (props: StepComponentProps) => {
                 
             <div className="ion-text-wrap">
                
-                <form className="ion-padding">
+                <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
+                <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
                 <div className="ion-text-wrap">
                  
@@ -548,7 +633,7 @@ const Step7 = (props: StepComponentProps) => {
                           
 
                 <IonButton onClick={props.prev} size="large">Anterior</IonButton>
-                <IonButton onClick={props.next} size="large" className={"btnProximo"} >Submeter</IonButton>
+                <IonButton onClick={onSubmit} size="large" className={"btnProximo"} >Submeter</IonButton>
                    
                    </div>
                 </form>

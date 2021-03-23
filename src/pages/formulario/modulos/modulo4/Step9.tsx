@@ -2,7 +2,7 @@ import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
 
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime} from "@ionic/react";
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonLoading} from "@ionic/react";
 import { IonContent, IonRow, IonCol } from '@ionic/react';
 
 import '../../Forms.css';
@@ -13,12 +13,57 @@ import {useState} from 'react';
 
 import { IonProgressBar} from '@ionic/react';
 
+import  {Redirect, useHistory } from 'react-router-dom'
+import {toast} from '../../../../toast';
 
+//imports user context do reactfire
+
+import {useUser} from 'reactfire';
+import firebase from 'firebase';
 
 const Step9 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit} = useForm();
-
+    const {data: user}= useUser();
+    const [dataUser, setData] = useState()
+ 
+    const history= useHistory();
+    const [loader, setLoader]= useState<boolean>(false)
+ 
+   async function updateUserDataQuest1(dataUser: any){
+     
+  
+     if(user){
+         firebase.firestore().collection('users').doc(user.uid).set({
+            nightShift: String(props.state.nightShift), //STEP 4 
+            workDaysN: String(props.state.workDaysN),
+            sleepWD: String(props.state.sleepWD),
+            wakeUpWD: String(props.state.wakeUpWD),
+            alarmWD: String(props.state.alarmWD),
+            sleepOnWork: String(props.state.sleepOnWork),
+            wakeUpOnWork: String(props.state.wakeUpOnWork),
+            alarmOnWork: String(props.state.alarmOnWork),
+            sleepFD: String(props.state.sleepFD),
+            wakeUpFD: String(props.state.wakeUpFD),
+            alarmFD: String(props.state.alarmFD),   }, {merge: true})
+         }
+     
+         toast('Formulário submetido com sucesso!', 4000);
+         
+     
+     }
+ 
+     function voltaModulos (){
+         history.push('/modulos');
+     }
+         
+     const onSubmit = (data: any) => {
+        setData(dataUser);
+        setLoader(true);
+        updateUserDataQuest1(dataUser);
+        voltaModulos();
+        
+     }
  
  
     return(
@@ -28,7 +73,8 @@ const Step9 = (props: StepComponentProps) => {
         
          </IonItem>
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding"} onSubmit={handleSubmit(onSubmit)}>
+            <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
 <IonLabel className="questions">Em dias livres, eu normalmente dormi às: </IonLabel>
 <IonItem>
@@ -79,7 +125,7 @@ const Step9 = (props: StepComponentProps) => {
 
 
 <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-<IonButton onClick={props.next} size="large" className={"btnProximo"}>Submeter</IonButton>
+<IonButton onClick={onSubmit} size="large" className={"btnProximo"}>Submeter</IonButton>
 </form>
 
 </div>
