@@ -1,18 +1,64 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton} from "@ionic/react";
+import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonLoading} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../Forms.css';
+import '../../Forms.css';
 import { useForm, Controller } from "react-hook-form";
 import {useState} from 'react';
 
 import { IonProgressBar} from '@ionic/react';
 
-const Step8 = (props: StepComponentProps) => {
+
+
+import  {Redirect, useHistory } from 'react-router-dom'
+import {toast} from '../../../../toast';
+
+//imports user context do reactfire
+
+import {useUser} from 'reactfire';
+import firebase from 'firebase';
+
+
+const Step13 = (props: StepComponentProps) => {
     const {control, watch, handleSubmit} = useForm();
     const [problemasSono, setProblemasSono] = useState();
+
+    const {data: user}= useUser();
+   const [dataUser, setData] = useState()
+
+   const history= useHistory();
+   const [loader, setLoader]= useState<boolean>(false)
+
+  async function updateUserDataQuest1(dataUser: any){
+    
+ 
+    if(user){
+        firebase.firestore().collection('users').doc(user.uid).set({
+            sleepProblem: String(props.state.sleepProblem), //STEP 8 
+            isi_isi01: Number(props.state.isi_isi01),
+            isi_isi02: Number(props.state.isi_isi02),
+            isi_isi03: Number(props.state.isi_isi03),  }, {merge: true})
+        }
+    
+        toast('Formulário submetido com sucesso!', 4000);
+        
+    
+    }
+
+    function voltaModulos (){
+        history.push('/modulos');
+    }
+        
+    const onSubmit = (data: any) => {
+       setData(dataUser);
+       setLoader(true);
+       updateUserDataQuest1(dataUser);
+       voltaModulos();
+       
+    }
+ 
  
     return(
         <IonContent fullscreen> 
@@ -21,12 +67,13 @@ const Step8 = (props: StepComponentProps) => {
         
        </IonItem>
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding"} onSubmit={handleSubmit(onSubmit)}>
+            <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
             
-            
+            <IonLabel className="questions">Você tem tido problemas com seu sono?</IonLabel>
             <IonItem>
-                <IonLabel>Você tem tido problemas com seu sono?</IonLabel>
+                
 
                 <Controller render={({onChange}) => (
                             <IonRadioGroup value={problemasSono} onIonChange={(e) => {setProblemasSono(e.detail.value);
@@ -48,7 +95,7 @@ const Step8 = (props: StepComponentProps) => {
             {problemasSono == "sim" ?
             <IonItem>
 
-            <IonLabel>Por favor, avalie a gravidade da sua insônia nas duas últimas semanas, em relação a:</IonLabel>
+            <IonLabel className="questions">Por favor, avalie a gravidade da sua insônia nas duas últimas semanas, em relação a:</IonLabel>
             </IonItem>
             :null }
 
@@ -57,7 +104,8 @@ const Step8 = (props: StepComponentProps) => {
                 
                 <IonItem>
 
-                             <IonLabel>Dificuldade de pegar no sono.</IonLabel>
+                             <IonLabel className="questions">Dificuldade de pegar no sono.</IonLabel>
+                           
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -91,12 +139,12 @@ const Step8 = (props: StepComponentProps) => {
                                 </IonItem>
       
                             </IonRadioGroup> )} control={control} name='isi_isi01'/>
-                    </IonItem>  :null }
+                    </IonItem> :null }
 
                     {problemasSono == "sim" ?
                 <IonItem>
 
-                             <IonLabel>Dificuldade de manter o sono.</IonLabel>
+                             <IonLabel className="questions">Dificuldade de manter o sono.</IonLabel>
 
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
@@ -136,7 +184,7 @@ const Step8 = (props: StepComponentProps) => {
                     {problemasSono == "sim" ?
                     <IonItem>
 
-                             <IonLabel>Problema de despertar muito cedo.</IonLabel>
+                             <IonLabel className="questions">Problema de despertar muito cedo.</IonLabel>
 
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
@@ -176,7 +224,7 @@ const Step8 = (props: StepComponentProps) => {
             :null }
             
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
+            <IonButton onClick={onSubmit} size="large" className={"btnProximo"}>Submeter</IonButton>
             </form>
 
         </div>
@@ -185,4 +233,4 @@ const Step8 = (props: StepComponentProps) => {
     )
 }
 
-export default Step8; 
+export default Step13; 

@@ -28,18 +28,24 @@ const Step3 = (props: StepComponentProps) => {
 
         return (
             <IonContent fullscreen>
+            <IonItem>
+       
+        
+            </IonItem>
+                
             <div className="ion-text-wrap">
                
                 <form className="ion-padding">
 
                 <div className="ion-text-wrap">
-                <IonProgressBar value={0.3} buffer={0.3}></IonProgressBar>
+                
 
                         <IonList>
                         
+                        <IonLabel className="ion-text-wrap questions">Estou em distanciamento social:</IonLabel>
                         
                         <IonItem>
-                            <IonLabel className="ion-text-wrap">Estou em distanciamento social:</IonLabel>
+                            
 
                             <Controller render={({onChange}) => (
 
@@ -55,7 +61,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {((distanciamento == "todoTempo") || (distanciamento == "maiorParte") || (distanciamento == "menosMetade") ) ? 
                          <IonItem>
-                            <IonLabel position="floating" className="ion-text-wrap" >Desde que dia você está em distanciamento social (evitando sair de casa)?</IonLabel>
+                            <IonLabel position="floating" className="ion-text-wrap questions" >Desde que dia você está em distanciamento social (evitando sair de casa)?</IonLabel>
 
                             <Controller render={({onChange}) => (
                             <IonDatetime placeholder="Selecione data" onIonChange={(e)=> {
@@ -69,8 +75,9 @@ const Step3 = (props: StepComponentProps) => {
 
                         <IonList>
                         
+                        <IonLabel className="ion-text-wrap questions">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
                          <IonItem>
-                            <IonLabel className="ion-text-wrap">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
+                            
                             
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={isolamento} onIonChange={(e) => {setIsolamento(e.detail.value); 
@@ -98,7 +105,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {isolamento === "sim" ?
                         <IonItem>
-                            <IonLabel>Em que mês(meses) você precisou se isolar?</IonLabel>
+                            <IonLabel className="questions">Em que mês(meses) você precisou se isolar?</IonLabel>
 
                             <Controller render={({onChange}) => (
                             <IonList>
@@ -215,8 +222,9 @@ const Step3 = (props: StepComponentProps) => {
 
                         {/*FIM->PRECISOU SE ISOLAR*/}
 
+                        <IonLabel className="questions">Quanto você precisa sair para fazer alguma atividade, quanto tempo normalmente fica fora de casa?</IonLabel>
                         <IonItem>
-                            <IonLabel>Quanto você precisa sair para fazer alguma atividade, quanto tempo normalmente fica fora de casa?</IonLabel>
+                            
 
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
@@ -234,9 +242,9 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={"quarantineOutDur"}/>
                          </IonItem>
 
-
+                         <IonLabel className="questions">Sua conexão de internet é: </IonLabel>
                          <IonItem>
-                            <IonLabel>Sua conexão de internet é: </IonLabel>
+                            
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
                                 console.log(e);
@@ -252,9 +260,9 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={"internet"}/>
                          </IonItem>
 
-                         
+                         <IonLabel className="questions">Com quantas pessoas por dia, aproximadamente, você teve contato (online, incluindo mensagens, ou ao vivo) nas últimas duas semanas? </IonLabel>
                          <IonItem>
-                            <IonLabel>Com quantas pessoas por dia, aproximadamente, você teve contato (online, incluindo mensagens, ou ao vivo) nas últimas duas semanas? </IonLabel>
+                            
                            
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
@@ -273,8 +281,9 @@ const Step3 = (props: StepComponentProps) => {
                          </IonItem>
 
                         <IonList>
+                        <IonLabel className="questions">Em quantos dias você trabalhou ou estudou nas últimas duas semanas? </IonLabel>
                          <IonItem>
-                            <IonLabel>Em quantos dias você trabalhou ou estudou nas últimas duas semanas? </IonLabel>
+                            
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." value={diasTrabalho} onIonChange={(e) => {setDiasTrabalho(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -302,7 +311,7 @@ const Step3 = (props: StepComponentProps) => {
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))              ?
 
                         <IonItem>
-                            <IonLabel>Quantas horas em média você trabalhou/estudou nestes dias? </IonLabel>
+                            <IonLabel className="questions">Quantas horas em média você trabalhou/estudou nestes dias? </IonLabel>
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
                                 console.log(e);
@@ -320,7 +329,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))  ?
                          <IonItem>
-                            <IonLabel>Você pôde escolher seus horários de trabalho/estudo?</IonLabel>
+                            <IonLabel className="questions">Você pôde escolher seus horários de trabalho/estudo?</IonLabel>
                             <Controller render={({onChange}) => (
                             <IonRadioGroup onIonChange={(e) => {
                                 console.log(e);
@@ -345,7 +354,7 @@ const Step3 = (props: StepComponentProps) => {
                         
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
                         <IonItem>
-                            <IonLabel>O quão regular foram seus horários de trabalho/estudo nas últimas duas semanas: </IonLabel>
+                            <IonLabel className="questions">O quão regular foram seus horários de trabalho/estudo nas últimas duas semanas: </IonLabel>
 
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." value={horasTrabalhoRegulares} onIonChange={(e) => {setHorasTrabalhoRegulares(e.detail.value) ; 
@@ -365,7 +374,7 @@ const Step3 = (props: StepComponentProps) => {
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) && ((horasTrabalhoRegulares === "regulares") || (horasTrabalhoRegulares === "muitoRegulares")) ?
                         
                          <IonItem>
-                             <IonLabel>Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel>
+                             <IonLabel className="questions">Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e) => {
                                 console.log(e);
@@ -377,9 +386,9 @@ const Step3 = (props: StepComponentProps) => {
 
                          </IonList>
 
-
+                         <IonLabel className="questions">Como foram suas rotinas de sono nas últimas duas semanas? </IonLabel>
                          <IonItem>
-                            <IonLabel>Como foram suas rotinas de sono nas últimas duas semanas? </IonLabel>
+                            
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
                                 console.log(e);
@@ -394,8 +403,9 @@ const Step3 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={"sleepReg"}/>
                          </IonItem>
 
+                         <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
                          <IonItem>
-                            <IonLabel>Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
+                           
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
                                 console.log(e);
@@ -412,8 +422,9 @@ const Step3 = (props: StepComponentProps) => {
 
                          <IonList>
 
+                         <IonLabel className="questions">Como foram suas rotinas de alimentação nas últimas duas semanas?</IonLabel>
                          <IonItem>
-                            <IonLabel>Como foram suas rotinas de alimentação nas últimas duas semanas?</IonLabel>
+                            
 
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." value={rotinaAlimento} onIonChange={(e) => {setRotinaAlimento(e.detail.value);
@@ -431,7 +442,7 @@ const Step3 = (props: StepComponentProps) => {
                          {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
 
                          <IonItem>
-                             <IonLabel>Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias de trabalho ou de semana?</IonLabel>
+                             <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias de trabalho ou de semana?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e) => {
                                 console.log(e);
@@ -443,7 +454,7 @@ const Step3 = (props: StepComponentProps) => {
 
                          {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
                          <IonItem>
-                             <IonLabel>Em que horário, em média, você se alimentou pela última vez no dia, nas últimas duas semanas?</IonLabel>
+                             <IonLabel className="questions">Em que horário, em média, você se alimentou pela última vez no dia, nas últimas duas semanas?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A"  onIonChange={(e) => {
                                 console.log(e);
@@ -455,9 +466,9 @@ const Step3 = (props: StepComponentProps) => {
 
                          </IonList>
 
-                      
+                         <IonLabel className="questions">Seus horários de alimentação foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana) nas últimas duas semanas?</IonLabel>
                          <IonItem>
-                            <IonLabel>Seus horários de alimentação foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana) nas últimas duas semanas?</IonLabel>
+                           
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={horarioAlimento} onIonChange={(e) => {setHorarioAlimento(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -478,7 +489,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
                          <IonItem>
-                             <IonLabel>Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias livres ou fins de semana?</IonLabel>
+                             <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias livres ou fins de semana?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e) => {
                                 console.log(e);
@@ -490,7 +501,7 @@ const Step3 = (props: StepComponentProps) => {
 
                          {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
                          <IonItem>
-                             <IonLabel>Em que horário, em média, nas últimas duas semanas, você se alimentou pela última vez no dia, nos dias livres ou fins de semana?</IonLabel>
+                             <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você se alimentou pela última vez no dia, nos dias livres ou fins de semana?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e) => {
                                 console.log(e);
@@ -500,9 +511,9 @@ const Step3 = (props: StepComponentProps) => {
                             }}></IonDatetime> )} control={control} name={"feedEnd"}/>
                          </IonItem>: null} 
 
-
+                         <IonLabel className="questions">Nas últimas duas semanas, você comeu lanches ao longo do dia, em média: </IonLabel>
                         <IonItem>
-                            <IonLabel>Nas últimas duas semanas, você comeu lanches ao longo do dia, em média: </IonLabel>
+                           
 
                             <Controller render = {({onChange}) => (
 
@@ -564,8 +575,9 @@ const Step3 = (props: StepComponentProps) => {
                              </IonList> )} control={control} name={"snacks"}/>
                             </IonItem>
 
+                            <IonLabel className="questions">Com que frequência você praticou hobbies nas duas últimas semanas?</IonLabel>
                         <IonItem>
-                            <IonLabel>Com que frequência você praticou hobbies nas duas últimas semanas?</IonLabel>
+                           
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..."  onIonChange={(e)=> {
                                 console.log(e);
@@ -580,8 +592,9 @@ const Step3 = (props: StepComponentProps) => {
                          </IonItem>
 
                          <IonList>
+                         <IonLabel className="questions">Você praticou atividade física nas duas últimas semanas?</IonLabel>
                          <IonItem>
-                            <IonLabel>Você praticou atividade física nas duas últimas semanas?</IonLabel>
+                            
 
                             <Controller render={({onChange}) => (
                             
@@ -607,7 +620,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {atividadeFisica == "sim" ? 
                         <IonItem>
-                            <IonLabel>Com que frequência você praticou exercícios?</IonLabel>
+                            <IonLabel className="questions">Com que frequência você praticou exercícios?</IonLabel>
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
@@ -627,7 +640,7 @@ const Step3 = (props: StepComponentProps) => {
 
                          {atividadeFisica === "sim" ?
                          <IonItem>
-                            <IonLabel>Quão regulares, nas últimas duas semanas, foram os horários que praticou exercício?</IonLabel>
+                            <IonLabel className="questions">Quão regulares, nas últimas duas semanas, foram os horários que praticou exercício?</IonLabel>
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." value={horarioAtividadeFisica} onIonChange={(e) => {setHorarioAtividadeFisica(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -641,7 +654,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {atividadeFisica === "sim" ? 
                          <IonItem>
-                            <IonLabel>Qual foi, nas últimas duas semanas, a duração da sua atividade física em média?</IonLabel>
+                            <IonLabel className="questions">Qual foi, nas últimas duas semanas, a duração da sua atividade física em média?</IonLabel>
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
@@ -661,7 +674,7 @@ const Step3 = (props: StepComponentProps) => {
                          {((atividadeFisica === "sim") && ((horarioAtividadeFisica === "regulares") || (horarioAtividadeFisica === "muitoRegulares")) )? 
 
                          <IonItem>
-                             <IonLabel>Em que horário, em média, nas últimas duas semanas, você começou a praticar exercícios?</IonLabel>
+                             <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você começou a praticar exercícios?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                                 console.log(e);
@@ -672,9 +685,10 @@ const Step3 = (props: StepComponentProps) => {
 
 
                         <IonList>
+                        <IonLabel className="questions">Com que frequência você se expôs a luz natural (em um ambiente aberto) nas últimas duas semanas?</IonLabel>
 
                          <IonItem>
-                            <IonLabel>Com que frequência você se expôs a luz natural (em um ambiente aberto) nas últimas duas semanas?</IonLabel>
+                            
                             <Controller render={({onChange}) => (  
                             <IonSelect placeholder="Por favor, selecione..." value={frequenciaLuzNatural} onIonChange={(e) => {setFrequenciaLuzNatural(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -691,7 +705,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
                         <IonItem>
-                            <IonLabel>Nesses dias, a quantas horas de luz natural (em um ambiente aberto) você se expôs em média?</IonLabel>
+                            <IonLabel className="questions">Nesses dias, a quantas horas de luz natural (em um ambiente aberto) você se expôs em média?</IonLabel>
                             <Controller render={({onChange}) => (  
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
@@ -709,7 +723,7 @@ const Step3 = (props: StepComponentProps) => {
 
                          {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
                          <IonItem>
-                            <IonLabel>Quão regulares foram os horários em que se expõe à luz natural?</IonLabel>
+                            <IonLabel className="questions">Quão regulares foram os horários em que se expõe à luz natural?</IonLabel>
                             <Controller render={({onChange}) => (  
                             <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
@@ -726,7 +740,7 @@ const Step3 = (props: StepComponentProps) => {
                         <IonList>
                          {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
                          <IonItem>
-                            <IonLabel>Seus horários de expor à luz foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana)?</IonLabel>
+                            <IonLabel className="questions">Seus horários de expor à luz foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana)?</IonLabel>
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={horarioLuzNatural} onIonChange={(e) => { setHorarioLuzNatural(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -749,7 +763,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ? 
                         <IonItem>
-                             <IonLabel>Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias trabalho ou de semana?</IonLabel>
+                             <IonLabel className="questions">Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias trabalho ou de semana?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                                 console.log(e);
@@ -760,7 +774,7 @@ const Step3 = (props: StepComponentProps) => {
 
                          {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ?
                          <IonItem>
-                             <IonLabel>Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias livres ou fins de semana?</IonLabel>
+                             <IonLabel className="questions">Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias livres ou fins de semana?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                                 console.log(e);
@@ -772,7 +786,7 @@ const Step3 = (props: StepComponentProps) => {
 
                         {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "não")) ?
                         <IonItem>
-                             <IonLabel>Em que horário, em média, você se expôs à luz natural, nas últimas duas semanas?</IonLabel>
+                             <IonLabel className="questions">Em que horário, em média, você se expôs à luz natural, nas últimas duas semanas?</IonLabel>
                              <Controller render={({onChange}) => (
                              <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
                                 console.log(e);
@@ -783,9 +797,9 @@ const Step3 = (props: StepComponentProps) => {
                         
                          </IonList>
                          </IonList>
-                        
+                         <IonLabel className="questions">Marque aquela que melhor descreve a maneira como você se sentiu nas últimas duas semanas.</IonLabel>
                          <IonItem>
-                            <IonLabel>Marque aquela que melhor descreve a maneira como você se sentiu nas últimas duas semanas.</IonLabel>
+                            
                             <Controller render={({onChange}) => (
                             <IonSelect placeholder="Por favor, selecione..." id={""} onIonChange={(e)=> {
                                 console.log(e);
@@ -961,7 +975,7 @@ const Step3 = (props: StepComponentProps) => {
 
 
                         <IonItem>
-                            <IonLabel>Em relação a situação atual, em um nível de 1 (não me traz ansiedade) a 5 (me deixa muito ansioso), o quanto
+                            <IonLabel className="questions">Em relação a situação atual, em um nível de 1 (não me traz ansiedade) a 5 (me deixa muito ansioso), o quanto
                                 estas preocupações te deixam ansioso?
                             </IonLabel>
 
@@ -969,9 +983,10 @@ const Step3 = (props: StepComponentProps) => {
 
                         
 
+                        <IonLabel className="questions">Possibilidade de contágio.</IonLabel>
                             <IonItem>
 
-                             <IonLabel>Possibilidade de contágio.</IonLabel>
+                            
 
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
@@ -1012,9 +1027,11 @@ const Step3 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"worries_PRcont"}/>
                             </IonItem>
 
+                            <IonLabel className="questions">Perder o emprego.</IonLabel>
+
                             <IonItem>
 
-                             <IonLabel>Perder o emprego.</IonLabel>
+                          
 
                             
                              <Controller render={({onChange}) => (
@@ -1056,9 +1073,10 @@ const Step3 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"worries_PRjob"}/>
                             </IonItem>
 
+                            <IonLabel className="questions">Não ter mais fonte de renda.</IonLabel>
                             <IonItem>
 
-                             <IonLabel>Não ter mais fonte de renda.</IonLabel>
+                             
 
                              
                              <Controller render={({onChange}) => (
@@ -1100,9 +1118,10 @@ const Step3 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"worries_PRincome"}/>
                             </IonItem>
                        
+                            <IonLabel className="questions">Terminar o relacionamento.</IonLabel>
                             <IonItem>
 
-                             <IonLabel>Terminar o relacionamento.</IonLabel>
+                             
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -1143,10 +1162,11 @@ const Step3 = (props: StepComponentProps) => {
                              
                             </IonItem>
                         
-                                                  
+
+                            <IonLabel className="questions">Contagiar alguém.</IonLabel>               
                             <IonItem>
 
-                             <IonLabel>Contagiar alguém.</IonLabel>
+                            
 
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
@@ -1188,9 +1208,10 @@ const Step3 = (props: StepComponentProps) => {
                                
                             </IonItem>
 
+                            <IonLabel className="questions">Familiares e/ou amigos na linha de frente de combate ao vírus.</IonLabel>
                             <IonItem>
 
-                             <IonLabel>Familiares e/ou amigos na linha de frente de combate ao vírus.</IonLabel>
+                             
 
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
@@ -1232,9 +1253,11 @@ const Step3 = (props: StepComponentProps) => {
                                
                             </IonItem>
 
+                            <IonLabel className="questions">Vida não voltar a ser como era antes.</IonLabel>
+
                             <IonItem>
 
-                             <IonLabel>Vida não voltar a ser como era antes.</IonLabel>
+                             
 
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
@@ -1275,7 +1298,9 @@ const Step3 = (props: StepComponentProps) => {
                             </IonRadioGroup> )} control={control} name={"worries_PRlife"}/>
                             </IonItem>
 
+                            <IonLabel className="questions">Perder contato com amigos ou colegas.</IonLabel>
                             <IonItem>
+                            
                             <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -1317,11 +1342,10 @@ const Step3 = (props: StepComponentProps) => {
                                
                             </IonItem>
 
+                            <IonLabel className="questions">Educação dos filhos.</IonLabel>
+
                             <IonItem>
-
-                             <IonLabel>Educação dos filhos.</IonLabel>
-
-                             
+    
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -1360,17 +1384,13 @@ const Step3 = (props: StepComponentProps) => {
                                 </IonItem>
                             </IonRadioGroup> )} control={control} name={"worries_PRchildren"}/>
                             </IonItem>
-                                
-                                
-                                
-                                
-                                
-
+           
+                            <IonLabel className={"ion-text-wrap questions"}>Você ou alguém da família contraiu o vírus? </IonLabel>
                         <IonItem>
 
                             <Controller render={({onChange}) => (   
                             <IonList>
-                            <IonLabel className={"ion-text-wrap"}>Você ou alguém da família contraiu o vírus? </IonLabel>
+                           
                                 <IonItem>
                                 <IonCheckbox color="primary" value= {props.getState("covid", "")} onIonChange={(e)=> {
                                 console.log(e);

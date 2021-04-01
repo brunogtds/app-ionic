@@ -33,7 +33,7 @@ import { Steps, Step } from "react-step-builder";
 
         <IonHeader>
             <IonToolbar>
-                <IonTitle>AppSono</IonTitle>
+                <IonTitle><b>AppSono</b></IonTitle>
                   <div id="header-items">
                    
                   </div>

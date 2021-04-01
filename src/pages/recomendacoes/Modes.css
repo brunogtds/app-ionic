@@ -89,8 +89,9 @@ p b {
   color: var(--ion-text-color, #000000);
 }
 
-ul li {
-
-  display: inline;
+ul  {
+  padding: 0 40px;
+  list-style-type: circle;
+  list-style-position: inside;
   
 }

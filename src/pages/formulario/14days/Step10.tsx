@@ -10,7 +10,7 @@ import { useForm} from "react-hook-form";
 import {useState} from 'react';
 
 
-import { IonProgressBar} from '@ionic/react';
+import { IonProgressBar, IonItem} from '@ionic/react';
 
 import thinking from '../../../img/thinking.png';
 import {useUser} from 'reactfire';
@@ -183,11 +183,15 @@ const onSubmit = (data: any) => {
  
     return(
         <IonContent fullscreen> 
+         <IonItem>
+       
+        
+       </IonItem>
         <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
         <div>
             <form className={"ion-padding"} onSubmit={handleSubmit(onSubmit)}>
 
-            <IonProgressBar value={1.0} buffer={1.0}></IonProgressBar>
+         
             
 
             <div className={"ion-text-center"}>

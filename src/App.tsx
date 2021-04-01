@@ -15,7 +15,7 @@ import Tab1 from './pages/Home';
 
 import Tab3 from './pages/recomendacoes/Recommendation';
 
-import {home, bed, person, informationCircle} from  'ionicons/icons';
+import {home, bed, person, informationCircle, thumbsUp} from  'ionicons/icons';
 import {useState, ChangeEvent} from 'react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -41,6 +41,18 @@ import './theme/variables.css';
 import Main from './pages/formulario/Main';
 import Main14Days from './pages/formulario/14days/Main14Days';
 import Main14DaysP2 from './pages/formulario/14daysP2/Main14DaysP2';
+
+//import modulos
+import Modulos from './pages/formulario/modulos/Modulos';
+import Modulo1 from './pages/formulario/modulos/modulo1/Modulo1';
+import Modulo2 from './pages/formulario/modulos/modulo2/Modulo2';
+import Modulo3 from './pages/formulario/modulos/modulo3/Modulo3';
+import Modulo4 from './pages/formulario/modulos/modulo4/Modulo4';
+import Modulo5 from './pages/formulario/modulos/modulo5/Modulo5';
+import Modulo6 from './pages/formulario/modulos/modulo6/Modulo6';
+import Modulo7 from './pages/formulario/modulos/modulo7/Modulo7';
+import Modulo8 from './pages/formulario/modulos/modulo8/Modulo8';
+import Modulo9 from './pages/formulario/modulos/modulo9/Modulo9';
 
 /*ExplanationSlides*/
 
@@ -90,6 +102,16 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/tab2" component={Main} exact={true} />
           <Route path="/main14days" component={Main14Days} exact={true}/>
           <Route path="/main14daysP2" component={Main14DaysP2} exact={true}/>
+          <Route path="/modulos" component={Modulos} exact={true}/>
+          <Route path="/modulo1" component={Modulo1} exact={true}/>
+          <Route path="/modulo2" component={Modulo2} exact={true}/>
+          <Route path="/modulo3" component={Modulo3} exact={true}/>
+          <Route path="/modulo4" component={Modulo4} exact={true}/>
+          <Route path="/modulo5" component={Modulo5} exact={true}/>
+          <Route path="/modulo6" component={Modulo6} exact={true}/>
+          <Route path="/modulo7" component={Modulo7} exact={true}/>
+          <Route path="/modulo8" component={Modulo8} exact={true}/>
+          <Route path="/modulo9" component={Modulo9} exact={true}/>
           <Route path="/tab3" component={Tab3} />
           <Route path="/explanationslides" component={ExplanationSlides}/>
           <Route path="/mode1" component={Mode1}/>
@@ -110,7 +132,7 @@ const PrivateRoutes: React.FC = () => {
             <IonLabel>Formulários</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={person} />
+            <IonIcon icon={thumbsUp} />
             <IonLabel>Recomendações</IonLabel>
           </IonTabButton>
           <IonTabButton tab="sobre" href="/sobre">
