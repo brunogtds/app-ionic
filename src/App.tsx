@@ -50,6 +50,7 @@ import ExplanationSlides from './pages/ExplanationSlides';
 
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
+import RecuperacaoSenha from './pages/RecuperacaoSenha';
 
 /*Módulos recomendações*/
 import Mode1 from './pages/recomendacoes/Mode1';
@@ -71,6 +72,7 @@ const PublicRoutes: React.FC = () => {
     <IonRouterOutlet>
       <Route path="/login" component={Login} exact={true}/>
       <Route path="/cadastro" component={Cadastro} exact={true}/>
+      <Route path="/recuperacao_senha" component={RecuperacaoSenha} exact={true}/>
       <Redirect exact path="/" to="/login"/>
       
     </IonRouterOutlet>

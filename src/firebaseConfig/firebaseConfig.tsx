@@ -62,3 +62,22 @@ export async function cadastroUser (email: any, senha: any){
         return false
     }
 };
+
+export async function recoverPassword (email: any, confirmation_email: any) {
+
+    if (email != confirmation_email){
+        toast('Email devem ser iguais!', 4000)
+        return false
+    }
+
+    try{
+        const res= await firebase.auth().sendPasswordResetEmail(email);
+        toast('Email de recuperação enviado com sucesso!', 4000)
+        return true
+     }
+     catch(error){
+        toast('Email inválido!', 4000)
+         return false
+     }
+ 
+ };

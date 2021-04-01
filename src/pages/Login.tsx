@@ -10,7 +10,7 @@ import {IonLoading} from '@ionic/react';
 
 import thinking from '../../src/img/thinking.png';
 
-import {loginUser} from '../firebaseConfig/firebaseConfig';
+import {loginUser, recoverPassword} from '../firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
@@ -91,15 +91,13 @@ const Login: React.FC = () => {
 
       <div>
       
-      <IonButton onClick={Login} size="large">Login</IonButton>
-      <IonButton size="large" href="/Cadastro">Cadastro</IonButton>
+      <IonButton size="large" onClick={Login} >Login</IonButton>
+      <IonButton size="large" href="/cadastro">Cadastro</IonButton>
       
       </div>
-
-      <div>
-        Esqueceu a senha? Clique aqui.
+      <IonButton size="large" href="/recuperacao_senha">Esqueceu a senha? Clique aqui</IonButton>
       </div>
-      </div>
+      
       </div>
       </IonContent>
     </IonPage>

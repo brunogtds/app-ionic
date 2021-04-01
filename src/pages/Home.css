@@ -96,7 +96,7 @@
   width:100%
 }
 
-#email {
+#email, #confirmation_email {
   background-color: lightgrey;
 }
 
