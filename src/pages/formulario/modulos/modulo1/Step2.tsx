@@ -26,8 +26,8 @@ Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabel
 
 const Step2 = (props: StepComponentProps) => {
 
-    const {data: user}= useUser();
-    const [dataUser, setData] = useState()
+ const {data: user}= useUser();
+ const [dataUser, setData] = useState()
 
                                      
   const {control, watch, handleSubmit} = useForm();
@@ -40,8 +40,7 @@ const Step2 = (props: StepComponentProps) => {
   const [loader, setLoader]= useState<boolean>(false)
 
   async function updateUserDataQuest1(dataUser: any){
-    
- 
+     
     if(user){
         firebase.firestore().collection('users').doc(user.uid).set({
             age: Number(props.state.age), //STEP 1
