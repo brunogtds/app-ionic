@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
 
-import './Home.css';
+import './Login.css';
 
 import {IonButton} from '@ionic/react';
 
@@ -9,20 +9,20 @@ import {IonLoading} from '@ionic/react';
 
 
 import thinking from '../../src/img/thinking.png';
+import regenteLogo from '../../src/img/logo_regente.png';
 
 import {loginUser, recoverPassword} from '../firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
-import {eye} from  'ionicons/icons';
+import {eyeOutline, eyeOffOutline, personOutline, logoGoogle, logoFacebook} from  'ionicons/icons';
 
 const Login: React.FC = () => {
 
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [showSenha, setShowSenha]= useState(false);
-
-  const [error, setError]= useState();
+  const [errorLogin, setErrorLogin]= useState(false);
 
   const [loader, setLoader]= useState<boolean>(false)
 
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
       const res= await loginUser(email, senha)
 
       if (!res){
-        toast('Erro no Login', 4000)
+        setErrorLogin(errorLogin ? false: true)
         setLoader(false)
       } 
       else {
@@ -48,6 +48,14 @@ const Login: React.FC = () => {
         
       } 
  
+    }
+
+    async function LoginGoogle(){
+      toast("Nao implementado ainda")
+    }
+
+    async function LoginFacebook(){
+      toast("Nao implementado ainda")
     }
 
   return (
@@ -66,38 +74,48 @@ const Login: React.FC = () => {
       <div id="inner">
 
       <div>
-        <img src={thinking} width="100px" height="100px" id="logo"/>
+        <img src={regenteLogo} id="logo"/>
       </div>
-
 
       <div>
-     
-      <IonLabel>Email</IonLabel>
-      <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}/>
-      
-      </div>
-      
-      <div>
-      
-      <IonLabel>Senha</IonLabel> 
-      <IonInput type={showSenha ? "text" : "password"} placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}> <IonIcon onClick={passwordVisibility} icon={eye} slot="end"></IonIcon></IonInput> 
-     
-      
-      
-      
+        <IonButton size="large" onClick={LoginGoogle} className="botao_social">Entrar com Google
+          <IonIcon icon={logoGoogle} item-right> </IonIcon>
+        </IonButton>
       </div>
 
+      <div>
+        <IonButton size="large" onClick={LoginFacebook} className="botao_social">Entrar com Facebook
+          <IonIcon icon={logoFacebook} item-right> </IonIcon>
+        </IonButton>
+      </div>
+
+      <div className="errorLogin" hidden={errorLogin? false: true}>
+        <p><b>Senha incorreta!</b> Tente novamente ou <a href="/recuperacao_senha"> resete sua senha. </a></p>
+      </div>
+
+      <div className='label'>
+        <IonLabel>Email</IonLabel>
+      </div>
+      <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}>
+        <IonIcon icon={personOutline}></IonIcon>
+      </IonInput> 
       
+      <div className='label'>      
+        <IonLabel>Senha</IonLabel> 
+      </div>
+      <IonInput type={showSenha ? "text" : "password"} placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}> 
+        <IonIcon onClick={passwordVisibility} hidden={showSenha ? true: false} icon={eyeOutline} float-right></IonIcon>
+        <IonIcon onClick={passwordVisibility} hidden={showSenha ? false: true} icon={eyeOffOutline} float-right></IonIcon>
+      </IonInput> 
+        
 
       <div>
-      
-      <IonButton size="large" onClick={Login} >Login</IonButton>
-      <IonButton size="large" href="/cadastro">Cadastro</IonButton>
-      
+      <IonButton size="large" onClick={Login}>Entrar</IonButton>
       </div>
-      <IonButton size="large" href="/recuperacao_senha">Esqueceu a senha? Clique aqui</IonButton>
+
+      <p>Ainda não possui uma conta? <a href="/cadastro">Cadastre-se!</a></p>
+  
       </div>
-      
       </div>
       </IonContent>
     </IonPage>

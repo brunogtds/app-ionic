@@ -1,19 +1,20 @@
 import React from 'react';
-import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon, IonCheckbox } from '@ionic/react';
 
-import './Home.css';
+import './Login.css';
 
 import { IonButton} from '@ionic/react';
 
 import { IonLoading} from '@ionic/react';
 import thinking from '../../src/img/thinking.png';
+import regenteLogo from '../../src/img/logo_regente.png';
 import {useState} from 'react';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
 import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
-import {eye} from  'ionicons/icons';
+import {mailOutline, lockClosedOutline, personOutline, eyeOutline, eyeOffOutline} from  'ionicons/icons';
 
 const Cadastro: React.FC = () => {
 
@@ -63,7 +64,7 @@ const Cadastro: React.FC = () => {
     <IonPage>
       <IonHeader color="primary">
         <IonToolbar>
-          <IonTitle>Início</IonTitle>
+          <IonTitle>Cadastro</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
@@ -73,37 +74,38 @@ const Cadastro: React.FC = () => {
       <div id="inner">
 
       <div>
-        <img src={thinking} width="100px" height="100px" id="logo"/>
+        <img src={regenteLogo} id="logo"/>
       </div>
 
+      <div className='label'>
+        <IonLabel>Email</IonLabel>
+      </div>
+      <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}>
+        <IonIcon icon={mailOutline}></IonIcon>
+      </IonInput>
 
-      <div>
-     
-      <IonLabel>Email</IonLabel>
-      <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}/>
-      
+      <div className='label'>
+        <IonLabel>Senha</IonLabel>
       </div>
-      
-      <div>
-      
-      <IonLabel>Senha</IonLabel>
-      <IonInput type={showSenha ? "text" : "password"} placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}><IonIcon onClick={passwordVisibility} icon={eye} slot="end"></IonIcon></IonInput>
-      
-      </div>
+      <IonInput type={showSenha ? "text" : "password"} placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}> 
+        <IonIcon onClick={passwordVisibility} hidden={showSenha ? true: false} icon={eyeOutline} float-right></IonIcon>
+        <IonIcon onClick={passwordVisibility} hidden={showSenha ? false: true} icon={eyeOffOutline} float-right></IonIcon>
+      </IonInput> 
 
-      <div>
-      
-      <IonLabel>Confirme sua senha</IonLabel>
-      <IonInput type={showCSenha ? "text" : "password"} placeholder="Confirme a senha" id="csenha" onIonChange={(e:any) => setCSenha(e.target.value)}><IonIcon onClick={cpasswordVisibility} icon={eye} slot="end"></IonIcon></IonInput>
-      
+      <div className='label'>
+        <IonLabel>Confirme sua senha</IonLabel>
       </div>
+      <IonInput type={showCSenha ? "text" : "password"} placeholder="Digite sua senha" id="csenha" onIonChange={(e:any) => setSenha(e.target.value)}> 
+        <IonIcon onClick={cpasswordVisibility} hidden={showCSenha ? true: false} icon={eyeOutline} float-right></IonIcon>
+        <IonIcon onClick={cpasswordVisibility} hidden={showCSenha ? false: true} icon={eyeOffOutline} float-right></IonIcon>
+      </IonInput> 
 
-      <div>
+      <IonButton size="large" onClick={Cadastro}>Cadastrar</IonButton>
+
+      <p>Já possui uma conta? Faça <a href="/Login">login</a></p>
+      <p><a href="/recuperacao_senha">Resete sua senha.</a></p>
+        
       
-      <IonButton href="/Login" size="large">Login</IonButton>
-      <IonButton size="large" onClick={Cadastro}>Cadastro</IonButton>
-      
-      </div>
       </div>
       </div>
       </IonContent>

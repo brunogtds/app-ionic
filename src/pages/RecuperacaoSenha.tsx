@@ -1,11 +1,13 @@
 import React from 'react';
 import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon, IonRouterLink } from '@ionic/react';
 
-import './Home.css';
+import './Login.css';
 
 import { IonButton} from '@ionic/react';
 
 import { IonLoading} from '@ionic/react';
+
+import regenteLogo from '../../src/img/logo_regente.png';
 import thinking from '../../src/img/thinking.png';
 import {useState} from 'react';
 import { toast } from '../toast';
@@ -13,7 +15,7 @@ import {useHistory} from 'react-router';
 
 import {recoverPassword} from '../firebaseConfig/firebaseConfig';
 
-import {eye} from  'ionicons/icons';
+import {mailOutline} from  'ionicons/icons';
 
 const RecuperacaoSenha: React.FC = () => {
 
@@ -54,30 +56,27 @@ const RecuperacaoSenha: React.FC = () => {
       <div id="inner">
 
       <div>
-        <img src={thinking} width="100px" height="100px" id="logo"/>
+        <img src={regenteLogo} id="logo"/>
       </div>
 
+
+      <div className = 'label'>
+        <IonLabel>Para iniciar o processo de redefinição de senha, digite seu e-mail cadastrado.</IonLabel>
+      </div>
 
       <div>
-      <IonLabel>Para iniciar o processo de redefinição de senha, digite seu e-mail de cadastro</IonLabel>
-      <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}/>
-      
-      
-      &nbsp;
-
-      <IonInput type="email" placeholder="Confirme seu email" id="confirmation_email" onIonChange={(e:any) => setConfirmationEmail(e.target.value)}/>
+        <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}/>
+        <IonInput type="email" placeholder="Confirme seu email" id="confirmation_email" onIonChange={(e:any) => setConfirmationEmail(e.target.value)}/>
       </div>
-      
-      
-      
-      
 
       <div>
       <IonButton onClick={recover} size="large">Enviar email</IonButton>
       </div>
       
+
+      <p><a href="/Login" id="returnLogin">Voltar ao login</a></p>
+
       </div>
-      <IonRouterLink href="/Login">Voltar ao login</IonRouterLink>
       </div>
       
       </IonContent>
