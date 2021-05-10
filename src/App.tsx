@@ -39,20 +39,20 @@ import './theme/variables.css';
 
 //import Main from './pages/formulario/14days/Main14Days';
 import Main from './pages/formulario/Main';
-import Main14Days from './pages/formulario/14days/Main14Days';
+
 import Main14DaysP2 from './pages/formulario/14daysP2/Main14DaysP2';
 
 //import modulos
 import Modulos from './pages/formulario/modulos/Modulos';
-import Modulo1 from './pages/formulario/modulos/modulo1/Modulo1';
-import Modulo2 from './pages/formulario/modulos/modulo2/Modulo2';
-import Modulo3 from './pages/formulario/modulos/modulo3/Modulo3';
-import Modulo4 from './pages/formulario/modulos/modulo4/Modulo4';
-import Modulo5 from './pages/formulario/modulos/modulo5/Modulo5';
-import Modulo6 from './pages/formulario/modulos/modulo6/Modulo6';
-import Modulo7 from './pages/formulario/modulos/modulo7/Modulo7';
-import Modulo8 from './pages/formulario/modulos/modulo8/Modulo8';
-import Modulo9 from './pages/formulario/modulos/modulo9/Modulo9';
+import Modulo1 from './pages/formulario/modulos/perfil/PerfilMain';
+
+import PerfilMain from './pages/formulario/modulos/perfil/PerfilMain';
+import HabitosMain from './pages/formulario/modulos/habitos/HabitosMain';
+import ContatoSocialMain from './pages/formulario/modulos/contatoSocial/ContatoSocialMain';
+import SaudeMain from './pages/formulario/modulos/saude/SaudeMain';
+import ModulosSonoSintomas from './pages/formulario/modulos/ModulosSonoSintomas';
+import SonoMain from './pages/formulario/modulos/sono_sintomas/sono/SonoMain';
+import SintomasMain from './pages/formulario/modulos/sono_sintomas/sintomas/SintomasMain';
 
 /*ExplanationSlides*/
 
@@ -99,19 +99,17 @@ const PrivateRoutes: React.FC = () => {
         
 
           <Route path="/tab1" component={Tab1} exact={true} />
-          <Route path="/tab2" component={Main} exact={true} />
-          <Route path="/main14days" component={Main14Days} exact={true}/>
+          <Route path="/tab2" component={Modulos} exact={true} />      
           <Route path="/main14daysP2" component={Main14DaysP2} exact={true}/>
-          <Route path="/modulos" component={Modulos} exact={true}/>
-          <Route path="/modulo1" component={Modulo1} exact={true}/>
-          <Route path="/modulo2" component={Modulo2} exact={true}/>
-          <Route path="/modulo3" component={Modulo3} exact={true}/>
-          <Route path="/modulo4" component={Modulo4} exact={true}/>
-          <Route path="/modulo5" component={Modulo5} exact={true}/>
-          <Route path="/modulo6" component={Modulo6} exact={true}/>
-          <Route path="/modulo7" component={Modulo7} exact={true}/>
-          <Route path="/modulo8" component={Modulo8} exact={true}/>
-          <Route path="/modulo9" component={Modulo9} exact={true}/>
+          <Route path="/perfil" component={PerfilMain} exact={true}/> 
+          <Route path="/saude" component={SaudeMain} exact={true}/>
+          <Route path="/contatosocial" component={ContatoSocialMain} exact={true}/>
+          <Route path="/habitos" component={HabitosMain} exact={true}/>
+          <Route path="/sonosintomas" component={ModulosSonoSintomas} exact={true}/>
+          <Route path="/sono" component={SonoMain} exact={true}/>
+          <Route path="/sintomas" component={SintomasMain} exact={true}/>
+
+
           <Route path="/tab3" component={Tab3} />
           <Route path="/explanationslides" component={ExplanationSlides}/>
           <Route path="/mode1" component={Mode1}/>
@@ -135,10 +133,7 @@ const PrivateRoutes: React.FC = () => {
             <IonIcon icon={thumbsUp} />
             <IonLabel>Recomendações</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="sobre" href="/sobre">
-            <IonIcon icon={informationCircle} />
-            <IonLabel>Sobre</IonLabel>
-          </IonTabButton>
+          
         </IonTabBar>
       </IonTabs>
   )

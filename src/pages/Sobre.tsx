@@ -53,15 +53,61 @@ const Sobre: React.FC = () => {
     
       <IonContent fullscreen className="ion-padding">
 
+      <IonCard>
+      <IonCardHeader>
+        <IonCardSubtitle>Sobre a pesquisa</IonCardSubtitle>
+       <IonCardTitle>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</IonCardTitle> 
+       </IonCardHeader>
+      <IonCardContent>
+    
+       
+        <div className="ion-text-wrap">
+        
+        <div>
+        Caro participante, 
+        </div>
+        <div>
+        Agradecemos a sua disposição em nos ajudar a entender as consequências do <b>distanciamento social</b>.
+        Com esse estudo, pretendemos encontrar maneiras de estar melhor preparados e munidos de mais informação para diminuir as consequências 
+           do distanciamento social na saúde mental. 
+         Além disso, poderemos avaliar quais são as recomendações mais 
+           importantes para quem está passando por tal situação. </div>
+          <div>
+          Antes de começar a responder, na próxima página, você poderá ler mais sobre nosso estudo. 
+           Caso desista de participar, basta fechar o aplicativo a qualquer momento.
+           </div>
+           <div>
+           Muito obrigado!
+           </div>
+        </div>
+        </IonCardContent>
+      
+        
+        <IonCardContent>
+        <div className={"ion-text"}>
+          <b><span className={"red-text"}>Você sabe o que é distanciamento social? Confira a explicação <a href={"/ExplanationSlides"}>aqui</a> e depois clique na aba "Formulário" para iniciar a pesquisa.</span></b>
+        </div>
+        </IonCardContent>
+
+        
+      
+        </IonCard>
+
+
+
+
+
+
         <IonGrid>
 
        <IonCard>
 
       <IonCardHeader>
-       <IonCardTitle>Sobre o aplicativo</IonCardTitle> 
+       <IonCardSubtitle>Sobre a equipe</IonCardSubtitle>
+       <IonCardTitle>Equipe e instituições</IonCardTitle> 
        </IonCardHeader> 
        <IonCardContent>
-       Texto sobre o aplicativo.
+    
        
           <div>
          Equipe do estudo <b>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</b></div>

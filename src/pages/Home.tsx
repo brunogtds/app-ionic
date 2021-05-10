@@ -37,6 +37,9 @@ const Tab1: React.FC = () => {
   const [loader, setLoader]= useState<boolean>(false);
   const {data: user}= useUser();
 
+  function goSobre(){
+    history.push('/sobre');
+  }
   
   async function Logout(){
     setLoader(true)
@@ -55,17 +58,19 @@ const Tab1: React.FC = () => {
       <IonHeader color="primary">
         <IonToolbar>
           <div>
-           <AuthCheck fallback={<IonTitle><b>Bem vindo!</b></IonTitle>}><IonTitle><b>Bem vindo, {user.email}!</b></IonTitle></AuthCheck>
-           
+           <AuthCheck fallback={<IonTitle><b>BEM VINDO!</b></IonTitle>}><IonTitle><b>BEM VINDO, {user.email}!</b></IonTitle></AuthCheck>
+         
           </div>  
-          <IonButton onClick={Logout} className={"logout-button"} color="tertiary">Sair</IonButton> 
-                    
+          <div id="header-items">
+          <IonButton fill="clear" onClick={goSobre}>SOBRE</IonButton>
+          <IonButton onClick={Logout} color="tertiary">SAIR</IonButton> 
+          </div>          
         </IonToolbar>
         
        
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-      <IonContent fullscreen className="ion-padding" >
+      <IonContent fullscreen className="ion-padding" color="light">
 
         <IonGrid>
        

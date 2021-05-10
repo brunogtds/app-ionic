@@ -15,7 +15,7 @@ import thinking from '../../img/thinking.png';
 
 import {alarm} from  'ionicons/icons';
 
-import Main14Days from '../formulario/14days/Main14Days';
+
 import Main14DaysP2 from '../formulario/14daysP2/Main14DaysP2';
 import Modulos from '../formulario/modulos/Modulos';
 
@@ -26,10 +26,7 @@ const Main: React.FC = () => {
   const [checkedQuestionario, setCheckedQuestionario] = useState(false);
   const [checkedActigrafo, setCheckedActigrafo] = useState(false);
 
-  function main14days(){
-    history.push('/Main14Days');
-  }
-
+  
   function main14daysp2(){
     history.push('/Main14DaysP2')
   }
@@ -47,7 +44,7 @@ const Main: React.FC = () => {
        
       </IonHeader>
      
-      <IonContent fullscreen className="ion-text-center ion-padding">
+      <IonContent fullscreen className="ion-text-center ion-padding" color="light">
         <div className="ion-text-center">
             <img src={thinking} height="100px" width="100px"/>
             <div>

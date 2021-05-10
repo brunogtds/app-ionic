@@ -7,6 +7,24 @@
     padding: 10px;
   }
 
+  .row{
+    border: thin solid #92949c;
+    margin: 10px;
+  }
+
   #header-items{
     float: right;
   }
+
+#recommendations{
+ 
+  margin: auto;
+  
+}  
+
+#button-recommendation{
+  height: 65px;
+  width: 269px;
+  margin: auto;
+  
+}

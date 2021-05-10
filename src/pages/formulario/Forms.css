@@ -88,3 +88,77 @@ ion-label {
   background-color: lightgrey;
  
 }
+
+#button-forms{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  --background: white;
+}
+
+#button-forms-saude{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  
+}
+
+
+#button-forms-habitos{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  
+}
+
+#button-forms-social{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  
+}
+
+#button-forms-sono{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  
+}
+
+#button-forms-sintomas{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  
+}
+
+#button-forms-cronotipo{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  
+}
+
+#button-forms-testes{
+  height: 65px;
+  width: 269px;
+  margin-bottom: 10px;
+  
+}
+
+#ion-toolbar-formulario {
+    --background: transparent;
+    background-image: linear-gradient(90deg,#1E295C 0%, #5158A8 0%, #6668AE 0%, #C1A5D3 100%);
+    }
+
+.ion-radio-left{
+  float: left;
+}
+
+.progress-bar-item{
+  margin-top: 10px;
+}
+
+.buttons-modulos{
+  background-color: white;
+}
