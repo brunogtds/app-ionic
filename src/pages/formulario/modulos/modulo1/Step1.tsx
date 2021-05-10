@@ -26,21 +26,22 @@ const Step1 = (props: StepComponentProps) => {
 
     const {data: user}= useUser();
     const [dataUser, setData] = useState()
+     
+   
+     if (user){
+        
+        createDatabaseQuest1();
+        
+      }
 
-    function createDatabaseQuest1(){
-    
+    async function createDatabaseQuest1(){
 
-        if(user){
-            firebase.firestore().collection('users').doc(user.uid).set({
-                email: user.email, }, { merge: true }); 
-        }
+        await firebase.firestore().collection('users').doc(user.uid).set({
+            email: user.email, }, { merge: true });    
+        
+      
      }
-   
-   
   
-    if (user){
-      createDatabaseQuest1();
-    }
                                   
   const {control, watch, handleSubmit} = useForm();
 
