@@ -21,6 +21,7 @@ firebase.initializeApp(config)
 export const auth= firebase.auth();
 export const user= firebase.auth().currentUser;
 export const firestore= firebase.firestore();
+  
 
 /*Funções Login, Cadastro e Logout */
 

@@ -45,13 +45,15 @@ const Step4 = (props: StepComponentProps) => {
     
  
     if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
+
+       firebase.firestore().collection('users').doc(user.uid).set({
+            
             disorders: String(props.state.disorders), //STEP 2 
             meds: String(props.state.meds),
             medsUsed: String(props.state.medsUsed),
             medsOff: String(props.state.medsOff),
             medsOffUsed: String(props.state.medsOffUsed),
-            psychother: String(props.state.psychoter),
+            psychother: String(props.state.psychother),
             smoke: String(props.state.smoke),
             cigarrets: String(props.state.cigarrets),
             smokeDur: Number(props.state.smokeDur),
