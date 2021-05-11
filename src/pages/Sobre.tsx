@@ -45,7 +45,7 @@ const Sobre: React.FC = () => {
     <IonPage>
       <IonHeader color="primary">
         <IonToolbar>
-          <IonTitle><b>AppSono</b></IonTitle>
+          <IonTitle><b>SOBRE O APLICATIVO</b></IonTitle>
        
         </IonToolbar>
   

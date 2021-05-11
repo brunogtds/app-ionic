@@ -100,7 +100,7 @@ const Cadastro: React.FC = () => {
         <IonIcon onClick={cpasswordVisibility} hidden={showCSenha ? false: true} icon={eyeOffOutline} float-right></IonIcon>
       </IonInput> 
 
-      <IonButton size="large" onClick={Cadastro}>Cadastrar</IonButton>
+      <IonButton size="large" onClick={Cadastro} className={"ion-button-cadastro"}>Cadastrar</IonButton>
 
       <p>Já possui uma conta? Faça <a href="/Login">login</a></p>
       <p><a href="/recuperacao_senha">Resete sua senha.</a></p>

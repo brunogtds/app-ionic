@@ -29,7 +29,8 @@ const Recommendation: React.FC = () => {
       <IonContent className="ion-padding" color="light">
        
 
-      
+      <div id="outer">
+      <div id="inner">
    
       <div id="recommendations">
       <IonButton routerLink={"./Mode1"} id="button-recommendation" shape="round" expand="block" fill="solid" color="white"> <IonIcon slot="start" icon={bandage}/>Pandemia COVID-19</IonButton>
@@ -50,7 +51,8 @@ const Recommendation: React.FC = () => {
       </div>
       <IonText>Para manter o ritmo do corpo ajustado</IonText>
      
-     
+      </div>
+      </div>
       </IonContent>
       </IonContent>
     </IonPage>

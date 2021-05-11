@@ -42,7 +42,7 @@ const Login: React.FC = () => {
         setLoader(false)
       } 
       else {
-        toast('Login feito com sucesso', 4000)
+        toast('Login feito com sucesso')
         history.replace('/tab1');
         setLoader(false)
         
@@ -78,13 +78,13 @@ const Login: React.FC = () => {
       </div>
 
       <div>
-        <IonButton size="large" onClick={LoginGoogle} className="botao_social">Entrar com Google
+        <IonButton size="large" onClick={LoginGoogle} className={"botao-social"}>Entrar com Google
           <IonIcon icon={logoGoogle} item-right> </IonIcon>
         </IonButton>
       </div>
 
       <div>
-        <IonButton size="large" onClick={LoginFacebook} className="botao_social">Entrar com Facebook
+        <IonButton size="large" onClick={LoginFacebook} className={"botao-social"}>Entrar com Facebook
           <IonIcon icon={logoFacebook} item-right> </IonIcon>
         </IonButton>
       </div>
@@ -110,7 +110,7 @@ const Login: React.FC = () => {
         
 
       <div>
-      <IonButton size="large" onClick={Login}>Entrar</IonButton>
+      <IonButton size="large" onClick={Login} className={"ion-button-login"}>Entrar</IonButton>
       </div>
 
       <p>Ainda não possui uma conta? <a href="/cadastro">Cadastre-se!</a></p>

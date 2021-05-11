@@ -7,8 +7,18 @@
     padding: 10px;
   }
 
+  #inner{
+  display: table;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#outer{
+  width:100%;
+}
+
   .row{
-    border: thin solid #92949c;
+    border-bottom: thin solid #92949c;
     margin: 10px;
   }
 

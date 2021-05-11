@@ -38,7 +38,7 @@ ion-icon{
   flex: right;
 }
 
-ion-button{
+.ion-button-login{
   margin-top: 10px;
   --background: transparent;
     background-image: linear-gradient(90deg,orangered 0%, darkorange 0%, orange 0%, yellow 100%);
@@ -46,7 +46,25 @@ ion-button{
   color: black;
 }
 
-ion-button.botao_social{
+.ion-button-cadastro{
+  margin-top: 10px;
+  --background: transparent;
+    background-image: linear-gradient(90deg,orangered 0%, darkorange 0%, orange 0%, yellow 100%);
+  width: 100%;
+  color: black;
+}
+
+
+.botao-social{
+  
+  --background: #a2a4ab;
+  background-image: none;
+  font-size: small;
+  color: black;
+  width: 100%;
+}
+
+ion-button.botao-social{
   --background: --ion-color-medium-tint;
   background-image: none;
   font-size: small;
