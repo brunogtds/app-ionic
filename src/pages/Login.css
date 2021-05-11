@@ -1,0 +1,71 @@
+#inner{
+  display: table;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#outer{
+  width:100%;
+}
+
+#email, #confirmation_email, #senha, #csenha {
+  background-color: white;
+  border-bottom: 2px solid black;
+  text-align: left;
+}
+
+.label{
+  text-align: left;
+  margin-top: 25px;
+  font-size: small;
+  color: lightslategrey;
+}
+
+p{
+  font-size: small;
+  color: black;
+}
+
+a{
+  color: orange;
+}
+
+.b{
+  font-weight:900;
+}
+
+ion-icon{
+  flex: right;
+}
+
+ion-button{
+  margin-top: 10px;
+  --background: transparent;
+    background-image: linear-gradient(90deg,orangered 0%, darkorange 0%, orange 0%, yellow 100%);
+  width: 100%;
+  color: black;
+}
+
+ion-button.botao_social{
+  --background: --ion-color-medium-tint;
+  background-image: none;
+  font-size: small;
+}
+
+.errorLogin{
+  color: black;
+  background-color: orange;
+  padding: 8px;
+
+}
+
+.errorLogin a{
+  color: black;
+}
+
+hr{
+  color: green;
+  line-height: 50px;
+}
+
+

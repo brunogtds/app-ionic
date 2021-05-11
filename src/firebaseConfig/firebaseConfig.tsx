@@ -77,7 +77,7 @@ export async function recoverPassword (email: any, confirmation_email: any) {
         return true
      }
      catch(error){
-        toast('Email inválido!', 4000)
+        toast('Email não cadastrado!', 4000)
          return false
      }
  
