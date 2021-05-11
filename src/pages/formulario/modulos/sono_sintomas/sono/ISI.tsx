@@ -92,12 +92,12 @@ const ISI = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary" value="sim"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary" value="não"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                             </IonRadioGroup> )} control={control} name={"sleepProblem"} rules={{required:true}}/>
                             {errors.sleepProblem && <IonText color="danger">Campo obrigatório.</IonText>}
@@ -126,27 +126,27 @@ const ISI = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Leve</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Moderada</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Grave</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Muito grave</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
       
                             </IonRadioGroup> )} control={control} name='isi_isi01' rules={{required:true}}/>
@@ -167,27 +167,27 @@ const ISI = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Leve</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Moderada</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Grave</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Muito grave</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"}  color="primary" value="4"></IonRadio>
                                 </IonItem>
       
                             </IonRadioGroup> )} control={control} name='isi_isi02' rules={{required:true}}/>
@@ -208,27 +208,27 @@ const ISI = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Leve</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Moderada</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Grave</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio  className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Muito grave</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
       
                             </IonRadioGroup> )} control={control} name='isi_isi03' rules={{required:true}}/>

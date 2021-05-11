@@ -166,12 +166,12 @@ const Habitos4 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary" value="sim"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary" value="não"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"lightwdfdyd"} rules={{required:true}}/>

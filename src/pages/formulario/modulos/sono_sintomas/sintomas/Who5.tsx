@@ -50,7 +50,7 @@ const Who5 = (props: StepComponentProps) => {
 
 
                             <Controller render={({onChange}) => (
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup  onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -58,32 +58,32 @@ const Who5 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary" value="6"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary" value="5"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ001"} rules={{required:true}}/>
@@ -94,7 +94,7 @@ const Who5 = (props: StepComponentProps) => {
 
                             
                     <Controller render={({onChange}) => (
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -102,32 +102,32 @@ const Who5 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary" value="6"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary" value="5"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ002"} rules={{required:true}}/>
@@ -139,7 +139,7 @@ const Who5 = (props: StepComponentProps) => {
 
                              
                     <Controller render={({onChange}) => (
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -147,32 +147,32 @@ const Who5 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary" value="6"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary" value="5"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ003"} rules={{required:true}}/>
@@ -184,7 +184,7 @@ const Who5 = (props: StepComponentProps) => {
 
                             
                     <Controller render={({onChange}) => (
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -192,32 +192,32 @@ const Who5 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary" value="6"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary" value="5"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio  className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio  className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ004"} rules={{required:true}}/>
@@ -229,7 +229,7 @@ const Who5 = (props: StepComponentProps) => {
 
                              
                     <Controller render={({onChange}) => (
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -237,32 +237,32 @@ const Who5 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio color="primary" value="6"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio color="primary" value="5"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="4"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ005"} rules={{required:true}}/>

@@ -128,12 +128,12 @@ const Habitos2 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary" value="sim"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary" value="não"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"feedfdyn"} rules={{required:true}}/>
@@ -179,32 +179,32 @@ const Habitos2 = (props: StepComponentProps) => {
 
                                     <IonItem>
                                     <IonLabel>Nenhuma vez</IonLabel>
-                                    <IonRadio color="primary" value="0"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                     </IonItem>
                                 
                                     <IonItem>
                                     <IonLabel>Uma vez</IonLabel>
-                                    <IonRadio color="primary" value="1"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Duas vezes</IonLabel>
-                                    <IonRadio color="primary" value="2"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Três vezes</IonLabel>
-                                    <IonRadio color="primary" value="3"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Quatro vezes</IonLabel>
-                                    <IonRadio color="primary" value="4"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Cinco vezes ou mais</IonLabel>
-                                    <IonRadio color="primary" value="5"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"snacks"} rules={{required:true}}/>

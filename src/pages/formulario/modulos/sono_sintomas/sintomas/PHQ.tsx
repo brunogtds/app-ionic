@@ -95,7 +95,7 @@ const PHQ = (props: StepComponentProps) => {
  
                 
                 <Controller render={({onChange}) => (
-                <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -103,22 +103,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq01' rules={{required:true}}/>
@@ -131,7 +131,7 @@ const PHQ = (props: StepComponentProps) => {
  
             
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -139,22 +139,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq02' rules={{required:true}}/>
@@ -167,7 +167,7 @@ const PHQ = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup  onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -175,22 +175,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq03' rules={{required:true}}/>
@@ -202,7 +202,7 @@ const PHQ = (props: StepComponentProps) => {
 
            
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup  onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -210,22 +210,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq04' rules={{required:true}}/>
@@ -237,7 +237,7 @@ const PHQ = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -245,22 +245,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq05' rules={{required:true}}/>
@@ -272,7 +272,7 @@ const PHQ = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -280,22 +280,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq06' rules={{required:true}}/>
@@ -307,7 +307,7 @@ const PHQ = (props: StepComponentProps) => {
 
            
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -315,22 +315,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq07' rules={{required:true}}/>
@@ -342,7 +342,7 @@ const PHQ = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -350,22 +350,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq08' rules={{required:true}}/>
@@ -377,7 +377,7 @@ const PHQ = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -385,22 +385,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq09' rules={{required:true}}/>
@@ -413,7 +413,7 @@ const PHQ = (props: StepComponentProps) => {
 
             
             <Controller render={({onChange}) => (
-           <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+           <IonRadioGroup onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) {
@@ -421,22 +421,22 @@ const PHQ = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio color="primary" value= "3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq10' rules={{required:true}}/>

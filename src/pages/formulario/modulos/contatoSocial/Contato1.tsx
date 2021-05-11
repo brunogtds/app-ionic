@@ -77,24 +77,24 @@ const Contato1 = (props: StepComponentProps) => {
                             
                             
                             <Controller render={({onChange}) => (
-                            <IonRadioGroup allowEmptySelection={true} value={isolamento} onIonChange={(e) => {setIsolamento(e.detail.value); 
+                            <IonRadioGroup value={isolamento} onIonChange={(e) => {setIsolamento(e.detail.value); 
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
                                 props.setState('quarantineRoom', e.detail.value ) }}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary" value="sim"></IonRadio>
+                                <IonRadio  className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary" value="não"></IonRadio>
+                                <IonRadio  className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio color="primary" value="semResposta"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="semResposta"></IonRadio>
                                 </IonItem>
                             </IonRadioGroup> )} rules={{required:true}} control={control} name={"quarantineRoom"} />
                             {errors.quarantineRoom && <IonText color="danger">Campo obrigatório.</IonText>}
@@ -112,7 +112,7 @@ const Contato1 = (props: StepComponentProps) => {
 
                                
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox  className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -121,7 +121,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox  className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -130,7 +130,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox  className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -139,7 +139,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -148,7 +148,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -157,7 +157,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -166,7 +166,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -175,7 +175,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -184,7 +184,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -193,7 +193,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -202,7 +202,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
+                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 

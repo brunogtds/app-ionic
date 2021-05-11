@@ -241,7 +241,7 @@ const Perfil1 = (props: StepComponentProps) => {
   
                       
                         <Controller render={({onChange}) => (
-                        <IonRadioGroup allowEmptySelection={true}
+                        <IonRadioGroup 
                          name="currentOccupation" onIonChange={(e) => { 
                                     console.log(formState.isValid);
                                     onChange(e.detail.value);
@@ -250,27 +250,27 @@ const Perfil1 = (props: StepComponentProps) => {
 
                                     <IonItem>
                                     <IonLabel>Estudante</IonLabel>
-                                    <IonRadio name="currentOccupation" color="primary" value="estudante" ></IonRadio>
+                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="estudante" ></IonRadio>
                                     </IonItem>
                                 
                                     <IonItem>
                                     <IonLabel>Assalariado</IonLabel>
-                                    <IonRadio name="currentOccupation" color="primary" value="assalariado"></IonRadio>
+                                    <IonRadio  className={"radio-options"}  name="currentOccupation" color="primary" value="assalariado"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Autônomo</IonLabel>
-                                    <IonRadio name="currentOccupation" color="primary" value="autonomo"></IonRadio>
+                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="autonomo"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Desempregado</IonLabel>
-                                    <IonRadio name="currentOccupation" color="primary" value="desempregado"></IonRadio>
+                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="desempregado"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Aposentado</IonLabel>
-                                    <IonRadio name="currentOccupation" color="primary" value="aposentado"></IonRadio>
+                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="aposentado"></IonRadio>
                                     </IonItem>
 
                                    <IonItem>

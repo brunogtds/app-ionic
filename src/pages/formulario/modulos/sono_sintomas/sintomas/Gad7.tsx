@@ -59,7 +59,7 @@ const Gad7 = (props: StepComponentProps) => {
 
                  <Controller render={({onChange}) => (
 
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -67,17 +67,17 @@ const Gad7 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
@@ -98,7 +98,7 @@ const Gad7 = (props: StepComponentProps) => {
 
                              <Controller render={({onChange}) => (
 
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -106,22 +106,22 @@ const Gad7 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad02"} rules={{required:true}}/>
@@ -135,7 +135,7 @@ const Gad7 = (props: StepComponentProps) => {
 
                             <Controller render={({onChange}) => (
 
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -143,22 +143,22 @@ const Gad7 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad03"} rules={{required:true}}/>
@@ -172,7 +172,7 @@ const Gad7 = (props: StepComponentProps) => {
 
                             <Controller render={({onChange}) => (
 
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup  onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -180,22 +180,22 @@ const Gad7 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad04"} rules={{required:true}}/>
@@ -207,7 +207,7 @@ const Gad7 = (props: StepComponentProps) => {
                      
                         <Controller render={({onChange}) => (
 
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup  onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -215,22 +215,22 @@ const Gad7 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad05"} rules={{required:true}}/>
@@ -249,7 +249,7 @@ const Gad7 = (props: StepComponentProps) => {
 
                             <Controller render={({onChange}) => (
 
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -257,22 +257,22 @@ const Gad7 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad06"} rules={{required:true}}/>
@@ -284,7 +284,7 @@ const Gad7 = (props: StepComponentProps) => {
 
                              <Controller render={({onChange}) => (
 
-                             <IonRadioGroup allowEmptySelection={true} onIonChange={(e)=> {
+                             <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -292,22 +292,22 @@ const Gad7 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad07"} rules={{required:true}}/>

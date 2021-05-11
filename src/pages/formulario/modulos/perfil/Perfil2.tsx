@@ -190,12 +190,12 @@ const Perfil2 = (props: StepComponentProps) => {
 
                                     <IonItem>
                                     <IonLabel>Rural</IonLabel>
-                                    <IonRadio color="primary" value="rural"></IonRadio>
+                                    <IonRadio  className={"radio-options"} color="primary" value="rural"></IonRadio>
                                     </IonItem>
                                 
                                     <IonItem>
                                     <IonLabel>Urbana</IonLabel>
-                                    <IonRadio color="primary" value="urbana"></IonRadio>
+                                    <IonRadio  className={"radio-options"} color="primary" value="urbana"></IonRadio>
                                     </IonItem>
 
                                     

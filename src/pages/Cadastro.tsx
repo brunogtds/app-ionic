@@ -38,15 +38,15 @@ const Cadastro: React.FC = () => {
   
    async function Cadastro(){
   
-      setLoader(true)
+      //setLoader(true)
       if (senha !== csenha){
         return toast ('As senhas não são iguais')
-        setLoader(false)
-      }
+       //setLoader(false) 
+      } 
 
       if (email === '' || senha === '' ) {
         return toast ('Email e senha são requeridos')
-        setLoader(false)
+        //setLoader(false)
       }
 
       const res= await cadastroUser(email, senha)
@@ -54,7 +54,9 @@ const Cadastro: React.FC = () => {
       if (res){
         toast('Cadastro feito com sucesso')
         history.replace('/tab1');
-        setLoader(false)
+        //setLoader(false)
+      } else {
+        toast('Erro no cadastro! Insira uma senha com pelo menos 6 caracteres')
       }
 
 

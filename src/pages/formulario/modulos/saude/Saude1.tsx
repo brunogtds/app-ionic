@@ -41,7 +41,7 @@ const Saude1 = (props: StepComponentProps) => {
                             <IonList>
 
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
+                            <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
                                 
                                 console.log(e);
                                 onChange(e.detail.value);
@@ -51,7 +51,7 @@ const Saude1 = (props: StepComponentProps) => {
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
+                            <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -60,7 +60,7 @@ const Saude1 = (props: StepComponentProps) => {
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
+                            <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -69,7 +69,7 @@ const Saude1 = (props: StepComponentProps) => {
                             </IonItem>
                             
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
+                            <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -78,7 +78,7 @@ const Saude1 = (props: StepComponentProps) => {
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
+                            <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -87,7 +87,7 @@ const Saude1 = (props: StepComponentProps) => {
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
+                            <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -122,20 +122,20 @@ const Saude1 = (props: StepComponentProps) => {
                             
                             
                             <Controller render={({onChange}) => (
-                            <IonRadioGroup value={selected} onIonChange={(e) => {setSelected(e.detail.value); 
+                            <IonRadioGroup  value={selected} onIonChange={(e) => {setSelected(e.detail.value); 
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
                                 props.setState('meds', e.detail.value )  }}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary" value="sim"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem> 
                                 
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary" value="não"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem> 
                             </IonRadioGroup>
                             )}
@@ -173,12 +173,12 @@ const Saude1 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary" value="sim"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary" value="não"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                             </IonRadioGroup>
                             )}
@@ -213,17 +213,17 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem>
                                     <IonLabel>Não</IonLabel>
-                                    <IonRadio color="primary" value="não"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                     </IonItem>
                                 
                                     <IonItem>
                                     <IonLabel>Sim, on-line</IonLabel>
-                                    <IonRadio color="primary" value="online"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="online"></IonRadio>
                                     </IonItem>
 
                                     <IonItem>
                                     <IonLabel>Sim, presencial</IonLabel>
-                                    <IonRadio color="primary" value="presencial"></IonRadio>
+                                    <IonRadio className={"radio-options"} color="primary" value="presencial"></IonRadio>
                                     </IonItem>
                                 </IonRadioGroup>
                                                         

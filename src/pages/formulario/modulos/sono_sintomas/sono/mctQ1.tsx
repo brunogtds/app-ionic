@@ -55,12 +55,12 @@ const MCTQ1 = (props: StepComponentProps) => {
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio color="primary" value="sim"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio color="primary" value="não"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup>  )}
@@ -140,12 +140,12 @@ const MCTQ1 = (props: StepComponentProps) => {
 
                                         <IonItem>
                                         <IonLabel>Sim</IonLabel>
-                                        <IonRadio color="primary" value="sim"></IonRadio>
+                                        <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                         </IonItem>
                                     
                                         <IonItem>
                                         <IonLabel>Não</IonLabel>
-                                        <IonRadio color="primary" value="não"></IonRadio>
+                                        <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                         </IonItem>
                                     
                         </IonRadioGroup> )} control={control} name={"alarmWD"} rules={{required:true}}/>
@@ -193,12 +193,12 @@ const MCTQ1 = (props: StepComponentProps) => {
 
                                         <IonItem>
                                         <IonLabel>Sim</IonLabel>
-                                        <IonRadio color="primary" value="sim"></IonRadio>
+                                        <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
                                         </IonItem>
                                     
                                         <IonItem>
                                         <IonLabel>Não</IonLabel>
-                                        <IonRadio color="primary" value="não"></IonRadio>
+                                        <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                         </IonItem>
                                     
                         </IonRadioGroup> )} control={control} name={"alarmOnWork"} rules={{required:true}}/>

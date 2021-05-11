@@ -162,3 +162,11 @@ ion-label {
 .buttons-modulos{
   background-color: white;
 }
+
+.checkbox-options{
+  margin-right: 10px;
+}
+
+.radio-options{
+  margin-left: 10px;
+}
