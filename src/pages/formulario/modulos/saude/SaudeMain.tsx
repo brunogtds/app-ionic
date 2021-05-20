@@ -13,7 +13,8 @@ import Saude2 from './Saude2';
 /*progress bar*/
 
 
-import 'react-circular-progressbar/dist/styles.css';
+//Progress bar not working
+//import 'react-circular-progressbar/dist/styles.css';
 
   
 function App() {

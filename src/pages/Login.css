@@ -86,4 +86,22 @@ hr{
   line-height: 50px;
 }
 
+.custom-modal {
+  --background: --ion-color-medium-tint;
+  background-image: none;
+  font-size: small;
+}
+
+.custom-modal p, h1, h2{
+  margin-left: 10px;
+}
+
+.custom-modal .ion-button-termos{
+  margin-top: 10px;
+  --background: transparent;
+    background-image: linear-gradient(90deg,orangered 0%, darkorange 0%, orange 0%, yellow 100%);
+  color: black;
+  float: right;
+}
+
 
