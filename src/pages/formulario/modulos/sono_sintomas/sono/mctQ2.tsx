@@ -2,8 +2,8 @@ import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
 
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonLoading, IonText} from "@ionic/react";
-import { IonContent, IonRow, IonCol } from '@ionic/react';
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonDatetime, IonLoading, IonText} from "@ionic/react";
+import { IonContent} from '@ionic/react';
 
 import '../../../Forms.css';
 
@@ -11,10 +11,8 @@ import { useForm, Controller } from "react-hook-form";
 
 import {useState} from 'react';
 
-import { IonProgressBar} from '@ionic/react';
+import  {useHistory } from 'react-router-dom'
 
-import  {Redirect, useHistory } from 'react-router-dom'
-import {toast} from '../../../../../toast';
 
 //imports user context do reactfire
 
@@ -23,16 +21,10 @@ import firebase from 'firebase';
 
 const MCTQ2 = (props: StepComponentProps) => {
 
-    const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
-    const {data: user}= useUser();
-    const [dataUser, setData] = useState()
- 
-    const history= useHistory();
-    const [loader, setLoader]= useState<boolean>(false)
- 
-  
+    const {control, errors, formState} = useForm({mode: "onChange"});
+     
     
-    
+    const [loader]= useState<boolean>(false)
  
     return(
         <IonContent fullscreen color="light"> 

@@ -3,7 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 
 
 import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText} from "@ionic/react";
-import { IonContent, IonRow, IonCol, IonCard, IonCardContent } from '@ionic/react';
+import { IonContent, IonCard, IonCardContent } from '@ionic/react';
 
 import '../../../Forms.css';
 
@@ -11,13 +11,10 @@ import { useForm, Controller } from "react-hook-form";
 
 import {useState} from 'react';
 
-import { IonProgressBar} from '@ionic/react';
-
-
 
 const MCTQ1 = (props: StepComponentProps) => {
 
-    const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
+    const {control, errors, formState} = useForm({mode: "onChange"});
 
     const [nDiasTrabalhoSemana, setNDiasTrabalhoSemana]= useState();
  
