@@ -46,16 +46,19 @@ const Cadastro: React.FC = () => {
   
    async function Cadastro(){
   
+
+      if (email === '' || senha === '' || csenha === '' ) {
+        return toast ('Email e senha são requeridos')
+        
+        //setLoader(false)
+      }
       //setLoader(true)
-      if (senha !== csenha){
+      else if (senha != csenha){
         return toast ('As senhas não são iguais')
        //setLoader(false) 
       } 
 
-      if (email === '' || senha === '' ) {
-        return toast ('Email e senha são requeridos')
-        //setLoader(false)
-      }
+      
 
       const res= await cadastroUser(email, senha)
 
@@ -106,7 +109,7 @@ const Cadastro: React.FC = () => {
       <div className='label'>
         <IonLabel>Confirme sua senha</IonLabel>
       </div>
-      <IonInput type={showCSenha ? "text" : "password"} placeholder="Digite sua senha" id="csenha" onIonChange={(e:any) => setSenha(e.target.value)}> 
+      <IonInput type={showCSenha ? "text" : "password"} placeholder="Digite sua senha" id="csenha" onIonChange={(e:any) => setCSenha(e.target.value)}> 
         <IonIcon onClick={cpasswordVisibility} hidden={showCSenha ? true: false} icon={eyeOutline} float-right></IonIcon>
         <IonIcon onClick={cpasswordVisibility} hidden={showCSenha ? false: true} icon={eyeOffOutline} float-right></IonIcon>
       </IonInput>
