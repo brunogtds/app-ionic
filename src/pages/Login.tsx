@@ -24,8 +24,6 @@ const Login: React.FC = () => {
   const [showSenha, setShowSenha]= useState(false);
   const [errorLogin, setErrorLogin]= useState(false);
 
-  const [loader, setLoader]= useState<boolean>(false)
-
   const history= useHistory();
 
   const passwordVisibility = () => {
@@ -34,20 +32,15 @@ const Login: React.FC = () => {
    
   async function Login(){
 
-      setLoader(true)
       const res= await loginUser(email, senha)
 
       if (!res){
         setErrorLogin(errorLogin ? false: true)
-        setLoader(false)
       } 
       else {
         toast('Login feito com sucesso')
         history.replace('/tab1');
-        setLoader(false)
-        
       } 
- 
     }
 
     async function LoginGoogle(){
@@ -65,9 +58,6 @@ const Login: React.FC = () => {
           <IonTitle>Início</IonTitle>
         </IonToolbar>
       </IonHeader>
-
-      <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-
       <IonContent fullscreen className="ion-text-center">
 
       <div id="outer">
