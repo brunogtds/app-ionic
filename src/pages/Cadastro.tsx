@@ -1,12 +1,11 @@
 import React from 'react';
-import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon, IonCheckbox, IonModal } from '@ionic/react';
+import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon, IonModal } from '@ionic/react';
 
 import './Login.css';
 
 import {IonButton} from '@ionic/react';
 import {IonLoading} from '@ionic/react';
 
-import thinking from '../../src/img/thinking.png';
 import regenteLogo from '../../src/img/logo_regente.png';
 import {useState} from 'react';
 import { toast } from '../toast';
@@ -14,7 +13,7 @@ import {useHistory} from 'react-router';
 
 import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
-import {mailOutline, lockClosedOutline, personOutline, eyeOutline, eyeOffOutline} from  'ionicons/icons';
+import {mailOutline, eyeOutline, eyeOffOutline} from  'ionicons/icons';
 
 const Cadastro: React.FC = () => {
 
@@ -25,7 +24,6 @@ const Cadastro: React.FC = () => {
     const [showSenha, setShowSenha]= useState(false);
     const [showCSenha, setShowCSenha]= useState(false);
 
-    const [loader, setLoader]= useState<boolean>(false)
     const history= useHistory();
 
     const [showModal, setShowModal] = useState(false);
@@ -46,33 +44,21 @@ const Cadastro: React.FC = () => {
   
    async function Cadastro(){
   
-
       if (email === '' || senha === '' || csenha === '' ) {
         return toast ('Email e senha são requeridos')
         
-        //setLoader(false)
       }
-      //setLoader(true)
+
       else if (senha != csenha){
         return toast ('As senhas não são iguais')
-       //setLoader(false) 
       } 
 
-      
-
       const res= await cadastroUser(email, senha)
-
       if (res){
         toast('Cadastro feito com sucesso')
         history.replace('/tab1');
-        //setLoader(false)
-      } else {
-        toast('Erro no cadastro! Insira uma senha com pelo menos 6 caracteres')
-      }
-
-
+      } 
   }
-
 
   return (
     <IonPage>
@@ -81,7 +67,6 @@ const Cadastro: React.FC = () => {
           <IonTitle>Cadastro</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
       <IonContent fullscreen className="ion-text-center">
 
       <div id="outer">

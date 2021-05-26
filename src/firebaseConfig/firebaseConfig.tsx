@@ -55,11 +55,30 @@ export async function cadastroUser (email: any, senha: any){
     try{
         const res= await firebase.auth().createUserWithEmailAndPassword(email, senha)
         console.log(res)
-        
         return true
     }
     catch(error){
-        toast('Erro no cadastro', 4000)
+        var errorCode = error.code;
+        var errorMessage = ''
+        
+        switch(errorCode){
+            case 'auth/email-already-in-use': {
+                errorMessage = 'O email informado já foi cadastrado! Por favor, tente outro.'
+                break;
+            }
+            case 'auth/invalid-email': {
+                errorMessage = 'Email inválido! Por favor, tente outro.'
+                break;
+            }
+            case 'auth/weak-password': {
+                errorMessage = 'Senha muito fraca! Use no mínimo 6 caracteres.'
+            }
+        }
+
+        toast(errorMessage)
+
+
+        
         return false
     }
 };
