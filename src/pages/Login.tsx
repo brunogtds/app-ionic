@@ -35,7 +35,7 @@ const Login: React.FC = () => {
       const res= await loginUser(email, senha)
 
       if (!res){
-        setErrorLogin(errorLogin ? false: true)
+        setErrorLogin(true)
       } 
       else {
         toast('Login feito com sucesso')
@@ -79,8 +79,8 @@ const Login: React.FC = () => {
         </IonButton>
       </div>
 
-      <div className="errorLogin" hidden={errorLogin? false: true}>
-        <p><b>Senha incorreta!</b> Tente novamente ou <a href="/recuperacao_senha"> resete sua senha. </a></p>
+      <div className="errorLogin" hidden={!errorLogin}>
+        <p><b>Senha ou email incorreto!</b> Tente novamente ou <a href="/recuperacao_senha"> resete sua senha. </a></p>
       </div>
 
       <div className='label'>

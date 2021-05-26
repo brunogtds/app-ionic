@@ -29,11 +29,9 @@ export async function loginUser (email: any, password: any) {
 
    try{
        const res= await firebase.auth().signInWithEmailAndPassword(email, password);
-       
        return true
     }
     catch(error){
-        toast('Erro no login', 4000)
         return false
     }
 
