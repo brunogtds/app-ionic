@@ -37,8 +37,12 @@ const Tab1: React.FC = () => {
   const [loader, setLoader]= useState<boolean>(false);
   const {data: user}= useUser();
 
-  function goSobre(){
+  function chamaSobre(){
     history.push('/sobre');
+  }
+
+  function chamaPerfil(){
+    history.push('/perfil');
   }
   
   async function Logout(){
@@ -62,7 +66,8 @@ const Tab1: React.FC = () => {
          
           </div>  
           <div id="header-items">
-          <IonButton fill="clear" onClick={goSobre}>SOBRE</IonButton>
+          <IonButton fill="clear" onClick={chamaPerfil}>PERFIL</IonButton>
+          <IonButton fill="clear" onClick={chamaSobre}>SOBRE</IonButton>
           <IonButton onClick={Logout} color="tertiary">SAIR</IonButton> 
           </div>          
         </IonToolbar>

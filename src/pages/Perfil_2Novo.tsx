@@ -3,7 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 
 import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonLoading, IonRadioGroup, IonRadio } from "@ionic/react";
 import { IonContent, IonText} from '@ionic/react';
-import '../../Forms.css';
+import './formulario/Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -14,7 +14,7 @@ import { IonProgressBar} from '@ionic/react';
 
 import  {Redirect, useHistory } from 'react-router-dom' 
 
-import {toast} from '../../../../toast';
+import {toast} from '../toast';
 
 //imports user context do reactfire
 
@@ -24,31 +24,71 @@ import firebase from 'firebase';
 /*STEP 1 => Página 1 do formulário
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
-import ModuloComponents from "../ModulosComponent"
+//import ModuloComponents from "../ModulosComponent"
+import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
-const Perfil2  = (props: StepComponentProps) => {
+const Perfil_2Novo  = (props: StepComponentProps) => {
 
- const {data: user}= useUser();
+
  const [dataUser, setData] = useState()
-
-                                     
+                                  
   const {control, watch, handleSubmit, errors, formState} = useForm({
     mode: "onChange" }
   );
 
   const [showOptions, setShowOptions] = React.useState(false);
-
-  const watchGender= watch("sex", "");
   
   const history= useHistory();
   const [loader, setLoader]= useState<boolean>(false)
 
+  const {data: user}= useUser();
+
+  async function Cadastro(){
+  
+    if (props.state.email === '' || props.state.senha === '' || props.state.csenha === '' ) {
+      return toast ('Email e senha são requeridos')
+      
+    }
+
+    else if (props.state.senha != props.state.csenha){
+      return toast ('As senhas não são iguais')
+    } 
+     
+    const res= await cadastroUser(props.state.email, props.state.senha)
+    
+    if (res){
+      toast('Cadastro feito com sucesso')
+      history.replace('/tab1');
+      
+      createDatabaseQuest1(res.user?.uid, res.user?.email)
+          //history.replace('/tab1');
+    } 
+
+    
+    console.log('cadastro feito');
+
+  }
   
 
-  async function updateUserDataQuest1(dataUser: any){
+ async function createDatabaseQuest1(uid: any, email: any){
+ 
+    
+     await firebase.firestore().collection('users').doc(uid).set({
+        email: email, }, { merge: true });   
+       
+   
+     console.log('firestore criado');
+     setData(dataUser);
+     setLoader(true);
+
+     updateUserDataQuest1(uid, dataUser);
+ }
+  
+
+  function updateUserDataQuest1(uid: any, dataUser: any){
      
-    if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
+  
+        firebase.firestore().collection('users').doc(uid).set({
             age: Number(props.state.age), //STEP 1
             sex: String(props.state.sex),
             dateMenstruation: String(props.state.dateMenstruation),
@@ -63,36 +103,31 @@ const Perfil2  = (props: StepComponentProps) => {
             
             area: String(props.state.area),
            }, {merge: true})
-        }
+      
     
         toast('Formulário submetido com sucesso!', 2000);
-        
+        console.log('firestore updatado');
     
     }
 
-    
-    
-    function voltaModulos (){
-        history.push('/tab2');
+      
+const onSubmit = (data: any) => {
+       Cadastro();
+      // createDatabaseQuest1();
+       
         
-    }
-        
-    const onSubmit = (data: any) => {
-       setData(dataUser);
-       setLoader(true);
-       updateUserDataQuest1(dataUser);
-       voltaModulos();
+      // voltaModulos();
        
        //(document.getElementById('button-forms') as HTMLInputElement).disabled = true;
-    }
-    
-   
+       
+    } 
+  
     return (
         <IonContent fullscreen color="light">
         <div>
 
-        
-                <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
+
+        <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
 
                 <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
@@ -226,4 +261,4 @@ const Perfil2  = (props: StepComponentProps) => {
 
 }
 
-export default Perfil2;
+export default Perfil_2Novo;

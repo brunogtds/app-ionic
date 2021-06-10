@@ -7,7 +7,7 @@ import { IonButton} from '@ionic/react';
 
 import  {Redirect, useHistory } from 'react-router-dom' 
 
-import {useUser} from 'reactfire';
+import {useUser,  useFirestoreDocData, useFirestore, useFirestoreDoc} from 'reactfire';
 
 import {AuthCheck} from 'reactfire';
 
@@ -17,15 +17,15 @@ import {alarm, document} from  'ionicons/icons';
 
 import {personOutline, peopleOutline, bedOutline, walkOutline, documentOutline} from  'ionicons/icons';
 import { PropTypes } from 'mobx-react';
+import firebase from 'firebase';
+import "firebase/firestore";
+
+import ModuloComponentsProps from "./ModulosComponent"
 
 
-const Modulos: React.FC = () => {
+const Modulos= (props: ModuloComponentsProps) => {
 
   const history= useHistory();
-
-  function perfil(){
-    history.push('/perfil');
-  }
 
   function saude(){
     history.push('/saude');
@@ -33,6 +33,7 @@ const Modulos: React.FC = () => {
 
   function contato(){
     history.push('/contatosocial')
+   
   }
 
   function habitos(){
@@ -46,7 +47,12 @@ const Modulos: React.FC = () => {
 
   
 
-  const [modulo1Enviado, setModulo1Enviado] = React.useState(false);
+  const [moduloSaudeEnviado, setModulo1Enviado] = React.useState(false);
+  const [moduloContatoEnviado, setModuloContatoEnviado] = React.useState(false);
+  const [moduloHabitosEnviado, setModuloHabitosEnviado] = React.useState(false);
+  const [moduloSonoSintomasEnviado, setSonoSintomasEnviado] = React.useState(false);
+  const {data: user}= useUser();
+ 
 
   return (
     <IonPage>
@@ -64,22 +70,19 @@ const Modulos: React.FC = () => {
             <div id="inner-modules">
 
             <div>
-            <IonButton  onClick={perfil} color="white" fill="solid" shape="round" id="button-forms">  <IonIcon slot="start" icon={personOutline}/>Sobre você</IonButton></div>
-     
-            <div>
-            <IonButton disabled={true}  onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
+            <IonButton disabled={props.isSaudeDisabled ? undefined: true} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
             </div>
-            
+           
             <div>
-            <IonButton disabled={true} onClick={contato} key={'contatoSocial'} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+            <IonButton disabled={props.isContatoDisabled ? undefined: true} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
             </div>
 
             <div>
-            <IonButton disabled={true} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+            <IonButton disabled={props.isHabitosDisabled ? undefined: true} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
             </div>
 
             <div>
-            <IonButton disabled={true} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
+            <IonButton disabled={props.isSonoDisabled? undefined: true} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
             </div>
             
            </div> 

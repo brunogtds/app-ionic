@@ -70,7 +70,8 @@ const Saude2 = (props: StepComponentProps) => {
             drugsUsed: String(props.state.drugsUsed),
             drugDur: Number(props.state.drugDur),
             stimulants: String(props.state.stimulants),
-            stimulantTiming: String(props.state.stimulantTiming),   }, {merge: true})
+            stimulantTiming: String(props.state.stimulantTiming), 
+              }, {merge: true})
         }
     
         toast('Formulário submetido com sucesso!', 4000);

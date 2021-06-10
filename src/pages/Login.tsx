@@ -103,7 +103,7 @@ const Login: React.FC = () => {
       <IonButton size="large" onClick={Login} className={"ion-button-login"}>Entrar</IonButton>
       </div>
 
-      <p>Ainda não possui uma conta? <a href="/cadastro">Cadastre-se!</a></p>
+      <p>Ainda não possui uma conta? <a href="/cadastro_main">Cadastre-se!</a></p>
   
       </div>
       </div>

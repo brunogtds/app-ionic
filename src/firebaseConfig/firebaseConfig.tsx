@@ -53,7 +53,7 @@ export async function cadastroUser (email: any, senha: any){
     try{
         const res= await firebase.auth().createUserWithEmailAndPassword(email, senha)
         console.log(res)
-        return true
+        return res
     }
     catch(error){
         var errorCode = error.code;

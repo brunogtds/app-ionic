@@ -78,6 +78,14 @@ import {config} from './firebaseConfig/firebaseConfig';
 import { FirebaseAppProvider, AuthCheck } from "reactfire";
 import {Suspense} from "react";
 
+
+/*cadastro novo*/
+import CadastroNovo from './pages/CadastroNovo';
+import CadastroMain from './pages/CadastroMain';
+import Perfil_1Novo from './pages/Perfil_1Novo';
+import Perfil_2Novo from './pages/Perfil_2Novo';
+
+
 const PublicRoutes: React.FC = () => {
 
   return(
@@ -85,6 +93,10 @@ const PublicRoutes: React.FC = () => {
       <Route path="/login" component={Login} exact={true}/>
       <Route path="/cadastro" component={Cadastro} exact={true}/>
       <Route path="/recuperacao_senha" component={RecuperacaoSenha} exact={true}/>
+
+      <Route path="/CadastroNovo" component={CadastroNovo} exact={true}/>
+      <Route path="/cadastro_main" component={CadastroMain} exact={true}/>
+     
       <Redirect exact path="/" to="/login"/>
       
     </IonRouterOutlet>
