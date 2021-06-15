@@ -18,35 +18,91 @@ import {StepComponentProps} from "react-step-builder";
 
 const Cadastro = (props: StepComponentProps) => {
 
-    const [email, setEmail] = useState();
-    const [senha, setSenha] = useState();
-    const [csenha, setCSenha] = useState();
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+  const [csenha, setCSenha] = useState();
 
-    const [showSenha, setShowSenha]= useState(false);
-    const [showCSenha, setShowCSenha]= useState(false);
+  const [showSenha, setShowSenha]= useState(false);
+  const [showCSenha, setShowCSenha]= useState(false);
 
-    const history= useHistory();
+  const history= useHistory();
 
-    const [showModal, setShowModal] = useState(false);
-    const [agreeTerms, setAgreeTerms] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [agreeTerms, setAgreeTerms] = useState(false);
 
-    const agree = () => {
-      setAgreeTerms(true)
-      setShowModal(false)
-    }
+  const agree = () => {
+    setAgreeTerms(true)
+    setShowModal(false)
+  }
 
-    const passwordVisibility = () => {
-      setShowSenha(showSenha ? false: true)
-    }
+  const passwordVisibility = () => {
+    setShowSenha(showSenha ? false: true)
+  }
 
-    const cpasswordVisibility = () => {
-      setShowCSenha(showCSenha ? false: true)
-    }
+  const cpasswordVisibility = () => {
+    setShowCSenha(showCSenha ? false: true)
+  }
   
-   async function goPerfil(){
+  async function goPerfil(){
     
         history.push('/perfil_1novo');
      
+  }
+
+  function isEmailValid(email: any){
+    console.log(email);
+    var regexp = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    return regexp.test(email);
+  }
+
+  function isPasswordValid(password: any){
+    return password.length >= 6;
+  }
+
+  function isRegisterValid(){
+    if (email === '' || senha === '' || csenha === '') {
+      toast ('Email e senha são requeridos')
+      return false
+
+    } else if (senha != csenha){
+      toast ('As senhas não são iguais')
+      return false
+
+    } else{
+      return true      
+    }
+  }
+
+  async function validateRegister(){
+    console.log(props.state.email);
+    const email =  await isEmailValid(props.state.email);
+    const register = await isRegisterValid();
+    //const password = await isPasswordValid(props.state.password);
+
+    if (!email){
+      toast('Email inválido!')
+      return false;
+      
+    //else if(!password){
+      //toast('Senha muito fraca! Use no mínimo 6 caracteres.')
+      //return false;
+
+    } else if(!register){
+      return false;
+
+    } else{
+      return true;
+    }
+
+  }
+
+  async function validateFields() {
+    var register = await validateRegister();
+      if(register) {
+        toast('ESTAMOS AQUI!!!')
+        return props.jump(2);
+      }
+
   }
 
   return (
@@ -124,7 +180,7 @@ const Cadastro = (props: StepComponentProps) => {
         </IonContent>
       </IonModal>
 
-      <IonButton size="large" disabled={!agreeTerms} onClick={props.next} className={"ion-button-cadastro"}>Cadastrar</IonButton>
+      <IonButton size="large" disabled={!agreeTerms} onClick={validateFields} className={"ion-button-cadastro"}>Cadastrar</IonButton>
 
       <p>Já possui uma conta? Faça <a href="/Login">login</a></p>
       <p><a href="/recuperacao_senha">Resete sua senha.</a></p>

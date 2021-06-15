@@ -131,7 +131,7 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                             
 
                             <Controller render={({onChange}) => (
-                            <IonInput id="weight" type="number" onIonChange={(e)=> {
+                            <IonInput value={props.getState("weight", "")} id="weight" type="number" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -149,7 +149,7 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                          <IonItem>
 
                             <Controller render={({onChange}) => (
-                            <IonInput id="height" type="number" onIonChange={(e)=> {
+                            <IonInput value={props.getState("height", "")} id="height" type="number" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -170,7 +170,7 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                             
                             <Controller render={({onChange}) => (
                                
-                                <IonSelect placeholder="Por favor, selecione..." id="BRstate" onIonChange={(e)=> {
+                                <IonSelect value={props.getState("BRstate", "")} placeholder="Por favor, selecione..." id="BRstate" onIonChange={(e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
@@ -226,7 +226,7 @@ const Perfil_1Novo = (props: StepComponentProps) => {
   
                       
                         <Controller render={({onChange}) => (
-                        <IonRadioGroup 
+                        <IonRadioGroup value={props.getState("currentOccupation", "")} 
                          name="currentOccupation" onIonChange={(e) => { 
                                     console.log(formState.isValid);
                                     onChange(e.detail.value);

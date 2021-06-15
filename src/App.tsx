@@ -108,7 +108,6 @@ const PrivateRoutes: React.FC = () => {
   return(
     <IonTabs>
         <IonRouterOutlet>
-        
 
           <Route path="/tab1" component={Tab1} exact={true} />
           <Route path="/tab2" component={Modulos} exact={true} />      
