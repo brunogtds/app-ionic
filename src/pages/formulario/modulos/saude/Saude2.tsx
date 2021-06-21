@@ -20,6 +20,10 @@ import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
 
+import { ModuloComponentProps } from "../ModulosComponent";
+import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
+
+
 const Saude2 = (props: StepComponentProps) => {
 
    const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
@@ -88,7 +92,8 @@ const Saude2 = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       (document.getElementById('button-forms-social') as HTMLInputElement).disabled = false;
+       props.setSaudeState(true);
+      // (document.getElementById('button-forms-social') as HTMLInputElement).disabled = false;
     }
 
     return (

@@ -1,5 +1,4 @@
 import React from 'react';
-
 export interface ModuloComponentProps {
     isSaudeDisabled: boolean;
     isContatoDisabled: boolean;
@@ -22,10 +21,19 @@ export default class ModuloComponent extends React.Component {
       super(props);
   
       this.state = {
-        isSaudeDisabled: true,
+        isSaudeDisabled: false,
         isContatoDisabled: true,
         isHabitosDisabled: true,
         isSonoDisabled: true
       }
     }
+
+    setSaudeState (){
+      this.isSaudeDisabled= true;
+    }
+
+
+  
+
   }
+
