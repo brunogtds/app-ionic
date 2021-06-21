@@ -30,6 +30,7 @@ import {useUser} from 'reactfire';
 
 import {AuthCheck} from 'reactfire';
 
+import firebase from 'firebase';
 
 const Tab1: React.FC = () => {
 
@@ -55,6 +56,10 @@ const Tab1: React.FC = () => {
       setLoader(false); 
       
     }
+  }
+
+  function checkIfEmailVerified(){
+    return user.emailVerified;
   }
 
   return (
@@ -86,6 +91,13 @@ const Tab1: React.FC = () => {
         <IonCardSubtitle>Pesquisa</IonCardSubtitle>
        <IonCardTitle>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</IonCardTitle> 
        </IonCardHeader>
+
+      <IonCardContent>
+      <h1>TESTANDO AQUI - EDU!</h1>
+      <p hidden={user.emailVerified}> O EMAIL NÃO É VERIFICADO!</p>
+      <p> De qualquer forma, esse texto aparece!</p>
+      </IonCardContent>
+
       <IonCardContent>
     
        

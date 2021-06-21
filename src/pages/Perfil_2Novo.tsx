@@ -54,10 +54,11 @@ const Perfil_2Novo  = (props: StepComponentProps) => {
       return toast ('As senhas não são iguais')
     } 
      
-    const res= await cadastroUser(props.state.email, props.state.senha)
+    const res = await cadastroUser(props.state.email, props.state.senha)
     
     if (res){
       toast('Cadastro feito com sucesso')
+      res.user?.sendEmailVerification();
       history.replace('/tab1');
       
       createDatabaseQuest1(res.user?.uid, res.user?.email)
