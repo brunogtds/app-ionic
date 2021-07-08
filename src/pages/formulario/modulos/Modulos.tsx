@@ -23,6 +23,8 @@ import "firebase/firestore";
 import ModuloComponentsProps from "./ModulosComponent"
 import {StepComponentProps} from "react-step-builder";
 
+const dbRef = firebase.database().ref();
+
 const Modulos= (props: StepComponentProps) => {
 
   const history= useHistory();
@@ -53,7 +55,19 @@ const Modulos= (props: StepComponentProps) => {
   const [moduloHabitosEnviado, setModuloHabitosEnviado] = React.useState(false);
   const [moduloSonoSintomasEnviado, setSonoSintomasEnviado] = React.useState(false);
   const {data: user}= useUser();
- 
+
+  //Not working!
+  dbRef.child("users").child(user.uid).get().then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val());
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+  
+
 
   return (
     <IonPage>
@@ -71,19 +85,19 @@ const Modulos= (props: StepComponentProps) => {
             <div id="inner-modules">
 
             <div>
-            <IonButton disabled={props.isSaudeDisabled === false} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
+            <IonButton disabled={false} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
             </div>
            
             <div>
-            <IonButton disabled={props.isContatoDisabled === true} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+            <IonButton disabled={true} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
             </div>
 
             <div>
-            <IonButton disabled={props.isHabitosDisabled === true} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+            <IonButton disabled={true} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
             </div>
 
             <div>
-            <IonButton disabled={props.isSonoDisabled === true} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
+            <IonButton disabled={true} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
             </div>
             
            </div> 

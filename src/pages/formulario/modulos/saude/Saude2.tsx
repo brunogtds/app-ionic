@@ -74,7 +74,8 @@ const Saude2 = (props: StepComponentProps) => {
             drugsUsed: String(props.state.drugsUsed),
             drugDur: Number(props.state.drugDur),
             stimulants: String(props.state.stimulants),
-            stimulantTiming: String(props.state.stimulantTiming), 
+            stimulantTiming: String(props.state.stimulantTiming),
+            dateSaudeModule1: new Date(),
               }, {merge: true})
         }
     
@@ -92,7 +93,7 @@ const Saude2 = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       props.setSaudeState(true);
+       // props.setSaudeState(true);
       // (document.getElementById('button-forms-social') as HTMLInputElement).disabled = false;
     }
 
