@@ -17,16 +17,7 @@ function App() {
    return (
 
     <IonPage>
-
-        <IonHeader>
-            <IonToolbar>
-                <IonTitle><b>Cadastro</b></IonTitle>
-                  <div id="header-items">
-                  </div>
-            </IonToolbar>
-        </IonHeader>
-
-
+        
         <IonContent fullscreen>
            
                 <Steps>

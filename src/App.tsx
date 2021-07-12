@@ -61,7 +61,7 @@ import ExplanationSlides from './pages/ExplanationSlides';
 /*Tela login*/
 
 import Login from './pages/Login';
-import Cadastro from './pages/Cadastro';
+
 import RecuperacaoSenha from './pages/RecuperacaoSenha';
 
 /*Módulos recomendações*/
@@ -91,7 +91,7 @@ const PublicRoutes: React.FC = () => {
   return(
     <IonRouterOutlet>
       <Route path="/login" component={Login} exact={true}/>
-      <Route path="/cadastro" component={Cadastro} exact={true}/>
+      
       <Route path="/recuperacao_senha" component={RecuperacaoSenha} exact={true}/>
 
       <Route path="/CadastroNovo" component={CadastroNovo} exact={true}/>

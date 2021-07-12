@@ -3,6 +3,8 @@ import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolba
 
 import './Login.css';
 
+import logo_regente from '../img/logo_regente.png';
+
 import { IonButton} from '@ionic/react';
 
 import { IonLoading} from '@ionic/react';
@@ -15,7 +17,7 @@ import {useHistory} from 'react-router';
 
 import {recoverPassword} from '../firebaseConfig/firebaseConfig';
 
-import {mailOutline} from  'ionicons/icons';
+import {mailOutline, personOutline} from  'ionicons/icons';
 
 const RecuperacaoSenha: React.FC = () => {
 
@@ -44,33 +46,38 @@ const RecuperacaoSenha: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader color="primary">
-        <IonToolbar>
-          <IonTitle>Recuperação de senha</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      
+
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-      <IonContent fullscreen className="ion-text-center">
+      <IonContent fullscreen className="ion-text-center texto-app">
 
       <div id="outer">
       <div id="inner">
 
       <div>
-        <img src={regenteLogo} id="logo"/>
-      </div>
-
-
-      <div className = 'label'>
-        <IonLabel>Para iniciar o processo de redefinição de senha, digite seu e-mail cadastrado.</IonLabel>
+        <img src={logo_regente} className={"logo-login"}/>
       </div>
 
       <div>
-        <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}/>
-        <IonInput type="email" placeholder="Confirme seu email" id="confirmation_email" onIonChange={(e:any) => setConfirmationEmail(e.target.value)}/>
+        <p className={"texto-login"}> Recuperar senha </p>
+      </div>
+
+      <div >
+        <p>Preencha o campo abaixo com seu endereço de e-mail que enviaremos instruções para a recuperação da senha</p>
       </div>
 
       <div>
-      <IonButton onClick={recover} size="large">Enviar email</IonButton>
+        <IonInput type="email" placeholder="E-mail" id="email" onIonChange={(e:any) => setEmail(e.target.value)}> <IonIcon icon={personOutline}></IonIcon></IonInput>
+      </div>
+      <div className='label'>
+        
+      </div>
+      <div>
+        <IonInput type="email" placeholder="Confirme seu email" id="confirmation_email" onIonChange={(e:any) => setConfirmationEmail(e.target.value)}><IonIcon icon={personOutline}></IonIcon></IonInput>
+      </div>
+
+      <div>
+      <IonButton color="orange" shape="round" size="default" fill="solid" className={"ion-button-recuperar"} onClick={recover} >Enviar</IonButton>
       </div>
       
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolbar, IonIcon, IonModal } from '@ionic/react';
 
 import './Login.css';
-
+import logo_regente from '../img/logo_regente.png';
 import {IonButton} from '@ionic/react';
 import {IonLoading} from '@ionic/react';
 
@@ -13,7 +13,7 @@ import {useHistory} from 'react-router';
 
 import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
-import {mailOutline, eyeOutline, eyeOffOutline} from  'ionicons/icons';
+import {mailOutline, eyeOutline, eyeOffOutline, personOutline} from  'ionicons/icons';
 import {StepComponentProps} from "react-step-builder";
 
 const Cadastro = (props: StepComponentProps) => {
@@ -107,28 +107,36 @@ const Cadastro = (props: StepComponentProps) => {
 
   return (
    
-      <IonContent fullscreen className="ion-text-center">
+    <IonContent fullscreen className="ion-text-center texto-app">
 
       <div id="outer">
       <div id="inner">
 
       <div>
-        <img src={regenteLogo} id="logo"/>
+        <img src={logo_regente} className={"logo-login"}/>
+      </div>
+      
+      <div>
+        <p className={"texto-login"}> Boas-vindas! </p>
+      </div>
+
+      <div className={"texto-boasVindas"}>
+        <p>Para saber mais sobre o seu cronotipo e receber dicas personalizadas de acordo com o seu perfil, crie uma conta: </p>
       </div>
 
       <div className='label'>
-        <IonLabel>Email</IonLabel>
+        
       </div>
-      <IonInput type="email" placeholder="Digite seu email"  name= "email" id="email" onIonChange={(e:any) => {setEmail(e.target.value);
+      <IonInput type="email" placeholder="E-mail"  name= "email" id="email" onIonChange={(e:any) => {setEmail(e.target.value);
         if (e.detail.value != undefined) 
         props.setState('email', e.detail.value ) }}>
-        <IonIcon icon={mailOutline}></IonIcon>
+        <IonIcon icon={personOutline}></IonIcon>
       </IonInput>
 
       <div className='label'>
-        <IonLabel>Senha</IonLabel>
+        
       </div>
-      <IonInput type={showSenha ? "text" : "password"}    name= "senha" placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => {setSenha(e.target.value); 
+      <IonInput type={showSenha ? "text" : "password"}    name= "senha" placeholder="Senha" id="senha" onIonChange={(e:any) => {setSenha(e.target.value); 
                                 if (e.detail.value != undefined) 
                                 props.setState('senha', e.detail.value )  }}> 
         <IonIcon onClick={passwordVisibility} hidden={showSenha ? true: false} icon={eyeOutline} float-right></IonIcon>
@@ -136,9 +144,9 @@ const Cadastro = (props: StepComponentProps) => {
       </IonInput> 
 
       <div className='label'>
-        <IonLabel>Confirme sua senha</IonLabel>
+       
       </div>
-      <IonInput type={showCSenha ? "text" : "password"} placeholder="Digite sua senha" name="csenha" id="csenha" onIonChange={(e:any) => {setCSenha(e.target.value); 
+      <IonInput type={showCSenha ? "text" : "password"} placeholder="Confirme sua senha" name="csenha" id="csenha" onIonChange={(e:any) => {setCSenha(e.target.value); 
       if (e.detail.value != undefined) 
       props.setState('csenha', e.detail.value )  
       }}> 
@@ -176,14 +184,14 @@ const Cadastro = (props: StepComponentProps) => {
         <p>
         Nullam ligula quam, suscipit vel urna eu, porttitor eleifend lectus. In iaculis consequat risus, non feugiat tortor scelerisque eget. Donec ut pharetra quam. Duis id ultrices lorem. Integer at gravida sem. Nunc tincidunt est ac urna iaculis pharetra. Vivamus pretium fermentum ligula quis fringilla. Sed sit amet metus eget ligula aliquet porta eu vel est. Nulla sollicitudin fermentum augue vitae molestie. Quisque mattis risus vitae est posuere porta. Aliquam a tellus mauris. Proin pellentesque blandit ex eget condimentum. Fusce lacinia feugiat urna posuere tincidunt. Fusce et enim vehicula, euismod odio in, dignissim risus. Nunc nulla orci, convallis sed mi sit amet, mattis fringilla sapien.
         </p>
-        <IonButton onClick={agree} className="ion-button-termos">Concordo com os termos</IonButton>
+        <IonButton onClick={agree} shape="round" color="orange" fill="solid" className="ion-button-termos">Concordo com os termos</IonButton>
         </IonContent>
       </IonModal>
 
-      <IonButton size="large" disabled={!agreeTerms} onClick={validateFields} className={"ion-button-cadastro"}>Cadastrar</IonButton>
+      <IonButton size="default" shape="round" color="orange" fill="solid" disabled={!agreeTerms} onClick={validateFields} className={"ion-button-cadastro"}>Criar conta</IonButton>
 
       <p>Já possui uma conta? Faça <a href="/Login">login</a></p>
-      <p><a href="/recuperacao_senha">Resete sua senha.</a></p>
+      
         
       
       </div>

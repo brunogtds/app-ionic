@@ -3,13 +3,9 @@ import { IonContent, IonHeader, IonInput, IonLabel, IonPage, IonTitle, IonToolba
 
 import './Login.css';
 
-import {IonButton} from '@ionic/react';
+import {IonButton, IonText} from '@ionic/react';
 
-import {IonLoading} from '@ionic/react';
-
-
-import thinking from '../../src/img/thinking.png';
-import regenteLogo from '../../src/img/logo_regente.png';
+import logo_regente from '../img/logo_regente.png';
 
 import {loginUser, recoverPassword} from '../firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
@@ -53,20 +49,22 @@ const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader color="primary">
-        <IonToolbar>
-          <IonTitle>Início</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen className="ion-text-center">
+      
+      <IonContent fullscreen className="ion-text-center texto-app">
 
       <div id="outer">
       <div id="inner">
 
       <div>
-        <img src={regenteLogo} id="logo"/>
+        <img src={logo_regente} className={"logo-login"}/>
+      </div>
+      
+
+      <div>
+        <p className={"texto-login"}> Login </p>
       </div>
 
+      {/*
       <div>
         <IonButton size="large" onClick={LoginGoogle} className={"botao-social"}>Entrar com Google
           <IonIcon icon={logoGoogle} item-right> </IonIcon>
@@ -77,33 +75,35 @@ const Login: React.FC = () => {
         <IonButton size="large" onClick={LoginFacebook} className={"botao-social"}>Entrar com Facebook
           <IonIcon icon={logoFacebook} item-right> </IonIcon>
         </IonButton>
-      </div>
+      </div> */}
 
       <div className="errorLogin" hidden={!errorLogin}>
         <p><b>Senha ou email incorreto!</b> Tente novamente ou <a href="/recuperacao_senha"> resete sua senha. </a></p>
       </div>
 
       <div className='label'>
-        <IonLabel>Email</IonLabel>
+        
       </div>
-      <IonInput type="email" placeholder="Digite seu email" id="email" onIonChange={(e:any) => setEmail(e.target.value)}>
+      <IonInput type="email" placeholder="E-mail" id="email" onIonChange={(e:any) => setEmail(e.target.value)}>
         <IonIcon icon={personOutline}></IonIcon>
       </IonInput> 
       
       <div className='label'>      
-        <IonLabel>Senha</IonLabel> 
+        
       </div>
-      <IonInput type={showSenha ? "text" : "password"} placeholder="Digite sua senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}> 
+      <IonInput type={showSenha ? "text" : "password"} placeholder="Senha" id="senha" onIonChange={(e:any) => setSenha(e.target.value)}> 
         <IonIcon onClick={passwordVisibility} hidden={showSenha ? true: false} icon={eyeOutline} float-right></IonIcon>
         <IonIcon onClick={passwordVisibility} hidden={showSenha ? false: true} icon={eyeOffOutline} float-right></IonIcon>
       </IonInput> 
         
 
       <div>
-      <IonButton size="large" onClick={Login} className={"ion-button-login"}>Entrar</IonButton>
+      <IonButton size="default" onClick={Login} shape="round" color="orange" fill="solid" className={"ion-button-login"}>Acessar</IonButton>
       </div>
 
-      <p>Ainda não possui uma conta? <a href="/cadastro_main">Cadastre-se!</a></p>
+     <p><a href="/recuperacao_senha">Esqueci minha senha</a></p>
+
+     <p>É a sua primeira vez no aplicativo? <a href="/cadastro_main">Clique aqui</a></p>
   
       </div>
       </div>
