@@ -7,7 +7,7 @@ import { IonButton} from '@ionic/react';
 
 import  {Redirect, useHistory } from 'react-router-dom' 
 
-import {useUser,  useFirestoreDocData, useFirestore, useFirestoreDoc} from 'reactfire';
+import {useUser,  useFirestoreDocData, useFirestore, useFirestoreDoc, useFirestoreCollectionData, useFirebaseApp} from 'reactfire';
 
 import {AuthCheck} from 'reactfire';
 
@@ -22,8 +22,10 @@ import "firebase/firestore";
 
 import ModuloComponentsProps from "./ModulosComponent"
 import {StepComponentProps} from "react-step-builder";
+import { AnyAaaaRecord } from 'dns';
 
 const dbRef = firebase.database().ref();
+const db = firebase.firestore(); 
 
 const Modulos= (props: StepComponentProps) => {
 
@@ -56,7 +58,7 @@ const Modulos= (props: StepComponentProps) => {
   const [moduloSonoSintomasEnviado, setSonoSintomasEnviado] = React.useState(false);
   const {data: user}= useUser();
 
-  //Not working!
+  /*
   dbRef.child("users").child(user.uid).get().then((snapshot) => {
     if (snapshot.exists()) {
       console.log(snapshot.val());
@@ -65,10 +67,9 @@ const Modulos= (props: StepComponentProps) => {
     }
   }).catch((error) => {
     console.error(error);
-  });
+  }); */
+
   
-
-
   return (
     <IonPage>
       <IonHeader>
