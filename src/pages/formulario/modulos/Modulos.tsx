@@ -27,6 +27,8 @@ import { AnyAaaaRecord } from 'dns';
 const dbRef = firebase.database().ref();
 const db = firebase.firestore(); 
 
+
+
 const Modulos= (props: StepComponentProps) => {
 
   const history= useHistory();
@@ -49,7 +51,17 @@ const Modulos= (props: StepComponentProps) => {
     history.push('/sonosintomas');
   }
 
-  
+
+  async function getSaudeDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSaude= data2.dateSaudeModule1;
+    console.log('data:' + dataSaude.toDate());
+    return dataSaude;
+  }
+ 
   
 
   const [moduloSaudeEnviado, setModulo1Enviado] = React.useState(false);
@@ -68,6 +80,7 @@ const Modulos= (props: StepComponentProps) => {
   }).catch((error) => {
     console.error(error);
   }); */
+  
 
   
   return (
@@ -86,7 +99,7 @@ const Modulos= (props: StepComponentProps) => {
             <div id="inner-modules">
 
             <div>
-            <IonButton disabled={false} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
+            <IonButton disabled={false} onClick={getSaudeDate} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
             </div>
            
             <div>
