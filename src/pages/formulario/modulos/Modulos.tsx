@@ -47,11 +47,6 @@ const Modulos= (props: StepComponentProps) => {
     history.push('/sonosintomas');
   }
 
-
-
- 
-  
-
   const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
   const [moduloContatoEnviado, setContatoModulo1Enviado] = React.useState(false);
   const [moduloHabitosEnviado, setHabitosModulo1Enviado] = React.useState(false);
@@ -59,8 +54,6 @@ const Modulos= (props: StepComponentProps) => {
 
   const {data: user}= useUser();
   const db = firebase.firestore();
-  const uid = user.uid
-  const dbRef= db.collection('users').doc(uid).get();
 
   async function getSaudeDate(){
     const uid = user.uid
@@ -73,6 +66,50 @@ const Modulos= (props: StepComponentProps) => {
       setSaudeModulo1Enviado(true)
     }
   }
+
+  async function getContatoDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataContato= data2.dateContatoModule1;
+    
+    if (!(dataContato === undefined)){
+      setContatoModulo1Enviado(true)
+    }
+  }
+
+  async function getSonoSintomasDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSono = data2.dateSonoModule1;
+    const dataSintomas = data2.dateSintomasModule1;
+    
+    if (!(dataSono === undefined || dataSintomas === undefined)){
+      setSonoSintomasModulo1Enviado(true)
+    }
+  }
+
+  async function getHabitosDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataHabitos = data2.dateHabitosModule1;
+    
+    if (!(dataHabitos === undefined)){
+      setHabitosModulo1Enviado(true)
+    }
+  }
+
+  //Checking the dates
+  getSaudeDate()
+  getContatoDate()
+  getHabitosDate()
+  getSonoSintomasDate()
+
   
 
   
@@ -92,19 +129,19 @@ const Modulos= (props: StepComponentProps) => {
             <div id="inner-modules">
 
             <div>
-            <IonButton disabled={false} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
+            <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
             </div>
            
             <div>
-            <IonButton disabled={!moduloSaudeEnviado} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+            <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
             </div>
 
             <div>
-            <IonButton disabled={true} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+            <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
             </div>
 
             <div>
-            <IonButton disabled={true} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
+            <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
             </div>
             
            </div> 

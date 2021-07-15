@@ -70,6 +70,7 @@ const Contato2 = (props: StepComponentProps) => {
             lightTimingWD: String(props.state.lightTimingWD),
             lightTimingFD: String(props.state.lightTimingFD),
             beck02: String(props.state.beck02),
+            dateContatoModule1 : new Date()
              }, {merge: true})
         }
     

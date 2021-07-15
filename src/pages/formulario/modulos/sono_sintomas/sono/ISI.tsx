@@ -50,8 +50,10 @@ const ISI = (props: StepComponentProps) => {
             sleepProblem: String(props.state.sleepProblem), //STEP 8 
             isi_isi01: Number(props.state.isi_isi01),
             isi_isi02: Number(props.state.isi_isi02),
-            isi_isi03: Number(props.state.isi_isi03),  }, {merge: true})
-        }
+            isi_isi03: Number(props.state.isi_isi03),  
+            dateSonoModule1 : new Date()
+        }, {merge: true})
+    }
     
         toast('Formulário submetido com sucesso!', 4000);
         
@@ -67,7 +69,7 @@ const ISI = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       (document.getElementById('button-forms-sono') as HTMLInputElement).disabled = true;
+       //(document.getElementById('button-forms-sono') as HTMLInputElement).disabled = true;
        
     }
  

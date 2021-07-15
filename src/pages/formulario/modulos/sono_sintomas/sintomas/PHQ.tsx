@@ -59,8 +59,11 @@ const PHQ = (props: StepComponentProps) => {
             phq07: Number(props.state.pqhp07), 
             phq08: Number(props.state.pqhp08), 
             phq09: Number(props.state.pqhp09), 
-            phq10: Number(props.state.pqhp10),  }, {merge: true})
-        }
+            phq10: Number(props.state.pqhp10),
+            dateSintomasModule1 : new Date()
+        
+        }, {merge: true})
+    }
     
         toast('Formulário submetido com sucesso!', 4000);
         
@@ -76,7 +79,7 @@ const PHQ = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       (document.getElementById('button-forms-sintomas') as HTMLInputElement).disabled = true;
+      //(document.getElementById('button-forms-sintomas') as HTMLInputElement).disabled = true;
        
     }
  

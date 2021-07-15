@@ -61,6 +61,7 @@ const Habitos4 = (props: StepComponentProps) => {
             lightTimingWD: String(props.state.lightTimingWD),
             lightTimingFD: String(props.state.lightTimingFD),
             beck02: String(props.state.beck02),
+            dateHabitosModule1 : new Date()
              }, {merge: true})
         }
     
