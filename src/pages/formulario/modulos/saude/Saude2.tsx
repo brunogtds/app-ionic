@@ -93,7 +93,6 @@ const Saude2 = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       // props.setSaudeState(true);
       // (document.getElementById('button-forms-social') as HTMLInputElement).disabled = false;
     }
 

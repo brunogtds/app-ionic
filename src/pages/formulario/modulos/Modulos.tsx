@@ -7,7 +7,8 @@ import { IonButton} from '@ionic/react';
 
 import  {Redirect, useHistory } from 'react-router-dom' 
 
-import {useUser,  useFirestoreDocData, useFirestore, useFirestoreDoc} from 'reactfire';
+import {useUser,  useFirestoreDocData, useFirestore, useFirestoreDoc, firestore} from 'reactfire';
+
 
 import {AuthCheck} from 'reactfire';
 
@@ -17,15 +18,16 @@ import {alarm, document} from  'ionicons/icons';
 
 import {personOutline, peopleOutline, bedOutline, walkOutline, documentOutline} from  'ionicons/icons';
 import { PropTypes } from 'mobx-react';
-import firebase from 'firebase';
-import "firebase/firestore";
 
 import ModuloComponentsProps from "./ModulosComponent"
 import {StepComponentProps} from "react-step-builder";
+import firebase from 'firebase';
 
-const dbRef = firebase.database().ref();
+//Database operation variables
 
-const Modulos= (props: StepComponentProps) => {
+
+const Modulos= (props: StepComponentProps) => {  
+
 
   const history= useHistory();
 
@@ -46,28 +48,32 @@ const Modulos= (props: StepComponentProps) => {
   function sonoSintomas(){
     history.push('/sonosintomas');
   }
-
-  
   
 
   const [moduloSaudeEnviado, setModulo1Enviado] = React.useState(false);
   const [moduloContatoEnviado, setModuloContatoEnviado] = React.useState(false);
   const [moduloHabitosEnviado, setModuloHabitosEnviado] = React.useState(false);
   const [moduloSonoSintomasEnviado, setSonoSintomasEnviado] = React.useState(false);
+
   const {data: user}= useUser();
+  const db = firebase.firestore();
+  const uid = user.uid
+  const dbRef= db.collection('users').doc(uid).get();
 
-  //Not working!
-  dbRef.child("users").child(user.uid).get().then((snapshot) => {
-    if (snapshot.exists()) {
-      console.log(snapshot.val());
-    } else {
-      console.log("No data available");
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
+
+  async function getSaudeDateModulo1(){
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data = (await dbRef).data();
+    const data2 : any = data
+    const dataSaude = data2.dateSaudeModule1;
+
+    if (!(dataSaude === undefined)){
+      setModulo1Enviado(true);
+    } 
+  }
+
+  getSaudeDateModulo1()
   
-
 
   return (
     <IonPage>
@@ -89,7 +95,7 @@ const Modulos= (props: StepComponentProps) => {
             </div>
            
             <div>
-            <IonButton disabled={true} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+            <IonButton disabled={!moduloSaudeEnviado} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
             </div>
 
             <div>
