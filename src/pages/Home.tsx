@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 
-
+import logo_regente from '../img/logo_regente.png';
 import './Home.css';
 
 
-import { IonGrid, IonRow, IonCol, IonSlides, IonSlide } from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonMenu, IonMenuButton, IonButtons } from '@ionic/react';
 
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider, IonButton, IonLoading, IonLabel} from '@ionic/react';
 
@@ -64,23 +64,26 @@ const Tab1: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader color="primary">
-        <IonToolbar>
-          <div>
-           <AuthCheck fallback={<IonTitle><b>BEM VINDO!</b></IonTitle>}><IonTitle><b>BEM VINDO, {user.email}!</b></IonTitle></AuthCheck>
-         
-          </div>  
+      <IonHeader>
+        <IonToolbar color="orange">
+        
+        <div id="header-items">
+          <img src={logo_regente} className={"logo"}/>
+          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
+        </div>   
+        
+          {/*
           <div id="header-items">
           <IonButton fill="clear" onClick={chamaPerfil}>PERFIL</IonButton>
           <IonButton fill="clear" onClick={chamaSobre}>SOBRE</IonButton>
           <IonButton onClick={Logout} color="tertiary">SAIR</IonButton> 
-          </div>          
+          </div>    */}      
         </IonToolbar>
         
        
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-      <IonContent fullscreen className="ion-padding" color="light">
+      <IonContent fullscreen className="ion-padding" color="background">
 
         <IonGrid>
        
@@ -96,6 +99,10 @@ const Tab1: React.FC = () => {
       <h1>TESTANDO AQUI - EDU!</h1>
       <p hidden={user.emailVerified}> O EMAIL NÃO É VERIFICADO!</p>
       <p> De qualquer forma, esse texto aparece!</p>
+      <div>
+           <AuthCheck fallback={<IonTitle><b>BEM VINDO!</b></IonTitle>}><IonTitle><b>BEM VINDO, {user.email}!</b></IonTitle></AuthCheck>
+         
+          </div>  
       </IonCardContent>
 
       <IonCardContent>

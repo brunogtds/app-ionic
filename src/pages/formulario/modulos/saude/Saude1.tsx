@@ -1,8 +1,8 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonTextarea, IonPage} from "@ionic/react";
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonText} from '@ionic/react';
+import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonButton, IonCheckbox, IonList, IonTextarea} from "@ionic/react";
+import { IonContent, IonText} from '@ionic/react';
  
 import '../../Forms.css';
 
@@ -11,9 +11,7 @@ import {useState} from 'react';
 
 const Saude1 = (props: StepComponentProps) => {
 
-   const {control, watch, handleSubmit, errors, formState} = useForm({ mode: "onChange"});
-
-   const [showOptions, setShowOptions] = React.useState(false);
+   const {control, errors, formState} = useForm({ mode: "onChange"});
 
    const [selected, setSelected] = useState();
    const [selectedNoOrientation, setSelectedNoOrientation] = useState();

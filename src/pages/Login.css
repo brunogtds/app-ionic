@@ -76,10 +76,10 @@ ion-button.botao-social{
 }
 
 .errorLogin{
-  color: black;
-  background-color: orange;
+  background-color: #F58B44;
   padding: 8px;
-
+  margin-top: 10px;
+  
 }
 
 .errorLogin a{

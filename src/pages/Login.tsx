@@ -77,9 +77,7 @@ const Login: React.FC = () => {
         </IonButton>
       </div> */}
 
-      <div className="errorLogin" hidden={!errorLogin}>
-        <p><b>Senha ou email incorreto!</b> Tente novamente ou <a href="/recuperacao_senha"> resete sua senha. </a></p>
-      </div>
+     
 
       <div className='label'>
         
@@ -96,6 +94,9 @@ const Login: React.FC = () => {
         <IonIcon onClick={passwordVisibility} hidden={showSenha ? false: true} icon={eyeOffOutline} float-right></IonIcon>
       </IonInput> 
         
+      <div className="errorLogin" hidden={!errorLogin}>
+        <p><b>Senha ou email incorreto!</b> Tente novamente ou <a href="/recuperacao_senha"> resete sua senha. </a></p>
+      </div>
 
       <div>
       <IonButton size="default" onClick={Login} shape="round" color="orange" fill="solid" className={"ion-button-login"}>Acessar</IonButton>

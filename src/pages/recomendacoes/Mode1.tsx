@@ -3,9 +3,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 
 import './Modes.css';
 
-import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel} from '@ionic/react';
-
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/react';
+import {IonSlides, IonSlide} from '@ionic/react';
 
 import washing_hands from '../../img/washing_hands.svg';
 import stay_home from '../../img/stay_home.svg';

@@ -1,12 +1,12 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, IonText} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, IonText, IonButtons, IonMenuButton} from '@ionic/react';
 
 import './Recommendation.css';
 
 import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
 
 import thinking from '../../img/thinking.png';
-
+import logo_regente from '../../img/logo_regente.png';
 
 
 /*Recomendações estão divididas em módulos linkados aqui */
@@ -17,16 +17,19 @@ const Recommendation: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle><b>RECOMENDAÇÕES</b></IonTitle>
+        <IonToolbar color="orange">
+        <div id="header-items">
+          <img src={logo_regente} className={"logo"}/>
+          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
+        </div>   
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className="ion-text-center" color="light">
+      <IonContent fullscreen className="ion-text-center" color="background">
       
       
       
       
-      <IonContent className="ion-padding" color="light">
+      <IonContent className="ion-padding" color="background">
        
 
       <div id="outer">

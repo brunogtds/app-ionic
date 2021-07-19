@@ -115,8 +115,17 @@ body{
   margin-bottom: 50px;
 }
 
-#header-items{
-  float: right;
+#header-items {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+#header-items img{
+  margin: auto;
+  
+  display: block;
+  
 }
 
 .sobre-button{
@@ -154,3 +163,9 @@ ion-toolbar {
       --background: transparent;
       background-image: linear-gradient(90deg, #6668AE 0%, #C1A5D3 0%, #F5C9B4 100%);
       }
+
+.logo{
+  width: 100px;
+  height: 50px;
+  
+}

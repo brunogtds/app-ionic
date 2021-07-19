@@ -2,7 +2,7 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonTextarea, IonLoading} from "@ionic/react";
+import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonLoading} from "@ionic/react";
 import { IonContent, IonText} from '@ionic/react';
  
 import '../../Forms.css';
@@ -10,8 +10,8 @@ import '../../Forms.css';
 import { useForm, Controller } from "react-hook-form";
 import {useState} from 'react';
 
-import { IonProgressBar} from '@ionic/react';
-import  {Redirect, useHistory } from 'react-router-dom'
+
+import  {useHistory } from 'react-router-dom'
 import {toast} from '../../../../toast';
 
 //imports user context do reactfire
@@ -20,18 +20,10 @@ import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
 
-import { ModuloComponentProps } from "../ModulosComponent";
-import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
-
-
 const Saude2 = (props: StepComponentProps) => {
 
-   const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
+   const {control, handleSubmit, errors, formState} = useForm({mode: "onChange"});
 
-   const [showOptions, setShowOptions] = React.useState(false);
-
-   const [selected, setSelected] = useState();
-   const [selectedNoOrientation, setSelectedNoOrientation] = useState();
 
    const [fuma, setFuma] = useState();
    const [fumou, setFumou] = useState();

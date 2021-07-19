@@ -3,9 +3,8 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 
 import './Modes.css';
 
-import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonLabel} from '@ionic/react';
+import { IonSlides, IonSlide} from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/react';
 
 import natural_light from '../../img/natural_light.svg';
 import light_bulb from '../../img/light_bulb.svg';

@@ -22,8 +22,10 @@
     margin: 10px;
   }
 
-  #header-items{
-    float: right;
+  #header-items {
+    display: absolute;
+    width: 100%;
+    height: 100%;
   }
 
 #recommendations{
