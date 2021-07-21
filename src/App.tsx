@@ -41,7 +41,6 @@ import './theme/variables.css';
 //import Main from './pages/formulario/14days/Main14Days';
 import Main from './pages/formulario/Main';
 
-import Main14DaysP2 from './pages/formulario/14daysP2/Main14DaysP2';
 
 //import modulos
 import Modulos from './pages/formulario/modulos/Modulos';
@@ -54,6 +53,9 @@ import SaudeMain from './pages/formulario/modulos/saude/SaudeMain';
 import ModulosSonoSintomas from './pages/formulario/modulos/ModulosSonoSintomas';
 import SonoMain from './pages/formulario/modulos/sono_sintomas/sono/SonoMain';
 import SintomasMain from './pages/formulario/modulos/sono_sintomas/sintomas/SintomasMain';
+
+import SaudePostMain from './pages/formulario/modulos/SaudePost/SaudePostMain';
+
 
 /*ExplanationSlides*/
 
@@ -89,6 +91,7 @@ import Perfil_2Novo from './pages/Perfil_2Novo';
 /*logout*/
 import {logoutUser} from '../src/firebaseConfig/firebaseConfig';
 import { toast } from './toast';
+import ContatoSocialPostMain from './pages/formulario/modulos/contatoSocialPost/ContatoSocialPostMain';
 
 
 const PublicRoutes: React.FC = () => {
@@ -167,7 +170,7 @@ const PrivateRoutes: React.FC = () => {
           
           <Route path="/tab1" component={Tab1} exact={true} />
           <Route path="/tab2" component={Modulos} exact={true} />      
-          <Route path="/main14daysP2" component={Main14DaysP2} exact={true}/>
+          
           <Route path="/perfil" component={PerfilMain} exact={true}/> 
           <Route path="/saude" component={SaudeMain} exact={true}/>
           <Route path="/contatosocial" component={ContatoSocialMain} exact={true}/>
@@ -175,6 +178,9 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/sonosintomas" component={ModulosSonoSintomas} exact={true}/>
           <Route path="/sono" component={SonoMain} exact={true}/>
           <Route path="/sintomas" component={SintomasMain} exact={true}/>
+
+          <Route path="/saudePost" component={SaudePostMain} exact={true}/>
+          <Route path="/contatoPost" component={ContatoSocialPostMain} exact={true}/>
 
 
           <Route path="/recomendacoes" component={Tab3} />

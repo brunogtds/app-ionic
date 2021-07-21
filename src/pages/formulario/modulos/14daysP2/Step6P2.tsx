@@ -18,7 +18,7 @@ import {useUser} from 'reactfire';
 import firebase from 'firebase';
 import thinking from '../../../img/thinking.png';
 
-import {toast} from '../../../toast';
+import {toast} from '../../../../toast';
 
 /*STEP 1 => Página 1 do formulário
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */

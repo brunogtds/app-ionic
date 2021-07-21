@@ -47,6 +47,14 @@ const Modulos= (props: StepComponentProps) => {
     history.push('/sonosintomas');
   }
 
+  function saudePost(){
+    history.push('/saudePost');
+  }
+
+  function contatoPost(){
+    history.push('/contatoPost');
+  }
+
   const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
   const [moduloContatoEnviado, setContatoModulo1Enviado] = React.useState(false);
   const [moduloHabitosEnviado, setHabitosModulo1Enviado] = React.useState(false);
@@ -143,9 +151,17 @@ const Modulos= (props: StepComponentProps) => {
             <div>
             <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
             </div>
-            
+
+            <div>
+            <IonButton disabled={false} onClick={saudePost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Saude Post</div></IonButton> 
+            </div>
+
+            <div>
+            <IonButton disabled={false} onClick={contatoPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Saude Post</div></IonButton> 
+            </div>
+
            </div> 
-        </div>
+          </div>
         </div>
       </IonContent>
     </IonPage>

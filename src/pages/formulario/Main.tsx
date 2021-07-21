@@ -16,7 +16,6 @@ import thinking from '../../img/thinking.png';
 import {alarm} from  'ionicons/icons';
 
 
-import Main14DaysP2 from '../formulario/14daysP2/Main14DaysP2';
 import Modulos from '../formulario/modulos/Modulos';
 
 

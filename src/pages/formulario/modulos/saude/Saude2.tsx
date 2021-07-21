@@ -41,9 +41,9 @@ const Saude2 = (props: StepComponentProps) => {
     
  
     if(user){
+        console.log('ta aqui');
 
        firebase.firestore().collection('users').doc(user.uid).set({
-            
             disorders: String(props.state.disorders), //STEP 2 
             meds: String(props.state.meds),
             medsUsed: String(props.state.medsUsed),
