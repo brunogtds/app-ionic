@@ -42,34 +42,7 @@ const Contato2 = (props: StepComponentProps) => {
             internet: String(props.state.internet),
             contactN: String(props.state.contactN), //FIM
             
-            workQ: String(props.state.workQ),
-            workDur: String(props.state.workWeek),
-            workChoice: String(props.state.workChooseHour),
-            workReg: String(props.state.workReg),
-            workStart: String(props.state.workStart),
-            sleepReg: String(props.state.sleepReg),
-            sleepQual: String(props.state.sleepQual),
-            feedReg: String(props.state.feedReg),
-            feedStartWD: String(props.state.feedStartWD),
-            feedEndWD: String(props.state.feedEndWD),
-            feedfdyn: String(props.state.fdyn),
-            feedStart: String(props.state.feedStart),
-            feedEnd: String(props.state.feedEnd),
-            snacks: String(props.state.snacks),
-            hobbiesFreq: String(props.state.hobbiesFreq),
-            exercise: String(props.state.exercise),
-            exerciseFreq: String(props.state.exerciseFreq),
-            exerciseReg: String(props.state.exerciseReg),
-            exerciseDur: String(props.state.exerciseDur),
-            exerciseTiming: String(props.state.exerciseTiming),
-            lightFreq: String(props.state.lightFreq),
-            light: String(props.state.light),
-            lightReg: String(props.state.lightReg),
-            lightwdfdyd: String(props.state.lightwdfdyd),
-            lightTiming: String(props.state.lightTiming),
-            lightTimingWD: String(props.state.lightTimingWD),
-            lightTimingFD: String(props.state.lightTimingFD),
-            beck02: String(props.state.beck02),
+            
             dateContatoModule1 : new Date()
              }, {merge: true})
         }
