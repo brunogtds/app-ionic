@@ -1,49 +1,60 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonRadioGroup, IonRadio} from "@ionic/react";
-import { IonContent} from '@ionic/react';
-import '../Forms.css';
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonList, IonLoading, IonCard, IonCardContent, IonText} from "@ionic/react";
+import { IonContent } from '@ionic/react';
+
+import '../../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
-import {useState} from 'react';
-
 
 import { IonProgressBar} from '@ionic/react';
+import {useState} from 'react';
+
+import  {Redirect, useHistory } from 'react-router-dom'
+import {toast} from '../../../../../toast';
 
 //imports user context do reactfire
 
 import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
-/*STEP 1 => Página 1 do formulário
-Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
-const Step3P2 = (props: StepComponentProps) => {
+const Gad7Final = (props: StepComponentProps) => {
+
+    const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
 
     const {data: user}= useUser();
-    const [dataUser, setData] = useState()
+   const [dataUser, setData] = useState()
 
+   const history= useHistory();
+   const [loader, setLoader]= useState<boolean>(false)
 
-                                  
-  const {control, watch, handleSubmit} = useForm();
-
-    
-
-    return (
-        <IonContent fullscreen> 
+  
+    return(
+        <IonContent fullscreen color="light"> 
+        
         <div>
             <form className={"ion-padding"}>
+            <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
-            <IonProgressBar value={0.48} buffer={0.48}></IonProgressBar>
+                       
+            <IonCard color="secondary">
+           
+            <IonCardContent>
             
-            <IonItem>
-                <IonLabel>Nas últimas duas semanas, com que frequência você foi incomodado pelos seguintes problemas: </IonLabel>
-            </IonItem>
+            Agora vamos falar sobre como você tem se sentido nas duas últimas semanas.
+            
+            </IonCardContent>
+            </IonCard>
+                      
+          
+                <IonLabel className="questions">Nas últimas duas semanas, com que frequência você foi incomodado pelos seguintes problemas: </IonLabel>
+           
 
                 <IonList>
-                <IonLabel>Sentir-se nervoso, ansioso ou no limite.</IonLabel>
+                <IonLabel className="questions">Sentir-se nervoso, ansioso ou no limite.</IonLabel>
                  <IonItem>
 
                  <Controller render={({onChange}) => (
@@ -52,21 +63,21 @@ const Step3P2 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Post_gad01', e.detail.value )} }}>
+                                props.setState('gad7Final_gad01', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
@@ -74,10 +85,12 @@ const Step3P2 = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Post_gad01"}/>
+                            </IonRadioGroup> )} control={control} name={"gad7Final_gad01"} rules={{required:true}}/>
+                        
                     </IonItem>
+                    {errors.gad7Final_gad01 && <IonText color="danger">Campo obrigatório.</IonText>}
 
-                    <IonLabel>Não ser capaz de parar ou controlar as preocupações.</IonLabel>
+                    <IonLabel className="questions">Não ser capaz de parar ou controlar as preocupações.</IonLabel>
 
                      <IonItem>
 
@@ -89,32 +102,33 @@ const Step3P2 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Post_gad02', e.detail.value )} }}>
+                                props.setState('gad7Final_gad02', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Post_gad02"}/>
+                            </IonRadioGroup> )} control={control} name={"gad7Final_gad02"} rules={{required:true}}/>
+                            {errors.gad7Final_gad02 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
-                    <IonLabel>Preocupar-se muito com coisas diferentes.</IonLabel>
+                    <IonLabel className="questions">Preocupar-se muito com coisas diferentes.</IonLabel>
                      <IonItem>
 
                              
@@ -125,99 +139,102 @@ const Step3P2 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Post_gad03', e.detail.value )} }}>
+                                props.setState('gad7Final_gad03', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Post_gad03"}/>
+                            </IonRadioGroup> )} control={control} name={"gad7Final_gad03"} rules={{required:true}}/>
+                            {errors.gad7Final_gad03 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
-                    <IonLabel>Dificuldade de relaxar.</IonLabel>
+                    <IonLabel className="questions">Dificuldade de relaxar.</IonLabel>
                      <IonItem>
 
                             
 
                             <Controller render={({onChange}) => (
 
-                             <IonRadioGroup onIonChange={(e)=> {
+                             <IonRadioGroup  onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Post_gad04', e.detail.value )} }}>
+                                props.setState('gad7Final_gad04', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Post_gad04"}/>
+                            </IonRadioGroup> )} control={control} name={"gad7Final_gad04"} rules={{required:true}}/>
+                            {errors.gad7Final_gad04 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
-                    <IonLabel>Ser tão inquieto que é difícil ficar parado.</IonLabel>
+                    <IonLabel className="questions">Ser tão inquieto que é difícil ficar parado.</IonLabel>
                      <IonItem>
                      
                         <Controller render={({onChange}) => (
 
-                             <IonRadioGroup onIonChange={(e)=> {
+                             <IonRadioGroup  onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Post_gad05', e.detail.value )} }}>
+                                props.setState('gad7Final_gad05', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Post_gad05"}/>
+                            </IonRadioGroup> )} control={control} name={"gad7Final_gad05"} rules={{required:true}}/>
+                            {errors.gad7Final_gad05 && <IonText color="danger">Campo obrigatório.</IonText>}
                             
 
                                                         
@@ -225,7 +242,7 @@ const Step3P2 = (props: StepComponentProps) => {
                     </IonItem>
 
 
-                    <IonLabel>Tonar-se facilmente irritado ou irritável.</IonLabel>
+                    <IonLabel className="questions">Tonar-se facilmente irritado ou irritável.</IonLabel>
                      <IonItem>
 
                              
@@ -236,32 +253,33 @@ const Step3P2 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Post_gad06', e.detail.value )} }}>
+                                props.setState('gad7Final_gad06', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Post_gad06"}/>
+                            </IonRadioGroup> )} control={control} name={"gad7Final_gad06"} rules={{required:true}}/>
+                            {errors.gad7Final_gad06 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
-                    <IonLabel>Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
+                    <IonLabel className="questions">Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
                      <IonItem>
 
                              <Controller render={({onChange}) => (
@@ -270,45 +288,44 @@ const Step3P2 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Post_gad07', e.detail.value )} }}>
+                                props.setState('gad7Final_gad07', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio color="primary" value="0"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio color="primary" value="1"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
                                 <IonItem>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio color="primary" value="2"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
                                 <IonItem>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Post_gad07"}/>
+                            </IonRadioGroup> )} control={control} name={"gad7Final_gad07"} rules={{required:true}}/>
+                            {errors.gad7Final_gad07 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                     </IonItem>
                     </IonList>
 
 
 
-            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large">Anterior</IonButton>
-            <IonButton onClick={props.next} size="large" className={"btnProximo"}>Próximo</IonButton>
+            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
+            <IonButton disabled={formState.isValid === false}  onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
             </form>
 
         </div>
 
         </IonContent>
     )
-
-
 }
 
-export default Step3P2;
+export default Gad7Final; 

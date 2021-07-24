@@ -55,6 +55,14 @@ const Modulos= (props: StepComponentProps) => {
     history.push('/contatoPost');
   }
 
+  function habitosPost(){
+    history.push('/habitosPost');
+  }
+
+  function sonosintomasPost(){
+    history.push('/sonosintomasPost');
+  }
+
   const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
   const [moduloContatoEnviado, setContatoModulo1Enviado] = React.useState(false);
   const [moduloHabitosEnviado, setHabitosModulo1Enviado] = React.useState(false);
@@ -149,7 +157,7 @@ const Modulos= (props: StepComponentProps) => {
             </div>
 
             <div>
-            <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Sono e sintomas</div></IonButton> 
+            <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem estar</div></IonButton> 
             </div>
 
             <div>
@@ -157,8 +165,17 @@ const Modulos= (props: StepComponentProps) => {
             </div>
 
             <div>
-            <IonButton disabled={false} onClick={contatoPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Saude Post</div></IonButton> 
+            <IonButton disabled={false} onClick={contatoPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Contato Post</div></IonButton> 
             </div>
+
+            <div>
+            <IonButton disabled={false} onClick={habitosPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Hábitos Post</div></IonButton> 
+            </div>
+
+            <div>
+            <IonButton disabled={false} onClick={sonosintomasPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem estar Post</div></IonButton> 
+            </div>
+
 
            </div> 
           </div>

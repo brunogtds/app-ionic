@@ -3,8 +3,8 @@ import { Steps, Step } from "react-step-builder";
 
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 import '../../Forms.css';
-import SaudePost1 from "./SaudePost1";
-import SaudePost2 from "./SaudePost2";
+import ContatoPost1 from "./contatoPost1";
+import ContatoPost2 from './contatoPost2';
 
   
   /*React-multi-step form 
@@ -27,7 +27,7 @@ function App() {
 
         <IonHeader>
             <IonToolbar>
-                <IonTitle><b>SAÚDE</b></IonTitle>
+                <IonTitle><b>CONTATO SOCIAL</b></IonTitle>
                   <div id="header-items">
                     
                     
@@ -38,8 +38,8 @@ function App() {
         <IonContent fullscreen>
                 
                 <Steps>
-                    <Step component={SaudePost1} />
-                    <Step component={SaudePost2} /> 
+                    <Step component={ContatoPost1} />
+                    <Step component={ContatoPost2} /> 
                 </Steps>
             
 

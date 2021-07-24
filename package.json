@@ -29,6 +29,7 @@
     "mobx": "^6.1.5",
     "mobx-react": "^7.1.0",
     "react": "^16.14.0",
+    "react-accessible-accordion": "^3.3.4",
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^16.13.0",
     "react-firebase-hooks": "^2.2.0",

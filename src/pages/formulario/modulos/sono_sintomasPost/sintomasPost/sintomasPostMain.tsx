@@ -2,24 +2,17 @@ import React from "react";
 import { Steps, Step } from "react-step-builder";
 
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
-import '../../Forms.css';
-import SaudePost1 from "./SaudePost1";
-import SaudePost2 from "./SaudePost2";
+import '../../../Forms.css';
+
+import Gad7Post from './Gad7Post';
+import PHQPost from './PHQPost';
+import Who5Post from './Who5Post'
 
   
   /*React-multi-step form 
   Cada página do formulário é um step no app*/
-
-/*progress bar*/
-
-
-//Progress bar not working
-//import 'react-circular-progressbar/dist/styles.css';
-
   
 function App() {
-
-
 
    return (
 
@@ -27,19 +20,20 @@ function App() {
 
         <IonHeader>
             <IonToolbar>
-                <IonTitle><b>SAÚDE</b></IonTitle>
+                <IonTitle><b>SONO E SINTOMAS</b></IonTitle>
                   <div id="header-items">
-                    
-                    
                   </div>
             </IonToolbar>
         </IonHeader>
-  
+
+
         <IonContent fullscreen>
-                
+           
                 <Steps>
-                    <Step component={SaudePost1} />
-                    <Step component={SaudePost2} /> 
+                    <Step component={Gad7Post} /> 
+                    <Step component={Who5Post} />
+                    <Step component={PHQPost} />  
+    
                 </Steps>
             
 

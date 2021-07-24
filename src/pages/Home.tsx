@@ -1,42 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import React, {useState } from 'react';
+import { IonContent, IonHeader, IonPage,IonToolbar } from '@ionic/react';
 
-import logo_regente from '../img/logo_regente.png';
+import logo_regente from '../img/logo_regente_branco.svg';
 import './Home.css';
 
 
-import { IonGrid, IonRow, IonCol, IonSlides, IonSlide, IonMenu, IonMenuButton, IonButtons } from '@ionic/react';
-
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider, IonButton, IonLoading, IonLabel} from '@ionic/react';
+import { IonMenuButton, IonButtons, IonIcon, IonList, IonListHeader} from '@ionic/react';
 
 
-import distanciamentoExp from '../../src/img/distanciamentoExp.png';
+import {IonButton, IonLoading} from '@ionic/react';
+import {peopleOutline, bedOutline, walkOutline, trashBinOutline} from  'ionicons/icons';
 
-import social_distancing from '../../src/img/social_distancing.svg';
-import distancing from '../../src/img/distancing.svg';
-import isolation from '../../src/img/isolation.svg';
-import quarantine from '../../src/img/quarantine.svg';
-
-import ExplanationSlides from '../../src/pages/ExplanationSlides';
-
-import {auth} from '../../src/firebaseConfig/firebaseConfig';
-import  { Redirect, useHistory } from 'react-router-dom' 
+import  { useHistory } from 'react-router-dom' 
 
 import {logoutUser} from '../../src/firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 
 import {useUser} from 'reactfire';
 
-
-import {AuthCheck} from 'reactfire';
-
 import firebase from 'firebase';
+
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
+
+import 'react-accessible-accordion/dist/fancy-example.css';
 
 const Tab1: React.FC = () => {
 
-  const history= useHistory();
+  
   const [loader, setLoader]= useState<boolean>(false);
-  const {data: user}= useUser();
+
 
   function chamaSobre(){
     history.push('/sobre');
@@ -62,6 +60,105 @@ const Tab1: React.FC = () => {
     return user.emailVerified;
   }
 
+  const history= useHistory();
+
+  function saude(){
+    history.push('/saude');
+  }
+
+  function contato(){
+    
+    history.push('/contatosocial')
+   
+  }
+
+  function habitos(){
+    history.push('/habitos');
+  }
+
+  function sonoSintomas(){
+    history.push('/sonosintomas');
+  }
+
+  function saudePost(){
+    history.push('/saudePost');
+  }
+
+  function contatoPost(){
+    history.push('/contatoPost');
+  }
+
+  function habitosPost(){
+    history.push('/habitosPost');
+  }
+
+  function sonosintomasPost(){
+    history.push('/sonosintomasPost');
+  }
+
+  const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
+  const [moduloContatoEnviado, setContatoModulo1Enviado] = React.useState(false);
+  const [moduloHabitosEnviado, setHabitosModulo1Enviado] = React.useState(false);
+  const [moduloSonoSintomasEnviado, setSonoSintomasModulo1Enviado] = React.useState(false);
+
+  const {data: user}= useUser();
+  const db = firebase.firestore();
+
+  async function getSaudeDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSaude= data2.dateSaudeModule1;
+    
+    if (!(dataSaude === undefined)){
+      setSaudeModulo1Enviado(true)
+    }
+  }
+
+  async function getContatoDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataContato= data2.dateContatoModule1;
+    
+    if (!(dataContato === undefined)){
+      setContatoModulo1Enviado(true)
+    }
+  }
+
+  async function getSonoSintomasDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSono = data2.dateSonoModule1;
+    const dataSintomas = data2.dateSintomasModule1;
+    
+    if (!(dataSono === undefined || dataSintomas === undefined)){
+      setSonoSintomasModulo1Enviado(true)
+    }
+  }
+
+  async function getHabitosDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataHabitos = data2.dateHabitosModule1;
+    
+    if (!(dataHabitos === undefined)){
+      setHabitosModulo1Enviado(true)
+    }
+  }
+
+  //Checking the dates
+  getSaudeDate()
+  getContatoDate()
+  getHabitosDate()
+  getSonoSintomasDate()
+
   return (
     <IonPage>
       <IonHeader>
@@ -83,12 +180,14 @@ const Tab1: React.FC = () => {
        
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-      <IonContent fullscreen className="ion-padding" color="background">
+      <IonContent fullscreen className="ion-text-center ion-padding" color="background">
 
+        {/*
         <IonGrid>
        
        
        {/* <ExploreContainer name="Tab 1 page" /> */}
+       {/* 
        <IonCard>
       <IonCardHeader>
         <IonCardSubtitle>Pesquisa</IonCardSubtitle>
@@ -143,11 +242,88 @@ const Tab1: React.FC = () => {
        {/*
         <div>
           <img src={distanciamentoExp}/>
-       </div> */}
+       </div> 
 
 
         
-        </IonGrid>
+        </IonGrid> */}
+
+        <div className="ion-text-center">
+           
+           <div id="outer">
+           <div id="inner-modules">
+
+          
+          <Accordion allowZeroExpanded={true}>
+
+            <AccordionItem>
+            <AccordionItemHeading>
+              <AccordionItemButton>
+                Primeira etapa
+              </AccordionItemButton>
+            </AccordionItemHeading>
+            <AccordionItemPanel>
+            <div>
+           <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
+           </div>
+            </AccordionItemPanel>
+            <AccordionItemPanel>
+            <div>
+           <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+            <AccordionItemPanel>
+            <div>
+           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+            <AccordionItemPanel>
+            <div>
+           <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem estar</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+            </AccordionItem>
+           
+           </Accordion>
+           
+           <Accordion allowZeroExpanded={true}>
+           <AccordionItem>
+            <AccordionItemHeading>
+              <AccordionItemButton>
+                Segunda etapa
+              </AccordionItemButton>
+            </AccordionItemHeading>
+            <AccordionItemPanel>
+
+           <div>
+           <IonButton disabled={false} onClick={saudePost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Saude Post</div></IonButton> 
+           </div>
+           </AccordionItemPanel>
+           <AccordionItemPanel>
+           <div>
+           <IonButton disabled={false} onClick={contatoPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Contato Post</div></IonButton> 
+           </div>
+           </AccordionItemPanel>
+           <AccordionItemPanel>
+
+           <div>
+           <IonButton disabled={false} onClick={habitosPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Hábitos Post</div></IonButton> 
+           </div>
+           </AccordionItemPanel>
+           <AccordionItemPanel>
+           <div>
+           <IonButton disabled={false} onClick={sonosintomasPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem estar Post</div></IonButton> 
+           </div>
+           
+           </AccordionItemPanel>
+           </AccordionItem>
+           </Accordion>
+
+          </div> 
+         </div>
+       </div>
+
+
       </IonContent>
     </IonPage>
   );

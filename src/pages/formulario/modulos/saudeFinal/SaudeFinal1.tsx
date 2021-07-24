@@ -11,7 +11,7 @@ import {useState} from 'react';
 import { useUser } from "reactfire";
 import firebase from "firebase";
 
-const SaudePost1 = (props: StepComponentProps) => {
+const SaudeFinal1 = (props: StepComponentProps) => {
 
     const {data: user}= useUser();
     const [dataUser, setData] = useState();
@@ -45,13 +45,13 @@ const SaudePost1 = (props: StepComponentProps) => {
                             <IonLabel position="floating">Peso (em kg):</IonLabel>
 
                             <Controller render={({onChange}) => (
-                            <IonInput id="weightPost" onIonChange={(e)=> {
+                            <IonInput id="weightFinal" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('weightPost', e.detail.value ) }} />
+                                props.setState('weightFinal', e.detail.value ) }} />
                             )}
-                            name="weightPost"
+                            name="weightFinal"
                             control={control} />
                             <IonNote >Se você não sabe seu peso exato, pode ser um valor aproximado.</IonNote>
                          </IonItem>
@@ -64,20 +64,20 @@ const SaudePost1 = (props: StepComponentProps) => {
                             <IonList>
 
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disordersChange", "")} onIonChange={(e)=> {
+                            <IonCheckbox color="primary" value= {props.getState("disordersChangeFinal", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('disordersChange', 'nenhuma' ) }}></IonCheckbox>
+                                props.setState('disordersChangeFinal', 'nenhuma' ) }}></IonCheckbox>
                             <IonLabel>Nenhuma</IonLabel>
                             </IonItem>
 
                             <IonItem>
-                            <IonCheckbox color="primary" value= {props.getState("disorders", "")} onIonChange={(e)=> {
+                            <IonCheckbox color="primary" value= {props.getState("disordersChangeFinal", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('disordersChange', 'diabetes' ) }}></IonCheckbox>
+                                props.setState('disordersChangeFinal', 'diabetes' ) }}></IonCheckbox>
                             <IonLabel>Diabetes</IonLabel>
                             </IonItem>
 
@@ -86,7 +86,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('disordersChange', 'hipertensão' ) }}></IonCheckbox>
+                                props.setState('disordersChangeFinal', 'hipertensão' ) }}></IonCheckbox>
                             <IonLabel>Hipertensão</IonLabel>
                             </IonItem>
                             
@@ -95,7 +95,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('disordersChange', 'asma' ) }}></IonCheckbox>
+                                props.setState('disordersChangeFinal', 'asma' ) }}></IonCheckbox>
                             <IonLabel>Asma</IonLabel>
                             </IonItem>
 
@@ -104,7 +104,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('disordersChange', 'depressão' ) }}></IonCheckbox>
+                                props.setState('disordersChangeFinal', 'depressão' ) }}></IonCheckbox>
                             <IonLabel>Depressão</IonLabel>
                             </IonItem>
 
@@ -113,20 +113,20 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('disordersChange', 'imunodeficiência' ) }}></IonCheckbox>
+                                props.setState('disordersChangeFinal', 'imunodeficiência' ) }}></IonCheckbox>
                             <IonLabel>Imunodeficiência</IonLabel>
                             </IonItem>
 
                             <IonItem>
                                 <IonLabel>Outros: </IonLabel>
-                                <IonInput value= {props.getState("disordersChange", "")} onIonChange={(e)=> {
+                                <IonInput value= {props.getState("disordersChangeFinal", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value) }}/>
                             </IonItem>
                             </IonList>
                             )}
                             control={control}
-                            name={"disordersChange"}
+                            name={"disordersChangeFinal"}
                             />
                         </IonItem>
 
@@ -139,7 +139,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={medsChange} onIonChange={(e) => {setmedsChange(e.detail.value); 
                                 if (e.detail.value != undefined) 
-                                props.setState('medsChange', e.detail.value )  }}>
+                                props.setState('medsChangeFinal', e.detail.value )  }}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
@@ -154,7 +154,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                             </IonRadioGroup>
                             )}
                             control={control}
-                            name={"medsChange"}
+                            name={"medsChangeFinal"}
                             />
                         </IonItem>
                       
@@ -166,7 +166,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('medsUsedChange', e.detail.value ) }}/> )} control={control} name={'medsUsedChange'} />
+                                props.setState('medsUsedChangeFinal', e.detail.value ) }}/> )} control={control} name={'medsUsedChangeFinal'} />
                         </IonItem> : null
                         }
                        </IonList>
@@ -178,7 +178,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 <Controller render={({onChange}) => (
                                 <IonRadioGroup value={selectedMedsNoOrientation} onIonChange={(e) => {setSelectedMedsNoOrientation(e.detail.value); 
                                     if (e.detail.value != undefined) 
-                                    props.setState('medsOffChange', e.detail.value )}}>
+                                    props.setState('medsOffChangeFinal', e.detail.value )}}>
 
                                     <IonItem>
                                     <IonLabel>Sim</IonLabel>
@@ -192,7 +192,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 </IonRadioGroup>
                                 )}
                                 control={control}
-                                name={"medsOffChange"} 
+                                name={"medsOffChangeFinal"} 
                                 />
                             </IonItem>
 
@@ -203,7 +203,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
-                                    props.setState('medsOffUsedChange', e.detail.value ) }}/> )} control={control} name={'medsOffUsedChange'}/>
+                                    props.setState('medsOffUsedChangeFinal', e.detail.value ) }}/> )} control={control} name={'medsOffUsedChangeFinal'}/>
                             </IonItem>: null }
                         </IonList> 
 
@@ -213,36 +213,36 @@ const SaudePost1 = (props: StepComponentProps) => {
                             <Controller render={({onChange}) => (
                             <IonList>
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("psychotherPost", "")} onIonChange={(e)=> {
+                                <IonCheckbox color="primary" value= {props.getState("psychotherPostFinal", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('psychotherPost', 'não' )  }}></IonCheckbox>
+                                props.setState('psychotherPostFinal', 'não' )  }}></IonCheckbox>
                                 <IonLabel >Não</IonLabel>
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("psychotherPost", "")} onIonChange={(e)=> {
+                                <IonCheckbox color="primary" value= {props.getState("psychotherPostFinal", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('psychotherPost', 'sim, on-line' )  }}></IonCheckbox>
+                                props.setState('psychotherPostFinal', 'sim, on-line' )  }}></IonCheckbox>
                                 <IonLabel>Sim, on-line</IonLabel>
                                 </IonItem>
 
                                 <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("psychotherPost", "")} onIonChange={(e)=> {
+                                <IonCheckbox color="primary" value= {props.getState("psychotherPostFinal", "")} onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('psychotherPost', 'sim, presencial' )  }}></IonCheckbox>
+                                props.setState('psychotherPostFinal', 'sim, presencial' )  }}></IonCheckbox>
                                 <IonLabel>Sim, presencial</IonLabel>
                                 </IonItem>
 
                              </IonList>
                              )} 
                              control={control}
-                             name={"psychotherPost"}
+                             name={"psychotherPostFinal"}
                              />
                          </IonItem>
 
@@ -256,6 +256,6 @@ const SaudePost1 = (props: StepComponentProps) => {
 
 }
 
-export default SaudePost1;
+export default SaudeFinal1;
 
 

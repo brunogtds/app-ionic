@@ -6,7 +6,7 @@ import './Recommendation.css';
 import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
 
 import thinking from '../../img/thinking.png';
-import logo_regente from '../../img/logo_regente.png';
+import logo_regente from '../../img/logo_regente_branco.svg';
 
 
 /*Recomendações estão divididas em módulos linkados aqui */

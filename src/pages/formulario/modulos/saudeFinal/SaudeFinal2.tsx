@@ -10,7 +10,7 @@ import { useUser } from "reactfire";
 import { toast } from "../../../../toast";
 import '../../Forms.css';
 
-const SaudePost2 = (props: StepComponentProps) => {
+const SaudeFinal2 = (props: StepComponentProps) => {
 
     const {control, handleSubmit, errors, formState} = useForm({mode: "onChange"});
  
@@ -30,16 +30,16 @@ const SaudePost2 = (props: StepComponentProps) => {
 
         if(user){
             firebase.firestore().collection('usersPost').doc(user.uid).set({
-                weightPost: Number(props.state.weightPost), //STEP 1
-                disordersChange: String(props.state.disordersChange), 
-                medsChange: String(props.state.medsChange),
-                medsUsedChange: String(props.state.medsUsedChange),
-                medsOffChange: String(props.state.medsOffChange),
-                medsOffUsedChange: String(props.state.medsOffUsedChange),
-                psychotherPost: String(props.state.psychotherPost),
-                alcoholChange: Number(props.state.alcoholChange),
-                stimulantsChange: Number(props.state.stimulantsChange),
-                smokeChange: Number(props.state.smokeChange),
+                weightFinal: Number(props.state.weightFinal), //STEP 1
+                disordersChangeFinal: String(props.state.disordersChangeFinal), 
+                medsChangeFinal: String(props.state.medsChangeFinal),
+                medsUsedChangeFinal: String(props.state.medsUsedChangeFinal),
+                medsOffChangeFinal: String(props.state.medsOffChangeFinal),
+                medsOffUsedChangeFinal: String(props.state.medsOffUsedChangeFinal),
+                psychotherPostFinal: String(props.state.psychotherPostFinal),
+                alcoholChangeFinal: Number(props.state.alcoholChangeFinal),
+                stimulantsChangeFinal: Number(props.state.stimulantsChangeFinal),
+                smokeChangeFinal: Number(props.state.smokeChangeFinal),
                 dateSaudeModule2: new Date(),
             }, {merge: true})
         
@@ -82,7 +82,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                         console.log(e);
                         onChange(e.detail.value);
                         if (e.detail.value != undefined) 
-                        props.setState('alcoholChange', e.detail.value ); 
+                        props.setState('alcoholChangeFinal', e.detail.value ); 
                     }}>
 
                         <IonItem>
@@ -102,7 +102,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     </IonRadioGroup>
                     )}
                     control={control}
-                    name={"alcoholChange"} 
+                    name={"alcoholChangeFinal"} 
                     />
                 </IonItem>
 
@@ -114,7 +114,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                         console.log(e);
                         onChange(e.detail.value);
                         if (e.detail.value != undefined) 
-                        props.setState('stimulantsChange', e.detail.value ); 
+                        props.setState('stimulantsChangeFinal', e.detail.value ); 
                     }}>
 
                         <IonItem>
@@ -134,7 +134,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     </IonRadioGroup>
                     )}
                     control={control}
-                    name={"stimulantsChange"} 
+                    name={"stimulantsChangeFinal"} 
                     />
                 </IonItem>
 
@@ -146,7 +146,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                         console.log(e);
                         onChange(e.detail.value);
                         if (e.detail.value != undefined) 
-                        props.setState('smokeChange', e.detail.value ); 
+                        props.setState('smokeChangeFinal', e.detail.value ); 
                     }}>
 
                         <IonItem>
@@ -171,7 +171,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     </IonRadioGroup>
                     )}
                     control={control}
-                    name={"smokeChange"} 
+                    name={"smokeChangeFinal"} 
                     />
                 </IonItem>
 
@@ -185,4 +185,4 @@ const SaudePost2 = (props: StepComponentProps) => {
     )
 }
 
-export default SaudePost2;
+export default SaudeFinal2;

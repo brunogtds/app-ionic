@@ -54,8 +54,12 @@ import ModulosSonoSintomas from './pages/formulario/modulos/ModulosSonoSintomas'
 import SonoMain from './pages/formulario/modulos/sono_sintomas/sono/SonoMain';
 import SintomasMain from './pages/formulario/modulos/sono_sintomas/sintomas/SintomasMain';
 
-import SaudePostMain from './pages/formulario/modulos/SaudePost/SaudePostMain';
-
+import SaudePostMain from './pages/formulario/modulos/saudePost/SaudePostMain';
+import ContatoPostMain from './pages/formulario/modulos/contatoSocialPost/contatoPostMain';
+import HabitosPostMain from './pages/formulario/modulos/habitosPost/habitosPostMain';
+import ModulosSonoSintomasPost from './pages/formulario/modulos/ModulosSonoSintomasPost';
+import SonoPostMain from './pages/formulario/modulos/sono_sintomasPost/sonoPost/sonoPostMain';
+import SintomasPostMain from './pages/formulario/modulos/sono_sintomasPost/sintomasPost/sintomasPostMain';
 
 /*ExplanationSlides*/
 
@@ -91,7 +95,8 @@ import Perfil_2Novo from './pages/Perfil_2Novo';
 /*logout*/
 import {logoutUser} from '../src/firebaseConfig/firebaseConfig';
 import { toast } from './toast';
-import ContatoSocialPostMain from './pages/formulario/modulos/contatoSocialPost/ContatoSocialPostMain';
+
+
 
 
 const PublicRoutes: React.FC = () => {
@@ -150,9 +155,7 @@ const PrivateRoutes: React.FC = () => {
             <IonItem href="/tab1">
                     Home
                   </IonItem>
-            <IonItem href="/tab2">
-                    Pesquisa
-                  </IonItem>
+            
             <IonItem href="/perfil">
                     Perfil
                   </IonItem>
@@ -180,8 +183,11 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/sintomas" component={SintomasMain} exact={true}/>
 
           <Route path="/saudePost" component={SaudePostMain} exact={true}/>
-          <Route path="/contatoPost" component={ContatoSocialPostMain} exact={true}/>
-
+          <Route path="/contatoPost" component={ContatoPostMain} exact={true}/>
+          <Route path="/habitosPost" component={HabitosPostMain} exact={true}/>
+          <Route path="/sonosintomasPost" component={ModulosSonoSintomasPost} exact={true}/>
+          <Route path="/sonoPost" component={SonoPostMain} exact={true}/>
+          <Route path="/sintomasPost" component={SintomasPostMain} exact={true}/>
 
           <Route path="/recomendacoes" component={Tab3} />
           <Route path="/explanationslides" component={ExplanationSlides}/>
