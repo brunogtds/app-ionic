@@ -9,7 +9,7 @@ import { IonMenuButton, IonButtons, IonIcon, IonList, IonListHeader} from '@ioni
 
 
 import {IonButton, IonLoading} from '@ionic/react';
-import {peopleOutline, bedOutline, walkOutline, trashBinOutline} from  'ionicons/icons';
+import {peopleOutline, bedOutline, walkOutline, trashBinOutline, shareSocialOutline} from  'ionicons/icons';
 
 import  { useHistory } from 'react-router-dom' 
 
@@ -96,6 +96,22 @@ const Tab1: React.FC = () => {
     history.push('/sonosintomasPost');
   }
 
+  function saudeFinal(){
+    history.push('/saudeFinal');
+  }
+
+  function contatoFinal(){
+    history.push('/contatoFinal');
+  }
+
+  function habitosFinal(){
+    history.push('/habitosFinal');
+  }
+
+  function sonoSintomasFinal(){
+    history.push('/sonoSintomasFinal');
+  }
+
   const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
   const [moduloContatoEnviado, setContatoModulo1Enviado] = React.useState(false);
   const [moduloHabitosEnviado, setHabitosModulo1Enviado] = React.useState(false);
@@ -180,7 +196,7 @@ const Tab1: React.FC = () => {
        
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
-      <IonContent fullscreen className="ion-text-center ion-padding" color="background">
+      <IonContent fullscreen className="ion-text-center ion-padding texto-padrão" color="background">
 
         {/*
         <IonGrid>
@@ -254,68 +270,127 @@ const Tab1: React.FC = () => {
            <div id="inner-modules">
 
           
-          <Accordion allowZeroExpanded={true}>
+          <Accordion allowZeroExpanded={true} className={"accordeon-pesquisa"}>
 
             <AccordionItem>
             <AccordionItemHeading>
-              <AccordionItemButton>
+              <AccordionItemButton className={"accordeon-button"} >
                 Primeira etapa
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="white" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
+           <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="white" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="white" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem estar</div></IonButton> 
+           <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+            <AccordionItemPanel>
+            <div className={"texto-compartilhar"}>
+            Finalize o formulário e acesse todas as dicas personalizadas! 
+           </div>
+           <div>
+           <IonButton disabled={true} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
            </div>
             </AccordionItemPanel>
             </AccordionItem>
            
            </Accordion>
            
-           <Accordion allowZeroExpanded={true}>
+           <Accordion allowZeroExpanded={true} className={"accordeon-pesquisa"}>
            <AccordionItem>
             <AccordionItemHeading>
-              <AccordionItemButton>
+              <AccordionItemButton className={"accordeon-button"}>
                 Segunda etapa
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={false} onClick={saudePost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Saude Post</div></IonButton> 
+           <IonButton disabled={false} onClick={saudePost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
            <div>
-           <IonButton disabled={false} onClick={contatoPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Contato Post</div></IonButton> 
+           <IonButton disabled={false} onClick={contatoPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={false} onClick={habitosPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Hábitos Post</div></IonButton> 
+           <IonButton disabled={false} onClick={habitosPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos </div></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
            <div>
-           <IonButton disabled={false} onClick={sonosintomasPost} color="white" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem estar Post</div></IonButton> 
+           <IonButton disabled={false} onClick={sonosintomasPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
            </div>
            
            </AccordionItemPanel>
+           <AccordionItemPanel>
+            <div className={"texto-compartilhar"}>
+            Finalize o formulário e acesse todas as dicas personalizadas! 
+           </div>
+           <div>
+           <IonButton disabled={true} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+           </AccordionItem>
+           </Accordion>
+
+           <Accordion allowZeroExpanded={true} className={"accordeon-pesquisa"}>
+           <AccordionItem>
+            <AccordionItemHeading>
+              <AccordionItemButton className={"accordeon-button"}>
+                Terceira etapa
+              </AccordionItemButton>
+            </AccordionItemHeading>
+            <AccordionItemPanel>
+
+            <div>
+           <IonButton disabled={false} onClick={saudeFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
+           </div>
+           </AccordionItemPanel>
+
+           <AccordionItemPanel>
+            <div>
+           <IonButton disabled={false} onClick={contatoFinal} color="orange" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+
+            <AccordionItemPanel>
+            <div>
+           <IonButton disabled={false} onClick={habitosFinal} color="orange" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+
+            <AccordionItemPanel>
+            <div>
+           <IonButton disabled={false} onClick={sonoSintomasFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+            <AccordionItemPanel>
+            <div className={"texto-compartilhar"}>
+            Finalize o formulário e acesse todas as dicas personalizadas! 
+           </div>
+           <div>
+           <IonButton disabled={true} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           </div>
+            </AccordionItemPanel>
+
            </AccordionItem>
            </Accordion>
 

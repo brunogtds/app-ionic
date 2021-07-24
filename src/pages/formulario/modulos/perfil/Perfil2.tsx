@@ -24,7 +24,6 @@ import firebase from 'firebase';
 /*STEP 1 => Página 1 do formulário
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
-import ModuloComponents from "../ModulosComponent"
 
 const Perfil2  = (props: StepComponentProps) => {
 

@@ -39,11 +39,8 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 //import Main from './pages/formulario/14days/Main14Days';
-import Main from './pages/formulario/Main';
-
 
 //import modulos
-import Modulos from './pages/formulario/modulos/Modulos';
 import Modulo1 from './pages/formulario/modulos/perfil/PerfilMain';
 
 import PerfilMain from './pages/formulario/modulos/perfil/PerfilMain';
@@ -60,6 +57,13 @@ import HabitosPostMain from './pages/formulario/modulos/habitosPost/habitosPostM
 import ModulosSonoSintomasPost from './pages/formulario/modulos/ModulosSonoSintomasPost';
 import SonoPostMain from './pages/formulario/modulos/sono_sintomasPost/sonoPost/sonoPostMain';
 import SintomasPostMain from './pages/formulario/modulos/sono_sintomasPost/sintomasPost/sintomasPostMain';
+
+import SaudeFinalMain from './pages/formulario/modulos/saudeFinal/SaudeFinalMain';
+import ContatoFinalMain from './pages/formulario/modulos/contatoSocialFinal/contatoFinalMain';
+import HabitosFinalMain from './pages/formulario/modulos/habitosFinal/habitosFinalMain';
+import ModulosSonoSintomasFinal from './pages/formulario/modulos/ModulosSonoSintomasFinal';
+import SintomasFinalMain from './pages/formulario/modulos/sono_sintomasFinal/sintomasFinal/sintomasFinalMain';
+import SonoFinalMain from './pages/formulario/modulos/sono_sintomasFinal/sonoFinal/sonoFinalMain';
 
 /*ExplanationSlides*/
 
@@ -172,7 +176,7 @@ const PrivateRoutes: React.FC = () => {
           <IonRouterOutlet id="main">
           
           <Route path="/tab1" component={Tab1} exact={true} />
-          <Route path="/tab2" component={Modulos} exact={true} />      
+             
           
           <Route path="/perfil" component={PerfilMain} exact={true}/> 
           <Route path="/saude" component={SaudeMain} exact={true}/>
@@ -188,6 +192,13 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/sonosintomasPost" component={ModulosSonoSintomasPost} exact={true}/>
           <Route path="/sonoPost" component={SonoPostMain} exact={true}/>
           <Route path="/sintomasPost" component={SintomasPostMain} exact={true}/>
+
+          <Route path="/saudeFinal" component={SaudeFinalMain} exact={true}/>
+          <Route path="/contatoFinal" component={ContatoFinalMain} exact={true}/>
+          <Route path="/habitosFinal" component={HabitosFinalMain} exact={true}/>
+          <Route path="/sonoSintomasFinal" component={ModulosSonoSintomasFinal} exact={true}/>
+          <Route path="/sonoFinal" component={SonoFinalMain} exact={true}/>
+          <Route path="/sintomasFinal" component={SintomasFinalMain} exact={true}/>
 
           <Route path="/recomendacoes" component={Tab3} />
           <Route path="/explanationslides" component={ExplanationSlides}/>

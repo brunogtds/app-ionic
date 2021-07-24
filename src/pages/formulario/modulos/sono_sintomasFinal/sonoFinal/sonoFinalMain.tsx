@@ -6,7 +6,7 @@ import '../../../Forms.css';
 
 import ISIFinal from './ISIFinal';
 import MCTQ1Final from "./mctQ1Final";
-import MCTQ2Final from "./mctq2Post";
+import MCTQ2Final from "./mctq2Final";
   
   /*React-multi-step form 
   Cada página do formulário é um step no app*/

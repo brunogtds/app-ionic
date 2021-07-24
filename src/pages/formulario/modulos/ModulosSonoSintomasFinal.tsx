@@ -25,11 +25,11 @@ const ModulosSonoSintomasFinal: React.FC = () => {
   const history= useHistory();
 
   function sono(){
-    history.push('/sonoPost');
+    history.push('/sonoFinal');
   }
 
   function sintomas(){
-    history.push('/sintomasPost');
+    history.push('/sintomasFinal');
   }
 
   

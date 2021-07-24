@@ -197,6 +197,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                         <IonLabel>Não</IonLabel>
                                         <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                         </IonItem>
+                                        
                                     
                         </IonRadioGroup> )} control={control} name={"alarmWDFinal"} rules={{required:true}}/>
                         {errors.alarmWDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
