@@ -3,7 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 
 import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonLoading, IonRadioGroup, IonRadio } from "@ionic/react";
 import { IonContent, IonText} from '@ionic/react';
-import './formulario/Forms.css';
+import './Cadastro.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -27,7 +27,7 @@ Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabel
 //import ModuloComponents from "../ModulosComponent"
 import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
-const Perfil_2Novo  = (props: StepComponentProps) => {
+const Perfil_Cadastro2  = (props: StepComponentProps) => {
 
 
  const [dataUser, setData] = useState()
@@ -124,11 +124,11 @@ const onSubmit = (data: any) => {
     } 
   
     return (
-        <IonContent fullscreen color="light">
+        <IonContent fullscreen color="background">
         <div>
 
 
-        <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
+        <form className="ion-padding texto-default" onSubmit={handleSubmit(onSubmit)}>
 
                 <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
@@ -184,7 +184,7 @@ const onSubmit = (data: any) => {
                                    props.setState('married', e.detail.value ) }}>
                                <IonSelectOption>Solteiro(a)</IonSelectOption>
                                <IonSelectOption>Casado(a)</IonSelectOption>
-                               <IonSelectOption>Separado(a)/Divorciado(a)</IonSelectOption>
+                               <IonSelectOption>Divorciado(a)</IonSelectOption>
                                <IonSelectOption>Viúvo(a)</IonSelectOption>
             
                                </IonSelect>
@@ -218,7 +218,7 @@ const onSubmit = (data: any) => {
       
                         
                        <IonLabel className="questions">Moro em uma área: </IonLabel>
-                       <IonItem>
+                       <IonItem className={"ion-no-padding"}>
                            
 
                            <Controller render={({onChange}) => (
@@ -228,14 +228,14 @@ const onSubmit = (data: any) => {
                                     if (e.detail.value != undefined) 
                                     props.setState('area', e.detail.value )}}>
 
-                                    <IonItem>
+                                    <IonItem lines="none"  className={"ion-no-padding"}>
                                     <IonLabel>Rural</IonLabel>
-                                    <IonRadio  className={"radio-options"} color="primary" value="rural"></IonRadio>
+                                    <IonRadio slot="start"  className={"radio-options"} color="orange" value="rural"></IonRadio>
                                     </IonItem>
                                 
-                                    <IonItem>
+                                    <IonItem lines="none"  className={"ion-no-padding"}>
                                     <IonLabel>Urbana</IonLabel>
-                                    <IonRadio  className={"radio-options"} color="primary" value="urbana"></IonRadio>
+                                    <IonRadio slot="start" className={"radio-options"} color="orange" value="urbana"></IonRadio>
                                     </IonItem>
 
                                     
@@ -249,8 +249,13 @@ const onSubmit = (data: any) => {
                             />
                         </IonItem>
                         {errors.area && <IonText color="danger">Campo obrigatório.</IonText>}
-                        <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} onClick={onSubmit} className={"btnProximo"} size="large" fill="clear">Submeter</IonButton>
+
+                        <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
+                        </div>
+
+                        <IonButton disabled={props.isFirst()}onClick={props.prev} color="orange" size="large" fill="outline">Anterior</IonButton>
+                        <IonButton disabled={formState.isValid === false} color="orange" onClick={onSubmit} className={"btnProximo"} size="large" fill="outline">Submeter</IonButton>
                        
                         
                </form>
@@ -262,4 +267,4 @@ const onSubmit = (data: any) => {
 
 }
 
-export default Perfil_2Novo;
+export default Perfil_Cadastro2;

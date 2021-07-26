@@ -3,7 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 
 import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonDatetime, IonNote, IonRadioGroup, IonRadio, IonText } from "@ionic/react";
 import { IonContent} from '@ionic/react';
-import './formulario/Forms.css';
+import './Cadastro.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -26,7 +26,11 @@ import { trendingUpOutline } from "ionicons/icons";
 /*STEP 1 => Página 1 do formulário
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
-const Perfil_1Novo = (props: StepComponentProps) => {
+const Perfil_Cadastro1 = (props: StepComponentProps) => {
+
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
 
     const {data: user}= useUser();
     const [dataUser, setData] = useState()
@@ -44,21 +48,24 @@ const Perfil_1Novo = (props: StepComponentProps) => {
     
 
     return (
-        <IonContent fullscreen color="light">
+        <IonContent fullscreen color="background">
         <div>
 
-       
+           
+               
         
-                <form className="ion-padding">
+                <form className="ion-padding texto-default">
 
-                   
+                <div className="texto-title">Sobre você</div>
+                <div className="texto-default">Para começar e receber dicas personalizadas, preencha para sabermos mais sobre você!</div>
 
                         <IonLabel className="questions">Idade:</IonLabel>
+                        {errors.age && <IonText color="danger"> Campo obrigatório.</IonText>}
                          <IonItem>
                             
                             
                             <Controller render={({onChange}) => (
-                                <IonInput type="number" placeholder="Digite sua idade" value= {props.getState("age", "")} onIonChange={
+                                <IonInput type="number" placeholder="Digite" value= {props.getState("age", "")} onIonChange={
                                     (e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
@@ -73,7 +80,7 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                                 
                             />
                           
-                         {errors.age && <IonText color="danger">Campo obrigatório.</IonText>}
+                      
                                        
                          </IonItem>
                                             
@@ -82,13 +89,13 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                             
 
                             <Controller render={({onChange}) => ( 
-                            <IonSelect placeholder="Por favor, selecione..." value= {props.getState("sex", "")} onIonChange={(e) => {
+                            <IonSelect interfaceOptions={options} placeholder="Por favor, selecione..."  value= {props.getState("sex", "")} onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
                                 props.setState('sex', e.detail.value ); 
                             }}>
-                                    <IonSelectOption value="feminino" >Feminino</IonSelectOption>
+                                    <IonSelectOption value="feminino">Feminino</IonSelectOption>
                                     <IonSelectOption value="masculino">Masculino</IonSelectOption>
                             </IonSelect> 
                             
@@ -107,7 +114,7 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                          </IonItem>
 
                         {watchGender === "feminino" ? 
-                        <IonItem color="light">
+                        <IonItem>
                             <IonLabel position="floating" className="questions">Primeiro dia da última menstruação:</IonLabel>
 
                             <Controller render={({onChange}) => (
@@ -126,12 +133,12 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                         : null}
                         
                         <IonLabel position="floating" className="questions">Peso (em kg):</IonLabel>
-                        <IonNote >Se você não sabe seu peso exato, pode ser um valor aproximado.</IonNote>
+                        {errors.weight && <IonText color="danger"> Campo obrigatório.</IonText>}
                         <IonItem>
                             
 
                             <Controller render={({onChange}) => (
-                            <IonInput value={props.getState("weight", "")} id="weight" type="number" onIonChange={(e)=> {
+                            <IonInput value={props.getState("weight", "")} placeholder="Digite um valor aproximado" id="weight" type="number" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -141,15 +148,15 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                             rules= {{ required: true}}
                             control={control} />
                             
-                            {errors.weight && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                          </IonItem>
                         
                          <IonLabel position="floating" className="questions">Altura (em cm): </IonLabel>
-                         <IonNote >Responda com o valor em centímetros, por ex: 1,70m = 170cm - escrever 170.</IonNote>
+                         
                          <IonItem>
 
                             <Controller render={({onChange}) => (
-                            <IonInput value={props.getState("height", "")} id="height" type="number" onIonChange={(e)=> {
+                            <IonInput value={props.getState("height", "")} placeholder="Digite o valor em cm, por exemplo: 170" id="height" type="number" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -220,45 +227,45 @@ const Perfil_1Novo = (props: StepComponentProps) => {
 
                        
                         <IonLabel className="questions">Atualmente sou:</IonLabel>
-                        
+                        {errors.currentOccupation && <IonText color="danger"> Campo obrigatório.</IonText>}
                                         
-                        <IonItem>
+                        <IonItem className={"ion-no-padding"}>
   
                       
                         <Controller render={({onChange}) => (
-                        <IonRadioGroup value={props.getState("currentOccupation", "")} 
+                        <IonRadioGroup allowEmptySelection={true} value={props.getState("currentOccupation", "")} 
                          name="currentOccupation" onIonChange={(e) => { 
                                     console.log(formState.isValid);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
                                     props.setState('currentOccupation', e.detail.value )}}>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Estudante</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="estudante" ></IonRadio>
+                                    <IonRadio slot="start" className={"radio-options"} name="currentOccupation" color="orange" value="estudante" ></IonRadio>
                                     </IonItem>
                                 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Assalariado</IonLabel>
-                                    <IonRadio  className={"radio-options"}  name="currentOccupation" color="primary" value="assalariado"></IonRadio>
+                                    <IonRadio slot="start" className={"radio-options"}  name="currentOccupation" color="orange" value="assalariado"></IonRadio>
                                     </IonItem>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Autônomo</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="autonomo"></IonRadio>
+                                    <IonRadio slot="start"  className={"radio-options"} name="currentOccupation" color="orange" value="autonomo"></IonRadio>
                                     </IonItem>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Desempregado</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="desempregado"></IonRadio>
+                                    <IonRadio slot="start" className={"radio-options"} name="currentOccupation" color="orange" value="desempregado"></IonRadio>
                                     </IonItem>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Aposentado</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="aposentado"></IonRadio>
+                                    <IonRadio slot="start" className={"radio-options"} name="currentOccupation" color="orange" value="aposentado"></IonRadio>
                                     </IonItem>
 
-                                   <IonItem>
+                                   <IonItem className={"radio-options"}>
                                         
                                         <IonInput name="currentOccupation" placeholder="Outros" type="text" onIonChange={(e)=> {
                                     
@@ -275,14 +282,16 @@ const Perfil_1Novo = (props: StepComponentProps) => {
                             control={control}
                                             
                             />
-                            {errors.currentOccupation && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                         </IonItem>
 
-                      
+                        <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>
+                        </div>
                         
                       
-                        <IonButton onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} onClick={props.next} className={"btnProximo"} size="large" fill="clear" >Próximo</IonButton>
+                        <IonButton onClick={props.prev} size="large" color="orange" fill="outline">Anterior</IonButton>
+                        <IonButton disabled={formState.isValid === false} color="orange" fill="outline" onClick={props.next} className={"btnProximo"} size="large" >Próximo</IonButton>
                         
                          
                 </form>
@@ -294,4 +303,4 @@ const Perfil_1Novo = (props: StepComponentProps) => {
 
 }
 
-export default Perfil_1Novo;
+export default Perfil_Cadastro1;

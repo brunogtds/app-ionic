@@ -93,8 +93,8 @@ import {Suspense} from "react";
 /*cadastro novo*/
 import CadastroNovo from './pages/CadastroNovo';
 import CadastroMain from './pages/CadastroMain';
-import Perfil_1Novo from './pages/Perfil_1Novo';
-import Perfil_2Novo from './pages/Perfil_2Novo';
+import Perfil_1Novo from './pages/Perfil_Cadastro1';
+import Perfil_2Novo from './pages/Perfil_Cadastro2';
 
 /*logout*/
 import {logoutUser} from '../src/firebaseConfig/firebaseConfig';
@@ -244,7 +244,7 @@ const App: React.FC = () => {
           <IonReactRouter>
             <Suspense fallback={<IonLoading isOpen={true} />}>
               <AuthCheck fallback={<PublicRoutes/>}>
-                
+                <PublicRoutes/>
                 <PrivateRoutes/>
               </AuthCheck>
             </Suspense>

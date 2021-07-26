@@ -87,7 +87,7 @@ const Perfil2  = (props: StepComponentProps) => {
     
    
     return (
-        <IonContent fullscreen color="light">
+        <IonContent fullscreen color="background">
         <div>
 
         

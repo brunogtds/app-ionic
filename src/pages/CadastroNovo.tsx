@@ -99,7 +99,7 @@ const Cadastro = (props: StepComponentProps) => {
   async function validateFields() {
     var register = await validateRegister();
       if(register) {
-        toast('ESTAMOS AQUI!!!')
+        //toast('ESTAMOS AQUI!!!')
         return props.jump(2);
       }
 

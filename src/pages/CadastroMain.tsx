@@ -6,8 +6,8 @@ import './formulario/Forms.css';
 
 
 import CadastroNovo from './CadastroNovo';
-import Perfil_1Novo from './Perfil_1Novo';
-import Perfil_2Novo from './Perfil_2Novo';
+import Perfil_Cadastro1 from './Perfil_Cadastro1';
+import Perfil_Cadastro2 from './Perfil_Cadastro2';
   
   /*React-multi-step form 
   Cada página do formulário é um step no app*/
@@ -22,9 +22,9 @@ function App() {
            
                 <Steps>
                    
-                    <Step component={CadastroNovo} /> 
-                    <Step component={Perfil_1Novo} />
-                    <Step component={Perfil_2Novo}/> 
+                   <Step component={CadastroNovo} /> 
+                    <Step component={Perfil_Cadastro1} /> 
+                    <Step component={Perfil_Cadastro2}/> 
     
                 </Steps>
             

@@ -1,8 +1,10 @@
 import React from "react";
 import { Steps, Step } from "react-step-builder";
 
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonMenuButton} from '@ionic/react';
 import '../../Forms.css';
+
+import logo_regente from '../../../../img/logo_regente_branco.svg';
 
 import Perfil1 from './Perfil1';
 import Perfil2 from './Perfil2';
@@ -16,13 +18,18 @@ function App() {
 
     <IonPage>
 
-        <IonHeader>
-            <IonToolbar>
-                <IonTitle><b>SOBRE VOCÊ</b></IonTitle>
-                  <div id="header-items">
-                  </div>
-            </IonToolbar>
-        </IonHeader>
+    <IonHeader>
+        <IonToolbar color="orange">
+        
+        <div id="header-items">
+          <img src={logo_regente} className={"logo"}/>
+          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
+        </div>   
+          
+        </IonToolbar>
+        
+       
+      </IonHeader>
 
 
         <IonContent fullscreen>
