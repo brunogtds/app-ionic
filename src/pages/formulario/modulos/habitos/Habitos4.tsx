@@ -71,7 +71,7 @@ const Habitos4 = (props: StepComponentProps) => {
     }
 
     function voltaModulos (){
-        history.push('/tab2');
+        history.push('/tab1');
     }
         
     const onSubmit = (data: any) => {

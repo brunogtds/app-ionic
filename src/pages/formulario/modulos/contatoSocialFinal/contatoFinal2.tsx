@@ -31,13 +31,13 @@ const ContatoFinal2 = (props: StepComponentProps) => {
     
  
     if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
+        firebase.firestore().collection('usersFinal').doc(user.uid).set({
             socialDistFinal: String(props.state.socialDistFinal), //STEP 3
             quarantineRoomFinal: String(props.state.quarantineRoomFinal),
             contactNFinal: String(props.state.contactNFinal), //FIM
             
             
-            dateContatoModule1 : new Date()
+            dateContatoFinal : new Date()
              }, {merge: true})
         }
     
@@ -47,7 +47,7 @@ const ContatoFinal2 = (props: StepComponentProps) => {
     }
 
     function voltaModulos (){
-        history.push('/tab2');
+        history.push('/tab1');
     }
         
     const onSubmit = (data: any) => {

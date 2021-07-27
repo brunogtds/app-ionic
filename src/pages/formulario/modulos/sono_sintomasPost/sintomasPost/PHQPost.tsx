@@ -37,7 +37,7 @@ const PHQPost = (props: StepComponentProps) => {
     
  
     if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
+        firebase.firestore().collection('usersPost').doc(user.uid).set({
             gad7Post14_gad01: Number(props.state.gad7Post14_gad01), //STEP 5
             gad7Post14_gad02: Number(props.state.gad7Post14_gad02),
             gad7Post14_gad03: Number(props.state.gad7Post14_gad03),
@@ -60,7 +60,7 @@ const PHQPost = (props: StepComponentProps) => {
             phq08Post14: Number(props.state.phq08Post14), 
             phq09Post14: Number(props.state.phq09Post14), 
             phq10Post14: Number(props.state.phq10Post14),
-            dateSintomasModule1 : new Date()
+            dateSintomasPost : new Date()
         
         }, {merge: true})
     }

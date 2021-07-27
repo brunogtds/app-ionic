@@ -34,7 +34,7 @@ const ISIFinal = (props: StepComponentProps) => {
     
  
     if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
+        firebase.firestore().collection('usersFinal').doc(user.uid).set({
             NightShiftFinal: String(props.state.NightShiftFinal), //STEP 4 
             workDaysNFinal: String(props.state.workDaysNFinal),
             sleepNoWorkFinal: String(props.state.sleepNoWorkFinal),
@@ -50,7 +50,7 @@ const ISIFinal = (props: StepComponentProps) => {
             isiFinal_isi01: Number(props.state.isiFinal_isi01),
             isiFinal_isi02: Number(props.state.isiFinal_isi02),
             isiFinal_isi03: Number(props.state.isiFinal_isi03),  
-            dateSonoModule1 : new Date()
+            dateSonoFinal : new Date()
         }, {merge: true})
     }
     

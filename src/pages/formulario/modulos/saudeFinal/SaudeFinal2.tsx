@@ -29,7 +29,7 @@ const SaudeFinal2 = (props: StepComponentProps) => {
     async function updateUserDataQuest2(dataUser: any){
 
         if(user){
-            firebase.firestore().collection('usersPost').doc(user.uid).set({
+            firebase.firestore().collection('usersFinal').doc(user.uid).set({
                 weightFinal: Number(props.state.weightFinal), //STEP 1
                 disordersChangeFinal: String(props.state.disordersChangeFinal), 
                 medsChangeFinal: String(props.state.medsChangeFinal),
@@ -40,7 +40,7 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                 alcoholChangeFinal: Number(props.state.alcoholChangeFinal),
                 stimulantsChangeFinal: Number(props.state.stimulantsChangeFinal),
                 smokeChangeFinal: Number(props.state.smokeChangeFinal),
-                dateSaudeModule2: new Date(),
+                dateSaudeFinal: new Date(),
             }, {merge: true})
         
             toast('Formulário submetido com sucesso!', 4000);   
@@ -55,7 +55,7 @@ const SaudeFinal2 = (props: StepComponentProps) => {
     }
     
     function voltaModulos (){
-        history.push('/tab2');
+        history.push('/tab1');
     }
         
     const onSubmit = (data: any) => {

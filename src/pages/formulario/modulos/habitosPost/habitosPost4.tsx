@@ -31,7 +31,7 @@ const HabitosPost4 = (props: StepComponentProps) => {
     
  
     if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
+        firebase.firestore().collection('usersPost').doc(user.uid).set({
                         
             workQPost14: String(props.state.workQPost14),
             workDurPost14: String(props.state.workDurPost14),
@@ -64,7 +64,7 @@ const HabitosPost4 = (props: StepComponentProps) => {
             lightTimingWDPost14: String(props.state.lightTimingWDPost14),
             lightTimingFDPost14: String(props.state.lightTimingFDPost14),
             beck02Post14: String(props.state.beck02Post14),
-            dateHabitosModule1 : new Date()
+            dateHabitosPost : new Date()
              }, {merge: true})
         }
     
@@ -74,7 +74,7 @@ const HabitosPost4 = (props: StepComponentProps) => {
     }
 
     function voltaModulos (){
-        history.push('/tab2');
+        history.push('/tab1');
     }
         
     const onSubmit = (data: any) => {

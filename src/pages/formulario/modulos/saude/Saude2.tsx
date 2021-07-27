@@ -67,7 +67,7 @@ const Saude2 = (props: StepComponentProps) => {
             drugDur: Number(props.state.drugDur),
             stimulants: String(props.state.stimulants),
             stimulantTiming: String(props.state.stimulantTiming),
-            dateSaudeModule1: new Date(),
+            dateSaudePost: new Date(),
               }, {merge: true})
         }
     
@@ -77,7 +77,7 @@ const Saude2 = (props: StepComponentProps) => {
     }
 
     function voltaModulos (){
-        history.push('/tab2');
+        history.push('/tab1');
     }
         
     const onSubmit = (data: any) => {

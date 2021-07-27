@@ -166,6 +166,11 @@ const PrivateRoutes: React.FC = () => {
                   <IonItem href="/recomendacoes">
                     Recomendações
             </IonItem>
+
+            <IonItem href="/sobre">
+                    Sobre
+                  </IonItem>
+                 
             <IonItem href="/" onClick={Logout}>
                     Sair
                   </IonItem>

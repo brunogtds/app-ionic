@@ -34,42 +34,42 @@ const ModulosSonoSintomasPost: React.FC = () => {
 
   
 
-  const [moduloSonoEnviado, setSonoModulo1Enviado] = React.useState(false);
-  const [moduloSintomasEnviado, setSintomasModulo1Enviado] = React.useState(false);
+  const [moduloSonoPostEnviado, setSonoPostEnviado] = React.useState(false);
+  const [moduloSintomasPostEnviado, setSintomasPostEnviado] = React.useState(false);
 
   const {data: user}= useUser();
   const db = firebase.firestore();
 
-  async function getSonoDate(){
+  async function getSonoPostDate(){
     const uid = user.uid
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
-    const dataSono = data2.dateSonoModule1;
+    const dataSonoPost = data2.dateSonoPost;
     
     
-    if (!(dataSono === undefined)){
-      setSonoModulo1Enviado(true)
+    if (!(dataSonoPost === undefined)){
+      setSonoPostEnviado(true)
     }
   }
 
-  async function getSintomasDate(){
+  async function getSintomasPostDate(){
     const uid = user.uid
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
-    const dataSintomas = data2.dateSintomasModule1;
+    const dataSintomasPost = data2.dateSintomasPostModule1;
     
-    if (!(dataSintomas === undefined)){
-      setSintomasModulo1Enviado(true)
+    if (!(dataSintomasPost === undefined)){
+      setSintomasPostEnviado(true)
     }
   }
 
   //Checking the dates
-  getSonoDate()
-  getSintomasDate()
+  getSonoPostDate()
+  getSintomasPostDate()
 
-  console.log("sintomas" + moduloSintomasEnviado)
+  console.log("sintomas" + moduloSintomasPostEnviado)
 
   return (
     <IonPage>
@@ -87,10 +87,10 @@ const ModulosSonoSintomasPost: React.FC = () => {
             <div id="inner-modules">
 
             <div>
-            <IonButton disabled={moduloSonoEnviado} onClick={sono} color="tertiary" fill="outline" shape="round" id="button-forms-sono">  <IonIcon slot="start" icon={personOutline}/>Sono</IonButton></div>
+            <IonButton disabled={moduloSonoPostEnviado} onClick={sono} color="tertiary" fill="outline" shape="round" id="button-forms-sono">  <IonIcon slot="start" icon={personOutline}/>Sono</IonButton></div>
      
             <div>
-            <IonButton disabled={!moduloSonoEnviado || moduloSintomasEnviado}  onClick={sintomas} color="tertiary" fill="outline" shape="round" id="button-forms-sintomas"><IonIcon slot="start" icon={walkOutline}/><div>Sintomas</div></IonButton>
+            <IonButton disabled={!moduloSonoPostEnviado || moduloSintomasPostEnviado}  onClick={sintomas} color="tertiary" fill="outline" shape="round" id="button-forms-sintomas"><IonIcon slot="start" icon={walkOutline}/><div>Sintomas</div></IonButton>
             </div>
      
            </div> 

@@ -24,7 +24,7 @@ const SaudeFinal1 = (props: StepComponentProps) => {
    function createDatabaseQuest2(){
 
         if(user){
-            firebase.firestore().collection('usersPost').doc(user.uid).set({
+            firebase.firestore().collection('usersFinal').doc(user.uid).set({
                 email: user.email, }, { merge: true }); 
         }
     }

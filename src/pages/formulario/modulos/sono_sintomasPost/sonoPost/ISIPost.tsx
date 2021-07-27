@@ -34,7 +34,7 @@ const ISIPost = (props: StepComponentProps) => {
     
  
     if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
+        firebase.firestore().collection('usersPost').doc(user.uid).set({
             NightShiftPost14: String(props.state.NightShiftPost14), //STEP 4 
             workDaysNPost14: String(props.state.workDaysNPost14),
             sleepNoWorkPost14: String(props.state.sleepNoWorkPost14),
@@ -50,7 +50,7 @@ const ISIPost = (props: StepComponentProps) => {
             isiPost14_isi01: Number(props.state.isiPost14_isi01),
             isiPost14_isi02: Number(props.state.isiPost14_isi02),
             isiPost14_isi03: Number(props.state.isiPost14_isi03),  
-            dateSonoModule1 : new Date()
+            dateSonoPost : new Date()
         }, {merge: true})
     }
     

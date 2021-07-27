@@ -72,7 +72,7 @@ const Perfil2  = (props: StepComponentProps) => {
     
     
     function voltaModulos (){
-        history.push('/tab2');
+        history.push('/tab1');
         
     }
         

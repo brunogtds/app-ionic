@@ -40,7 +40,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                 alcoholChange: Number(props.state.alcoholChange),
                 stimulantsChange: Number(props.state.stimulantsChange),
                 smokeChange: Number(props.state.smokeChange),
-                dateSaudeModule2: new Date(),
+                dateSaudePost: new Date(),
             }, {merge: true})
         
             toast('Formulário submetido com sucesso!', 4000);   
@@ -55,7 +55,7 @@ const SaudePost2 = (props: StepComponentProps) => {
     }
     
     function voltaModulos (){
-        history.push('/tab2');
+        history.push('/tab1');
     }
         
     const onSubmit = (data: any) => {
