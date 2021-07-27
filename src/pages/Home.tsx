@@ -1,9 +1,11 @@
 import React, {useState } from 'react';
-import { IonContent, IonHeader, IonPage,IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage,IonToolbar, IonCard, IonCardContent, IonItem } from '@ionic/react';
 
 import logo_regente from '../img/logo_regente_branco.svg';
+import cara_regente from '../img/cara-regente.jpg';
 import './Home.css';
 
+import Stepper, { Step } from "react-material-stepper";
 
 import { IonMenuButton, IonButtons, IonIcon, IonList, IonListHeader} from '@ionic/react';
 
@@ -32,7 +34,7 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 
 const Tab1: React.FC = () => {
 
-  
+   
   const [loader, setLoader]= useState<boolean>(false);
 
 
@@ -117,6 +119,17 @@ const Tab1: React.FC = () => {
   const [moduloHabitosEnviado, setHabitosModulo1Enviado] = React.useState(false);
   const [moduloSonoSintomasEnviado, setSonoSintomasModulo1Enviado] = React.useState(false);
 
+  const [moduloSaudePostEnviado, setSaudePostEnviado]= React.useState(false);
+  const [moduloContatoPostEnviado, setContatoPostEnviado]= React.useState(false);
+  const [moduloHabitosPostEnviado, setHabitosPostEnviado]= React.useState(false);
+  const [moduloSonoSintomasPostEnviado, setSonoSintomasPostEnviado]= React.useState(false);
+
+  const [moduloSaudeFinalEnviado, setSaudeFinalEnviado]= React.useState(false);
+  const [moduloContatoFinalEnviado, setContatoFinalEnviado]= React.useState(false);
+  const [moduloHabitosFinalEnviado, setHabitosFinalEnviado]= React.useState(false);
+  const [moduloSonoSintomasFinalEnviado, setSonoSintomasFinalEnviado]= React.useState(false);
+  
+
   const {data: user}= useUser();
   const db = firebase.firestore();
 
@@ -169,11 +182,73 @@ const Tab1: React.FC = () => {
     }
   }
 
+  //post functions
+
+  async function getSaudesPostDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersPost').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSaudePost = data2.dateSaudePost;
+    
+    if (!(dataSaudePost === undefined)){
+      setSaudePostEnviado(true)
+    }
+  }
+
+  async function getContatoPostDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersPost').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataContatoPost = data2.dateContatoPost;
+    
+    if (!(dataContatoPost === undefined)){
+      setContatoPostEnviado(true);
+    }
+  }
+
+  async function getHabitosPostDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersPost').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataHabitosPost = data2.dateHabitosPost;
+    
+    if (!(dataHabitosPost === undefined)){
+      setHabitosPostEnviado(true);
+    }
+  }
+
+  async function getSonoSintomasPostDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersPost').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSonoPost = data2.dateSonoPost;
+    const dataSintomasPost = data2.dateSintomasPost;
+    
+    if (!(dataSonoPost === undefined || dataSintomasPost === undefined)){
+      setSonoSintomasPostEnviado(true);
+    }
+  }
+
+  //final functions
+
+  
+
   //Checking the dates
   getSaudeDate()
   getContatoDate()
   getHabitosDate()
   getSonoSintomasDate()
+
+  //Checking the dates post-14
+
+  getSaudesPostDate()
+  getContatoPostDate()
+  getHabitosPostDate()
+  getSonoSintomasPostDate()
 
   return (
     <IonPage>
@@ -278,15 +353,18 @@ const Tab1: React.FC = () => {
                 Primeira etapa
               </AccordionItemButton>
             </AccordionItemHeading>
+            
             <AccordionItemPanel>
+            
             <div>
            <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
            </div>
+           
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
            <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
-           </div>
+           </div> 
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
@@ -306,6 +384,7 @@ const Tab1: React.FC = () => {
            <IonButton disabled={true} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
            </div>
             </AccordionItemPanel>
+           
             </AccordionItem>
            
            </Accordion>
@@ -320,23 +399,23 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={false} onClick={saudePost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
+           <IonButton disabled={moduloSaudePostEnviado} onClick={saudePost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
            <div>
-           <IonButton disabled={false} onClick={contatoPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           <IonButton disabled={moduloContatoPostEnviado || !moduloSaudePostEnviado} onClick={contatoPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={false} onClick={habitosPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos </div></IonButton> 
+           <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado} onClick={habitosPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos </div></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
            <div>
-           <IonButton disabled={false} onClick={sonosintomasPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
+           <IonButton disabled={moduloSonoSintomasPostEnviado || !moduloHabitosPostEnviado} onClick={sonosintomasPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
            </div>
            
            </AccordionItemPanel>
