@@ -235,7 +235,56 @@ const Tab1: React.FC = () => {
 
   //final functions
 
+  async function getSaudesFinalDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSaudeFinal = data2.dateSaudeFinal;
+    
+    if (!(dataSaudeFinal === undefined)){
+      setSaudeFinalEnviado(true)
+    }
+  }
   
+  async function getContatoFinalDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataContatoFinal = data2.dateContatoFinal;
+    
+    if (!(dataContatoFinal === undefined)){
+      setContatoFinalEnviado(true)
+    }
+  }
+
+  async function getHabitosFinalDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataHabitosFinal = data2.dateHabitosFinal;
+    
+    if (!(dataHabitosFinal === undefined)){
+      setHabitosFinalEnviado(true)
+    }
+  }
+
+  async function getSonoSintomasFinalDate(){
+    const uid = user.uid
+    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSonoFinal = data2.dateSonoFinal;
+    const dataSintomasFinal = data2.dateSintomasFinal;
+    
+    if (!(dataSonoFinal === undefined || dataSintomasFinal === undefined)){
+      setSonoSintomasFinalEnviado(true);
+    }
+  }
+
+
 
   //Checking the dates
   getSaudeDate()
@@ -249,6 +298,13 @@ const Tab1: React.FC = () => {
   getContatoPostDate()
   getHabitosPostDate()
   getSonoSintomasPostDate()
+
+  //Checking the final dates
+
+  getSaudesFinalDate()
+  getContatoFinalDate()
+  getHabitosFinalDate()
+  getSonoSintomasFinalDate()
 
   return (
     <IonPage>
@@ -440,25 +496,25 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
 
             <div>
-           <IonButton disabled={false} onClick={saudeFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
+           <IonButton disabled={moduloSaudeFinalEnviado} onClick={saudeFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
            </div>
            </AccordionItemPanel>
 
            <AccordionItemPanel>
             <div>
-           <IonButton disabled={false} onClick={contatoFinal} color="orange" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado} onClick={contatoFinal} color="orange" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
            </div>
             </AccordionItemPanel>
 
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={false} onClick={habitosFinal} color="orange" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+           <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
            </div>
             </AccordionItemPanel>
 
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={false} onClick={sonoSintomasFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
+           <IonButton disabled={moduloSonoSintomasFinalEnviado || !moduloHabitosFinalEnviado} onClick={sonoSintomasFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
