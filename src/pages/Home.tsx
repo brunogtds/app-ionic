@@ -9,6 +9,8 @@ import Stepper, { Step } from "react-material-stepper";
 
 import { IonMenuButton, IonButtons, IonIcon, IonList, IonListHeader} from '@ionic/react';
 
+import {millisToDaysHoursMinutes, pad, verifyTimeLeft} from '../../src/dateFunctions';
+
 
 import {IonButton, IonLoading} from '@ionic/react';
 import {peopleOutline, bedOutline, walkOutline, trashBinOutline, shareSocialOutline} from  'ionicons/icons';
@@ -143,6 +145,8 @@ const Tab1: React.FC = () => {
     if (!(dataSaude === undefined)){
       setSaudeModulo1Enviado(true)
     }
+
+    return verifyTimeLeft(dataSaude)
   }
 
   async function getContatoDate(){
@@ -168,6 +172,8 @@ const Tab1: React.FC = () => {
     if (!(dataSono === undefined || dataSintomas === undefined)){
       setSonoSintomasModulo1Enviado(true)
     }
+
+    console.log("GOR: " + verifyTimeLeft(dataSono))
   }
 
   async function getHabitosDate(){
@@ -237,43 +243,43 @@ const Tab1: React.FC = () => {
 
   async function getSaudesFinalDate(){
     const uid = user.uid
-    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
     const dataSaudeFinal = data2.dateSaudeFinal;
     
     if (!(dataSaudeFinal === undefined)){
-      setSaudeFinalEnviado(true)
+      setHabitosPostEnviado(true);
     }
   }
   
   async function getContatoFinalDate(){
     const uid = user.uid
-    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
     const dataContatoFinal = data2.dateContatoFinal;
     
     if (!(dataContatoFinal === undefined)){
-      setContatoFinalEnviado(true)
+      setHabitosPostEnviado(true);
     }
   }
 
   async function getHabitosFinalDate(){
     const uid = user.uid
-    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
     const dataHabitosFinal = data2.dateHabitosFinal;
     
     if (!(dataHabitosFinal === undefined)){
-      setHabitosFinalEnviado(true)
+      setHabitosPostEnviado(true);
     }
   }
 
   async function getSonoSintomasFinalDate(){
     const uid = user.uid
-    const dbRef= await db.collection('usersFinal').doc(uid).get();
+    const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
     const dataSonoFinal = data2.dateSonoFinal;
@@ -400,7 +406,6 @@ const Tab1: React.FC = () => {
            <div id="outer">
            <div id="inner-modules">
 
-          
           <Accordion allowZeroExpanded={true} className={"accordeon-pesquisa"}>
 
             <AccordionItem>

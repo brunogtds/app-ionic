@@ -51,7 +51,7 @@ import ModulosSonoSintomas from './pages/formulario/modulos/ModulosSonoSintomas'
 import SonoMain from './pages/formulario/modulos/sono_sintomas/sono/SonoMain';
 import SintomasMain from './pages/formulario/modulos/sono_sintomas/sintomas/SintomasMain';
 
-import SaudePostMain from './pages/formulario/modulos/saudePost/SaudePostMain';
+import SaudePostMain from './pages/formulario/modulos/SaudePost/SaudePostMain';
 import ContatoPostMain from './pages/formulario/modulos/contatoSocialPost/contatoPostMain';
 import HabitosPostMain from './pages/formulario/modulos/habitosPost/habitosPostMain';
 import ModulosSonoSintomasPost from './pages/formulario/modulos/ModulosSonoSintomasPost';
