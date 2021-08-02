@@ -135,7 +135,9 @@ const Tab1: React.FC = () => {
   const [moduloContatoFinalEnviado, setContatoFinalEnviado]= React.useState(false);
   const [moduloHabitosFinalEnviado, setHabitosFinalEnviado]= React.useState(false);
   const [moduloSonoSintomasFinalEnviado, setSonoSintomasFinalEnviado]= React.useState(false);
-  
+
+  const [minDaysPart1, setMinDaysPart1] = React.useState(false);
+  const [minDaysPart2, setMinDaysPart2] = React.useState(false);
 
   const {data: user}= useUser();
   const db = firebase.firestore();
@@ -178,7 +180,12 @@ const Tab1: React.FC = () => {
       setSonoSintomasModulo1Enviado(true)
     }
 
-    console.log("GOR: " + verifyTimeLeft(dataSonoSintomas))
+    console.log("dataSonoSintomas: " + verifyTimeLeft(dataSonoSintomas))
+    
+    if(verifyTimeLeft(dataSonoSintomas) == "Modulo liberado"){
+      //passou 14 dias
+      setMinDaysPart1(true)
+    }    
   }
 
   async function getHabitosDate(){
@@ -238,9 +245,13 @@ const Tab1: React.FC = () => {
     const data2: any= data;
     const dataSonoSintomasPost = data2.dateSonoSintomasPost;
     
-    
     if (!(dataSonoSintomasPost === undefined)){
       setSonoSintomasPostEnviado(true);
+    }
+
+    if(verifyTimeLeft(dataSonoSintomasPost) == "Modulo liberado"){
+      //passou 14 dias
+      setMinDaysPart2(true)
     }
   }
 
@@ -447,7 +458,7 @@ const Tab1: React.FC = () => {
             Finalize o formulário e acesse todas as dicas personalizadas! 
            </div>
            <div>
-           <IonButton disabled={true} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
            </div>
             </AccordionItemPanel>
            
@@ -465,7 +476,7 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={moduloSaudePostEnviado} onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1} onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
@@ -490,7 +501,7 @@ const Tab1: React.FC = () => {
             Finalize o formulário e acesse todas as dicas personalizadas! 
            </div>
            <div>
-           <IonButton disabled={true} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2)} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
            </div>
             </AccordionItemPanel>
            </AccordionItem>
@@ -506,7 +517,7 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
 
             <div>
-           <IonButton disabled={moduloSaudeFinalEnviado} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
 
@@ -532,7 +543,7 @@ const Tab1: React.FC = () => {
             Finalize o formulário e acesse todas as dicas personalizadas! 
            </div>
            <div>
-           <IonButton disabled={true} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           <IonButton disabled={!moduloSonoSintomasFinalEnviado} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
            </div>
             </AccordionItemPanel>
 

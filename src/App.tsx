@@ -50,7 +50,7 @@ import SaudeMain from './pages/formulario/modulos/saude/SaudeMain';
 
 import SonoSintomasMain from './pages/formulario/modulos/sono_sintomas/SonoSintomasMain';
 
-import SaudePostMain from './pages/formulario/modulos/saudePost/SaudePostMain';
+import SaudePostMain from './pages/formulario/modulos/SaudePost/SaudePostMain';
 import ContatoPostMain from './pages/formulario/modulos/contatoSocialPost/contatoPostMain';
 import HabitosPostMain from './pages/formulario/modulos/habitosPost/habitosPostMain';
 
@@ -84,7 +84,7 @@ import Sobre from './pages/Sobre';
 
 import {config} from './firebaseConfig/firebaseConfig';
 import { FirebaseAppProvider, AuthCheck } from "reactfire";
-import { useSigninCheck } from "reactfire";
+//import { useSigninCheck } from "reactfire";
 
 import {Suspense} from "react";
 

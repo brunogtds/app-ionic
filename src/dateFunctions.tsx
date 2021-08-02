@@ -25,10 +25,11 @@ function millisToDaysHoursMinutes(millis : number) {
             h = 0;
         }
           
-    if(d < 14){
-        return "Ainda faltam: " + d + " dia(s), " + pad(h) + " hora(s) e " + pad(m) + " minuto(s) para a liberação dessa parte!";
-    } else{
+    if(d < 0 || h < 0 || m < 0){
         return "Modulo liberado"
+        
+    } else{
+        return "Ainda faltam: " + d + " dia(s), " + pad(h) + " hora(s) e " + pad(m) + " minuto(s) para a liberação dessa parte!";
     }
 }
 
