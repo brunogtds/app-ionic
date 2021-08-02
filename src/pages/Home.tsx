@@ -423,7 +423,7 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
             
             <div>
-           <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms text-left"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton>
+           <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton>
            </div>
            
             </AccordionItemPanel>
@@ -465,23 +465,23 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={moduloSaudePostEnviado} onClick={saudePost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
+           <IonButton disabled={moduloSaudePostEnviado} onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
            <div>
-           <IonButton disabled={moduloContatoPostEnviado || !moduloSaudePostEnviado} onClick={contatoPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           <IonButton disabled={moduloContatoPostEnviado || !moduloSaudePostEnviado} onClick={contatoPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado} onClick={habitosPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos </div></IonButton> 
+           <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
            <div>
-           <IonButton disabled={moduloSonoSintomasPostEnviado || !moduloHabitosPostEnviado} onClick={sonosintomasPost} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
+           <IonButton disabled={moduloSonoSintomasPostEnviado || !moduloHabitosPostEnviado} onClick={sonosintomasPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
            </div>
            
            </AccordionItemPanel>
@@ -506,25 +506,25 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
 
             <div>
-           <IonButton disabled={moduloSaudeFinalEnviado} onClick={saudeFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton> 
+           <IonButton disabled={moduloSaudeFinalEnviado} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
 
            <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado} onClick={contatoFinal} color="orange" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado} onClick={contatoFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
 
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+           <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
 
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloSonoSintomasFinalEnviado || !moduloHabitosFinalEnviado} onClick={sonoSintomasFinal} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
+           <IonButton disabled={moduloSonoSintomasFinalEnviado || !moduloHabitosFinalEnviado} onClick={sonoSintomasFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
