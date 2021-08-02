@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonLoading, IonText} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -14,7 +14,7 @@ import { IonProgressBar} from '@ionic/react';
 import {useState} from 'react';
 
 import  {Redirect, useHistory } from 'react-router-dom'
-import {toast} from '../../../../../toast';
+
 
 //imports user context do reactfire
 
@@ -23,7 +23,7 @@ import firebase from 'firebase';
 
 
 
-const Who5Final = (props: StepComponentProps) => {
+const Who5 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
 
@@ -54,7 +54,7 @@ const Who5Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('who5Final_SQ001', e.detail.value )} } }>
+                                props.setState('who5_SQ001', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
@@ -86,8 +86,8 @@ const Who5Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"who5Final_SQ001"} rules={{required:true}}/>
-                            {errors.who5Final_SQ001 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"who5_SQ001"} rules={{required:true}}/>
+                            {errors.who5_SQ001 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
                     <IonLabel className={"ion-text-wrapper questions"}>... me senti calmo e relaxado</IonLabel>
                     <IonItem>
@@ -98,7 +98,7 @@ const Who5Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('who5Final_SQ002', e.detail.value )} } }>
+                                props.setState('who5_SQ002', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
@@ -130,8 +130,8 @@ const Who5Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"who5Final_SQ002"} rules={{required:true}}/>
-                            {errors.who5Final_SQ002 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"who5_SQ002"} rules={{required:true}}/>
+                            {errors.who5_SQ002 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
                     <IonLabel className={"ion-text-wrapper questions"}>... me senti disposto e renovado ao acordar</IonLabel>
@@ -143,7 +143,7 @@ const Who5Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('who5Final_SQ003', e.detail.value )} } }>
+                                props.setState('who5_SQ003', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
@@ -175,8 +175,8 @@ const Who5Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"who5Final_SQ003"} rules={{required:true}}/>
-                            {errors.who5Final_SQ003 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"who5_SQ003"} rules={{required:true}}/>
+                            {errors.who5_SQ003 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
                     <IonLabel className={"ion-text-wrapper questions"}>... me senti cheio de energia e ativo</IonLabel>
@@ -188,7 +188,7 @@ const Who5Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('who5Final_SQ004', e.detail.value )} } }>
+                                props.setState('who5_SQ004', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
@@ -220,8 +220,8 @@ const Who5Final = (props: StepComponentProps) => {
                                 <IonRadio  className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"who5Final_SQ004"} rules={{required:true}}/>
-                            {errors.who5Final_SQ004 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"who5_SQ004"} rules={{required:true}}/>
+                            {errors.who5_SQ004 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
                     <IonLabel className={"ion-text-wrapper questions"}>... o meu dia foi cheio de coisas que interessavam</IonLabel>
@@ -233,7 +233,7 @@ const Who5Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('who5Final_SQ005', e.detail.value )} } }>
+                                props.setState('who5_SQ005', e.detail.value )} } }>
 
                                 <IonItem>
                                 <IonLabel>o tempo todo</IonLabel>
@@ -265,8 +265,8 @@ const Who5Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"who5Final_SQ005"} rules={{required:true}}/>
-                            {errors.who5Final_SQ005 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"who5_SQ005"} rules={{required:true}}/>
+                            {errors.who5_SQ005 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
                     
                 
@@ -283,5 +283,5 @@ const Who5Final = (props: StepComponentProps) => {
     )
 }
 
-export default Who5Final; 
+export default Who5; 
 

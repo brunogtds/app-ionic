@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonList, IonLoading, IonCard, IonCardContent, IonText} from "@ionic/react";
 import { IonContent } from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -13,7 +13,7 @@ import { IonProgressBar} from '@ionic/react';
 import {useState} from 'react';
 
 import  {Redirect, useHistory } from 'react-router-dom'
-import {toast} from '../../../../../toast';
+
 
 //imports user context do reactfire
 
@@ -21,7 +21,7 @@ import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
 
-const Gad7Final = (props: StepComponentProps) => {
+const Gad7 = (props: StepComponentProps) => {
 
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
 
@@ -63,7 +63,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Final_gad01', e.detail.value )} }}>
+                                props.setState('gad7_gad01', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
@@ -85,10 +85,10 @@ const Gad7Final = (props: StepComponentProps) => {
                                 <IonRadio color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Final_gad01"} rules={{required:true}}/>
+                            </IonRadioGroup> )} control={control} name={"gad7_gad01"} rules={{required:true}}/>
                         
                     </IonItem>
-                    {errors.gad7Final_gad01 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    {errors.gad7_gad01 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                     <IonLabel className="questions">Não ser capaz de parar ou controlar as preocupações.</IonLabel>
 
@@ -102,7 +102,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Final_gad02', e.detail.value )} }}>
+                                props.setState('gad7_gad02', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
@@ -124,8 +124,8 @@ const Gad7Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Final_gad02"} rules={{required:true}}/>
-                            {errors.gad7Final_gad02 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"gad7_gad02"} rules={{required:true}}/>
+                            {errors.gad7_gad02 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
                     <IonLabel className="questions">Preocupar-se muito com coisas diferentes.</IonLabel>
@@ -139,7 +139,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Final_gad03', e.detail.value )} }}>
+                                props.setState('gad7_gad03', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
@@ -161,8 +161,8 @@ const Gad7Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Final_gad03"} rules={{required:true}}/>
-                            {errors.gad7Final_gad03 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"gad7_gad03"} rules={{required:true}}/>
+                            {errors.gad7_gad03 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
                     <IonLabel className="questions">Dificuldade de relaxar.</IonLabel>
@@ -176,7 +176,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Final_gad04', e.detail.value )} }}>
+                                props.setState('gad7_gad04', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
@@ -198,8 +198,8 @@ const Gad7Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Final_gad04"} rules={{required:true}}/>
-                            {errors.gad7Final_gad04 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"gad7_gad04"} rules={{required:true}}/>
+                            {errors.gad7_gad04 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
                     <IonLabel className="questions">Ser tão inquieto que é difícil ficar parado.</IonLabel>
@@ -211,7 +211,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Final_gad05', e.detail.value )} }}>
+                                props.setState('gad7_gad05', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
@@ -233,8 +233,8 @@ const Gad7Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Final_gad05"} rules={{required:true}}/>
-                            {errors.gad7Final_gad05 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"gad7_gad05"} rules={{required:true}}/>
+                            {errors.gad7_gad05 && <IonText color="danger">Campo obrigatório.</IonText>}
                             
 
                                                         
@@ -253,7 +253,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Final_gad06', e.detail.value )} }}>
+                                props.setState('gad7_gad06', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
@@ -275,8 +275,8 @@ const Gad7Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Final_gad06"} rules={{required:true}}/>
-                            {errors.gad7Final_gad06 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"gad7_gad06"} rules={{required:true}}/>
+                            {errors.gad7_gad06 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
                     <IonLabel className="questions">Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
@@ -288,7 +288,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('gad7Final_gad07', e.detail.value )} }}>
+                                props.setState('gad7_gad07', e.detail.value )} }}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma vez</IonLabel>
@@ -310,8 +310,8 @@ const Gad7Final = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
-                            </IonRadioGroup> )} control={control} name={"gad7Final_gad07"} rules={{required:true}}/>
-                            {errors.gad7Final_gad07 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"gad7_gad07"} rules={{required:true}}/>
+                            {errors.gad7_gad07 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                     </IonItem>
                     </IonList>
@@ -328,4 +328,4 @@ const Gad7Final = (props: StepComponentProps) => {
     )
 }
 
-export default Gad7Final; 
+export default Gad7; 

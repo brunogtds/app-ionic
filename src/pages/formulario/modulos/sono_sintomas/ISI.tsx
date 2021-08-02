@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonLoading, IonText} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 import { useForm, Controller } from "react-hook-form";
 import {useState} from 'react';
 
@@ -13,7 +13,7 @@ import { IonProgressBar} from '@ionic/react';
 
 
 import  {Redirect, useHistory } from 'react-router-dom'
-import {toast} from '../../../../../toast';
+import {toast} from '../../../../toast';
 
 //imports user context do reactfire
 
@@ -48,10 +48,33 @@ const ISI = (props: StepComponentProps) => {
             wakeUpFD: String(props.state.wakeUpFD),
             alarmFD: String(props.state.alarmFD), 
             sleepProblem: String(props.state.sleepProblem), //STEP 8 
+            gad7_gad01: Number(props.state.gad7_gad01), //STEP 5
+            gad7_gad02: Number(props.state.gad7_gad02),
+            gad7_gad03: Number(props.state.gad7_gad03),
+            gad7_gad04: Number(props.state.gad7_gad04),
+            gad7_gad05: Number(props.state.gad7_gad05),
+            gad7_gad06: Number(props.state.gad7_gad06),
+            gad7_gad07: Number(props.state.gad7_gad07),
+            who5_SQ001: Number(props.state.who5_SQ001), //STEP 6 
+            who5_SQ002: Number(props.state.who5_SQ002),
+            who5_SQ003: Number(props.state.who5_SQ003),
+            who5_SQ004: Number(props.state.who5_SQ004),
+            who5_SQ005: Number(props.state.who5_SQ005),
+            phq01: Number(props.state.pqhp01), //STEP 7
+            phq02: Number(props.state.pqhp02), 
+            phq03: Number(props.state.pqhp03), 
+            phq04: Number(props.state.pqhp04), 
+            phq05: Number(props.state.pqhp05), 
+            phq06: Number(props.state.pqhp06), 
+            phq07: Number(props.state.pqhp07), 
+            phq08: Number(props.state.pqhp08), 
+            phq09: Number(props.state.pqhp09), 
+            phq10: Number(props.state.pqhp10),
             isi_isi01: Number(props.state.isi_isi01),
             isi_isi02: Number(props.state.isi_isi02),
             isi_isi03: Number(props.state.isi_isi03),  
-            dateSonoModule1 : new Date()
+            sleepQual: Number(props.state.sleepQual),
+            dateSonoSintomasModule1 : new Date()
         }, {merge: true})
     }
     
@@ -238,6 +261,40 @@ const ISI = (props: StepComponentProps) => {
                     </IonItem>
             
             :null }
+
+             
+            <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
+            <IonItem>
+                
+
+                <Controller render={({onChange}) => (
+                            <IonRadioGroup onIonChange={(e) => {
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('sleepQual', e.detail.value )}}}>
+
+                                <IonItem>
+                                <IonLabel>Muito boa</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Boa</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Ruim</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Muito ruim</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                </IonItem>
+                            </IonRadioGroup> )} control={control} name={"sleepQual"} rules={{required:true}}/>
+                            {errors.sleepQual && <IonText color="danger">Campo obrigatório.</IonText>}
+            </IonItem>
             
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
             <IonButton disabled={formState.isValid === false}  onClick={onSubmit} size="large" className={"btnProximo"} fill="clear">Submeter</IonButton>

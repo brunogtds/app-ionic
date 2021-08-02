@@ -47,23 +47,20 @@ import PerfilMain from './pages/formulario/modulos/perfil/PerfilMain';
 import HabitosMain from './pages/formulario/modulos/habitos/HabitosMain';
 import ContatoSocialMain from './pages/formulario/modulos/contatoSocial/ContatoSocialMain';
 import SaudeMain from './pages/formulario/modulos/saude/SaudeMain';
-import ModulosSonoSintomas from './pages/formulario/modulos/ModulosSonoSintomas';
-import SonoMain from './pages/formulario/modulos/sono_sintomas/sono/SonoMain';
-import SintomasMain from './pages/formulario/modulos/sono_sintomas/sintomas/SintomasMain';
 
-import SaudePostMain from './pages/formulario/modulos/SaudePost/SaudePostMain';
+import SonoSintomasMain from './pages/formulario/modulos/sono_sintomas/SonoSintomasMain';
+
+import SaudePostMain from './pages/formulario/modulos/saudePost/SaudePostMain';
 import ContatoPostMain from './pages/formulario/modulos/contatoSocialPost/contatoPostMain';
 import HabitosPostMain from './pages/formulario/modulos/habitosPost/habitosPostMain';
-import ModulosSonoSintomasPost from './pages/formulario/modulos/ModulosSonoSintomasPost';
-import SonoPostMain from './pages/formulario/modulos/sono_sintomasPost/sonoPost/sonoPostMain';
-import SintomasPostMain from './pages/formulario/modulos/sono_sintomasPost/sintomasPost/sintomasPostMain';
+
+import SonoSintomasPostMain from './pages/formulario/modulos/sono_sintomasPost/SonoSintomasPostMain';
 
 import SaudeFinalMain from './pages/formulario/modulos/saudeFinal/SaudeFinalMain';
 import ContatoFinalMain from './pages/formulario/modulos/contatoSocialFinal/contatoFinalMain';
 import HabitosFinalMain from './pages/formulario/modulos/habitosFinal/habitosFinalMain';
 import ModulosSonoSintomasFinal from './pages/formulario/modulos/ModulosSonoSintomasFinal';
-import SintomasFinalMain from './pages/formulario/modulos/sono_sintomasFinal/sintomasFinal/sintomasFinalMain';
-import SonoFinalMain from './pages/formulario/modulos/sono_sintomasFinal/sonoFinal/sonoFinalMain';
+import SonoSintomasFinalMain from './pages/formulario/modulos/sono_sintomasFinal/SonoSintomasFinalMain';
 
 /*ExplanationSlides*/
 
@@ -87,6 +84,8 @@ import Sobre from './pages/Sobre';
 
 import {config} from './firebaseConfig/firebaseConfig';
 import { FirebaseAppProvider, AuthCheck } from "reactfire";
+import { useSigninCheck } from "reactfire";
+
 import {Suspense} from "react";
 
 
@@ -114,8 +113,7 @@ const PublicRoutes: React.FC = () => {
 
       <Route path="/CadastroNovo" component={CadastroNovo} exact={true}/>
       <Route path="/cadastro_main" component={CadastroMain} exact={true}/>
-     
-      <Redirect exact path="/" to="/login"/>
+      <Route path="/" component={Login} exact={true}/>
       </Switch>
     </IonRouterOutlet>
   )
@@ -146,7 +144,7 @@ const PrivateRoutes: React.FC = () => {
 
   return(
    <div>
-     {location.pathname === "/login" ? "" : <IonSplitPane contentId="main"/>}
+     
     <IonSplitPane contentId="main">
        <IonMenu side="end" contentId="main">
            <IonHeader >
@@ -187,23 +185,20 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/saude" component={SaudeMain} exact={true}/>
           <Route path="/contatosocial" component={ContatoSocialMain} exact={true}/>
           <Route path="/habitos" component={HabitosMain} exact={true}/>
-          <Route path="/sonosintomas" component={ModulosSonoSintomas} exact={true}/>
-          <Route path="/sono" component={SonoMain} exact={true}/>
-          <Route path="/sintomas" component={SintomasMain} exact={true}/>
+          <Route path="/sonosintomas" component={SonoSintomasMain} exact={true}/>
+       
 
           <Route path="/saudePost" component={SaudePostMain} exact={true}/>
           <Route path="/contatoPost" component={ContatoPostMain} exact={true}/>
           <Route path="/habitosPost" component={HabitosPostMain} exact={true}/>
-          <Route path="/sonosintomasPost" component={ModulosSonoSintomasPost} exact={true}/>
-          <Route path="/sonoPost" component={SonoPostMain} exact={true}/>
-          <Route path="/sintomasPost" component={SintomasPostMain} exact={true}/>
+          <Route path="/sonosintomasPost" component={SonoSintomasPostMain} exact={true}/>
+       
 
           <Route path="/saudeFinal" component={SaudeFinalMain} exact={true}/>
           <Route path="/contatoFinal" component={ContatoFinalMain} exact={true}/>
           <Route path="/habitosFinal" component={HabitosFinalMain} exact={true}/>
-          <Route path="/sonoSintomasFinal" component={ModulosSonoSintomasFinal} exact={true}/>
-          <Route path="/sonoFinal" component={SonoFinalMain} exact={true}/>
-          <Route path="/sintomasFinal" component={SintomasFinalMain} exact={true}/>
+          <Route path="/sonoSintomasFinal" component={SonoSintomasFinalMain} exact={true}/>
+     
 
           <Route path="/recomendacoes" component={Tab3} />
           <Route path="/explanationslides" component={ExplanationSlides}/>
@@ -211,6 +206,9 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/mode2" component={Mode2}/>
           <Route path="/mode3" component={Mode3}/>
           <Route path="/sobre" component={Sobre}/>
+
+       
+      
          
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
 
@@ -243,14 +241,16 @@ const PrivateRoutes: React.FC = () => {
 
 const App: React.FC = () => {
 
+  
+
     return (
       <FirebaseAppProvider firebaseConfig={config}>
         <IonApp>
           <IonReactRouter>
             <Suspense fallback={<IonLoading isOpen={true} />}>
               <AuthCheck fallback={<PublicRoutes/>}>
-                <PublicRoutes/>
-                <PrivateRoutes/>
+              <PrivateRoutes/>
+                             
               </AuthCheck>
             </Suspense>
           </IonReactRouter>

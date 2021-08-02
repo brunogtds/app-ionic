@@ -2,11 +2,14 @@ import React from "react";
 import { Steps, Step } from "react-step-builder";
 
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
-import '../../../Forms.css';
+import '../../Forms.css';
 
-import mctQ1 from './mctQ1';
-import mctQ2 from './mctQ2';
-import ISI from './ISI';
+import ISIPost from './ISIPost';
+import MCTQ1Post from "./mctQ1Post";
+import MCTQ2Post from "./mctq2Post";
+import Gad7Post from './Gad7Post';
+import PHQPost from './PHQPost';
+import Who5Post from './Who5Post'
   
   /*React-multi-step form 
   Cada página do formulário é um step no app*/
@@ -29,10 +32,13 @@ function App() {
         <IonContent fullscreen>
            
                 <Steps>
-                    <Step component={mctQ1} /> 
-                    <Step component={mctQ2}/>
                     
-                    <Step component={ISI} /> 
+                    <Step component={MCTQ1Post} />
+                    <Step component={MCTQ2Post} />  
+                    <Step component={Gad7Post}/>
+                    <Step component={Who5Post}/>
+                    <Step component={PHQPost}/>
+                    <Step component={ISIPost} /> 
                 </Steps>
             
 
@@ -44,5 +50,3 @@ function App() {
   
 
   export default App;
-
-

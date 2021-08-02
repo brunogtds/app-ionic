@@ -3,7 +3,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonLoading, IonText} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 import { useForm, Controller } from "react-hook-form";
 import {useState} from 'react';
 
@@ -12,7 +12,7 @@ import { IonProgressBar} from '@ionic/react';
 
 
 import  {Redirect, useHistory } from 'react-router-dom'
-import {toast} from '../../../../../toast';
+import {toast} from '../../../../toast';
 
 //imports user context do reactfire
 
@@ -20,7 +20,7 @@ import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
 
-const ISIFinal = (props: StepComponentProps) => {
+const ISIPost = (props: StepComponentProps) => {
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
     const [problemasSono, setProblemasSono] = useState();
 
@@ -34,23 +34,47 @@ const ISIFinal = (props: StepComponentProps) => {
     
  
     if(user){
-        firebase.firestore().collection('usersFinal').doc(user.uid).set({
-            NightShiftFinal: String(props.state.NightShiftFinal), //STEP 4 
-            workDaysNFinal: String(props.state.workDaysNFinal),
-            sleepNoWorkFinal: String(props.state.sleepNoWorkFinal),
-            wakeUpNoWorkFinal: String(props.state.wakeUpNoWorkFinal),
-            AlarmNoWorkFinal: String(props.state.AlarmNoWorkFinal),
-            sleepWDFinal: String(props.state.sleepWDFinal),
-            wakeUpWDFinal: String(props.state.wakeUpWDFinal),
-            alarmWDFinal: String(props.state.alarmWDFinal),
-            sleepFDFinal: String(props.state.sleepFDFinal),
-            wakeUpFDFinal: String(props.state.wakeUpFDFinal),
-            alarmFDFinal: String(props.state.alarmFDFinal), 
-            sleepProblemFinal: String(props.state.sleepProblemFinal), //STEP 8 
-            isiFinal_isi01: Number(props.state.isiFinal_isi01),
-            isiFinal_isi02: Number(props.state.isiFinal_isi02),
-            isiFinal_isi03: Number(props.state.isiFinal_isi03),  
-            dateSonoFinal : new Date()
+        firebase.firestore().collection('usersPost').doc(user.uid).set({
+            NightShiftPost14: String(props.state.NightShiftPost14), //STEP 4 
+            workDaysNPost14: String(props.state.workDaysNPost14),
+            sleepNoWorkPost14: String(props.state.sleepNoWorkPost14),
+            wakeUpNoWorkPost14: String(props.state.wakeUpNoWorkPost14),
+            AlarmNoWorkPost14: String(props.state.AlarmNoWorkPost14),
+            sleepWDPost14: String(props.state.sleepWDPost14),
+            wakeUpWDPost14: String(props.state.wakeUpWDPost14),
+            alarmWDPost14: String(props.state.alarmWDPost14),
+            sleepFDPost14: String(props.state.sleepFDPost14),
+            wakeUpFDPost14: String(props.state.wakeUpFDPost14),
+            alarmFDPost14: String(props.state.alarmFDPost14), 
+            gad7Post14_gad01: Number(props.state.gad7Post14_gad01), //STEP 5
+            gad7Post14_gad02: Number(props.state.gad7Post14_gad02),
+            gad7Post14_gad03: Number(props.state.gad7Post14_gad03),
+            gad7Post14_gad04: Number(props.state.gad7Post14_gad04),
+            gad7Post14_gad05: Number(props.state.gad7Post14_gad05),
+            gad7Post14_gad06: Number(props.state.gad7Post14_gad06),
+            gad7Post14_gad07: Number(props.state.gad7Post14_gad07),
+            who5Post14_SQ001: Number(props.state.who5Post14_SQ001), //STEP 6 
+            who5Post14_SQ002: Number(props.state.who5Post14_SQ002),
+            who5Post14_SQ003: Number(props.state.who5Post14_SQ003),
+            who5Post14_SQ004: Number(props.state.who5Post14_SQ004),
+            who5Post14_SQ005: Number(props.state.who5Post14_SQ005),
+            phq01Post14: Number(props.state.phq01Post14), //STEP 7
+            phq02Post14: Number(props.state.phq02Post14), 
+            phq03Post14: Number(props.state.phq03Post14), 
+            phq04Post14: Number(props.state.phq04Post14), 
+            phq05Post14: Number(props.state.phq05Post14), 
+            phq06Post14: Number(props.state.phq06Post14), 
+            phq07Post14: Number(props.state.phq07Post14), 
+            phq08Post14: Number(props.state.phq08Post14), 
+            phq09Post14: Number(props.state.phq09Post14), 
+            phq10Post14: Number(props.state.phq10Post14),
+           
+            sleepProblemPost14: String(props.state.sleepProblemPost14), //STEP 8 
+            isiPost14_isi01: Number(props.state.isiPost14_isi01),
+            isiPost14_isi02: Number(props.state.isiPost14_isi02),
+            isiPost14_isi03: Number(props.state.isiPost14_isi03),  
+            sleepQualPost: Number(props.state.sleepQualPost),
+            dateSonoSintomasPost : new Date()
         }, {merge: true})
     }
     
@@ -89,7 +113,7 @@ const ISIFinal = (props: StepComponentProps) => {
                             <IonRadioGroup value={problemasSono} onIonChange={(e) => {setProblemasSono(e.detail.value);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('sleepProblemFinal', e.detail.value )}}}>
+                                props.setState('sleepProblemPost14', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
@@ -100,8 +124,8 @@ const ISIFinal = (props: StepComponentProps) => {
                                 <IonLabel>Não</IonLabel>
                                 <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
-                            </IonRadioGroup> )} control={control} name={"sleepProblemFinal"} rules={{required:true}}/>
-                            {errors.sleepProblemFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name={"sleepProblemPost14"} rules={{required:true}}/>
+                            {errors.sleepProblemPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
             </IonItem>
 
             {problemasSono == "sim" ?
@@ -123,7 +147,7 @@ const ISIFinal = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value); 
                                 if (e.detail.value != undefined) {
-                                props.setState('isiFinal_isi01', e.detail.value )}}}>
+                                props.setState('isiPost14_isi01', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma</IonLabel>
@@ -150,8 +174,8 @@ const ISIFinal = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
       
-                            </IonRadioGroup> )} control={control} name='isiFinal_isi01' rules={{required:true}}/>
-                            {errors.isiFinal_isi01 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name='isiPost14_isi01' rules={{required:true}}/>
+                            {errors.isiPost14_isi01 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem> :null }
 
                     {problemasSono == "sim" ?
@@ -164,7 +188,7 @@ const ISIFinal = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value); 
                                 if (e.detail.value != undefined) {
-                                props.setState('isiFinal_isi02', e.detail.value )}}}>
+                                props.setState('isiPost14_isi02', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma</IonLabel>
@@ -191,8 +215,8 @@ const ISIFinal = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"}  color="primary" value="4"></IonRadio>
                                 </IonItem>
       
-                            </IonRadioGroup> )} control={control} name='isiFinal_isi02' rules={{required:true}}/>
-                            {errors.isiFinal_isi02 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name='isiPost14_isi02' rules={{required:true}}/>
+                            {errors.isiPost14_isi02 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem> :null }
 
                     {problemasSono == "sim" ?
@@ -205,7 +229,7 @@ const ISIFinal = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value); 
                                 if (e.detail.value != undefined) {
-                                props.setState('isiFinal_isi03', e.detail.value )}}}>
+                                props.setState('isiPost14_isi03', e.detail.value )}}}>
 
                                 <IonItem>
                                 <IonLabel>Nenhuma</IonLabel>
@@ -232,11 +256,45 @@ const ISIFinal = (props: StepComponentProps) => {
                                 <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
       
-                            </IonRadioGroup> )} control={control} name='isiFinal_isi03' rules={{required:true}}/>
-                            {errors.isiFinal_isi03 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            </IonRadioGroup> )} control={control} name='isiPost14_isi03' rules={{required:true}}/>
+                            {errors.isiPost14_isi03 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
             
             :null }
+
+              
+            <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
+            <IonItem>
+                
+
+                <Controller render={({onChange}) => (
+                            <IonRadioGroup onIonChange={(e) => {
+                                onChange(e.detail.value);
+                                if (e.detail.value != undefined) {
+                                props.setState('sleepQualPost', e.detail.value )}}}>
+
+                                <IonItem>
+                                <IonLabel>Muito boa</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                </IonItem>
+                               
+                                <IonItem>
+                                <IonLabel>Boa</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Ruim</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                </IonItem>
+
+                                <IonItem>
+                                <IonLabel>Muito ruim</IonLabel>
+                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                </IonItem>
+                            </IonRadioGroup> )} control={control} name={"sleepQualPost"} rules={{required:true}}/>
+                            {errors.sleepQualPost && <IonText color="danger">Campo obrigatório.</IonText>}
+            </IonItem>
             
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
             <IonButton disabled={formState.isValid === false}  onClick={onSubmit} size="large" className={"btnProximo"} fill="clear">Submeter</IonButton>
@@ -248,4 +306,4 @@ const ISIFinal = (props: StepComponentProps) => {
     )
 }
 
-export default ISIFinal; 
+export default ISIPost; 

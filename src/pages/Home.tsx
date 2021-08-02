@@ -34,6 +34,11 @@ import {
 
 import 'react-accessible-accordion/dist/fancy-example.css';
 
+import button_saude from '../img/button_saude.svg';
+import button_contato from '../img/button_contato.svg';
+import button_habitos from '../img/button_habitos.svg';
+import button_sono from '../img/button_sono.svg';
+
 const Tab1: React.FC = () => {
 
    
@@ -166,14 +171,14 @@ const Tab1: React.FC = () => {
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
-    const dataSono = data2.dateSonoModule1;
-    const dataSintomas = data2.dateSintomasModule1;
+    const dataSonoSintomas = data2.dateSonoSintomasModule1;
+   
     
-    if (!(dataSono === undefined || dataSintomas === undefined)){
+    if (!(dataSonoSintomas === undefined)){
       setSonoSintomasModulo1Enviado(true)
     }
 
-    console.log("GOR: " + verifyTimeLeft(dataSono))
+    console.log("GOR: " + verifyTimeLeft(dataSonoSintomas))
   }
 
   async function getHabitosDate(){
@@ -231,10 +236,10 @@ const Tab1: React.FC = () => {
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
-    const dataSonoPost = data2.dateSonoPost;
-    const dataSintomasPost = data2.dateSintomasPost;
+    const dataSonoSintomasPost = data2.dateSonoSintomasPost;
     
-    if (!(dataSonoPost === undefined || dataSintomasPost === undefined)){
+    
+    if (!(dataSonoSintomasPost === undefined)){
       setSonoSintomasPostEnviado(true);
     }
   }
@@ -249,7 +254,7 @@ const Tab1: React.FC = () => {
     const dataSaudeFinal = data2.dateSaudeFinal;
     
     if (!(dataSaudeFinal === undefined)){
-      setHabitosPostEnviado(true);
+      setSaudeFinalEnviado(true);
     }
   }
   
@@ -261,7 +266,7 @@ const Tab1: React.FC = () => {
     const dataContatoFinal = data2.dateContatoFinal;
     
     if (!(dataContatoFinal === undefined)){
-      setHabitosPostEnviado(true);
+      setContatoFinalEnviado(true);
     }
   }
 
@@ -273,7 +278,7 @@ const Tab1: React.FC = () => {
     const dataHabitosFinal = data2.dateHabitosFinal;
     
     if (!(dataHabitosFinal === undefined)){
-      setHabitosPostEnviado(true);
+      setHabitosFinalEnviado(true);
     }
   }
 
@@ -282,10 +287,10 @@ const Tab1: React.FC = () => {
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
-    const dataSonoFinal = data2.dateSonoFinal;
-    const dataSintomasFinal = data2.dateSintomasFinal;
+    const dataSonoSintomasFinal = data2.dateSonoSintomasFinal;
     
-    if (!(dataSonoFinal === undefined || dataSintomasFinal === undefined)){
+    
+    if (!(dataSonoSintomasFinal === undefined)){
       setSonoSintomasFinalEnviado(true);
     }
   }
@@ -418,23 +423,23 @@ const Tab1: React.FC = () => {
             <AccordionItemPanel>
             
             <div>
-           <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" shape="round" id="button-forms-saude"><IonIcon slot="start" icon={walkOutline}/><div>Saúde</div></IonButton>
+           <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms text-left"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton>
            </div>
            
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" shape="round" id="button-forms-social"><IonIcon slot="start" icon={peopleOutline}/><div>Contato social</div></IonButton> 
+           <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
            </div> 
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid" shape="round" id="button-forms-habitos"><IonIcon slot="start" icon={peopleOutline}/><div>Hábitos</div></IonButton> 
+           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid"  className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" shape="round" id="button-forms-cronotipo"><IonIcon slot="start" icon={bedOutline}/><div>Bem-estar</div></IonButton> 
+           <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>

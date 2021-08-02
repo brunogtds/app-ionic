@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonList, IonLoading, IonCard, IonCardContent, IonText} from "@ionic/react";
 import { IonContent } from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -13,7 +13,7 @@ import { IonProgressBar} from '@ionic/react';
 import {useState} from 'react';
 
 import  {Redirect, useHistory } from 'react-router-dom'
-import {toast} from '../../../../../toast';
+
 
 //imports user context do reactfire
 

@@ -4,7 +4,7 @@ import {StepComponentProps} from "react-step-builder";
 import {IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonLoading, IonText} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -13,7 +13,7 @@ import { IonProgressBar} from '@ionic/react';
 import {useState} from 'react';
 
 import  {Redirect, useHistory } from 'react-router-dom'
-import {toast} from '../../../../../toast';
+import {toast} from '../../../../toast';
 
 //imports user context do reactfire
 
@@ -33,62 +33,11 @@ const PHQ = (props: StepComponentProps) => {
    const history= useHistory();
    const [loader, setLoader]= useState<boolean>(false)
 
-  async function updateUserDataQuest1(dataUser: any){
-    
- 
-    if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
-            gad7_gad01: Number(props.state.gad7_gad01), //STEP 5
-            gad7_gad02: Number(props.state.gad7_gad02),
-            gad7_gad03: Number(props.state.gad7_gad03),
-            gad7_gad04: Number(props.state.gad7_gad04),
-            gad7_gad05: Number(props.state.gad7_gad05),
-            gad7_gad06: Number(props.state.gad7_gad06),
-            gad7_gad07: Number(props.state.gad7_gad07),
-            who5_SQ001: Number(props.state.who5_SQ001), //STEP 6 
-            who5_SQ002: Number(props.state.who5_SQ002),
-            who5_SQ003: Number(props.state.who5_SQ003),
-            who5_SQ004: Number(props.state.who5_SQ004),
-            who5_SQ005: Number(props.state.who5_SQ005),
-            phq01: Number(props.state.pqhp01), //STEP 7
-            phq02: Number(props.state.pqhp02), 
-            phq03: Number(props.state.pqhp03), 
-            phq04: Number(props.state.pqhp04), 
-            phq05: Number(props.state.pqhp05), 
-            phq06: Number(props.state.pqhp06), 
-            phq07: Number(props.state.pqhp07), 
-            phq08: Number(props.state.pqhp08), 
-            phq09: Number(props.state.pqhp09), 
-            phq10: Number(props.state.pqhp10),
-            dateSintomasModule1 : new Date()
-        
-        }, {merge: true})
-    }
-    
-        toast('Formulário submetido com sucesso!', 4000);
-        
-    
-    }
-
-    function voltaModulos (){
-        history.push('/sonoSintomas');
-    }
-        
-    const onSubmit = (data: any) => {
-       setData(dataUser);
-       setLoader(true);
-       updateUserDataQuest1(dataUser);
-       voltaModulos();
-      //(document.getElementById('button-forms-sintomas') as HTMLInputElement).disabled = true;
-       
-    }
- 
- 
     return(
         <IonContent fullscreen color="light"> 
          
         <div>
-            <form className={"ion-padding"} onSubmit={handleSubmit(onSubmit)}>
+            <form className={"ion-padding"} >
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
           
@@ -447,7 +396,7 @@ const PHQ = (props: StepComponentProps) => {
             </IonItem>
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-            <IonButton disabled={formState.isValid === false} onClick={onSubmit} size="large" className={"btnProximo"} fill="clear">Submeter</IonButton>
+            <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Submeter</IonButton>
             </form>
 
         </div>

@@ -2,11 +2,15 @@ import React from "react";
 import { Steps, Step } from "react-step-builder";
 
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
-import '../../../Forms.css';
+import '../../Forms.css';
 
-import Gad7 from './Gad7';
-import Who5 from './Who5';
-import PHQ from './PHQ';
+import ISIFinal from './ISIFinal';
+import MCTQ1Final from "./mctQ1Final";
+import MCTQ2Final from "./mctq2Final";
+
+import Gad7Final from './Gad7Final';
+import PHQFinal from './PHQFinal';
+import Who5Final from './Who5Final'
 
   
   /*React-multi-step form 
@@ -30,10 +34,13 @@ function App() {
         <IonContent fullscreen>
            
                 <Steps>
-                    <Step component={Gad7} /> 
-                    <Step component={Who5} />
-                    <Step component={PHQ} />  
-    
+                    
+                    <Step component={MCTQ1Final} />
+                    <Step component={MCTQ2Final} />  
+                    <Step component={Gad7Final}/>
+                    <Step component={Who5Final}/>
+                    <Step component={PHQFinal}/>
+                    <Step component={ISIFinal} /> 
                 </Steps>
             
 

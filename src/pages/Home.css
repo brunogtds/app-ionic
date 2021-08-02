@@ -238,3 +238,18 @@ ion-card{
   height: 50px;
   float: right;
 }
+
+.button-forms{
+  width: 271px;
+  height: 120px;
+}
+
+.texto-button{
+  text-align: left;
+  
+}
+
+.img-button{
+  margin-left: auto;
+  margin-right: 10px;
+}

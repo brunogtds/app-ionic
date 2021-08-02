@@ -5,7 +5,7 @@ import {StepComponentProps} from "react-step-builder";
 import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonDatetime, IonLoading, IonText} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
@@ -19,7 +19,7 @@ import  {useHistory } from 'react-router-dom'
 import {useUser} from 'reactfire';
 import firebase from 'firebase';
 
-const MCTQ2Final = (props: StepComponentProps) => {
+const MCTQ2 = (props: StepComponentProps) => {
 
     const {control, errors, formState} = useForm({mode: "onChange"});
      
@@ -41,8 +41,8 @@ const MCTQ2Final = (props: StepComponentProps) => {
         console.log(e);
         onChange(e.detail.value); 
         if (e.detail.value != undefined) 
-        props.setState('sleepFDFinal', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepFDFinal"} rules={{required:true}}/>
-        {errors.sleepFDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+        props.setState('sleepFD', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepFD"} rules={{required:true}}/>
+        {errors.sleepFD && <IonText color="danger">Campo obrigatório.</IonText>}
 </IonItem>
 
 <IonLabel className="questions">Em dias livres, quando não usei o despertador, eu normalmente acordei às: </IonLabel>
@@ -53,8 +53,8 @@ const MCTQ2Final = (props: StepComponentProps) => {
         console.log(e);
         onChange(e.detail.value);
         if (e.detail.value != undefined) 
-        props.setState('wakeUpFDFinal', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpFDFinal"} rules={{required:true}}/>
-        {errors.wakeUpFDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+        props.setState('wakeUpFD', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpFD"} rules={{required:true}}/>
+        {errors.wakeUpFD && <IonText color="danger">Campo obrigatório.</IonText>}
 </IonItem>
 
 <IonLabel className="questions">Usei o despertador em dias livres:</IonLabel>
@@ -66,7 +66,7 @@ const MCTQ2Final = (props: StepComponentProps) => {
         console.log(e);
         onChange(e.detail.value);
         if (e.detail.value != undefined) 
-        props.setState('alarmFDFinal', e.detail.value ) }}>
+        props.setState('alarmFD', e.detail.value ) }}>
 
                     <IonItem>
                     <IonLabel>Sim</IonLabel>
@@ -78,8 +78,8 @@ const MCTQ2Final = (props: StepComponentProps) => {
                     <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                     </IonItem>
                    
-    </IonRadioGroup> )} control={control} name={"alarmFDFinal"} rules={{required:true}}/>
-    {errors.alarmFDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+    </IonRadioGroup> )} control={control} name={"alarmFD"} rules={{required:true}}/>
+    {errors.alarmFD && <IonText color="danger">Campo obrigatório.</IonText>}
 
 </IonItem>
 
@@ -95,4 +95,4 @@ const MCTQ2Final = (props: StepComponentProps) => {
 )
     }
 
-export default MCTQ2Final; 
+export default MCTQ2; 

@@ -5,14 +5,14 @@ import {StepComponentProps} from "react-step-builder";
 import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText} from "@ionic/react";
 import { IonContent, IonCard, IonCardContent } from '@ionic/react';
 
-import '../../../Forms.css';
+import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
 
 import {useState} from 'react';
 
 
-const MCTQ1Post = (props: StepComponentProps) => {
+const MCTQ1Final = (props: StepComponentProps) => {
 
     const {control, errors, formState} = useForm({mode: "onChange"});
 
@@ -48,7 +48,7 @@ const MCTQ1Post = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value);
                     if (e.detail.value != undefined) 
-                    props.setState('NightShiftPost14', e.detail.value )  }}>
+                    props.setState('NightShiftFinal', e.detail.value )  }}>
 
                                 <IonItem>
                                 <IonLabel>Sim</IonLabel>
@@ -62,10 +62,10 @@ const MCTQ1Post = (props: StepComponentProps) => {
                                
                 </IonRadioGroup>  )}
                              control={control}
-                             name={"NightShiftPost14"}
+                             name={"NightShiftFinal"}
                              rules={{required:true}}
                              />
-                              {errors.NightShiftPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                              {errors.NightShiftFinal && <IonText color="danger">Campo obrigatório.</IonText>}
             </IonItem>
 
             <IonLabel className="questions">Trabalhei/estudei _ dias por semana.</IonLabel>
@@ -75,7 +75,7 @@ const MCTQ1Post = (props: StepComponentProps) => {
                             <IonSelect placeholder="Por favor, selecione..." value={nDiasTrabalhoSemana} onIonChange={(e) => {setNDiasTrabalhoSemana(e.detail.value);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
-                                props.setState('workDaysNPost14', e.detail.value )  }}>
+                                props.setState('workDaysNFinal', e.detail.value )  }}>
                                     <IonSelectOption value="0">0</IonSelectOption>
                                     <IonSelectOption value="1">1</IonSelectOption>
                                     <IonSelectOption value="2">2</IonSelectOption>
@@ -90,11 +90,11 @@ const MCTQ1Post = (props: StepComponentProps) => {
                             )}
 
                             control={control}
-                            name="workDaysNPost14"
+                            name="workDaysNFinal"
                             rules={{required: true}}
         
                             />    
-                            {errors.workDaysNPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            {errors.workDaysNFinal && <IonText color="danger">Campo obrigatório.</IonText>}
             </IonItem>
 
 
@@ -110,8 +110,8 @@ const MCTQ1Post = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value);
                     if (e.detail.value != undefined) 
-                    props.setState('sleepNoWorkPost14', e.detail.value )  }}></IonDatetime> )} control={control} name={"sleepNoWorkPost14"} rules={{required:true}}/>
-                    {errors.sleepNoWorkPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    props.setState('sleepNoWorkFinal', e.detail.value )  }}></IonDatetime> )} control={control} name={"sleepNoWorkFinal"} rules={{required:true}}/>
+                    {errors.sleepNoWorkFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                 </IonItem>
                 
                 <IonItem>
@@ -121,8 +121,8 @@ const MCTQ1Post = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value);
                     if (e.detail.value != undefined) 
-                    props.setState('wakeUpNoWorkPost14', e.detail.value )  }}></IonDatetime> )} control={control} name={"wakeUpNoWorkPost14"} rules={{required:true}}/>
-                    {errors.wakeUpNoWorkPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    props.setState('wakeUpNoWorkFinal', e.detail.value )  }}></IonDatetime> )} control={control} name={"wakeUpNoWorkFinal"} rules={{required:true}}/>
+                    {errors.wakeUpNoWorkFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                 </IonItem>
                
                
@@ -133,7 +133,7 @@ const MCTQ1Post = (props: StepComponentProps) => {
                             console.log(e);
                             onChange(e.detail.value);
                             if (e.detail.value != undefined) 
-                            props.setState('AlarmNoWorkPost14', e.detail.value ) }}>
+                            props.setState('AlarmNoWorkFinal', e.detail.value ) }}>
 
                                         <IonItem>
                                         <IonLabel>Sim</IonLabel>
@@ -145,8 +145,8 @@ const MCTQ1Post = (props: StepComponentProps) => {
                                         <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                         </IonItem>
                                     
-                        </IonRadioGroup> )} control={control} name={"AlarmNoWorkPost14"} rules={{required:true}}/>
-                        {errors.AlarmNoWorkPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                        </IonRadioGroup> )} control={control} name={"AlarmNoWorkFinal"} rules={{required:true}}/>
+                        {errors.AlarmNoWorkFinal && <IonText color="danger">Campo obrigatório.</IonText>}
             </IonItem>
                 
             </IonList> :null} 
@@ -163,8 +163,8 @@ const MCTQ1Post = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value); 
                     if (e.detail.value != undefined) 
-                    props.setState('sleepWDPost14', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepWDPost14"} rules={{required:true}}/>
-                    {errors.sleepWDPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    props.setState('sleepWDFinal', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepWDFinal"} rules={{required:true}}/>
+                    {errors.sleepWDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                 </IonItem>
 
                 <IonItem>
@@ -174,8 +174,8 @@ const MCTQ1Post = (props: StepComponentProps) => {
                     console.log(e);
                     onChange(e.detail.value);
                     if (e.detail.value != undefined) 
-                    props.setState('wakeUpWDPost14', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpWDPost14"} rules={{required:true}}/>
-                    {errors.wakeUpWDPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    props.setState('wakeUpWDFinal', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpWDFinal"} rules={{required:true}}/>
+                    {errors.wakeUpWDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                 </IonItem>
 
                 <IonItem>
@@ -186,7 +186,7 @@ const MCTQ1Post = (props: StepComponentProps) => {
                             console.log(e);
                             onChange(e.detail.value);
                             if (e.detail.value != undefined) 
-                            props.setState('alarmWDPost14', e.detail.value ) }}>
+                            props.setState('alarmWDFinal', e.detail.value ) }}>
 
                                         <IonItem>
                                         <IonLabel>Sim</IonLabel>
@@ -197,9 +197,10 @@ const MCTQ1Post = (props: StepComponentProps) => {
                                         <IonLabel>Não</IonLabel>
                                         <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
                                         </IonItem>
+                                        
                                     
-                        </IonRadioGroup> )} control={control} name={"alarmWDPost14"} rules={{required:true}}/>
-                        {errors.alarmWDPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                        </IonRadioGroup> )} control={control} name={"alarmWDFinal"} rules={{required:true}}/>
+                        {errors.alarmWDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                 </IonItem>
 
             </IonList> :null}
@@ -215,4 +216,4 @@ const MCTQ1Post = (props: StepComponentProps) => {
     )
 }
 
-export default MCTQ1Post; 
+export default MCTQ1Final; 
