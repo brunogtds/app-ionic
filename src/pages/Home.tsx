@@ -145,29 +145,29 @@ const Tab1: React.FC = () => {
   const [minDaysPart1, setMinDaysPart1] = React.useState(false);
   const [minDaysPart2, setMinDaysPart2] = React.useState(false);
 
+  const [secondPartText, setSecondPartText] = React.useState("")
+  const [thirdPartText, setThirdPartText] = React.useState("")
+
   const {data: user}= useUser();
   const db = firebase.firestore();
+  const uid = user.uid
 
   async function getSaudeDate(){
-    const uid = user.uid
-    const dbRef= await db.collection('users').doc(uid).get();
-    const data= (await dbRef).data();
-    const data2: any= data;
-    const dataSaude= data2.dateSaudeModule1;
+    let dbRef= await db.collection('users').doc(uid).get();
+    let data= (await dbRef).data();
+    let data2: any= data;
+    let dataSaude= data2.dateSaudeModule1;
     
     if (!(dataSaude === undefined)){
       setSaudeModulo1Enviado(true)
     }
-
-    return verifyTimeLeft(dataSaude)
   }
 
   async function getContatoDate(){
-    const uid = user.uid
-    const dbRef= await db.collection('users').doc(uid).get();
-    const data= (await dbRef).data();
-    const data2: any= data;
-    const dataContato= data2.dateContatoModule1;
+    let dbRef= await db.collection('users').doc(uid).get();
+    let data= (await dbRef).data();
+    let data2: any= data;
+    let dataContato= data2.dateContatoModule1;
     
     if (!(dataContato === undefined)){
       setContatoModulo1Enviado(true)
@@ -175,11 +175,10 @@ const Tab1: React.FC = () => {
   }
 
   async function getSonoSintomasDate(){
-    const uid = user.uid
-    const dbRef= await db.collection('users').doc(uid).get();
-    const data= (await dbRef).data();
-    const data2: any= data;
-    const dataSonoSintomas = data2.dateSonoSintomasModule1;
+    let dbRef= await db.collection('users').doc(uid).get();
+    let data= (await dbRef).data();
+    let data2: any= data;
+    let dataSonoSintomas = data2.dateSonoSintomasModule1;
    
     
     if (!(dataSonoSintomas === undefined)){
@@ -191,15 +190,16 @@ const Tab1: React.FC = () => {
     if(verifyTimeLeft(dataSonoSintomas) == "Modulo liberado"){
       //passou 14 dias
       setMinDaysPart1(true)
-    }    
+    } else{
+      setSecondPartText(verifyTimeLeft(dataSonoSintomas))
+    }   
   }
 
   async function getHabitosDate(){
-    const uid = user.uid
-    const dbRef= await db.collection('users').doc(uid).get();
-    const data= (await dbRef).data();
-    const data2: any= data;
-    const dataHabitos = data2.dateHabitosModule1;
+    let dbRef= await db.collection('users').doc(uid).get();
+    let data= (await dbRef).data();
+    let data2: any= data;
+    let dataHabitos = data2.dateHabitosModule1;
     
     if (!(dataHabitos === undefined)){
       setHabitosModulo1Enviado(true)
@@ -209,11 +209,10 @@ const Tab1: React.FC = () => {
   //post functions
 
   async function getSaudesPostDate(){
-    const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
-    const data= (await dbRef).data();
-    const data2: any= data;
-    const dataSaudePost = data2.dateSaudePost;
+    let data2= (await dbRef).data();
+    let data3: any= data2;
+    const dataSaudePost = data3.dateSaudePost;
     
     if (!(dataSaudePost === undefined)){
       setSaudePostEnviado(true)
@@ -258,6 +257,8 @@ const Tab1: React.FC = () => {
     if(verifyTimeLeft(dataSonoSintomasPost) == "Modulo liberado"){
       //passou 14 dias
       setMinDaysPart2(true)
+    } else{
+      setThirdPartText(verifyTimeLeft(dataSonoSintomasPost))
     }
   }
 
