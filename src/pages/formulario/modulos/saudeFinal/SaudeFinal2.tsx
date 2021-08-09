@@ -64,7 +64,6 @@ const SaudeFinal2 = (props: StepComponentProps) => {
         createDatabaseQuest2();
         updateUserDataQuest2(dataUser);
         voltaModulos();
-        // (document.getElementById('button-forms-social') as HTMLInputElement).disabled = false;
     }
 
     return(

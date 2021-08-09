@@ -72,10 +72,15 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
   
 
  async function createDatabaseQuest1(uid: any, email: any){
- 
-    
-     await firebase.firestore().collection('users').doc(uid).set({
+
+    await firebase.firestore().collection('users').doc(uid).set({
         email: email, }, { merge: true });   
+        
+    await firebase.firestore().collection('usersPost').doc(uid).set({
+        email: email, }, { merge: true });   
+
+    await firebase.firestore().collection('usersFinal').doc(uid).set({
+            email: email, }, { merge: true }); 
        
    
      console.log('firestore criado');

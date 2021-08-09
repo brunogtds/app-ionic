@@ -91,8 +91,6 @@ const ISIFinal = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       //(document.getElementById('button-forms-sono') as HTMLInputElement).disabled = true;
-       
     }
  
  

@@ -79,7 +79,6 @@ const Habitos4 = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       (document.getElementById('button-forms-habitos') as HTMLInputElement).disabled = true;
        
     }
 

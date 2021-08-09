@@ -67,7 +67,7 @@ const Saude2 = (props: StepComponentProps) => {
             drugDur: Number(props.state.drugDur),
             stimulants: String(props.state.stimulants),
             stimulantTiming: String(props.state.stimulantTiming),
-            dateSaudePost: new Date(),
+            dateSaudeModule1: new Date(),
               }, {merge: true})
         }
     

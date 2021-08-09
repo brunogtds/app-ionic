@@ -55,8 +55,6 @@ const ContatoPost2 = (props: StepComponentProps) => {
        setLoader(true);
        updateUserDataQuest1(dataUser);
        voltaModulos();
-       (document.getElementById('button-forms-social') as HTMLInputElement).disabled = true;
-       
     }
 
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
