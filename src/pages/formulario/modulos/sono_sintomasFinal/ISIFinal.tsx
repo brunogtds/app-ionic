@@ -83,7 +83,7 @@ const ISIFinal = (props: StepComponentProps) => {
     }
 
     function voltaModulos (){
-        history.push('/sonoSintomas');
+        history.push('/tab1');
     }
         
     const onSubmit = (data: any) => {

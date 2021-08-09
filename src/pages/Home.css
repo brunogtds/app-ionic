@@ -253,3 +253,28 @@ ion-card{
   margin-left: auto;
   margin-right: 10px;
 }
+
+
+.vertical-timeline {
+  position: relative;
+  margin: 0.5em 0;
+ 
+}
+.vertical-timeline::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.vertical-timeline::before {
+  /* this is the vertical line */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #F58B44;
+}
+

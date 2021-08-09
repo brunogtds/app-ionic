@@ -11,6 +11,7 @@
   display: table;
   margin: 0 auto;
   margin-top: 50px;
+
 }
 
 #outer{
@@ -31,12 +32,71 @@
 #recommendations{
  
   margin: auto;
+  margin-bottom: 8px;
   
 }  
 
 #button-recommendation{
-  height: 65px;
-  width: 269px;
+  height: 51px;
+  width: 343px;
   margin: auto;
+ 
   
+}
+
+#button-recommendation:hover{
+  --background-hover: var(--ion-color-white-shade);
+}
+
+.texto-padrao{
+  font-family: OpenSans;  
+  color: #444950;
+  text-align: left;
+}
+
+.texto-button{
+  font-family: Nunito;  
+  color: #8A8888;
+  font-weight: 700;
+  size: 18px;
+}
+
+h1 {
+  color: #444950;
+  font-family: Nunito; 
+  
+}
+
+h2 {
+  color: #444950;
+  font-family: Nunito; 
+ 
+}
+
+h4 {
+  color: #444950;
+  font-family: Nunito; 
+  margin-top: 32px;
+}
+
+.texto-titulo{
+  font-family: Nunito !important;
+  font-weight: 900;
+  size: 24px;
+  margin-bottom: 24px;
+ 
+  
+}
+
+.texto-sobre-titulo{
+  font-family: Nunito !important;
+  font-weight: 900;
+  size: 20px;
+  
+  
+}
+
+.subtitle{
+  margin-top: 32px;
+  margin-bottom: 24px;
 }

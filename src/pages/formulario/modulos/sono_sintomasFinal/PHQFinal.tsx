@@ -397,7 +397,7 @@ const PHQFinal = (props: StepComponentProps) => {
             </IonItem>
 
             <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-            <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Submeter</IonButton>
+            <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
             </form>
 
         </div>

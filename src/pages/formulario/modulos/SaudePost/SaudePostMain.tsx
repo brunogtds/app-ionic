@@ -3,8 +3,8 @@ import { Steps, Step } from "react-step-builder";
 
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 import '../../Forms.css';
-import SaudePost1 from "../SaudePost/SaudePost1"
-import SaudePost2 from "../SaudePost/SaudePost2";
+import SaudePost1 from "../saudePost/SaudePost1";
+import SaudePost2 from "../saudePost/SaudePost2";
 
   
   /*React-multi-step form 

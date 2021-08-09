@@ -41,6 +41,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-step-builder": "^2.0.5",
+    "react-vertical-timeline-component": "^3.3.3",
     "reactfire": "^3.0.0-rc.3",
     "state-stepper": "^2.0.4",
     "tslib": "^2.3.0",
@@ -70,7 +71,8 @@
   },
   "devDependencies": {
     "@capacitor/cli": "2.4.5",
-    "@types/firebase": "^3.2.1"
+    "@types/firebase": "^3.2.1",
+    "@types/react-vertical-timeline-component": "^3.0.1"
   },
   "description": "An Ionic project"
 }

@@ -1,19 +1,16 @@
 import React, {useState } from 'react';
-import { IonContent, IonHeader, IonPage,IonToolbar, IonCard, IonCardContent, IonItem } from '@ionic/react';
+import { IonContent, IonHeader, IonPage,IonToolbar} from '@ionic/react';
 
 import logo_regente from '../img/logo_regente_branco.svg';
-import cara_regente from '../img/cara-regente.jpg';
-import './Home.css';
 
-import Stepper, { Step } from "react-material-stepper";
 
-import { IonMenuButton, IonButtons, IonIcon, IonList, IonListHeader} from '@ionic/react';
+import { IonMenuButton, IonButtons, IonIcon} from '@ionic/react';
 
 import {millisToDaysHoursMinutes, pad, verifyTimeLeft} from '../../src/dateFunctions';
 
 
 import {IonButton, IonLoading} from '@ionic/react';
-import {peopleOutline, bedOutline, walkOutline, trashBinOutline, shareSocialOutline} from  'ionicons/icons';
+import {shareSocialOutline} from  'ionicons/icons';
 
 import  { useHistory } from 'react-router-dom' 
 
@@ -38,6 +35,11 @@ import button_saude from '../img/button_saude.svg';
 import button_contato from '../img/button_contato.svg';
 import button_habitos from '../img/button_habitos.svg';
 import button_sono from '../img/button_sono.svg';
+
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+
+import 'react-vertical-timeline-component/style.min.css';
+import './Home.css';
 
 const Tab1: React.FC = () => {
 
@@ -119,6 +121,10 @@ const Tab1: React.FC = () => {
 
   function sonoSintomasFinal(){
     history.push('/sonoSintomasFinal');
+  }
+
+  function feedbackInicial(){
+    history.push('/feedbackinicial');
   }
 
   const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
@@ -417,6 +423,8 @@ const Tab1: React.FC = () => {
         
         </IonGrid> */}
 
+
+
         <div className="ion-text-center">
            
            <div id="outer">
@@ -431,13 +439,17 @@ const Tab1: React.FC = () => {
               </AccordionItemButton>
             </AccordionItemHeading>
             
+           <AccordionItemPanel>
+          
             <AccordionItemPanel>
+      
             
+           
             <div>
            <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton>
            </div>
-           
-            </AccordionItemPanel>
+        
+            </AccordionItemPanel> 
             <AccordionItemPanel>
             <div>
            <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
@@ -458,10 +470,12 @@ const Tab1: React.FC = () => {
             Finalize o formulário e acesse todas as dicas personalizadas! 
            </div>
            <div>
-           <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={feedbackInicial} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
            </div>
+          
             </AccordionItemPanel>
-           
+          
+            </AccordionItemPanel>
             </AccordionItem>
            
            </Accordion>

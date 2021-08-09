@@ -50,7 +50,7 @@ import SaudeMain from './pages/formulario/modulos/saude/SaudeMain';
 
 import SonoSintomasMain from './pages/formulario/modulos/sono_sintomas/SonoSintomasMain';
 
-import SaudePostMain from './pages/formulario/modulos/SaudePost/SaudePostMain';
+import SaudePostMain from './pages/formulario/modulos/saudePost/SaudePostMain';
 import ContatoPostMain from './pages/formulario/modulos/contatoSocialPost/contatoPostMain';
 import HabitosPostMain from './pages/formulario/modulos/habitosPost/habitosPostMain';
 
@@ -61,6 +61,8 @@ import ContatoFinalMain from './pages/formulario/modulos/contatoSocialFinal/cont
 import HabitosFinalMain from './pages/formulario/modulos/habitosFinal/habitosFinalMain';
 import ModulosSonoSintomasFinal from './pages/formulario/modulos/ModulosSonoSintomasFinal';
 import SonoSintomasFinalMain from './pages/formulario/modulos/sono_sintomasFinal/SonoSintomasFinalMain';
+
+import FeedbackInicial from './pages/feedback/feedbackInicial';
 
 /*ExplanationSlides*/
 
@@ -159,15 +161,11 @@ const PrivateRoutes: React.FC = () => {
                   </IonItem>
             
             <IonItem href="/perfil">
-                    Perfil
+                    Editar perfil
                   </IonItem>
                   <IonItem href="/recomendacoes">
                     Recomendações
             </IonItem>
-
-            <IonItem href="/sobre">
-                    Sobre
-                  </IonItem>
                  
             <IonItem href="/" onClick={Logout}>
                     Sair
@@ -186,7 +184,7 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/contatosocial" component={ContatoSocialMain} exact={true}/>
           <Route path="/habitos" component={HabitosMain} exact={true}/>
           <Route path="/sonosintomas" component={SonoSintomasMain} exact={true}/>
-       
+          <Route path="/feedbackinicial" component={FeedbackInicial} exact={true}/>
 
           <Route path="/saudePost" component={SaudePostMain} exact={true}/>
           <Route path="/contatoPost" component={ContatoPostMain} exact={true}/>
