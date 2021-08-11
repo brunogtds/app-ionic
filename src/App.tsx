@@ -50,7 +50,7 @@ import SaudeMain from './pages/formulario/modulos/saude/SaudeMain';
 
 import SonoSintomasMain from './pages/formulario/modulos/sono_sintomas/SonoSintomasMain';
 
-import SaudePostMain from './pages/formulario/modulos/SaudePost/SaudePostMain';
+import SaudePostMain from './pages/formulario/modulos/saudePost/SaudePostMain';
 import ContatoPostMain from './pages/formulario/modulos/contatoSocialPost/contatoPostMain';
 import HabitosPostMain from './pages/formulario/modulos/habitosPost/habitosPostMain';
 

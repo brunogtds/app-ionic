@@ -145,28 +145,25 @@ const Tab1: React.FC = () => {
   const [minDaysPart1, setMinDaysPart1] = React.useState(false);
   const [minDaysPart2, setMinDaysPart2] = React.useState(false);
 
-  const [secondPartText, setSecondPartText] = React.useState("Falta preencher a parte anterior")
-  const [thirdPartText, setThirdPartText] = React.useState("Falta preencher a parte anterior")
-
   const {data: user}= useUser();
   const db = firebase.firestore();
-  const uid = user.uid
 
   async function getSaudeDate(){
+    const uid = user.uid
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
-    
     const data2: any= data;
     const dataSaude= data2.dateSaudeModule1;
-
-    console.log("dataSaude: " + dataSaude)
     
     if (!(dataSaude === undefined)){
       setSaudeModulo1Enviado(true)
     }
+
+    return verifyTimeLeft(dataSaude)
   }
 
   async function getContatoDate(){
+    const uid = user.uid
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
@@ -175,11 +172,10 @@ const Tab1: React.FC = () => {
     if (!(dataContato === undefined)){
       setContatoModulo1Enviado(true)
     }
-    console.log("1:" + moduloSaudeEnviado)
-    console.log("2:" + moduloContatoEnviado)
   }
 
   async function getSonoSintomasDate(){
+    const uid = user.uid
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
@@ -195,18 +191,16 @@ const Tab1: React.FC = () => {
     if(verifyTimeLeft(dataSonoSintomas) == "Modulo liberado"){
       //passou 14 dias
       setMinDaysPart1(true)
-      setSecondPartText("")
-    } else{
-      setSecondPartText(verifyTimeLeft(dataSonoSintomas))
-    }   
+    }    
   }
 
   async function getHabitosDate(){
+    const uid = user.uid
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
     const data2: any= data;
     const dataHabitos = data2.dateHabitosModule1;
-
+    
     if (!(dataHabitos === undefined)){
       setHabitosModulo1Enviado(true)
     }
@@ -215,114 +209,93 @@ const Tab1: React.FC = () => {
   //post functions
 
   async function getSaudesPostDate(){
-    const dbRef = await db.collection('usersPost').doc(uid).get()
-    const data = (await dbRef).data();
-
-    if(data !== undefined){
-
-      const data2: any = data;
-      const dateSaudePost = data2.dateSaudePost;
-
-      if(!(dateSaudePost === undefined)){
-        setSaudePostEnviado(true)
-      }
+    const uid = user.uid
+    const dbRef= await db.collection('usersPost').doc(uid).get();
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataSaudePost = data2.dateSaudePost;
+    
+    if (!(dataSaudePost === undefined)){
+      setSaudePostEnviado(true)
     }
   }
 
-
   async function getContatoPostDate(){
+    const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
-
-    if(data !== undefined){
-      const data2: any= data;
-      const dataContatoPost = data2.dateContatoPost;
+    const data2: any= data;
+    const dataContatoPost = data2.dateContatoPost;
     
-      if (!(dataContatoPost === undefined)){
-        setContatoPostEnviado(true);
-      }
-    } 
+    if (!(dataContatoPost === undefined)){
+      setContatoPostEnviado(true);
+    }
   }
 
   async function getHabitosPostDate(){
+    const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
-    const data = (await dbRef).data()
-
-    if(data !== undefined){
-
-      const data2: any = data
-      const dataHabitosPost = data2.dateHabitosPost;
+    const data= (await dbRef).data();
+    const data2: any= data;
+    const dataHabitosPost = data2.dateHabitosPost;
     
-      if (!(dataHabitosPost === undefined)){
-        setHabitosPostEnviado(true);
-      }
+    if (!(dataHabitosPost === undefined)){
+      setHabitosPostEnviado(true);
     }
   }
 
   async function getSonoSintomasPostDate(){
+    const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
-
-    if(data !== undefined){
-      const data2: any= data;
-      const dataSonoSintomasPost = data2.dateSonoSintomasPost;
+    const data2: any= data;
+    const dataSonoSintomasPost = data2.dateSonoSintomasPost;
     
-      if (!(dataSonoSintomasPost === undefined)){
-        setSonoSintomasPostEnviado(true);
-      }
+    if (!(dataSonoSintomasPost === undefined)){
+      setSonoSintomasPostEnviado(true);
+    }
 
-      console.log("verify: " + verifyTimeLeft(dataSonoSintomasPost))
-      if(verifyTimeLeft(dataSonoSintomasPost) == "Modulo liberado"){
-        //passou 14 dias
-        setMinDaysPart2(true)
-        setThirdPartText("")
-      } else{
-        setThirdPartText(verifyTimeLeft(dataSonoSintomasPost))
-      }
-    } 
+    if(verifyTimeLeft(dataSonoSintomasPost) == "Modulo liberado"){
+      //passou 14 dias
+      setMinDaysPart2(true)
+    }
   }
 
   //final functions
 
   async function getSaudesFinalDate(){
+    const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
-
-    if(data !== undefined){
-      const data2: any= data;
-      const dataSaudeFinal = data2.dateSaudeFinal;
-      
-      if (!(dataSaudeFinal === undefined)){
-        setSaudeFinalEnviado(true);
-      }
-    } 
+    const data2: any= data;
+    const dataSaudeFinal = data2.dateSaudeFinal;
+    
+    if (!(dataSaudeFinal === undefined)){
+      setSaudeFinalEnviado(true);
+    }
   }
   
   async function getContatoFinalDate(){
+    const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
-
-    if(data !== undefined){
-      const data2: any= data;
-      const dataContatoFinal = data2.dateContatoFinal;
-      
-      if (!(dataContatoFinal === undefined)){
-        setContatoFinalEnviado(true);
-      }
+    const data2: any= data;
+    const dataContatoFinal = data2.dateContatoFinal;
+    
+    if (!(dataContatoFinal === undefined)){
+      setContatoFinalEnviado(true);
     }
   }
 
   async function getHabitosFinalDate(){
+    const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
-
-    if(data !== undefined){
-      const data2: any= data;
-      const dataHabitosFinal = data2.dateHabitosFinal;
-      
-      if (!(dataHabitosFinal === undefined)){
-        setHabitosFinalEnviado(true);
-      }
+    const data2: any= data;
+    const dataHabitosFinal = data2.dateHabitosFinal;
+    
+    if (!(dataHabitosFinal === undefined)){
+      setHabitosFinalEnviado(true);
     }
   }
 
@@ -330,30 +303,34 @@ const Tab1: React.FC = () => {
     const uid = user.uid
     const dbRef= await db.collection('usersPost').doc(uid).get();
     const data= (await dbRef).data();
-
-    if(data !== undefined){
-      const data2: any= data;
-      const dataSonoSintomasFinal = data2.dateSonoSintomasFinal;
-
-      if (!(dataSonoSintomasFinal === undefined)){
-        setSonoSintomasFinalEnviado(true);
-      }
+    const data2: any= data;
+    const dataSonoSintomasFinal = data2.dateSonoSintomasFinal;
+    
+    
+    if (!(dataSonoSintomasFinal === undefined)){
+      setSonoSintomasFinalEnviado(true);
     }
   }
+
+
 
   //Checking the dates
   getSaudeDate()
   getContatoDate()
   getHabitosDate()
   getSonoSintomasDate()
-  
+
   //Checking the dates post-14
+
+ 
   getSaudesPostDate()
   getContatoPostDate()
   getHabitosPostDate()
   getSonoSintomasPostDate() 
 
   //Checking the final dates
+
+  
   getSaudesFinalDate()
   getContatoFinalDate()
   getHabitosFinalDate()
@@ -513,7 +490,6 @@ const Tab1: React.FC = () => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <p>{secondPartText}</p>
 
            <div>
            <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1} onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
@@ -555,7 +531,6 @@ const Tab1: React.FC = () => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-            <p>{thirdPartText}</p>
 
             <div>
            <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 

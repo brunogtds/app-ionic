@@ -100,3 +100,63 @@ h4 {
   margin-top: 32px;
   margin-bottom: 24px;
 }
+
+.img-slides{
+  margin-bottom: 32px;
+
+}
+
+.main-text{
+  font-family: OpenSans !important;
+  font-weight: 600;
+  size: 12px;
+  color: #444950;
+  text-align: left;
+}
+
+.readMore-text{
+  font-family: OpenSans !important;
+  font-weight: 400;
+  size: 10px;
+  color: #444950;
+  text-align: left;
+}
+
+.readMore-button{
+  font-family: OpenSans !important;
+  color: #444950;
+  padding: 0 40px;
+}
+
+.link-text{
+  font-family: OpenSans !important;
+  color: #F58B44;
+}
+
+.header-title{
+
+  font-family: Nunito !important;
+  font-weight: 900;
+  font-size: 24px;
+  color: #444950;
+  margin-top: 18px;
+    
+}
+
+
+.button-header{
+  position: absolute;
+  right: 0;
+  margin-top: 14px;
+}
+
+.img-slides{
+  margin-bottom: 320px;
+  width: 112px;
+  height: 180px;
+}
+
+.align-button{
+  text-align: left;
+  color: red;
+}
