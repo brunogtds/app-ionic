@@ -242,10 +242,19 @@ ion-card{
 .button-forms{
   width: 271px;
   height: 120px;
+  
 }
 
 .texto-button{
   text-align: left;
+  color: white !important;
+  text-transform: lowercase;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.texto-button::first-letter{
+  text-transform: uppercase;
   
 }
 

@@ -30,7 +30,7 @@ const Contato1 = (props: StepComponentProps) => {
                 <div className="ion-text-wrap">
                 
                         <IonLabel className="ion-text-wrap questions">Estou em distanciamento social:</IonLabel>
-                        <IonList>
+                       
                         
                         
                         
@@ -43,7 +43,7 @@ const Contato1 = (props: StepComponentProps) => {
                                 onChange(e.detail.value);
                                 console.log(e);
                                 if (e.detail.value != undefined) 
-                                props.setState('socialDist', 'nenhuma' )}}>
+                                props.setState('socialDist', e.detail.value )}}>
                             <IonSelectOption value="todoTempo" >Todo o tempo</IonSelectOption>
                             <IonSelectOption value="maiorParte" >A maior parte do tempo</IonSelectOption>
                             <IonSelectOption value="menosMetade" >Menos da metade do tempo</IonSelectOption>
@@ -51,22 +51,6 @@ const Contato1 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={'socialDist'} rules={{required:true}}/>
                             {errors.socialDist && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>
-
-                        {((distanciamento == "todoTempo") || (distanciamento == "maiorParte") || (distanciamento == "menosMetade") ) ? 
-                         
-                         <IonItem>
-                         <IonLabel className="questions" >Desde que dia você está em distanciamento social (evitando sair de casa)?</IonLabel>   
-
-                            <Controller render={({onChange}) => (
-                            <IonDatetime placeholder="Selecione data" onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineDur', e.detail.value ) }}></IonDatetime> )} control={control} rules={{required:true}} name={"quarantineDur"}/>
-                        </IonItem>: null }
-                        {errors.quarantineDur && <IonText color="danger">Campo obrigatório.</IonText>}
-                        </IonList>                
-                        
                         
                         <IonLabel className="ion-text-wrap questions">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
 

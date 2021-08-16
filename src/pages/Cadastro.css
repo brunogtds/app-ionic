@@ -3,11 +3,13 @@
     font-size: 24px;
     font-weight: 900;
     margin-bottom: 16px;
+    color: #444950;
   }
   
   .texto-default{
     font-family: OpenSans;  
     margin-bottom: 16px;
+    color: #444950; 
   }
 
   .questions{

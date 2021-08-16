@@ -133,7 +133,7 @@ const Habitos1 = (props: StepComponentProps) => {
                          <IonItem>
                              <IonLabel className="questions">Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel>
                              <Controller render={({onChange}) => (
-                             <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e) => {
+                             <IonDatetime display-format="H:mm " picker-format="H:mm" onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 

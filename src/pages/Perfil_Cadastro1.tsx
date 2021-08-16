@@ -61,11 +61,11 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
 
                         <IonLabel className="questions">Idade:</IonLabel>
                         {errors.age && <IonText color="danger"> Campo obrigatório.</IonText>}
-                         <IonItem>
+                         <IonItem > 
                             
                             
                             <Controller render={({onChange}) => (
-                                <IonInput type="number" placeholder="Digite" value= {props.getState("age", "")} onIonChange={
+                                <IonInput className={"teste"} type="number" placeholder="Digite" value= {props.getState("age", "")} onIonChange={
                                     (e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
@@ -118,7 +118,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                             <IonLabel position="floating" className="questions">Primeiro dia da última menstruação:</IonLabel>
 
                             <Controller render={({onChange}) => (
-                                <IonDatetime placeholder="Selecione data" id="dateMenstruation" onIonChange={(e)=> {
+                                <IonDatetime monthShortNames="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Aug, Set, Out, Nov, Dez" placeholder="Selecione data" id="dateMenstruation" onIonChange={(e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 

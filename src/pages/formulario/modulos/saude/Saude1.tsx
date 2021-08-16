@@ -207,7 +207,7 @@ const Saude1 = (props: StepComponentProps) => {
                                 <IonRadioGroup onIonChange={(e) => { 
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
-                                    props.setState('psychoter', e.detail.value )}}>
+                                    props.setState('psychother', e.detail.value )}}>
 
                                     <IonItem>
                                     <IonLabel>Não</IonLabel>

@@ -34,7 +34,6 @@ const Contato2 = (props: StepComponentProps) => {
         firebase.firestore().collection('users').doc(user.uid).set({
             socialDist: String(props.state.socialDist), //STEP 3
           
-            quarantineDur: String(props.state.quarantineDur),
             quarantineRoom: String(props.state.quarantineRoom),
             quarantineRoomDur: String(props.state.quarantineRoomDur),
             quarantineOutDur: String(props.state.quarantineOutDur),

@@ -207,44 +207,40 @@ const SaudeFinal1 = (props: StepComponentProps) => {
                             </IonItem>: null }
                         </IonList> 
 
+                        <IonLabel className="questions">Você fez psicoterapia nas últimas duas semanas? </IonLabel>        
                         <IonItem>
-                            <IonLabel>Você fez psicoterapia nas últimas 6 semanas? </IonLabel>
+                           
 
                             <Controller render={({onChange}) => (
-                            <IonList>
-                                <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("psychotherPostFinal", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('psychotherPostFinal', 'não' )  }}></IonCheckbox>
-                                <IonLabel >Não</IonLabel>
-                                </IonItem>
 
-                                <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("psychotherPostFinal", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('psychotherPostFinal', 'sim, on-line' )  }}></IonCheckbox>
-                                <IonLabel>Sim, on-line</IonLabel>
-                                </IonItem>
+                                <IonRadioGroup onIonChange={(e) => { 
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) 
+                                    props.setState('psychotherPostFinal', e.detail.value )}}>
 
-                                <IonItem>
-                                <IonCheckbox color="primary" value= {props.getState("psychotherPostFinal", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('psychotherPostFinal', 'sim, presencial' )  }}></IonCheckbox>
-                                <IonLabel>Sim, presencial</IonLabel>
-                                </IonItem>
+                                    <IonItem>
+                                    <IonLabel>Não</IonLabel>
+                                    <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                                    </IonItem>
+                                
+                                    <IonItem>
+                                    <IonLabel>Sim, on-line</IonLabel>
+                                    <IonRadio className={"radio-options"} color="primary" value="online"></IonRadio>
+                                    </IonItem>
 
-                             </IonList>
+                                    <IonItem>
+                                    <IonLabel>Sim, presencial</IonLabel>
+                                    <IonRadio className={"radio-options"} color="primary" value="presencial"></IonRadio>
+                                    </IonItem>
+                                </IonRadioGroup>
+                                                        
                              )} 
                              control={control}
                              name={"psychotherPostFinal"}
+                             rules={{required: true}}
                              />
                          </IonItem>
+                         {errors.psychother && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonButton onClick={props.prev} size="large" fill="clear" disabled={true}>Anterior</IonButton>
                         <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear"> Próximo </IonButton>

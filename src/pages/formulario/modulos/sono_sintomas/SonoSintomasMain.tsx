@@ -1,7 +1,7 @@
 import React from "react";
 import { Steps, Step } from "react-step-builder";
 
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton} from '@ionic/react';
 import '../../Forms.css';
 
 import mctQ1 from './mctQ1';
@@ -11,6 +11,7 @@ import Gad7 from './Gad7';
 import Who5 from './Who5';
 import PHQ from './PHQ';
 
+import logo_regente from '../../../../img/logo_regente_branco.svg';
 
   
   /*React-multi-step form 

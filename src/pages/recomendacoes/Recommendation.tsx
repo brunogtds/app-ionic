@@ -135,15 +135,15 @@ const Recommendation: React.FC = () => {
       <h1 className="texto-titulo">Recomendações</h1>
    
       <div id="recommendations">
-      <IonButton id="button-recommendation" onClick={() => setShowModalCovid(true)} color="white"> <div className="texto-button"> Pandemia COVID-19 </div></IonButton>
+      <IonButton id="button-recommendation" onClick={() => setShowModalCovid(true)} color="white"> <div className="texto-button-recommend"> Pandemia COVID-19 </div></IonButton>
       </div>
   
       <div id="recommendations">
-      <IonButton id="button-recommendation" color="white" onClick={() => setShowModalHabitos(true)} > <div className="texto-button"> Bons hábitos </div></IonButton>
+      <IonButton id="button-recommendation" color="white" onClick={() => setShowModalHabitos(true)} > <div className="texto-button-recommend-habitos"> Bons hábitos </div></IonButton>
       </div>
     
       <div id="recommendations">
-      <IonButton id="button-recommendation" color="white" onClick={() => setShowModalSono(true)} >  <div className="texto-button">Sono </div></IonButton>
+      <IonButton id="button-recommendation" color="white" onClick={() => setShowModalSono(true)} >  <div className="texto-button-recommend">Sono </div></IonButton>
       </div>
 
       <IonModal isOpen={showModalCovid} showBackdrop={true}
@@ -171,6 +171,7 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid1(!saibaMaisCovid1)}}>{saibaMaisTextCovid1}</IonButton>
                 
                 {saibaMaisCovid1 ? 
+               
                 <p className={"readMore-text"}>Trabalhe  de casa sempre que possível. Evite visitar familiares e amigos, principalmente os que estão nos grupos de risco (mantenha contato por telefone  ou redes sociais).
                 Caso precise sair, evite aglomerações e espaços fechados ou mal ventilados, onde aerossóis contendo o vírus podem ficar em suspensão no ar por várias horas. Use máscara, cobrindo o nariz, a boca e o queixo e higienize frequentemente as mãos.
                 Ao retornar a casa, observe os cuidados de higienização necessários, sobretudo das mãos, roupas e objetos. 
@@ -186,7 +187,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_2} className={"img-slides"} width="178" height="135"/>
+                <img src={covid_2} className={"img-slides"} width="170" height="122"/>
                 <p className={"main-text"}>Use sempre máscara de proteção.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid2(!saibaMaisCovid2)}}>{saibaMaisTextCovid2}</IonButton>
@@ -343,7 +344,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                 <img src={bons_habitos1}/>
+                 <img src={bons_habitos1} className={"img-slides"}/>
                  <p className={"main-text"}>Não fique ouvindo notícias o tempo todo.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos1(!saibaMaisBonsHabitos1)}}>{saibaMaisTextBonsHabitos1}</IonButton>
@@ -362,7 +363,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos2}/>
+                <img src={bons_habitos2} className={"img-slides"}/>
                 <p className={"main-text"}>Use técnicas para relaxar o corpo e a mente.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos2(!saibaMaisBonsHabitos2)}}>{saibaMaisTextBonsHabitos2}</IonButton>
@@ -381,7 +382,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos3}/>
+                <img src={bons_habitos3} className={"img-slides"}/>
                 <p className={"main-text"}>Reserve um tempo para atividades de lazer.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos3(!saibaMaisBonsHabitos3)}}>{saibaMaisTextBonsHabitos3}</IonButton>
@@ -400,7 +401,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos4}/>
+                <img src={bons_habitos4} className={"img-slides"}/>
                 <p className={"main-text"}>Pratique atividades físicas.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos4(!saibaMaisBonsHabitos4)}}>{saibaMaisTextBonsHabitos4}</IonButton>
@@ -438,7 +439,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos5}/>
+                <img src={bons_habitos5} className={"img-slides"}/>
                 <p className={"main-text"}>Mantenha uma boa higiene bucal.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos6(!saibaMaisBonsHabitos6)}}>{saibaMaisTextBonsHabitos6}</IonButton>
@@ -457,7 +458,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos6}/>
+                <img src={bons_habitos6} className={"img-slides"}/>
                 <p className={"main-text"}>Cuide da sua alimentação.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos7(!saibaMaisBonsHabitos7)}}>{saibaMaisTextBonsHabitos7}</IonButton>
@@ -489,7 +490,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-               <img src={sono1}/>
+               <img src={sono1} className={"img-slides"}/>
                <p className={"main-text"}>Exponha-se à luz natural durante o dia.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono1(!saibaMaisSono1)}}>{saibaMaisTextSono1}</IonButton>
@@ -509,7 +510,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono2}/>
+              <img src={sono2} className={"img-slides"}/>
               <p className={"main-text"}>Apague a luz à noite.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono2(!saibaMaisSono2)}}>{saibaMaisTextSono2}</IonButton>
@@ -528,7 +529,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono3}/>
+              <img src={sono3} className={"img-slides"}/>
               <p className={"main-text"}>Reduza o tempo excessivo na frente das telas, em especial à noite.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono3(!saibaMaisSono3)}}>{saibaMaisTextSono3}</IonButton>
@@ -547,7 +548,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono4}/>
+              <img src={sono4} className={"img-slides"} />
               <p className={"main-text"}>Use apps que deixem a tela mais ‘amarelada’ à noite.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono4(!saibaMaisSono4)}}>{saibaMaisTextSono4}</IonButton>
@@ -566,7 +567,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono5}/>
+              <img src={sono5} className={"img-slides"}/>
               <p className={"main-text"}>Organize sua rotina pensando em seu cronotipo.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono5(!saibaMaisSono5)}}>{saibaMaisTextSono5}</IonButton>
@@ -585,7 +586,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono6}/>
+              <img src={sono6} className={"img-slides"}/>
               <p className={"main-text"}>Mantenha horários regulares.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono6(!saibaMaisSono6)}}>{saibaMaisTextSono6}</IonButton>
@@ -605,7 +606,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono7}/>
+              <img src={sono7} className={"img-slides"}/>
               <p className={"main-text"}>Evite cochilos prolongados.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono7(!saibaMaisSono7)}}>{saibaMaisTextSono7}</IonButton>
@@ -624,7 +625,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono8}/>
+              <img src={sono8} className={"img-slides"}/>
               <p className={"main-text"}>Na hora de deitar, evite ficar pensando nos problemas.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono8(!saibaMaisSono8)}}>{saibaMaisTextSono8}</IonButton>
@@ -643,7 +644,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono9}/>
+              <img src={sono9} className={"img-slides"}/>
               <p className={"main-text"}>Torne o seu quarto um ambiente que facilite o sono.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono9(!saibaMaisSono9)}}>{saibaMaisTextSono9}</IonButton>
@@ -664,7 +665,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono10}/>
+              <img src={sono10} className={"img-slides"}/>
               <p className={"main-text"}> Evite alimentos pesados muito próximo do horário de dormir.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono10(!saibaMaisSono10)}}>{saibaMaisTextSono10}</IonButton>
@@ -683,7 +684,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono11}/>
+              <img src={sono11} className={"img-slides"}/>
               <p className={"main-text"}>Evite ingerir cafeína ou álcool perto da hora de dormir.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono11(!saibaMaisSono11)}}>{saibaMaisTextSono11}</IonButton>
@@ -702,7 +703,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono12}/>
+              <img src={sono12} className={"img-slides"}/>
               <p className={"main-text"}>Planeje os horários dos seus exercícios considerando seu sono.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear"onClick={()=>{setSaibaMaisSono12(!saibaMaisSono12)}}>{saibaMaisTextSono12}</IonButton>
@@ -719,7 +720,7 @@ const Recommendation: React.FC = () => {
       <div className="subtitle">
       <h2 className="texto-sobre-titulo">Sobre a pesquisa</h2>
       </div>
-      <h4>O impacto do distanciamento social nos ritmos biológicos e na saúde mental</h4>
+      <h4 className="texto-sobre-explicacao">O impacto do distanciamento social nos ritmos biológicos e na saúde mental</h4>
       <div className="texto-padrao">
         Agradecemos a sua disposição em nos ajudar a entender as consequências do <b>distanciamento social</b>.
         Com esse estudo, pretendemos encontrar maneiras de estar melhor preparados e munidos de mais informação para diminuir as consequências 
@@ -729,7 +730,7 @@ const Recommendation: React.FC = () => {
       <div className="subtitle">
       <h2 className="texto-sobre-titulo">Sobre a equipe</h2>
       </div>
-      <h4 >Equipe do estudo</h4>
+      <h4 className="texto-sobre-explicacao">Equipe do estudo</h4>
 
         <div className="texto-padrao">
           <div>

@@ -54,11 +54,24 @@
   text-align: left;
 }
 
-.texto-button{
+.texto-button-recommend{
   font-family: Nunito;  
   color: #8A8888;
   font-weight: 700;
-  size: 18px;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.texto-button-recommend-habitos{
+  font-family: Nunito;  
+  color: #8A8888;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: lowercase;
+}
+
+.texto-button-recommend-habitos::first-letter{
+  text-transform: uppercase;
 }
 
 h1 {
@@ -77,28 +90,38 @@ h4 {
   color: #444950;
   font-family: Nunito; 
   margin-top: 32px;
+  
 }
 
 .texto-titulo{
   font-family: Nunito !important;
   font-weight: 900;
-  size: 24px;
+  font-size: 24px;
   margin-bottom: 24px;
- 
-  
+  text-align: left;
+  margin-left: 0;
 }
 
 .texto-sobre-titulo{
   font-family: Nunito !important;
   font-weight: 900;
-  size: 20px;
-  
+  font-size: 20px;
+  text-align: left;
+  margin-left: 0;
   
 }
+.texto-sobre-explicacao{
+  color: #444950;
+  font-family: Nunito; 
+  margin-top: 32px;
+  text-align: left;
+}
+
 
 .subtitle{
   margin-top: 32px;
   margin-bottom: 24px;
+  text-align: left;
 }
 
 .img-slides{
@@ -112,6 +135,7 @@ h4 {
   size: 12px;
   color: #444950;
   text-align: left;
+  
 }
 
 .readMore-text{
@@ -125,7 +149,9 @@ h4 {
 .readMore-button{
   font-family: OpenSans !important;
   color: #444950;
-  padding: 0 40px;
+  text-align: left;
+  margin-left: 0;
+ 
 }
 
 .link-text{
@@ -152,8 +178,8 @@ h4 {
 
 .img-slides{
   margin-bottom: 320px;
-  width: 112px;
-  height: 180px;
+  width: 180px !important;
+  height: 220px !important;
 }
 
 .align-button{

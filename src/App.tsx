@@ -62,7 +62,6 @@ import HabitosFinalMain from './pages/formulario/modulos/habitosFinal/habitosFin
 import ModulosSonoSintomasFinal from './pages/formulario/modulos/ModulosSonoSintomasFinal';
 import SonoSintomasFinalMain from './pages/formulario/modulos/sono_sintomasFinal/SonoSintomasFinalMain';
 
-import FeedbackInicial from './pages/feedback/feedbackInicial';
 
 /*ExplanationSlides*/
 
@@ -184,7 +183,7 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/contatosocial" component={ContatoSocialMain} exact={true}/>
           <Route path="/habitos" component={HabitosMain} exact={true}/>
           <Route path="/sonosintomas" component={SonoSintomasMain} exact={true}/>
-          <Route path="/feedbackinicial" component={FeedbackInicial} exact={true}/>
+          
 
           <Route path="/saudePost" component={SaudePostMain} exact={true}/>
           <Route path="/contatoPost" component={ContatoPostMain} exact={true}/>

@@ -1,12 +1,12 @@
 import React from "react";
 import { Steps, Step } from "react-step-builder";
 
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton} from '@ionic/react';
 import '../../Forms.css';
 
 import Contato1 from './Contato1';
 import Contato2 from './Contato2';
-
+import logo_regente from '../../../../img/logo_regente_branco.svg';
   
   /*React-multi-step form 
   Cada página do formulário é um step no app*/
@@ -17,13 +17,14 @@ function App() {
 
     <IonPage>
 
-        <IonHeader>
-            <IonToolbar>
-                <IonTitle><b>CONTATO SOCIAL</b></IonTitle>
-                  <div id="header-items">
-                  </div>
-            </IonToolbar>
-        </IonHeader>
+    <IonHeader>
+        <IonToolbar color="orange">
+        <div id="header-items">
+          <img src={logo_regente} className={"logo"}/>
+          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
+        </div>   
+        </IonToolbar>
+      </IonHeader>
 
 
         <IonContent fullscreen>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Steps, Step } from "react-step-builder";
 
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton} from '@ionic/react';
 import '../../Forms.css';
 
 import HabitosFinal1 from "./habitosFinal1";
@@ -9,6 +9,7 @@ import HabitosFinal2 from "./habitosFinal2";
 import HabitosFinal3 from "./habitosFinal3";
 import HabitosFinal4 from "./habitosFinal4";
   
+import logo_regente from '../../../../img/logo_regente_branco.svg';
   /*React-multi-step form 
   Cada página do formulário é um step no app*/
 

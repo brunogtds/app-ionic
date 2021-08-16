@@ -1,5 +1,5 @@
 import React, {useState } from 'react';
-import { IonContent, IonHeader, IonPage,IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonPage,IonToolbar, IonModal} from '@ionic/react';
 
 import logo_regente from '../img/logo_regente_branco.svg';
 
@@ -7,7 +7,7 @@ import logo_regente from '../img/logo_regente_branco.svg';
 import { IonMenuButton, IonButtons, IonIcon} from '@ionic/react';
 
 import {millisToDaysHoursMinutes, pad, verifyTimeLeft} from '../../src/dateFunctions';
-
+import {feedbackSocialDist, feedbackContactN} from '../../src/feedbackContatoFunctions';
 
 import {IonButton, IonLoading} from '@ionic/react';
 import {shareSocialOutline} from  'ionicons/icons';
@@ -45,7 +45,9 @@ const Tab1: React.FC = () => {
 
    
   const [loader, setLoader]= useState<boolean>(false);
-
+  const [showModalFeedbackInicial, setShowModalFeedbackInicial] = useState(false);
+  const [showModalFeedbackPost, setShowModalFeedbackPost] = useState(false);
+  const [showModalFeedbackFinal, setShowModalFeedbackFinal] = useState(false);
 
   function chamaSobre(){
     history.push('/sobre');
@@ -147,6 +149,13 @@ const Tab1: React.FC = () => {
 
   const [secondPartText, setSecondPartText] = React.useState("Falta preencher a parte anterior")
   const [thirdPartText, setThirdPartText] = React.useState("Falta preencher a parte anterior")
+
+  const [feedbackCIText, setfeedbackCIText]= React.useState("Carregando feedback...")
+  const [feedbackCPText, setfeedbackCPText]= React.useState("Carregando feedback...")
+  const [feedbackCFText, setfeedbackCFText]= React.useState("Carregando feedback...")
+  const [feedbackCI2Text, setfeedbackCI2Text]= React.useState("Carregando o feedback...")
+  const [feedbackCP2Text, setfeedbackCP2Text]= React.useState("Carregando o feedback...")
+  const [feedbackCF2Text, setfeedbackCF2Text]= React.useState("Carregando o feedback...")
 
   const {data: user}= useUser();
   const db = firebase.firestore();
@@ -341,6 +350,34 @@ const Tab1: React.FC = () => {
     }
   }
 
+  async function getFeedbackContatoInicial(){
+    
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    if(data !== undefined){
+      const data2: any= data;
+      const dataSocialDist = data2.socialDist;
+      const dataContactN = data2.contactN;
+      
+      if (feedbackSocialDist(dataSocialDist) === "string1"){
+        setfeedbackCIText("Você nos contou que está seguindo as medidas de distanciamento social. Parabéns! Sabemos que pode estar mais difícil manter o distanciamento social ao longo do tempo, mas seu esforço salva vidas!")
+      } else if (feedbackSocialDist(dataSocialDist) === "string2"){
+        setfeedbackCIText("Você nos contou que não está seguindo as medidas de distanciamento social na maior parte do tempo. Sabemos que está sendo cada dia mais difícil manter o distanciamento social, mas evitar aglomerações é essencial para impedir que o vírus se espalhe. Enquanto não vacinamos a maior parte da população, manter o distaciamento social continua sendo essencial para evitarmos nos contaminar e contaminar aos outros.")
+      }
+
+      if (feedbackContactN(dataContactN) === "string1"){
+        setfeedbackCI2Text("Uma sugestão para tornar mais fácil o distanciamento social é manter o contato e conversar com pessoas queridas, mesmo que por telefone ou mensagem. Isso diminui a nossa ansiedade e pode ser uma boa ferramenta no enfrantamento deste momento.")
+      } else if (feedbackContactN(dataContactN) === "string2"){
+        setfeedbackCI2Text("Você também nos contou que mantém contato social diariamente. Algum tipo de contato com pessoas que nos fazem bem, mesmo que à distância, é essencial pra nos ajudar a encarar esse momento.")
+      }
+    }
+  }
+
+  function modalFeedbackInicial(){
+    setShowModalFeedbackInicial(true);
+    getFeedbackContatoInicial();
+  }
+
   //Checking the dates
   getSaudeDate()
   getContatoDate()
@@ -489,8 +526,19 @@ const Tab1: React.FC = () => {
             Finalize o formulário e acesse todas as dicas personalizadas! 
            </div>
            <div>
-           <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={feedbackInicial} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Acessar dicas</div></IonButton> 
            </div>
+
+           <IonModal isOpen={showModalFeedbackInicial} showBackdrop={true}
+              cssClass='custom-modal'
+              onDidDismiss={() => setShowModalFeedbackInicial(false)}>
+                <IonContent>
+                  <p>{feedbackCIText}</p>
+                  <p>{feedbackCI2Text}</p>
+
+                  <IonButton color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultados</div></IonButton> 
+                </IonContent>
+            </IonModal>
           
             </AccordionItemPanel>
           
@@ -535,8 +583,15 @@ const Tab1: React.FC = () => {
             Finalize o formulário e acesse todas as dicas personalizadas! 
            </div>
            <div>
-           <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2)} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2)} color="orange" fill="solid" shape="round" onClick={() => setShowModalFeedbackPost(true)} size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Acessar dicas</div></IonButton> 
            </div>
+           <IonModal isOpen={showModalFeedbackPost} showBackdrop={true}
+              cssClass='custom-modal'
+              onDidDismiss={() => setShowModalFeedbackPost(false)}>
+                <IonContent>
+                  <p>Feedback post vai aqui</p>
+                </IonContent>
+            </IonModal>
             </AccordionItemPanel>
            </AccordionItem>
            </Accordion>
@@ -578,8 +633,15 @@ const Tab1: React.FC = () => {
             Finalize o formulário e acesse todas as dicas personalizadas! 
            </div>
            <div>
-           <IonButton disabled={!moduloSonoSintomasFinalEnviado} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultado</div></IonButton> 
+           <IonButton disabled={!moduloSonoSintomasFinalEnviado} color="orange" fill="solid" shape="round" onClick={() => setShowModalFeedbackFinal(true)} size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Acessar dicas</div></IonButton> 
            </div>
+           <IonModal isOpen={showModalFeedbackFinal} showBackdrop={true}
+              cssClass='custom-modal'
+              onDidDismiss={() => setShowModalFeedbackFinal(false)}>
+                <IonContent>
+                  <p>Feedback final vai aqui</p>
+                </IonContent>
+            </IonModal>
             </AccordionItemPanel>
 
            </AccordionItem>
