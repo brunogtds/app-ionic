@@ -28,15 +28,14 @@ function App() {
 
     <IonPage>
 
-        <IonHeader>
-            <IonToolbar>
-                <IonTitle><b>HÁBITOS</b></IonTitle>
-                  <div id="header-items">
-                    
-                    
-                  </div>
-            </IonToolbar>
-        </IonHeader>
+<IonHeader>
+        <IonToolbar color="orange">
+        <div id="header-items">
+          <img src={logo_regente} className={"logo"}/>
+          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
+        </div>   
+        </IonToolbar>
+      </IonHeader>
   
         <IonContent fullscreen>
                 

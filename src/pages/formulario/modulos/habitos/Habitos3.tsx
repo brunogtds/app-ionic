@@ -38,13 +38,13 @@ const Habitos3 = (props: StepComponentProps) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
-                                props.setState('hobbies', e.detail.value )} }}>
+                                props.setState('hobbiesFreq', e.detail.value )} }}>
                             <IonSelectOption value="nenhuma vez">Nenhuma vez</IonSelectOption>
                             <IonSelectOption value="em menos da metade dos dias">Em menos da metade dos dias</IonSelectOption>
                             <IonSelectOption value="em mais da metade dos dias">Em mais da metade dos dias</IonSelectOption>
                             <IonSelectOption value="todos os dias">Todos os dias</IonSelectOption>
                             </IonSelect> )} control={control} name={"hobbiesFreq"} rules={{required:true}}/>
-                            {errors.hobbies && <IonText color="danger">Campo obrigatório.</IonText>}
+                            {errors.hobbiesFreq && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>
 
                          <IonLabel className="questions">Você praticou atividade física nas duas últimas semanas?</IonLabel>

@@ -287,3 +287,7 @@ ion-card{
   background: #F58B44;
 }
 
+.link-text{
+  font-family: OpenSans !important;
+  color: #F58B44;
+}

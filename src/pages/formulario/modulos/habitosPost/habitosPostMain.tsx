@@ -28,7 +28,7 @@ function App() {
 
     <IonPage>
 
-    <IonHeader>
+<IonHeader>
         <IonToolbar color="orange">
         <div id="header-items">
           <img src={logo_regente} className={"logo"}/>

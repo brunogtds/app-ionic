@@ -59,7 +59,7 @@ import SonoSintomasPostMain from './pages/formulario/modulos/sono_sintomasPost/S
 import SaudeFinalMain from './pages/formulario/modulos/saudeFinal/SaudeFinalMain';
 import ContatoFinalMain from './pages/formulario/modulos/contatoSocialFinal/contatoFinalMain';
 import HabitosFinalMain from './pages/formulario/modulos/habitosFinal/habitosFinalMain';
-import ModulosSonoSintomasFinal from './pages/formulario/modulos/ModulosSonoSintomasFinal';
+
 import SonoSintomasFinalMain from './pages/formulario/modulos/sono_sintomasFinal/SonoSintomasFinalMain';
 
 

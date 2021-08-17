@@ -43,9 +43,9 @@ function verifyTimeLeft(submitDate : any){
     
         var today = Date.now()
         //add 86400000*14 = add 14 days in milliseconds
-        //var dateLiberaModulo = submitDate.toDate().valueOf() + 86400000*14
+        var dateLiberaModulo = submitDate.toDate().valueOf() + 86400000*14
 
-        var dateLiberaModulo = submitDate.toDate().valueOf() + 120000
+        //var dateLiberaModulo = submitDate.toDate().valueOf() + 120000
         
         console.log("Data do preenchimento " + submitDate.toDate())
         var dateDifference = dateLiberaModulo - today.valueOf()
