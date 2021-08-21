@@ -13,6 +13,8 @@ import {feedbackHobbies, feedbackExercise} from '../../src/feedbackHabitosFuncti
 import {IMC} from '../../src/feedbackIMCFunctions';
 import {feedbackFumo, feedbackAlcool, feedbackMed} from '../../src/feedbackSaudeFunctions';
 import {bemEstar} from '../../src/feedbackBemEstarFunctions';
+import {feedbackSono} from '../../src/feedbackSono';
+import {regularides} from '../../src/feedbackRegularidesFunction';
 
 
 import {IonButton, IonLoading} from '@ionic/react';
@@ -41,11 +43,18 @@ import button_saude from '../img/button_saude.svg';
 import button_contato from '../img/button_contato.svg';
 import button_habitos from '../img/button_habitos.svg';
 import button_sono from '../img/button_sono.svg';
+import matutino_feliz from '../img/Matutino_feliz.svg';
+import intermed_feliz from '../img/Neutro_feliz.svg';
+import vespertino_feliz from '../img/Vespertino_feliz.svg';
 
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 
 import 'react-vertical-timeline-component/style.min.css';
 import './Home.css';
+
+import {format, sub} from 'date-fns';
+import {diffHoursMinutes} from '../dateFunctions';
+import {timeStampToFloat} from '../dateFunctions';
 
 const Tab1: React.FC = () => {
 
@@ -157,25 +166,41 @@ const Tab1: React.FC = () => {
   const [thirdPartText, setThirdPartText] = React.useState("Falta preencher a parte anterior")
 
   const [feedbackCIText, setfeedbackCIText]= React.useState("Carregando feedback...")
-  const [feedbackCI2Text, setfeedbackCI2Text]= React.useState("Carregando o feedback...")
+  const [feedbackCI2Text, setfeedbackCI2Text]= React.useState("Carregando  feedback...")
   const [feedbackLightText, setFeedbackLightText]= React.useState("Carregando feedback...")
-  const [feedbackHobbiesText, setFeedbackHobbiesText]= React.useState("Carregando o feedback...")
-  const [feedbackExerciseText, setFeedbackExerciseText]= React.useState("Carregando o feedback...")
+  const [feedbackHobbiesText, setFeedbackHobbiesText]= React.useState("")
+  const [feedbackExerciseText, setFeedbackExerciseText]= React.useState("Carregando feedback...")
   const [feedbackIMCText, setFeedbackIMCText]= React.useState("Carregando o feedback...")
   const [feedbackFumoText, setFeedbackFumoText]=  React.useState("")
   const [feedbackAlcoolText, setFeedbackAlcoolText]= React.useState("")
   const [feedbackBemEstarText, setFeedbackBemEstarText]= React.useState("")
   const [feedbackMedText, setFeedbackMedsText]= React.useState("")
+  const [feedbackSonoText, setFeedbackSonoText]= React.useState("Carregando feedback...")
+  const [feedbackCronoText, setFeedbackCronoText]= React.useState('Carregando feedback...')
+  const [feedbackRegularidadesText, setFeedbackRegularidadesText]= React.useState("Carregando o feedback...")
 
+  const [cronoImage, setCronoImage]= React.useState("Carregando feedback...")
+  
+  const [feedbackSJLText, setFeedbackSJLText]= React.useState("")
+  const [vespSJLText, setVespSJLText]= React.useState("")
+  
 
   const {data: user}= useUser();
   const db = firebase.firestore();
   const uid = user.uid
 
+  function converToHoursAndMinutes(hours: number)
+  { 
+      let hour : number = Math.trunc(hours)  
+      let minutes : number = Math.round((hours - hour) * 60)
+      return hour + ":" + minutes     
+  }
+
   async function getSaudeDate(){
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
     
+    if  (data != undefined){
     const data2: any= data;
     const dataSaude= data2.dateSaudeModule1;
 
@@ -185,10 +210,13 @@ const Tab1: React.FC = () => {
       setSaudeModulo1Enviado(true)
     }
   }
+  }
 
   async function getContatoDate(){
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
+
+    if (data != undefined){
     const data2: any= data;
     const dataContato= data2.dateContatoModule1;
     
@@ -198,10 +226,12 @@ const Tab1: React.FC = () => {
     console.log("1:" + moduloSaudeEnviado)
     console.log("2:" + moduloContatoEnviado)
   }
+}
 
   async function getSonoSintomasDate(){
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
+    if (data !==undefined){
     const data2: any= data;
     const dataSonoSintomas = data2.dateSonoSintomasModule1;
    
@@ -218,18 +248,23 @@ const Tab1: React.FC = () => {
       setSecondPartText("")
     } else{
       setSecondPartText(verifyTimeLeft(dataSonoSintomas))
-    }   
+    }  
+
+    
+  }
   }
 
   async function getHabitosDate(){
     const dbRef= await db.collection('users').doc(uid).get();
     const data= (await dbRef).data();
+
+    if (data !=undefined){
     const data2: any= data;
     const dataHabitos = data2.dateHabitosModule1;
 
     if (!(dataHabitos === undefined)){
       setHabitosModulo1Enviado(true)
-    }
+    }}
   }
 
   //post functions
@@ -488,9 +523,9 @@ const Tab1: React.FC = () => {
       const dataSomaGad = data2.gad7_gad01 + data2.gad7_gad02 + data2.gad7_gad03 + data2.gad7_gad04 + data2.gad7_gad05 + data2.gad7_gad06 + data2.gad7_gad07;
       const dataSomaPHQ= data2.phq01 + data2.phq02 + data2.phq03 + data2.phq04 + data2.phq05 + data2.phq06 + data2.phq07 + data2.phq08 + data2.phq09 + data2.phq10;
       const dataPHQ09= data2.phq09;
-
+     
       if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string1"){
-        setFeedbackBemEstarText("Percebemos que você tem apresentado sintomas relacionados à ansiedade e depressão. Apesar de notarmos que seus níveis de ansiedade e depressão parecem altos estes questionários não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos ou afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Busque ajuda, depressão e ansiedade tem tratamento!")
+        setFeedbackBemEstarText("Percebemos  que você tem apresentado sintomas relacionados à ansiedade e depressão. Apesar de notarmos que seus níveis de ansiedade e depressão parecem altos estes questionários não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos ou afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Busque ajuda, depressão e ansiedade tem tratamento!")
       } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string1s"){
         setFeedbackBemEstarText("Percebemos que você tem apresentado sintomas relacionados à ansiedade e depressão. Apesar de notarmos que seus níveis de ansiedade e depressão parecem altos estes questionários não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e convívio com outras pessoas, sugerimos que você busque ajuda de um profissional (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, depressão e ansiedade tem tratamento!")
       } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string2"){
@@ -526,6 +561,169 @@ const Tab1: React.FC = () => {
       }
     }
   }
+  
+
+  async function getFeedbackSono(){
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    if (data !== undefined){
+      const data2: any= data;
+      const dataWakeUpFD = data2.wakeUpFD;
+      const dataSleepFD = data2.sleepFD;
+     
+      const dataSleepWD = data2.sleepWD;
+      const dataWakeUpWD = data2.wakeUpWD;
+      
+      const dataSleepNoWork= data2.sleepNoWork;
+      const dataWakeUpNoWork= data2.wakeUpNoWork;
+      
+      const dataAge= data2.age;
+
+    /*  if (feedbackSono(dataWakeUpFD, dataSleepFD, dataSleepWD, dataWakeUpWD) === "valores válidos"){
+        console.log('deu errado');
+      } else if (feedbackSono(dataWakeUpFD, dataSleepFD, dataSleepWD, dataWakeUpWD) === "valores inválidos"){
+        console.log('deu certo');
+      } */
+
+      //feedback SONO com Work Days
+      
+      if ((dataSleepWD && dataWakeUpWD) !== (undefined || null || "undefined")) {
+        console.log('não tá entrando aqui');
+        
+        var durationSonoFDFloat= diffHoursMinutes(dataWakeUpFD, dataSleepFD);     
+        var durationSonoFDString= converToHoursAndMinutes(durationSonoFDFloat);
+       
+        var durationSonoWDFloat= diffHoursMinutes(dataWakeUpWD, dataSleepWD);
+        var durationSonoWDString= converToHoursAndMinutes(durationSonoWDFloat);
+
+        var soWD= timeStampToFloat(dataSleepWD);
+        var seWD= timeStampToFloat(dataWakeUpWD);
+        
+        var soFD= timeStampToFloat(dataSleepFD);
+        var seFD= timeStampToFloat(dataWakeUpFD);
+
+        console.log('so wd' + soWD );
+        console.log('se wd' + seWD );
+        console.log('so fd' + soFD);
+        console.log('se FD' + seFD);
+
+        
+        //feedback cronotipo
+        var midpointSleepWD= soWD + ((durationSonoWDFloat)/2);
+        var midpointSleepFD= soFD + ((durationSonoFDFloat)/2);
+
+        console.log('midpoint sleep wd' + midpointSleepWD);
+        console.log('midpoint sleep fd' + midpointSleepFD);
+
+        var msfsc;
+        if (durationSonoFDFloat <= durationSonoWDFloat){
+          msfsc= midpointSleepFD;
+        } else if (durationSonoFDFloat > durationSonoWDFloat){
+          msfsc= midpointSleepFD - ((durationSonoFDFloat-durationSonoWDFloat)/2)
+        }
+        
+        console.log('****************** msfsc: ' + msfsc);
+        if (msfsc !== undefined){
+          console.log('entrou aqui msfsc: ' + msfsc);
+          if (msfsc < 1.5){
+            setFeedbackCronoText('...matutino extremo. Isso significa que você se sente melhor dormindo mais cedo, o que pode ser uma vantagem em uma sociedade que inicia seus compromissos pela manhã. No entanto, pessoas muito matutinas podem, às vezes, se forçar a dormir mais tarde quando têm alguma atividade social à noite.')
+            setCronoImage('1')
+          } else if ((msfsc >=1.5) && (msfsc < 3.5)){
+            setFeedbackCronoText('...matutino. Isso significa que você se sente melhor dormindo mais cedo, o que pode ser uma vantagem em uma sociedade que inicia seus compromissos pela manhã. No entanto, pessoas muito matutinas podem, às vezes, se forçar a dormir mais tarde quando têm alguma atividade social à noite.')
+            setCronoImage('1')
+          } else if ((msfsc >=3.5) && (msfsc < 4.5)){
+            setFeedbackCronoText('...intermediário. Isso significa que você se sente bem com horários de sono nem tão cedo, nem tão tarde. A maioria das pessoas se encontra nesta categoria.')
+            setCronoImage('2')
+          } else if ((msfsc >=4.5) && (msfsc < 6.5)){
+            setFeedbackCronoText('...vespertino. Isso significa que você se sente bem acordando e dormindo mais tarde. Isso não quer dizer que você tem preguiça, já que essa é uma característica biológica sua.')
+            setCronoImage('3')
+          } else if ((msfsc >=6.5)){
+            setFeedbackCronoText('...vespertino extremo. Isso significa que você se sente bem acordando e dormindo mais tarde. Isso não quer dizer que você tem preguiça, já que essa é uma característica biológica sua.')
+            setCronoImage('4')
+          }
+        } else {
+          setFeedbackCronoText('Não foi possível calcular seu cronotipo com os dados inseridos.')
+        }
+        //console.log('sono float: ' + durationSonoFloat);
+        //console.log('sono string:' + durationSonoString);
+        
+
+        //feedback duração do sono
+        if (dataAge >=18 && dataAge <= 25){
+          setFeedbackSonoText(durationSonoWDString + " em dias de escola ou trabalho e " + durationSonoFDString + " em dias livres. É recomendado que jovens adultos (18-25 anos) durmam de 7 a 9 horas (podendo também ser 6 a 10 ou 11 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir. ")
+        } else if (dataAge >=26 && dataAge <=64){
+          setFeedbackSonoText(durationSonoWDString + " em dias de trabalho e " + durationSonoFDString + " em dias livres. É recomendado que adultos (26 - 64 anos) durmam de 7 a 9 horas (podendo também ser 6 a 10 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir.")
+        } else if (dataAge >=65){
+          setFeedbackSonoText(durationSonoWDString + " em dias de trabalho e " + durationSonoFDString + " em dias livres. É recomendado que idosos (≥ 65 anos anos) durmam de 7 a 8 horas (podendo também ser 5 ou 6 a 9 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir.")
+        }
+
+      //feedback regularidades e SJL
+     /* var sjlCalculo= Math.abs(midpointSleepFD - midpointSleepWD);
+      console.log('sjl calculo' + sjlCalculo);
+      
+      if (sjlCalculo !== undefined){
+        if (sjlCalculo > 1){
+          setFeedbackSJLText("Observamos que você apresenta " + sjlCalculo.toFixed(2) + " horas de jetlag social, sugerindo que a sua rotina de sono é diferente entre dias de trabalho e dias livres. Você consegue organizar seus horários para tentar manter uma maior regularidade no seu sono sem abrir mão de dormir o suficiente? ")
+        }
+      }
+      if (msfsc !== undefined){
+        if ((msfsc >= 4.5) && (sjlCalculo > 1)){
+          setVespSJLText("Como você é vespertino e seu jetlag social é alto, pode ser que você tenha dificuldade para dormir e acordar nos horários que tem vontade. Se você gostaria de dormir mais cedo e não consegue, tente ficar na luz do dia pela manhã (não esqueça o filtro solar!). Também evite se expor a telas (televisão, computador, celular) e luz azul pela noite. Estudos mostram que isso pode ajudar você a dormir mais cedo. Para saber mais, leia nossas recomendações sobre hábitos para manter seu sono saudável.");
+        } else if ((msfsc >= 4.5) && (durationSonoWDFloat < 6)){
+          setVespSJLText("Como você é vespertino e dorme menos que 6h horas em dias de escola/trabalho, o que pode não ser suficiente, imaginamos que deve ser difícil para você dormir e acordar nos horários que gostaria. Se você gostaria de dormir mais cedo e não consegue, tente ficar na luz do dia pela manhã (não esqueça o filtro solar!). Também evite se expor a telas (televisão, computador, celular) e luz azul pela noite. Estudos mostram que isso pode ajudar você a dormir mais cedo. Para saber mais, leia nossas recomendações sobre hábitos para manter seu sono saudável");
+        } else if ((msfsc >= 4.5) && (durationSonoWDFloat < 6) && (sjlCalculo > 1)){
+          setVespSJLText("Como você é vespertino, seu jetlag social é alto e você dorme menos que 6h horas em dias de escola/trabalho, o que pode não ser suficiente, imaginamos que deve ser difícil para você dormir e acordar nos horários que gostaria. Se você gostaria de dormir mais cedo e não consegue, tente ficar na luz do dia pela manhã (não esqueça o filtro solar!). Também evite se expor a telas (televisão, computador, celular) e luz azul pela noite. Estudos mostram que isso pode ajudar você a dormir mais cedo. Para saber mais, leia nossas recomendações sobre hábitos para manter seu sono saudável");
+        }
+      } */
+
+
+    } 
+    
+      //feedback SONO No Work
+      else if ((dataSleepNoWork && dataWakeUpNoWork) !== (undefined || null || "undefined")) {
+      console.log('tá entrando aqui? ');
+      var durationSonoFDFloat= diffHoursMinutes(dataWakeUpFD, dataSleepFD);
+      var durationSonoFDString= converToHoursAndMinutes(durationSonoFDFloat);
+      var durationSonoNoWork= diffHoursMinutes(dataWakeUpNoWork, dataSleepNoWork);
+      var durationSonoNoWorkString= converToHoursAndMinutes(durationSonoNoWork);
+      if (dataAge >=18 && dataAge <= 25){
+        setFeedbackSonoText(durationSonoNoWorkString + " em dias de semana e " + durationSonoFDString + " em dias livres. É recomendado que jovens adultos (18-25 anos) durmam de 7 a 9 horas (podendo também ser 6 a 10 ou 11 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir. ")
+      } else if (dataAge >=26 && dataAge <=64){
+        setFeedbackSonoText(durationSonoNoWorkString + " em dias de semana e " + durationSonoFDString + " em dias livres. É recomendado que adultos (26 - 64 anos) durmam de 7 a 9 horas (podendo também ser 6 a 10 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir.")
+      } else if (dataAge >=65){
+        setFeedbackSonoText(durationSonoNoWorkString + " em dias de semana e " + durationSonoFDString + " em dias livres. É recomendado que idosos (≥ 65 anos anos) durmam de 7 a 8 horas (podendo também ser 5 ou 6 a 9 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir.")
+      }
+    } 
+
+     
+    }
+  }
+
+  async function getFeedbackRegularidades(){
+    const dbRef= await db.collection('users').doc(uid).get();
+    const data= (await dbRef).data();
+    if (data !== undefined){
+
+      const data2: any= data;
+      const dataFeedReg= data2.feedReg;
+      const dataSleepReg= data2.sleepReg;
+
+      console.log('data feed reg: ', dataFeedReg);
+      console.log('data sleep reg: ', dataSleepReg);
+      console.log('resultado: '+ regularides(dataFeedReg, dataSleepReg));
+      if (regularides(dataFeedReg, dataSleepReg) === 1){
+        setFeedbackRegularidadesText("Vimos que seus horários de alimentação são regulares, o que é muito bom para sua saúde! No entanto, tome cuidado com suas rotinas de sono, pois dormir e acordar em horários regulares é essencial para manter uma vida e um corpo saudável.")
+      } else if (regularides(dataFeedReg, dataSleepReg) === 2){
+        setFeedbackRegularidadesText("Sensacional! Vimos que seus horários alimentação e sono são regulares, o que é muito bom para sua saúde. Continue assim!")
+      } else if (regularides(dataFeedReg, dataSleepReg) === 3){
+        setFeedbackRegularidadesText("É muito importante manter uma regularidade nas rotinas de alimentação e nos horários de sono. Que tal organizar o cardápio e suas compras do supermercado para tentar manter uma regularidade no horário de alimentação? Além disso, não esqueça de que cuidar da rotina de sono é importante para manter uma vida e um corpo saudável.")
+      } else if (regularides(dataFeedReg, dataSleepReg) === 4){
+        setFeedbackRegularidadesText("Vimos que seus horários de sono são regulares. Isso pode ajudar a manter seu corpo saudável! No entanto, seus horários de alimentação são irregulares. Que tal organizar o cardápio e suas compras do supermercado para tentar manter uma regularidade no horário de alimentação?")
+      }
+      
+
+    }
+  }
 
   function modalFeedbackInicial(){
     setShowModalFeedbackInicial(true);
@@ -535,6 +733,8 @@ const Tab1: React.FC = () => {
     getFeedbackSaude();
     getFeedbackContatoInicial();
     getFeedbackBemEstar();
+    getFeedbackSono();
+    getFeedbackRegularidades();
   }
 
   //Checking the dates
@@ -692,6 +892,17 @@ const Tab1: React.FC = () => {
               cssClass='custom-modal'
               onDidDismiss={() => setShowModalFeedbackInicial(false)}>
                 <IonContent>
+                  {cronoImage === '1' ? <p><img src={matutino_feliz}/></p> : null}
+                  {cronoImage === '2' ? <p><img src={intermed_feliz}/></p> : null}
+                  {cronoImage === '3' ? <p><img src={vespertino_feliz}/></p> : null}
+                  <p>Você sabia que cada pessoa tem um relógio interno para organizar as funções do seu corpo? O cronotipo é uma característica que representa como o seu relógio está organizado em relação ao ambiente, principalmente em relação ao dia e a noite.  Considerando seus horários de sono, estimamos que seu cronotipo é...</p>
+                  <p>{feedbackCronoText}</p>
+                  <p>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
+                  <p>{feedbackSonoText}</p>
+                  <p>Ao responder nossas perguntas, você também nos contou um pouco sobre hábitos que podem estar relacionados a manutenção da sua saúde. Aqui vão algumas informações que podem ser úteis para você:</p>
+                  <p>{feedbackRegularidadesText}</p>
+                 {/* <p>{feedbackSJLText}</p>
+                  <p>{vespSJLText}</p> */}
                   <p>Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo.</p>
                   <p>{feedbackLightText}</p>
                   <p>{feedbackHobbiesText}</p>
