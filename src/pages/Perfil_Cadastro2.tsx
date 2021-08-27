@@ -95,6 +95,7 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
      
   
         firebase.firestore().collection('users').doc(uid).set({
+            goodSleep: String(props.state.goodSleep),
             age: Number(props.state.age), //STEP 1
             sex: String(props.state.sex),
             dateMenstruation: String(props.state.dateMenstruation),

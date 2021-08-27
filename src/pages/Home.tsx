@@ -47,6 +47,19 @@ import matutino_feliz from '../img/Matutino_feliz.svg';
 import intermed_feliz from '../img/Neutro_feliz.svg';
 import vespertino_feliz from '../img/Vespertino_feliz.svg';
 
+import matutino_cansado from '../img/Matutino_cansado.svg';
+import intermed_cansado from '../img/Neutro_cansado.svg';
+import vespertino_cansado from '../img/Vespertino_cansado.svg';
+
+import sono_feedback from '../img/sono_feedback.svg';
+import sol from '../img/Sono_1.svg';
+import contato_social from '../img/Covid_4.svg'
+import imc from '../img/Sono_5.svg';
+
+import matutino_wave from '../img/Matutino_boas-vindas.svg';
+import intermed_wave from '../img/Neutro_boas-vindas.svg';
+import vespertino_wave from '../img/Vespertino_boas-vindas.svg';
+
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 
 import 'react-vertical-timeline-component/style.min.css';
@@ -1008,7 +1021,12 @@ const Tab1: React.FC = () => {
 
                   <p className={"readMore-text"}>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
                   <p className={"readMore-text"}>{feedbackSonoText}</p> 
-                  <p className={"readMore-text"}>{feedbackSJLText}</p><br/>
+                  <p className={"readMore-text"}>{feedbackSJLText}</p>
+                  {cronoImage === '1' ? <p><img src={matutino_cansado} className="img-slides" /> </p> : null}
+                  {cronoImage === '2' ? <p><img src={intermed_cansado} className="img-slides" /></p> : null}
+                  {cronoImage === '3' ? <p><img src={vespertino_cansado} className="img-slides" /></p> : null}
+                  
+                  <br/>
                  
 
                   </IonSlide>
@@ -1024,7 +1042,10 @@ const Tab1: React.FC = () => {
                     </IonToolbar>
 
                   <p className={"readMore-text"}>Ao responder nossas perguntas, você também nos contou um pouco sobre hábitos que podem estar relacionados a manutenção da sua saúde. Aqui vão algumas informações que podem ser úteis para você:</p>
-                  <p className={"readMore-text"}>{feedbackRegularidadesText}</p> <br/>
+                  <p className={"readMore-text"}>{feedbackRegularidadesText}</p> 
+                  <p><img src={sono_feedback} className="img-slides" /> </p> 
+                  
+                  <br/>
                   </IonSlide>
                 
                  {/* <p>{feedbackSJLText}</p>
@@ -1041,7 +1062,10 @@ const Tab1: React.FC = () => {
                     </IonToolbar>
                   <p className={"readMore-text"}>Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo.</p>
                   <p className={"readMore-text"}>{feedbackLightText}</p>
-                  <p className={"readMore-text"}>{feedbackHobbiesText}</p> <br/>
+                  <p className={"readMore-text"}>{feedbackHobbiesText}</p> 
+                  <p><img src={sol} className="img-slides" /> </p> 
+
+                  <br/>
                   </IonSlide>
 
                   <IonSlide>
@@ -1073,6 +1097,7 @@ const Tab1: React.FC = () => {
                   <p className={"readMore-text"}>{feedbackMedText}</p>                  
                   <p className={"readMore-text"}>{feedbackFumoText}</p>
                   <p className={"readMore-text"}>{feedbackAlcoolText}</p>
+                  <p><img src={imc} className="img-slides" /> </p> 
                   <br/>
                   </IonSlide>
 
@@ -1088,6 +1113,7 @@ const Tab1: React.FC = () => {
                   <p className={"readMore-text"}>Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões.</p>
                   <p className={"readMore-text"}>{feedbackCIText}</p>
                   <p className={"readMore-text"}>{feedbackCI2Text}</p>
+                  <p><img src={contato_social} className="img-slides" /> </p> 
                   <br/>
                   </IonSlide>
 
@@ -1104,6 +1130,10 @@ const Tab1: React.FC = () => {
                   
                   <p className={"readMore-text"}>{feedbackBemEstarText}</p>
                   <p className={"readMore-text"}>Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!</p>
+                 
+                  {cronoImage === '1' ? <p><img src={matutino_wave} className="img-slides" /> </p> : null}
+                  {cronoImage === '2' ? <p><img src={intermed_wave} className="img-slides" /></p> : null}
+                  {cronoImage === '3' ? <p><img src={vespertino_wave} className="img-slides" /></p> : null}
                   <br/>
                   </IonSlide>
 

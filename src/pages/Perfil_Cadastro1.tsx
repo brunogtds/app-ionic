@@ -287,7 +287,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         </IonItem>
 
                         <div id="progress-bar-div" >
-                            <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>
+                            <IonProgressBar className={"progress-bar"} value={0.66} color="orange"></IonProgressBar>
                         </div>
                         
                       
