@@ -33,29 +33,20 @@ const Gad7 = (props: StepComponentProps) => {
 
   
     return(
-        <IonContent fullscreen color="light"> 
+        <IonContent fullscreen color="background"> 
         
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding texto-default"}>
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
-                       
-            <IonCard color="secondary">
-           
-            <IonCardContent>
-            
-            Agora vamos falar sobre como você tem se sentido nas duas últimas semanas.
-            
-            </IonCardContent>
-            </IonCard>
-                      
+                                   
           
                 <IonLabel className="questions">Nas últimas duas semanas, com que frequência você foi incomodado pelos seguintes problemas: </IonLabel>
            
 
-                <IonList>
+               
                 <IonLabel className="questions">Sentir-se nervoso, ansioso ou no limite.</IonLabel>
-                 <IonItem>
+                 <IonItem lines="none" className={"ion-no-padding"}>
 
                  <Controller render={({onChange}) => (
 
@@ -65,24 +56,24 @@ const Gad7 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('gad7_gad01', e.detail.value )} }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"}  color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad01"} rules={{required:true}}/>
@@ -92,7 +83,7 @@ const Gad7 = (props: StepComponentProps) => {
 
                     <IonLabel className="questions">Não ser capaz de parar ou controlar as preocupações.</IonLabel>
 
-                     <IonItem>
+                     <IonItem lines="none" className={"ion-no-padding"}>
 
                              
 
@@ -104,24 +95,24 @@ const Gad7 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('gad7_gad02', e.detail.value )} }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad02"} rules={{required:true}}/>
@@ -129,7 +120,7 @@ const Gad7 = (props: StepComponentProps) => {
                     </IonItem>
 
                     <IonLabel className="questions">Preocupar-se muito com coisas diferentes.</IonLabel>
-                     <IonItem>
+                     <IonItem lines="none" className={"ion-no-padding"}>
 
                              
 
@@ -141,24 +132,24 @@ const Gad7 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('gad7_gad03', e.detail.value )} }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad03"} rules={{required:true}}/>
@@ -166,7 +157,7 @@ const Gad7 = (props: StepComponentProps) => {
                     </IonItem>
 
                     <IonLabel className="questions">Dificuldade de relaxar.</IonLabel>
-                     <IonItem>
+                     <IonItem lines="none" className={"ion-no-padding"}>
 
                             
 
@@ -178,24 +169,24 @@ const Gad7 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('gad7_gad04', e.detail.value )} }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad04"} rules={{required:true}}/>
@@ -203,7 +194,7 @@ const Gad7 = (props: StepComponentProps) => {
                     </IonItem>
 
                     <IonLabel className="questions">Ser tão inquieto que é difícil ficar parado.</IonLabel>
-                     <IonItem>
+                     <IonItem lines="none" className={"ion-no-padding"}>
                      
                         <Controller render={({onChange}) => (
 
@@ -213,24 +204,24 @@ const Gad7 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('gad7_gad05', e.detail.value )} }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad05"} rules={{required:true}}/>
@@ -243,7 +234,7 @@ const Gad7 = (props: StepComponentProps) => {
 
 
                     <IonLabel className="questions">Tonar-se facilmente irritado ou irritável.</IonLabel>
-                     <IonItem>
+                     <IonItem lines="none" className={"ion-no-padding"}>
 
                              
 
@@ -255,24 +246,24 @@ const Gad7 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('gad7_gad06', e.detail.value )} }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad06"} rules={{required:true}}/>
@@ -280,7 +271,7 @@ const Gad7 = (props: StepComponentProps) => {
                     </IonItem>
 
                     <IonLabel className="questions">Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
-                     <IonItem>
+                     <IonItem lines="none" className={"ion-no-padding"}>
 
                              <Controller render={({onChange}) => (
 
@@ -290,36 +281,39 @@ const Gad7 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('gad7_gad07', e.detail.value )} }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma vez</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Vários dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Mais da metade dos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"gad7_gad07"} rules={{required:true}}/>
                             {errors.gad7_gad07 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                     </IonItem>
-                    </IonList>
+                    
+
+                    <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.48} color="orange"></IonProgressBar>
+                        </div>
 
 
-
-            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-            <IonButton disabled={formState.isValid === false}  onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
+            <IonButton disabled={props.isFirst()}onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+            <IonButton disabled={formState.isValid === false}  onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline">Próximo</IonButton>
             </form>
 
         </div>

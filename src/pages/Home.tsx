@@ -1,5 +1,5 @@
 import React, {useState } from 'react';
-import { IonContent, IonHeader, IonPage,IonToolbar, IonModal} from '@ionic/react';
+import { IonContent, IonHeader, IonPage,IonToolbar, IonModal, IonSlides, IonSlide, IonRow} from '@ionic/react';
 
 import logo_regente from '../img/logo_regente_branco.svg';
 
@@ -164,6 +164,8 @@ const Tab1: React.FC = () => {
 
   const [secondPartText, setSecondPartText] = React.useState("Falta preencher a parte anterior")
   const [thirdPartText, setThirdPartText] = React.useState("Falta preencher a parte anterior")
+
+  const [imgHome, setimgHome] = React.useState();
 
   const [feedbackCIText, setfeedbackCIText]= React.useState("Carregando feedback...")
   const [feedbackCI2Text, setfeedbackCI2Text]= React.useState("Carregando  feedback...")
@@ -681,6 +683,55 @@ const Tab1: React.FC = () => {
     
       //feedback SONO No Work
       else if ((dataSleepNoWork && dataWakeUpNoWork) !== (undefined || null || "undefined")) {
+
+        var durationSonoFDFloat= diffHoursMinutes(dataWakeUpFD, dataSleepFD);     
+        var durationSonoFDString= converToHoursAndMinutes(durationSonoFDFloat);
+       
+        var durationSonoNoWorkFloat= diffHoursMinutes(dataWakeUpNoWork, dataSleepNoWork);
+        var durationSonoNoWorkString= converToHoursAndMinutes(durationSonoNoWorkFloat);
+
+        var soNW= timeStampToFloat(dataSleepNoWork);
+        var seNW= timeStampToFloat(dataWakeUpNoWork);
+        
+        var soFD= timeStampToFloat(dataSleepFD);
+        var seFD= timeStampToFloat(dataWakeUpFD);
+
+        var midpointSleepNW= soNW + ((durationSonoNoWorkFloat)/2);
+        var midpointSleepFD= soFD + ((durationSonoFDFloat)/2);
+
+        console.log('midpoint sleep wd' + midpointSleepNW);
+        console.log('midpoint sleep fd' + midpointSleepFD);
+
+        var msfsc;
+        if (durationSonoFDFloat <= durationSonoNoWorkFloat){
+          msfsc= midpointSleepFD;
+        } else if (durationSonoFDFloat > durationSonoNoWorkFloat){
+          msfsc= midpointSleepFD - ((durationSonoFDFloat-durationSonoNoWorkFloat)/2)
+        }
+
+        if (msfsc !== undefined){
+          console.log('entrou aqui msfsc: ' + msfsc);
+          if (msfsc < 1.5){
+            setFeedbackCronoText('...matutino extremo. Isso significa que você se sente melhor dormindo mais cedo, o que pode ser uma vantagem em uma sociedade que inicia seus compromissos pela manhã. No entanto, pessoas muito matutinas podem, às vezes, se forçar a dormir mais tarde quando têm alguma atividade social à noite.')
+            setCronoImage('1')
+          } else if ((msfsc >=1.5) && (msfsc < 3.5)){
+            setFeedbackCronoText('...matutino. Isso significa que você se sente melhor dormindo mais cedo, o que pode ser uma vantagem em uma sociedade que inicia seus compromissos pela manhã. No entanto, pessoas muito matutinas podem, às vezes, se forçar a dormir mais tarde quando têm alguma atividade social à noite.')
+            setCronoImage('1')
+          } else if ((msfsc >=3.5) && (msfsc < 4.5)){
+            setFeedbackCronoText('...intermediário. Isso significa que você se sente bem com horários de sono nem tão cedo, nem tão tarde. A maioria das pessoas se encontra nesta categoria.')
+            setCronoImage('2')
+          } else if ((msfsc >=4.5) && (msfsc < 6.5)){
+            setFeedbackCronoText('...vespertino. Isso significa que você se sente bem acordando e dormindo mais tarde. Isso não quer dizer que você tem preguiça, já que essa é uma característica biológica sua.')
+            setCronoImage('3')
+          } else if ((msfsc >=6.5)){
+            setFeedbackCronoText('...vespertino extremo. Isso significa que você se sente bem acordando e dormindo mais tarde. Isso não quer dizer que você tem preguiça, já que essa é uma característica biológica sua.')
+            setCronoImage('3')
+          }
+        } else {
+          setFeedbackCronoText('Não foi possível calcular seu cronotipo com os dados inseridos.')
+        }
+
+
       console.log('tá entrando aqui? ');
       var durationSonoFDFloat= diffHoursMinutes(dataWakeUpFD, dataSleepFD);
       var durationSonoFDString= converToHoursAndMinutes(durationSonoFDFloat);
@@ -760,10 +811,17 @@ const Tab1: React.FC = () => {
       <IonHeader>
         <IonToolbar color="orange">
         
+      
+        
         <div id="header-items">
-          <img src={logo_regente} className={"logo"}/>
-          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
-        </div>   
+        <img src={logo_regente} className={"logo"}/>
+                 
+        
+         
+        </div>
+        
+        <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
+        
         
           {/*
           <div id="header-items">
@@ -777,6 +835,13 @@ const Tab1: React.FC = () => {
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader}/>
       <IonContent fullscreen className="ion-text-center ion-padding texto-padrão" color="background">
+
+      {cronoImage === '1' ? <p><img src={matutino_feliz} className="img-home" /> </p> : null}
+      {cronoImage === '2' ? <p><img src={intermed_feliz} className="img-home" /></p> : null}
+      {cronoImage === '3' ? <p><img src={vespertino_feliz} className="img-home" /></p> : null}
+
+        <p className="texto-main">Olá, boas-vindas!</p>
+        <p className="texto-padrão ">Para receber dicas personalizadas e ajudar a alimentar a pesquisa, preencha os formulários abaixo! Após preencher você também poderá definir metas e acompanhar suas atividades.</p>
 
         {/*
         <IonGrid>
@@ -867,12 +932,12 @@ const Tab1: React.FC = () => {
             </AccordionItemPanel> 
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado}  onClick={contato} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
            </div> 
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid"  className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid"  className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
@@ -889,37 +954,146 @@ const Tab1: React.FC = () => {
            </div>
 
            <IonModal isOpen={showModalFeedbackInicial} showBackdrop={true}
-              cssClass='custom-modal'
+              cssClass='custom-modal selectable'
               onDidDismiss={() => setShowModalFeedbackInicial(false)}>
                 <IonContent>
-                  {cronoImage === '1' ? <p><img src={matutino_feliz}/></p> : null}
-                  {cronoImage === '2' ? <p><img src={intermed_feliz}/></p> : null}
-                  {cronoImage === '3' ? <p><img src={vespertino_feliz}/></p> : null}
-                  <p>Você sabia que cada pessoa tem um relógio interno para organizar as funções do seu corpo? O cronotipo é uma característica que representa como o seu relógio está organizado em relação ao ambiente, principalmente em relação ao dia e a noite.  Considerando seus horários de sono, estimamos que seu cronotipo é...</p>
-                  <p>{feedbackCronoText}</p>
-                  <p>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
-                  <p>{feedbackSonoText}</p>
-                  <p>Ao responder nossas perguntas, você também nos contou um pouco sobre hábitos que podem estar relacionados a manutenção da sua saúde. Aqui vão algumas informações que podem ser úteis para você:</p>
-                  <p>{feedbackRegularidadesText}</p>
+
+                  <IonSlides pager={true}>
+                    <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+              
+
+
+                  {cronoImage === '1' ? <p><img src={matutino_feliz} className="img-slides" /> </p> : null}
+                  {cronoImage === '2' ? <p><img src={intermed_feliz} className="img-slides" /></p> : null}
+                  {cronoImage === '3' ? <p><img src={vespertino_feliz} className="img-slides" /></p> : null}
+                  <p className={"readMore-text"}>Você sabia que cada pessoa tem um relógio interno para organizar as funções do seu corpo? O cronotipo é uma característica que representa como o seu relógio está organizado em relação ao ambiente, principalmente em relação ao dia e a noite.  Considerando seus horários de sono, estimamos que seu cronotipo é...</p>
+                  <p className={"readMore-text"}>{feedbackCronoText}</p>
+                  <p>
+
+                  <IonButton color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/>Compartilhar resultados</IonButton> 
+                  </p> <br/>
+
+                  </IonSlide>
+
+                  <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+
+
+                  <p className={"readMore-text"}>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
+                  <p className={"readMore-text"}>{feedbackSonoText}</p> <br/>
+
+                  </IonSlide>
+
+                  <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+
+                  <p className={"readMore-text"}>Ao responder nossas perguntas, você também nos contou um pouco sobre hábitos que podem estar relacionados a manutenção da sua saúde. Aqui vão algumas informações que podem ser úteis para você:</p>
+                  <p className={"readMore-text"}>{feedbackRegularidadesText}</p> <br/>
+                  </IonSlide>
+                
                  {/* <p>{feedbackSJLText}</p>
                   <p>{vespSJLText}</p> */}
-                  <p>Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo.</p>
-                  <p>{feedbackLightText}</p>
-                  <p>{feedbackHobbiesText}</p>
-                  <p>{feedbackExerciseText} Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p> 
-                  <p>{feedbackIMCText}</p>
-                  <p>{feedbackMedText}</p>                  
-                  <p>{feedbackFumoText}</p>
-                  <p>{feedbackAlcoolText}</p>
-                  <p>Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões.</p>
-                  <p>{feedbackCIText}</p>
-                  <p>{feedbackCI2Text}</p>
-                  <p>É sempre importante manter acompanhamento médico regularmente. De forma geral, quanto antes uma doença for identificada mais fácil e barato é seu tratamento, além de lhe causar menos transtornos. Faça suas revisões regulares e evite surpresas.</p>
-                  <p>Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!</p>
-                  <p>{feedbackBemEstarText}</p>
-                  <p>
-                  <IonButton color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Compartilhar resultados</div></IonButton> 
-                  </p>
+
+                <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+                  <p className={"readMore-text"}>Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo.</p>
+                  <p className={"readMore-text"}>{feedbackLightText}</p>
+                  <p className={"readMore-text"}>{feedbackHobbiesText}</p> <br/>
+                  </IonSlide>
+
+                  <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+
+
+                  <p className={"readMore-text"}>{feedbackExerciseText} Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p> 
+                  <br/>
+                  </IonSlide> 
+
+                  <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+                  
+                  <p className={"readMore-text"}>{feedbackIMCText}</p>
+                  <p className={"readMore-text"}>{feedbackMedText}</p>                  
+                  <p className={"readMore-text"}>{feedbackFumoText}</p>
+                  <p className={"readMore-text"}>{feedbackAlcoolText}</p>
+                  <br/>
+                  </IonSlide>
+
+                  <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+                  <p className={"readMore-text"}>Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões.</p>
+                  <p className={"readMore-text"}>{feedbackCIText}</p>
+                  <p className={"readMore-text"}>{feedbackCI2Text}</p>
+                  <br/>
+                  </IonSlide>
+
+                  <IonSlide>
+                      <IonToolbar color="white">
+                        <div id="header-items">
+                          
+                        <p className={"header-title"}>Resultados</p>
+                        <IonButton className={"button-header"} fill="clear"  slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
+                        
+                        </div>   
+                    </IonToolbar>
+                  <p className={"readMore-text"}>É sempre importante manter acompanhamento médico regularmente. De forma geral, quanto antes uma doença for identificada mais fácil e barato é seu tratamento, além de lhe causar menos transtornos. Faça suas revisões regulares e evite surpresas.</p>
+                  
+                  <p className={"readMore-text"}>{feedbackBemEstarText}</p>
+                  <p className={"readMore-text"}>Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!</p>
+                  <br/>
+                  </IonSlide>
+
+                  </IonSlides>
                 </IonContent>
             </IonModal>
           
@@ -941,7 +1115,7 @@ const Tab1: React.FC = () => {
               <p>{secondPartText}</p>
 
            <div>
-           <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1} onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1}  onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
@@ -952,12 +1126,12 @@ const Tab1: React.FC = () => {
            <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado}  onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar </div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
            <div>
-           <IonButton disabled={moduloSonoSintomasPostEnviado || !moduloHabitosPostEnviado} onClick={sonosintomasPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloSonoSintomasPostEnviado || !moduloHabitosPostEnviado}  onClick={sonosintomasPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
            </div>
            
            </AccordionItemPanel>
@@ -990,19 +1164,19 @@ const Tab1: React.FC = () => {
             <p>{thirdPartText}</p>
 
             <div>
-           <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2}  onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
 
            <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado} onClick={contatoFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado}  onClick={contatoFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
 
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado}  onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
 

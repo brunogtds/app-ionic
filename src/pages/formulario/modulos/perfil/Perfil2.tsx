@@ -212,8 +212,8 @@ const Perfil2  = (props: StepComponentProps) => {
                             />
                         </IonItem>
                         {errors.area && <IonText color="danger">Campo obrigatório.</IonText>}
-                        <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} onClick={onSubmit} className={"btnProximo"} size="large" fill="clear">Submeter</IonButton>
+                        <IonButton disabled={props.isFirst()}onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="clear">Anterior</IonButton>
+                        <IonButton disabled={formState.isValid === false} onClick={onSubmit} className={"btnProximo"} size="default" shape="round" fill="clear">Submeter</IonButton>
                        
                         
                </form>

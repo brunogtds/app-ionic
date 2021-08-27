@@ -61,7 +61,7 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
       res.user?.sendEmailVerification();
       history.replace('/tab1');
       
-      createDatabaseQuest1(res.user?.uid, res.user?.email)
+      createDatabaseQuest1(res.user?.uid)
           //history.replace('/tab1');
     } 
 
@@ -71,16 +71,16 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
   }
   
 
- async function createDatabaseQuest1(uid: any, email: any){
+ async function createDatabaseQuest1(uid: any){
 
     await firebase.firestore().collection('users').doc(uid).set({
-        email: email, }, { merge: true });   
+        uid: uid, }, { merge: true });   
         
     await firebase.firestore().collection('usersPost').doc(uid).set({
-        email: email, }, { merge: true });   
+        uid: uid, }, { merge: true });   
 
     await firebase.firestore().collection('usersFinal').doc(uid).set({
-            email: email, }, { merge: true }); 
+        uid: uid, }, { merge: true }); 
        
    
      console.log('firestore criado');
@@ -145,7 +145,7 @@ const onSubmit = (data: any) => {
                       
                            <Controller render={({onChange}) => (
 
-                           <IonSelect placeholder="Por favor, selecione..." value= {props.getState("schooling", "")} id="schooling" onIonChange={(e)=> {
+                           <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value= {props.getState("schooling", "")} id="schooling" onIonChange={(e)=> {
                                console.log(e);
                                onChange(e.detail.value);
                              
@@ -170,10 +170,6 @@ const onSubmit = (data: any) => {
                         
                          </IonItem>
 
-                         {errors.schooling && <IonText color="danger">Campo obrigatório.</IonText>}
-                       
-
-                         
                          <IonLabel className="questions">Estado Civil:</IonLabel>
                          
 
@@ -182,7 +178,7 @@ const onSubmit = (data: any) => {
                              
 
                                <Controller render={({onChange}) => (
-                               <IonSelect placeholder="Por favor, selecione..." value= {props.getState("married", "")} id="married" onIonChange={(e)=> {
+                               <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value= {props.getState("married", "")} id="married" onIonChange={(e)=> {
                                    console.log(e);
                                    onChange(e.detail.value);
                                    if (e.detail.value != undefined) 
@@ -200,9 +196,9 @@ const onSubmit = (data: any) => {
                                />
                         </IonItem>
 
-                        {errors.married && <IonText color="danger">Campo obrigatório.</IonText>}
 
-                        <IonLabel position="floating" className="ion-text-wrap questions">Número de pessoas dependentes:</IonLabel>            
+                        <IonLabel className="ion-text-wrap questions">Número de pessoas dependentes:</IonLabel>     
+                        {errors.depend && <IonText color="danger">Campo obrigatório.</IonText>}       
                        <IonItem>
                            
 
@@ -219,10 +215,11 @@ const onSubmit = (data: any) => {
                           
                         </IonItem>
 
-                        {errors.depend && <IonText color="danger">Campo obrigatório.</IonText>}
+                      
       
                         
                        <IonLabel className="questions">Moro em uma área: </IonLabel>
+                       {errors.area && <IonText color="danger">Campo obrigatório.</IonText>}
                        <IonItem className={"ion-no-padding"}>
                            
 
@@ -253,14 +250,14 @@ const onSubmit = (data: any) => {
                             rules={{required: true}}
                             />
                         </IonItem>
-                        {errors.area && <IonText color="danger">Campo obrigatório.</IonText>}
+                     
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
                         </div>
 
-                        <IonButton disabled={props.isFirst()}onClick={props.prev} color="orange" size="large" fill="outline">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} color="orange" onClick={onSubmit} className={"btnProximo"} size="large" fill="outline">Submeter</IonButton>
+                        <IonButton disabled={props.isFirst()}onClick={props.prev} color="orange" className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+                        <IonButton disabled={formState.isValid === false} color="orange" onClick={onSubmit} className={"btnProximo"} size="default" shape="round" fill="outline">Submeter</IonButton>
                        
                         
                </form>

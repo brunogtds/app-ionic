@@ -1,5 +1,5 @@
 import React from "react";
-import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonLoading} from "@ionic/react";
+import {IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonLoading, IonProgressBar} from "@ionic/react";
 import { IonContent, IonText} from '@ionic/react';
 import firebase from "firebase";
 import { useState } from "react";
@@ -67,14 +67,15 @@ const SaudeFinal2 = (props: StepComponentProps) => {
     }
 
     return(
-        <IonContent fullscreen color="light">
+        <IonContent fullscreen color="background">
         <div>
         
-            <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
+            <form className="ion-padding texto-default" onSubmit={handleSubmit(onSubmit)}>
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
-                <IonItem>
-                    <IonLabel>O seu consumo de bebidas alcóolicas, em comparação a antes da pandemia:</IonLabel>
+            <IonLabel className="questions">O seu consumo de bebidas alcóolicas, em comparação a antes da pandemia:</IonLabel>
+                <IonItem lines="none" className={"ion-no-padding"}>
+                
                     
                     <Controller render={({onChange}) => (
                     <IonRadioGroup onIonChange={(e) => {
@@ -84,19 +85,19 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                         props.setState('alcoholChangeFinal', e.detail.value ); 
                     }}>
 
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Não mudou</IonLabel>
-                        <IonRadio color="primary" value="0"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="0"></IonRadio>
                         </IonItem>
                         
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Diminuiu</IonLabel>
-                        <IonRadio color="primary" value="1"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="1"></IonRadio>
                         </IonItem>
 
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Aumentou</IonLabel>
-                        <IonRadio color="primary" value="2"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="2"></IonRadio>
                         </IonItem>
                     </IonRadioGroup>
                     )}
@@ -105,8 +106,9 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                     />
                 </IonItem>
 
-                <IonItem>
-                    <IonLabel>O seu consumo de estimulantes (café, chimarrão), em comparação a antes da pandemia:</IonLabel>
+                <IonLabel className="questions">O seu consumo de estimulantes (café, chimarrão), em comparação a antes da pandemia:</IonLabel>
+                <IonItem lines="none" className={"ion-no-padding"}>
+                    
                     
                     <Controller render={({onChange}) => (
                     <IonRadioGroup onIonChange={(e) => {
@@ -116,19 +118,19 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                         props.setState('stimulantsChangeFinal', e.detail.value ); 
                     }}>
 
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Não mudou</IonLabel>
-                        <IonRadio color="primary" value="0"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="0"></IonRadio>
                         </IonItem>
                         
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Diminuiu</IonLabel>
-                        <IonRadio color="primary" value="1"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="1"></IonRadio>
                         </IonItem>
 
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Aumentou</IonLabel>
-                        <IonRadio color="primary" value="2"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="2"></IonRadio>
                         </IonItem>
                     </IonRadioGroup>
                     )}
@@ -137,8 +139,10 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                     />
                 </IonItem>
 
-                <IonItem>
-                    <IonLabel>Se você fuma, em comparação a antes da pandemia, o número de cigarros que você fuma por dia:</IonLabel>
+
+                <IonLabel className="questions">Se você fuma, em comparação a antes da pandemia, o número de cigarros que você fuma por dia:</IonLabel>
+                <IonItem lines="none" className={"ion-no-padding"}>
+                   
                     
                     <Controller render={({onChange}) => (
                     <IonRadioGroup onIonChange={(e) => {
@@ -148,24 +152,24 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                         props.setState('smokeChangeFinal', e.detail.value ); 
                     }}>
 
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Não mudou</IonLabel>
-                        <IonRadio color="primary" value="0"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="0"></IonRadio>
                         </IonItem>
                         
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Diminuiu</IonLabel>
-                        <IonRadio color="primary" value="1"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="1"></IonRadio>
                         </IonItem>
 
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Aumentou</IonLabel>
-                        <IonRadio color="primary" value="2"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="2"></IonRadio>
                         </IonItem>
 
-                        <IonItem>
+                        <IonItem lines="none" className={"ion-no-padding"}>
                         <IonLabel>Não fumo</IonLabel>
-                        <IonRadio color="primary" value="888"></IonRadio>
+                        <IonRadio slot="start"  className={"radio-options"} color="primary" value="888"></IonRadio>
                         </IonItem>
                     </IonRadioGroup>
                     )}
@@ -174,8 +178,12 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                     />
                 </IonItem>
 
-                <IonButton onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                <IonButton disabled={formState.isValid === false} onClick={onSubmit} size="large" fill="clear" className={"btnProximo"}>Submeter</IonButton>
+                <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
+                        </div>
+
+                <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+                <IonButton disabled={formState.isValid === false} onClick={onSubmit} size="default" shape="round" fill="outline" className={"btnProximo"}>Submeter</IonButton>
 
                 </form>
 

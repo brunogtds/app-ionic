@@ -140,8 +140,8 @@ const Perfil1 = (props: StepComponentProps) => {
                         </IonItem> 
                         : null}
                         
-                        <IonLabel position="floating" className="questions">Peso (em kg):</IonLabel>
-                        <IonNote >Se você não sabe seu peso exato, pode ser um valor aproximado.</IonNote>
+                        <IonLabel className="questions">Peso (em kg):</IonLabel>
+                        
                         <IonItem>
                             
 
@@ -159,8 +159,8 @@ const Perfil1 = (props: StepComponentProps) => {
                             {errors.weight && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>
                         
-                         <IonLabel position="floating" className="questions">Altura (em cm): </IonLabel>
-                         <IonNote >Responda com o valor em centímetros, por ex: 1,70m = 170cm - escrever 170.</IonNote>
+                         <IonLabel className="questions">Altura (em cm): </IonLabel>
+                         
                          <IonItem>
 
                             <Controller render={({onChange}) => (
@@ -296,8 +296,8 @@ const Perfil1 = (props: StepComponentProps) => {
                       
                         
                       
-                        <IonButton disabled={true} onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} onClick={props.next} className={"btnProximo"} size="large" fill="clear" >Próximo</IonButton>
+                        <IonButton disabled={true} onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="clear">Anterior</IonButton>
+                        <IonButton disabled={formState.isValid === false} onClick={props.next} className={"btnProximo"} size="default" shape="round" fill="clear" >Próximo</IonButton>
                         
                          
                 </form>

@@ -41,9 +41,9 @@ const ISI = (props: StepComponentProps) => {
             sleepWD: String(props.state.sleepWD),
             wakeUpWD: String(props.state.wakeUpWD),
             alarmWD: String(props.state.alarmWD),
-            sleepOnWork: String(props.state.sleepOnWork),
-            wakeUpOnWork: String(props.state.wakeUpOnWork),
-            alarmOnWork: String(props.state.alarmOnWork),
+            sleepNoWork: String(props.state.sleepNoWork),
+            wakeUpNoWork: String(props.state.wakeUpNoWork),
+            alarmNoWork: String(props.state.alarmNoWork),
             sleepFD: String(props.state.sleepFD),
             wakeUpFD: String(props.state.wakeUpFD),
             alarmFD: String(props.state.alarmFD), 
@@ -97,15 +97,15 @@ const ISI = (props: StepComponentProps) => {
  
  
     return(
-        <IonContent fullscreen color="light"> 
+        <IonContent fullscreen color="background"> 
          
         <div>
-            <form className={"ion-padding"} onSubmit={handleSubmit(onSubmit)}>
+            <form className={"ion-padding texto-default"} onSubmit={handleSubmit(onSubmit)}>
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
             
             <IonLabel className="questions">Você tem tido problemas com seu sono?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
                 
 
                 <Controller render={({onChange}) => (
@@ -114,21 +114,21 @@ const ISI = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('sleepProblem', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                             </IonRadioGroup> )} control={control} name={"sleepProblem"} rules={{required:true}}/>
                             {errors.sleepProblem && <IonText color="danger">Campo obrigatório.</IonText>}
             </IonItem>
 
             {problemasSono == "sim" ?
-            <IonItem>
+            <IonItem lines="none">
 
             <IonLabel className="questions">Por favor, avalie a gravidade da sua insônia nas duas últimas semanas, em relação a:</IonLabel>
             </IonItem>
@@ -137,10 +137,12 @@ const ISI = (props: StepComponentProps) => {
             {problemasSono == "sim" ?
             
                 
-                <IonItem>
+                <IonItem lines="none">
 
                              <IonLabel className="questions">Dificuldade de pegar no sono.</IonLabel>
-                           
+                            </IonItem> :null}
+                            {problemasSono == "sim" ?
+                            <IonItem lines="none">
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -148,29 +150,29 @@ const ISI = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('isi_isi01', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Leve</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Moderada</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Grave</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Muito grave</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
       
                             </IonRadioGroup> )} control={control} name='isi_isi01' rules={{required:true}}/>
@@ -178,10 +180,12 @@ const ISI = (props: StepComponentProps) => {
                     </IonItem> :null }
 
                     {problemasSono == "sim" ?
-                <IonItem>
+                <IonItem lines="none">
 
                              <IonLabel className="questions">Dificuldade de manter o sono.</IonLabel>
-
+                             </IonItem> :null}
+                            {problemasSono == "sim" ?
+                            <IonItem lines="none" >
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -189,29 +193,29 @@ const ISI = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('isi_isi02', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Leve</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Moderada</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Grave</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Muito grave</IonLabel>
-                                <IonRadio className={"radio-options"}  color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"}  color="primary" value="4"></IonRadio>
                                 </IonItem>
       
                             </IonRadioGroup> )} control={control} name='isi_isi02' rules={{required:true}}/>
@@ -219,10 +223,12 @@ const ISI = (props: StepComponentProps) => {
                     </IonItem> :null }
 
                     {problemasSono == "sim" ?
-                    <IonItem>
+                    <IonItem lines="none">
 
                              <IonLabel className="questions">Problema de despertar muito cedo.</IonLabel>
-
+                             </IonItem> :null}
+                            {problemasSono == "sim" ?
+                            <IonItem lines="none" >
                              <Controller render={({onChange}) => (
                              <IonRadioGroup onIonChange={(e)=> {
                                 console.log(e);
@@ -230,29 +236,29 @@ const ISI = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('isi_isi03', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhuma</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Leve</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Moderada</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Grave</IonLabel>
-                                <IonRadio  className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Muito grave</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
       
                             </IonRadioGroup> )} control={control} name='isi_isi03' rules={{required:true}}/>
@@ -263,7 +269,7 @@ const ISI = (props: StepComponentProps) => {
 
              
             <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
                 
 
                 <Controller render={({onChange}) => (
@@ -272,31 +278,35 @@ const ISI = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('sleepQual', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Muito boa</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Boa</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Ruim</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Muito ruim</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
                             </IonRadioGroup> )} control={control} name={"sleepQual"} rules={{required:true}}/>
                             {errors.sleepQual && <IonText color="danger">Campo obrigatório.</IonText>}
             </IonItem>
+
+            <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
+                        </div>
             
-            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-            <IonButton disabled={formState.isValid === false}  onClick={onSubmit} size="large" className={"btnProximo"} fill="clear">Submeter</IonButton>
+            <IonButton disabled={props.isFirst()}onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+            <IonButton disabled={formState.isValid === false}  onClick={onSubmit} size="default" shape="round" className={"btnProximo"} fill="outline">Submeter</IonButton>
             </form>
 
         </div>

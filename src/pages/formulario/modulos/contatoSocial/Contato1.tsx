@@ -13,6 +13,10 @@ import { IonProgressBar} from '@ionic/react';
 
 const Contato1 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
     
     const [distanciamento, setDistanciamento]= useState();
@@ -20,26 +24,29 @@ const Contato1 = (props: StepComponentProps) => {
     
 
         return (
-            <IonContent fullscreen color="light">
+            <IonContent fullscreen color="background">
            
                 
             <div className="ion-text-wrap">
                
-                <form className="ion-padding">
+                <form className="ion-padding texto-default">
+                <div className="texto-title">Contato social</div>
+                <div className="texto-default">Para receber dicas personalizadas, preencha para sabermos mais sobre você e suas atividades sociais!</div>
 
                 <div className="ion-text-wrap">
                 
-                        <IonLabel className="ion-text-wrap questions">Estou em distanciamento social:</IonLabel>
+                        
                        
                         
-                        
-                        
-                        <IonItem>
-                            
+                <IonLabel className="questions">Estou em distanciamento social:</IonLabel>
+              
+                        <IonItem lines="none">
+                      
+
 
                             <Controller render={({onChange}) => (
 
-                            <IonSelect placeholder="Por favor, selecione..." value={distanciamento} onIonChange={(e) => {setDistanciamento(e.detail.value);
+                            <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={distanciamento} onIonChange={(e) => {setDistanciamento(e.detail.value);
                                 onChange(e.detail.value);
                                 console.log(e);
                                 if (e.detail.value != undefined) 
@@ -52,12 +59,9 @@ const Contato1 = (props: StepComponentProps) => {
                             {errors.socialDist && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>
                         
-                        <IonLabel className="ion-text-wrap questions">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
+                        <IonLabel className="questions">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
 
-                        <IonList>
-                        
-                       
-                         <IonItem>
+                         <IonItem lines="none" className={"ion-no-padding"}>
                             
                             
                             <Controller render={({onChange}) => (
@@ -66,152 +70,31 @@ const Contato1 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) 
                                 props.setState('quarantineRoom', e.detail.value ) }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio  className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"}  color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio  className={"radio-options"} color="primary" value="não"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"}  color="primary" value="não"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="semResposta"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="semResposta"></IonRadio>
                                 </IonItem>
                             </IonRadioGroup> )} rules={{required:true}} control={control} name={"quarantineRoom"} />
                             {errors.quarantineRoom && <IonText color="danger">Campo obrigatório.</IonText>}
                         </IonItem>  
                        
 
-                        {/*PRECISOU SE ISOLAR -> SIM */}
-
-                        {isolamento === "sim" ?
-                        <IonItem>
-                            <IonLabel className="questions">Em que mês(meses) você precisou se isolar?</IonLabel>
-
-                            <Controller render={({onChange}) => (
-                            <IonList>
-
-                               
-                                <IonItem>
-                                <IonCheckbox  className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'fevereiro' ) }}></IonCheckbox>
-                                <IonLabel>Fevereiro</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox  className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'março' ) }}></IonCheckbox>
-                                <IonLabel>Março</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox  className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'abril' ) }}></IonCheckbox>
-                                <IonLabel>Abril</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'maio' ) }}></IonCheckbox>
-                                <IonLabel>Maio</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'junho' ) }}></IonCheckbox>
-                                <IonLabel>Junho</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'julho' ) }}></IonCheckbox>
-                                <IonLabel>Julho</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'agosto' ) }}></IonCheckbox>
-                                <IonLabel>Agosto</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'setembro' ) }}></IonCheckbox>
-                                <IonLabel>Setembro</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'outubro' ) }}></IonCheckbox>
-                                <IonLabel>Outubro</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'novembro' ) }}></IonCheckbox>
-                                <IonLabel>Novembro</IonLabel>
-                                </IonItem>
-
-                                <IonItem>
-                                <IonCheckbox className={"checkbox-options"} color="primary" value= {props.getState("quarantineRoomDur", "")} onIonChange={(e)=> {
-                                console.log(e);
-                                onChange(e.detail.value);
-                                if (e.detail.value != undefined) 
-                                props.setState('quarantineRoomDur', 'dezembro' ) }}></IonCheckbox>
-                                <IonLabel>Dezembro</IonLabel>
-                                </IonItem>
-
-
-                            </IonList>    )}
-                            control={control}
-                            name={"quarantineRoomDur"}
-                            />
-
-                        </IonItem> : null }
-
-                        </IonList>
-
-                        {/*FIM->PRECISOU SE ISOLAR*/}
-
                         <IonLabel className="questions">Quanto você precisa sair para fazer alguma atividade, quanto tempo normalmente fica fora de casa?</IonLabel>
-                        <IonItem>
+                        <IonItem lines="none" >
                             
 
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
+                            <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -227,10 +110,15 @@ const Contato1 = (props: StepComponentProps) => {
                             {errors.quarantineOutDur && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>
 
+                         <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>
+                        </div>
+
+
                         
 
-                <IonButton onClick={props.prev} disabled={true} size="large" fill="clear">Anterior</IonButton>
-                <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear" >Próximo</IonButton>
+                <IonButton onClick={props.prev} disabled={true} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+                <IonButton disabled={formState.isValid === false} onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline" >Próximo</IonButton>
                    
                    </div>
                 </form>

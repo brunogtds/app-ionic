@@ -21,6 +21,11 @@ import firebase from 'firebase';
 
 const ContatoFinal2 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
+
     const {data: user}= useUser();
    const [dataUser, setData] = useState()
 
@@ -62,22 +67,22 @@ const ContatoFinal2 = (props: StepComponentProps) => {
     
 
         return (
-            <IonContent fullscreen color="light">
+            <IonContent fullscreen color="background">
             
                 
-            <div className="ion-text-wrap">
+            <div className="ion-text-wrap ">
                
-                <form className="ion-padding" onSubmit={handleSubmit(onSubmit)}>
+                <form className="ion-padding texto-default" onSubmit={handleSubmit(onSubmit)}>
                 <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
                 <div className="ion-text-wrap">
                  
                          <IonLabel className="questions">Com quantas pessoas por dia, aproximadamente, você teve contato (online, incluindo mensagens, ou ao vivo) nas últimas duas semanas? </IonLabel>
-                         <IonItem>
+                         <IonItem lines="none">
                             
                            
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
+                            <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -93,8 +98,13 @@ const ContatoFinal2 = (props: StepComponentProps) => {
                             {errors.contactNFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>
 
-                <IonButton onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                <IonButton disabled={formState.isValid === false} onClick={onSubmit} size="large" className={"btnProximo"} fill="clear" >Submeter</IonButton>
+                         
+                         <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
+                        </div>
+
+                <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+                <IonButton disabled={formState.isValid === false} onClick={onSubmit} size="default" shape="round" className={"btnProximo"} fill="outline" >Submeter</IonButton>
                    
                    </div>
                 </form>

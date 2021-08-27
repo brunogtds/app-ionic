@@ -21,6 +21,10 @@ import firebase from 'firebase';
 
 const HabitosFinal4 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
     const {data: user}= useUser();
    const [dataUser, setData] = useState()
 
@@ -91,21 +95,21 @@ const HabitosFinal4 = (props: StepComponentProps) => {
     const [horarioLuzNatural, setHorarioLuzNatural] = useState();
 
         return (
-            <IonContent fullscreen color="light">
+            <IonContent fullscreen color="background">
                            
             <div className="ion-text-wrap">
                
-                <form className="ion-padding">
+                <form className="ion-padding texto-default">
 
                 <div className="ion-text-wrap">
                 <IonLabel className="questions">Com que frequência você se expôs a luz natural (em um ambiente aberto) nas últimas duas semanas?</IonLabel>
-                        <IonList>
+                        
                         
 
-                         <IonItem>
+                         <IonItem lines="none">
                             
                             <Controller render={({onChange}) => (  
-                            <IonSelect placeholder="Por favor, selecione..." value={frequenciaLuzNatural} onIonChange={(e) => {setFrequenciaLuzNatural(e.detail.value);
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={frequenciaLuzNatural} onIonChange={(e) => {setFrequenciaLuzNatural(e.detail.value);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
                                 props.setState('lightFreqFinal', e.detail.value )}}}>
@@ -121,10 +125,13 @@ const HabitosFinal4 = (props: StepComponentProps) => {
 
 
                         {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
-                        <IonItem>
+                        <IonItem lines="none">
                             <IonLabel className="questions">Nesses dias, a quantas horas de luz natural (em um ambiente aberto) você se expôs em média?</IonLabel>
+                            </IonItem>:null}
+                            {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
+                            <IonItem lines="none">
                             <Controller render={({onChange}) => (  
-                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -140,10 +147,13 @@ const HabitosFinal4 = (props: StepComponentProps) => {
                          </IonItem>:null }
 
                          {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
-                         <IonItem>
+                         <IonItem lines="none">
                             <IonLabel className="questions">Quão regulares foram os horários em que se expõe à luz natural?</IonLabel>
+                            </IonItem>:null}
+                            {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
+                            <IonItem lines="none">
                             <Controller render={({onChange}) => (  
-                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -156,24 +166,27 @@ const HabitosFinal4 = (props: StepComponentProps) => {
                             {errors.lightRegFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>:null}
 
-                        <IonList>
+                       
                          {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ? 
-                         <IonItem>
+                         <IonItem lines="none">
                             <IonLabel className="questions">Seus horários de se expor à luz foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana)?</IonLabel>
+                                    </IonItem>:null}
+                                    {((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) ?
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                             <Controller render={({onChange}) => (
                             <IonRadioGroup value={horarioLuzNatural} onIonChange={(e) => { setHorarioLuzNatural(e.detail.value);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
                                     props.setState('lightWDFDYDFinal', e.detail.value )}} }>
 
-                                <IonItem>
+                                <IonItem lines="none">
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none">
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"lightWDFDYDFinal"} rules={{required:true}}/>
@@ -183,10 +196,13 @@ const HabitosFinal4 = (props: StepComponentProps) => {
                         {/*HORÁRIOS DE LUZ REGULARES -> SIM */}
 
                         {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ? 
-                        <IonItem>
+                        <IonItem lines="none">
                              <IonLabel className="questions">Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias trabalho ou de semana?</IonLabel>
+                             </IonItem>:null}
+                             {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ? 
+                             <IonItem lines="none">
                              <Controller render={({onChange}) => (
-                             <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+                             <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -195,10 +211,13 @@ const HabitosFinal4 = (props: StepComponentProps) => {
                          </IonItem>:null}
 
                          {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ?
-                         <IonItem>
+                         <IonItem lines="none">
                              <IonLabel className="questions">Nas últimas duas semanas, em que horário, em média, você se expôs à luz natural, nos dias livres ou fins de semana?</IonLabel>
+                             </IonItem>:null}
+                             {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "sim")) ?
+                             <IonItem lines="none">
                              <Controller render={({onChange}) => (
-                             <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+                             <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -208,24 +227,27 @@ const HabitosFinal4 = (props: StepComponentProps) => {
                         {/*HORÁRIOS DE LUZ REGULARES -> NÃO */}
 
                         {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "não")) ?
-                        <IonItem>
+                        <IonItem lines="none">
                              <IonLabel className="questions">Em que horário, em média, você se expôs à luz natural, nas últimas duas semanas?</IonLabel>
+                             </IonItem>:null}
+                             {(((frequenciaLuzNatural === "menosMetade") || (frequenciaLuzNatural === "maisMetade") || (frequenciaLuzNatural === "todosDias")) && (horarioLuzNatural === "não")) ?
+                             <IonItem lines="none">
                              <Controller render={({onChange}) => (
-                             <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+                             <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
                                 props.setState('lightTimingFDFinal', e.detail.value )}} }></IonDatetime> )} control={control} name={"lightTimingFDFinal"} rules={{required:true}}/>
                                  {errors.lightTimingFDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
-                         </IonItem> :null} </IonList>
-                         </IonList>
+                         </IonItem> :null}
+                      
 
                               
                         <IonLabel className="questions">Marque aquela que melhor descreve a maneira como você se sentiu nas últimas duas semanas.</IonLabel>
-                        <IonItem>
+                        <IonItem lines="none">
                         
                         <Controller render={({onChange}) => (
-                        <IonSelect placeholder="Por favor, selecione..." id={""} onIonChange={(e)=> {
+                        <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." id={""} onIonChange={(e)=> {
                             console.log(e);
                             onChange(e.detail.value);
                             if (e.detail.value != undefined) {
@@ -238,9 +260,12 @@ const HabitosFinal4 = (props: StepComponentProps) => {
                         {errors.beck02Final && <IonText color="danger">Campo obrigatório.</IonText>}
                         </IonItem>
                
+                        <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
+                        </div>
 
-                <IonButton onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                <IonButton disabled={formState.isValid === false} onClick={onSubmit} size="large" className={"btnProximo"} fill="clear">Submeter</IonButton>
+                <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+                <IonButton disabled={formState.isValid === false} onClick={onSubmit} size="default" shape="round" className={"btnProximo"} fill="outline">Submeter</IonButton>
                    
                    </div>
                 </form>

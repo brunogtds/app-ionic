@@ -36,11 +36,11 @@ function App() {
            
                 <Steps>
                     
-                    <Step component={MCTQ1Final} />
-                    <Step component={MCTQ2Final} />  
-                    <Step component={Gad7Final}/>
-                    <Step component={Who5Final}/>
-                    <Step component={PHQFinal}/>
+                    <Step component={MCTQ1Final} /> 
+                   <Step component={MCTQ2Final} />  
+                    <Step component={Gad7Final}/>  
+                  <Step component={Who5Final}/> 
+                    <Step component={PHQFinal}/> 
                     <Step component={ISIFinal} /> 
                 </Steps>
             

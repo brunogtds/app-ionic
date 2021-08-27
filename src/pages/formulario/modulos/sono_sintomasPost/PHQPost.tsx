@@ -36,15 +36,15 @@ const PHQPost = (props: StepComponentProps) => {
   
  
     return(
-        <IonContent fullscreen color="light"> 
+        <IonContent fullscreen color="background"> 
          
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding texto-default"}>
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
           
             <IonLabel className="questions">Nas últimas duas semanas, quantos dias você teve pouco interesse ou pouco prazer em fazer as coisas?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
  
                 
@@ -55,24 +55,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq01Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq01Post14' rules={{required:true}}/>
@@ -80,7 +80,7 @@ const PHQPost = (props: StepComponentProps) => {
             </IonItem>
 
             <IonLabel className="questions">Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
  
             
@@ -91,24 +91,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq02Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq02Post14' rules={{required:true}}/>
@@ -117,7 +117,7 @@ const PHQPost = (props: StepComponentProps) => {
 
 
             <IonLabel className="questions">Nas últimas duas semanas, quantos dias você teve dificuldade para pegar no sono ou permanecer dormindo ou dormiu mais do que de costume?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
             
             <Controller render={({onChange}) => (
@@ -127,24 +127,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq03Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq03Post14' rules={{required:true}}/>
@@ -152,7 +152,7 @@ const PHQPost = (props: StepComponentProps) => {
             </IonItem>
 
             <IonLabel className="questions">Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
            
             <Controller render={({onChange}) => (
@@ -162,24 +162,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq04Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq04Post14' rules={{required:true}}/>
@@ -187,7 +187,7 @@ const PHQPost = (props: StepComponentProps) => {
             </IonItem>
                 
             <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
             
             <Controller render={({onChange}) => (
@@ -197,24 +197,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq05Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq05Post14' rules={{required:true}}/>
@@ -222,7 +222,7 @@ const PHQPost = (props: StepComponentProps) => {
             </IonItem>
                 
             <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
             
             <Controller render={({onChange}) => (
@@ -232,24 +232,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq06Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq06Post14' rules={{required:true}}/>
@@ -257,7 +257,7 @@ const PHQPost = (props: StepComponentProps) => {
             </IonItem>
 
             <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
            
             <Controller render={({onChange}) => (
@@ -267,24 +267,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq07Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq07Post14' rules={{required:true}}/>
@@ -292,7 +292,7 @@ const PHQPost = (props: StepComponentProps) => {
             </IonItem>
 
             <IonLabel className="questions">Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
             
             <Controller render={({onChange}) => (
@@ -302,24 +302,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq08Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq08Post14' rules={{required:true}}/>
@@ -327,7 +327,7 @@ const PHQPost = (props: StepComponentProps) => {
             </IonItem>
 
             <IonLabel className="questions">Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
             
             <Controller render={({onChange}) => (
@@ -337,24 +337,24 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq09Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq09Post14' rules={{required:true}}/>
@@ -363,7 +363,7 @@ const PHQPost = (props: StepComponentProps) => {
 
 
             <IonLabel className="questions">Considerando as últimas duas semanas, os sintomas anteriores lhe causaram algum tipo de dificuldade para trabalhar ou estudar ou tomar conta das coisas em casa ou para se relacionar com as pessoas?</IonLabel>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
             
             <Controller render={({onChange}) => (
@@ -373,32 +373,36 @@ const PHQPost = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) {
                     props.setState('phq10Post14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Nenhum dia</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="0"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Menos de uma semana</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Uma semana ou mais</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Quase todos os dias</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value= "3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value= "3"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup> )} control={control} name='phq10Post14' rules={{required:true}}/>
                 {errors.phq10Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
             </IonItem>
 
-            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-            <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
+            <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.8} color="orange"></IonProgressBar>
+                        </div>
+
+            <IonButton disabled={props.isFirst()}onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+            <IonButton disabled={formState.isValid === false} onClick={props.next} size="default" shape="round"  className={"btnProximo"} fill="outline">Próximo</IonButton>
             </form>
 
         </div>

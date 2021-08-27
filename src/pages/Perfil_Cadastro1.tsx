@@ -89,7 +89,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                             
 
                             <Controller render={({onChange}) => ( 
-                            <IonSelect interfaceOptions={options} placeholder="Por favor, selecione..."  value= {props.getState("sex", "")} onIonChange={(e) => {
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  value= {props.getState("sex", "")} onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -132,7 +132,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         </IonItem> 
                         : null}
                         
-                        <IonLabel position="floating" className="questions">Peso (em kg):</IonLabel>
+                        <IonLabel  className="questions">Peso (em kg):</IonLabel>
                         {errors.weight && <IonText color="danger"> Campo obrigatório.</IonText>}
                         <IonItem>
                             
@@ -151,7 +151,8 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                            
                          </IonItem>
                         
-                         <IonLabel position="floating" className="questions">Altura (em cm): </IonLabel>
+                         <IonLabel className="questions">Altura (em cm): </IonLabel>
+                         {errors.height && <IonText color="danger">Campo obrigatório.</IonText>}
                          
                          <IonItem>
 
@@ -166,7 +167,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                             rules= {{ required: true}}
                             control={control}/>
                           
-                            {errors.height && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                         </IonItem>
 
                         <IonLabel className="questions">Estado do Brasil:</IonLabel>
@@ -177,7 +178,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                             
                             <Controller render={({onChange}) => (
                                
-                                <IonSelect value={props.getState("BRstate", "")} placeholder="Por favor, selecione..." id="BRstate" onIonChange={(e)=> {
+                                <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" value={props.getState("BRstate", "")} placeholder="Por favor, selecione..." id="BRstate" onIonChange={(e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
@@ -220,7 +221,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                             control={control}
                             />
 
-                            {errors.BRstate && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
 
                         
                          </IonItem>
@@ -290,8 +291,8 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         </div>
                         
                       
-                        <IonButton onClick={props.prev} size="large" color="orange" fill="outline">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} color="orange" fill="outline" onClick={props.next} className={"btnProximo"} size="large" >Próximo</IonButton>
+                        <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" color="orange" fill="outline">Anterior</IonButton>
+                        <IonButton disabled={formState.isValid === false} color="orange" fill="outline" onClick={props.next} className={"btnProximo"} size="default" shape="round" >Próximo</IonButton>
                         
                          
                 </form>

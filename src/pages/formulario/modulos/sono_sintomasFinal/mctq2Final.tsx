@@ -2,7 +2,7 @@ import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
 
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonDatetime, IonLoading, IonText} from "@ionic/react";
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonDatetime, IonLoading, IonText, IonProgressBar} from "@ionic/react";
 import { IonContent} from '@ionic/react';
 
 import '../../Forms.css';
@@ -27,17 +27,17 @@ const MCTQ2Final = (props: StepComponentProps) => {
     const [loader]= useState<boolean>(false)
  
     return(
-        <IonContent fullscreen color="light"> 
+        <IonContent fullscreen color="background"> 
          
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding texto-default"}>
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
 <IonLabel className="questions">Em dias livres, eu normalmente dormi às: </IonLabel>
-<IonItem>
+<IonItem lines="none">
     
     <Controller render={({onChange}) => (
-    <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+    <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"  onIonChange={(e)=> {
         console.log(e);
         onChange(e.detail.value); 
         if (e.detail.value != undefined) 
@@ -46,10 +46,10 @@ const MCTQ2Final = (props: StepComponentProps) => {
 </IonItem>
 
 <IonLabel className="questions">Em dias livres, quando não usei o despertador, eu normalmente acordei às: </IonLabel>
-<IonItem>
+<IonItem lines="none">
     
     <Controller render={({onChange}) => (
-    <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+    <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55"   onIonChange={(e)=> {
         console.log(e);
         onChange(e.detail.value);
         if (e.detail.value != undefined) 
@@ -58,7 +58,7 @@ const MCTQ2Final = (props: StepComponentProps) => {
 </IonItem>
 
 <IonLabel className="questions">Usei o despertador em dias livres:</IonLabel>
-<IonItem>
+<IonItem lines="none" className={"ion-no-padding"}>
     
 
     <Controller render={({onChange})=> (
@@ -68,14 +68,14 @@ const MCTQ2Final = (props: StepComponentProps) => {
         if (e.detail.value != undefined) 
         props.setState('alarmFDFinal', e.detail.value ) }}>
 
-                    <IonItem>
+                    <IonItem lines="none" className={"ion-no-padding"}>
                     <IonLabel>Sim</IonLabel>
-                    <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
+                    <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
                     </IonItem>
                    
-                    <IonItem>
+                    <IonItem lines="none" className={"ion-no-padding"}>
                     <IonLabel>Não</IonLabel>
-                    <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                    <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                     </IonItem>
                    
     </IonRadioGroup> )} control={control} name={"alarmFDFinal"} rules={{required:true}}/>
@@ -83,10 +83,12 @@ const MCTQ2Final = (props: StepComponentProps) => {
 
 </IonItem>
 
+<div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.32} color="orange"></IonProgressBar>
+                        </div>
 
-
-<IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-<IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
+<IonButton disabled={props.isFirst()}onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+<IonButton disabled={formState.isValid === false} onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline">Próximo</IonButton>
 </form>
 
 </div>

@@ -13,6 +13,10 @@ import { IonProgressBar} from '@ionic/react';
 
 const ContatoFinal1 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
     
     const [distanciamento, setDistanciamento]= useState();
@@ -20,23 +24,25 @@ const ContatoFinal1 = (props: StepComponentProps) => {
     
 
         return (
-            <IonContent fullscreen color="light">
+            <IonContent fullscreen color="background">
            
                 
             <div className="ion-text-wrap">
                
-                <form className="ion-padding">
+                <form className="ion-padding texto-default">
+                <div className="texto-title">Contato social</div>
+                <div className="texto-default">Para continuar marcando suas atividades, preencha para sabermos mais sobre você e suas atividades sociais!</div>
 
                 <div className="ion-text-wrap">
                 
-                        <IonLabel className="ion-text-wrap questions">Estou em distanciamento social:</IonLabel>
+                        <IonLabel className="questions">Estou em distanciamento social:</IonLabel>
                                                 
-                        <IonItem>
+                        <IonItem lines="none">
                             
 
                             <Controller render={({onChange}) => (
 
-                            <IonSelect placeholder="Por favor, selecione..." value={distanciamento} onIonChange={(e) => {setDistanciamento(e.detail.value);
+                            <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={distanciamento} onIonChange={(e) => {setDistanciamento(e.detail.value);
                                 onChange(e.detail.value);
                                 console.log(e);
                                 if (e.detail.value != undefined) 
@@ -51,11 +57,11 @@ const ContatoFinal1 = (props: StepComponentProps) => {
            
                         
                         
-                        <IonLabel className="ion-text-wrap questions">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
+                        <IonLabel className="questions">Você precisou se isolar em um cômodo em função de COVID-19 ou suspeita?</IonLabel>
 
                                             
                        
-                         <IonItem>
+                         <IonItem lines="none" className={"ion-no-padding"}>
                             
                             
                             <Controller render={({onChange}) => (
@@ -64,31 +70,33 @@ const ContatoFinal1 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) 
                                 props.setState('quarantineRoomFinal', e.detail.value ) }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio  className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                <IonRadio  slot="start" className={"radio-options"}  color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio  className={"radio-options"} color="primary" value="não"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"}  color="primary" value="não"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sem resposta</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="semResposta"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"}  color="primary" value="semResposta"></IonRadio>
                                 </IonItem>
                             </IonRadioGroup> )} rules={{required:true}} control={control} name={"quarantineRoomFinal"} />
                             {errors.quarantineRoomFinal && <IonText color="danger">Campo obrigatório.</IonText>}
                         </IonItem>  
                        
-
+                        <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>
+                        </div>
                     
 
                         
 
-                <IonButton onClick={props.prev} disabled={true} size="large" fill="clear">Anterior</IonButton>
-                <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear" >Próximo</IonButton>
+                <IonButton onClick={props.prev} disabled={true} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+                <IonButton disabled={formState.isValid === false} onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline" >Próximo</IonButton>
                    
                    </div>
                 </form>

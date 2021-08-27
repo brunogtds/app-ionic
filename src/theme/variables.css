@@ -234,6 +234,8 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-white-contrast-rgb: 0,0,0;
   --ion-color-white-shade: #F58B44;
   --ion-color-white-tint: #ffffff;
+
+  
    
   }
 
@@ -328,6 +330,7 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 
+ 
   
 }
 

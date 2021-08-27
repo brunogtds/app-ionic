@@ -14,6 +14,8 @@
 
   .questions{
     font-weight: bold;
+    display: block;
+    margin-top: 16px;
     
   }
   
@@ -25,10 +27,15 @@
       margin: 10px;
    
   }
-  
+
+    
   ion-select::part(icon) {
     color: #F58B44;
     
+  }
+
+  .my-custom-interface .select-interface-option {
+    font-family: OpenSans !important;
   }
 
  

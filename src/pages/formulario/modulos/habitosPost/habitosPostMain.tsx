@@ -40,7 +40,7 @@ function App() {
         <IonContent fullscreen>
                 
                 <Steps>
-                    <Step component={HabitosPost1} />
+                    <Step component={HabitosPost1} /> 
                     <Step component={HabitosPost2} /> 
                     <Step component={HabitosPost3} /> 
                     <Step component={HabitosPost4} /> 

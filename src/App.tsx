@@ -147,7 +147,7 @@ const PrivateRoutes: React.FC = () => {
    <div>
      
     <IonSplitPane contentId="main">
-       <IonMenu side="end" contentId="main">
+       <IonMenu side="start" contentId="main">
            <IonHeader >
              <IonToolbar color="orange">
                </IonToolbar>

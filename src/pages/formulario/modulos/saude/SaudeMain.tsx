@@ -38,7 +38,7 @@ function App() {
         <IonContent fullscreen>
            
                 <Steps>
-                    <Step component={Saude1} />
+                   <Step component={Saude1} /> 
                    
                     <Step component={Saude2} /> 
     

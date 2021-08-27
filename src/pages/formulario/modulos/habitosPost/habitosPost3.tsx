@@ -13,6 +13,10 @@ import { IonProgressBar} from '@ionic/react';
 
 const HabitosPost3 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
     
     const [atividadeFisica, setAtividadeFisica]= useState();
@@ -20,21 +24,21 @@ const HabitosPost3 = (props: StepComponentProps) => {
  
 
         return (
-            <IonContent fullscreen color="light">
+            <IonContent fullscreen color="background">
                             
-            <div className="ion-text-wrap">
+            <div className="ion-text-wrap texto-default">
                
                 <form className="ion-padding">
 
-                <div className="ion-text-wrap">
+                <div className="ion-text-wrap texto-default">
                
 
 
                 <IonLabel className="questions">Com que frequência você praticou hobbies nas duas últimas semanas?</IonLabel>
-                        <IonItem>
+                        <IonItem lines="none">
                            
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..."  onIonChange={(e)=> {
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -48,9 +52,9 @@ const HabitosPost3 = (props: StepComponentProps) => {
                          </IonItem>
 
                          <IonLabel className="questions">Você praticou atividade física nas duas últimas semanas?</IonLabel>
-                         <IonList>
+                        
                          
-                         <IonItem>
+                         <IonItem lines="none" className={"ion-no-padding"}>
                             
 
                             <Controller render={({onChange}) => (
@@ -60,14 +64,14 @@ const HabitosPost3 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('exercisePost14', e.detail.value )}}}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="sim" ></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="sim" ></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"exercisePost14"} rules={{required:true}}/>
@@ -78,10 +82,13 @@ const HabitosPost3 = (props: StepComponentProps) => {
                         {/*ATIVIDADE FÍSICA -> SIM */}
 
                         {atividadeFisica == "sim" ? 
-                        <IonItem>
+                        <IonItem lines="none">
                             <IonLabel className="questions">Com que frequência você praticou exercícios?</IonLabel>
+                            </IonItem>:null}
+                            {atividadeFisica == "sim" ? 
+                            <IonItem lines="none">
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -100,10 +107,13 @@ const HabitosPost3 = (props: StepComponentProps) => {
                          </IonItem>:null }
 
                          {atividadeFisica === "sim" ?
-                         <IonItem>
+                         <IonItem lines="none">
                             <IonLabel className="questions">Quão regulares, nas últimas duas semanas, foram os horários que praticou exercício?</IonLabel>
+                            </IonItem>:null}
+                            {atividadeFisica == "sim" ? 
+                            <IonItem lines="none"> 
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." value={horarioAtividadeFisica} onIonChange={(e) => {setHorarioAtividadeFisica(e.detail.value);
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={horarioAtividadeFisica} onIonChange={(e) => {setHorarioAtividadeFisica(e.detail.value);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
                                 props.setState('exerciseRegPost14', e.detail.value )}}}>
@@ -116,10 +126,13 @@ const HabitosPost3 = (props: StepComponentProps) => {
                           </IonItem>:null }
 
                         {atividadeFisica === "sim" ? 
-                         <IonItem>
+                         <IonItem lines="none">
                             <IonLabel className="questions">Qual foi, nas últimas duas semanas, a duração da sua atividade física em média?</IonLabel>
+                            </IonItem>:null}
+                            {atividadeFisica == "sim" ? 
+                            <IonItem lines="none">
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e)=> {
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -131,16 +144,19 @@ const HabitosPost3 = (props: StepComponentProps) => {
                             </IonSelect> )} control={control} name={"exerciseDurPost14"} rules={{required:true}} />
                             {errors.exerciseDurPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
                          </IonItem>:null }
-                         </IonList>
+                         
 
                          {/*ATIVIDADE FÍSICA REGULAR -> */}
 
                          {((atividadeFisica === "sim") && ((horarioAtividadeFisica === "regulares") || (horarioAtividadeFisica === "muitoRegulares")) )? 
 
-                         <IonItem>
+                         <IonItem lines="none">
                              <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você começou a praticar exercícios?</IonLabel>
+                            </IonItem>:null}
+                            {((atividadeFisica === "sim") && ((horarioAtividadeFisica === "regulares") || (horarioAtividadeFisica === "muitoRegulares")) )? 
+                            <IonItem lines="none">
                              <Controller render={({onChange}) => (
-                             <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+                             <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) {
@@ -151,10 +167,14 @@ const HabitosPost3 = (props: StepComponentProps) => {
                                 
                          </IonItem> :null}
 
+                         <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.75} color="orange"></IonProgressBar>
+                        </div>
+
                                         
 
-                <IonButton onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-                <IonButton disabled={formState.isValid === false}  onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
+                <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+                <IonButton disabled={formState.isValid === false}  onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline">Próximo</IonButton>
                    
                    </div>
                 </form>

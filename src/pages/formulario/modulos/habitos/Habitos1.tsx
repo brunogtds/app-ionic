@@ -13,6 +13,10 @@ import { IonProgressBar} from '@ionic/react';
 
 const Habitos1 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
     const {control, watch, handleSubmit, errors, formState} = useForm({mode: "onChange"});
     
    
@@ -21,22 +25,24 @@ const Habitos1 = (props: StepComponentProps) => {
     
 
         return (
-            <IonContent fullscreen color="light">
+            <IonContent fullscreen color="background">
             
                 
             <div className="ion-text-wrap">
                
-                <form className="ion-padding">
+                <form className="ion-padding texto-default">
+                <div className="texto-title">Bem-estar</div>
+                <div className="texto-default">Para receber dicas personalizadas, preencha para sabermos mais sobre você e seus hábitos!</div>
 
-                <div className="ion-text-wrap">
+                <div className="ion-text-wrap texto-default">
                
                         <IonLabel className="questions">Em quantos dias você trabalhou ou estudou nas últimas duas semanas? </IonLabel>
                         <IonList>
                         
-                         <IonItem>
+                         <IonItem lines="none">
                             
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." value={diasTrabalho} onIonChange={(e) => {setDiasTrabalho(e.detail.value);
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={diasTrabalho} onIonChange={(e) => {setDiasTrabalho(e.detail.value);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
                                 props.setState('workQ', e.detail.value ) }}>
@@ -62,11 +68,14 @@ const Habitos1 = (props: StepComponentProps) => {
                         {/*MAIS QUE 0*/}
 
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))              ?
+    
+                        <IonItem lines="none">
+                            <IonLabel className="questions">Quantas horas em média você trabalhou/estudou nestes dias? </IonLabel> </IonItem> :null}
 
-                        <IonItem>
-                            <IonLabel className="questions">Quantas horas em média você trabalhou/estudou nestes dias? </IonLabel>
+                            {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))              ?
+                            <IonItem lines="none">
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." onIonChange={(e) => {
+                            <IonSelect  interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -82,24 +91,28 @@ const Habitos1 = (props: StepComponentProps) => {
                          </IonItem>:null  }
 
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))  ?
-                         <IonItem>
-                            <IonLabel className="questions">Você pôde escolher seus horários de trabalho/estudo?</IonLabel>
+                         <IonItem lines="none">
+                            <IonLabel className="questions texto-default">Você pôde escolher seus horários de trabalho/estudo?</IonLabel>
+                            </IonItem> : null}
+
+                            {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14"))  ?
+                            <IonItem lines="none">
                             <Controller render={({onChange}) => (
-                            <IonRadioGroup onIonChange={(e) => {
+                            <IonRadioGroup  onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
                                 props.setState('workChoice', e.detail.value )
                             }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"workChoice"} rules={{required:true}}/>
@@ -108,11 +121,15 @@ const Habitos1 = (props: StepComponentProps) => {
 
                         
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
-                        <IonItem>
+                        <IonItem lines="none">
                             <IonLabel className="questions">O quão regular foram seus horários de trabalho/estudo nas últimas duas semanas: </IonLabel>
+                            </IonItem>:null}
+
+                            {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
+                            <IonItem lines="none">
 
                             <Controller render={({onChange}) => (
-                            <IonSelect placeholder="Por favor, selecione..." value={horasTrabalhoRegulares} onIonChange={(e) => {setHorasTrabalhoRegulares(e.detail.value) ; 
+                            <IonSelect  interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={horasTrabalhoRegulares} onIonChange={(e) => {setHorasTrabalhoRegulares(e.detail.value) ; 
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
                             props.setState('workReg', e.detail.value )}}>
@@ -130,10 +147,13 @@ const Habitos1 = (props: StepComponentProps) => {
                         
                         {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) && ((horasTrabalhoRegulares === "regulares") || (horasTrabalhoRegulares === "muitoRegulares")) ?
                         
-                         <IonItem>
-                             <IonLabel className="questions">Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel>
+                         <IonItem lines="none">
+                             <IonLabel className="questions">Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel> </IonItem>:null}
+
+                        {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) && ((horasTrabalhoRegulares === "regulares") || (horasTrabalhoRegulares === "muitoRegulares")) ?
+                                <IonItem lines="none">
                              <Controller render={({onChange}) => (
-                             <IonDatetime display-format="H:mm " picker-format="H:mm" onIonChange={(e) => {
+                             <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -143,9 +163,12 @@ const Habitos1 = (props: StepComponentProps) => {
                          </IonItem>:null }
                         </IonList>
                           
+                        <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.25} color="orange"></IonProgressBar>
+                        </div>
 
-                <IonButton onClick={props.prev} size="large" fill="clear" disabled={true}>Anterior</IonButton>
-                <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
+                <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline" disabled={true}>Anterior</IonButton>
+                <IonButton disabled={formState.isValid === false} onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline">Próximo</IonButton>
                    
                    </div>
                 </form>

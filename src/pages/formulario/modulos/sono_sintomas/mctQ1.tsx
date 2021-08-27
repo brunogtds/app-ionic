@@ -2,7 +2,7 @@ import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
 
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText} from "@ionic/react";
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText, IonProgressBar} from "@ionic/react";
 import { IonContent, IonCard, IonCardContent } from '@ionic/react';
 
 import '../../Forms.css';
@@ -14,34 +14,28 @@ import {useState} from 'react';
 
 const MCTQ1 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
+
     const {control, errors, formState} = useForm({mode: "onChange"});
 
     const [nDiasTrabalhoSemana, setNDiasTrabalhoSemana]= useState();
  
     return(
-        <IonContent fullscreen color="light"> 
+        <IonContent fullscreen color="background"> 
         
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding texto-default"}>
 
-         
-           
-            <IonCard color="secondary">
-           
-            <IonCardContent>
-            
-            As perguntas a seguir se referem ao seu comportamento de sono nos dias de trabalho e dias livres. Por favor, responda de acordo com o que ocorreu mais frequentemente nas duas últimas semanas. Considere também estudos e seus afazeres de casa. 
-            Se você é um estudante, preencha os dias de trabalho considerando os dias de aula. 
-            
-            </IonCardContent>
-            
-          
-            </IonCard>
+            <div className="texto-title">Sono</div>
+                <div className="texto-default">Para receber dicas personalizadas, preencha para sabermos mais sobre você, seu sono e seus hábitos!</div>
                
 
             <IonLabel className="questions">Fiz plantão noturno.</IonLabel>
 
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
                 
                 <Controller render={({onChange}) => (
                 <IonRadioGroup  onIonChange={(e)=> {
@@ -50,14 +44,14 @@ const MCTQ1 = (props: StepComponentProps) => {
                     if (e.detail.value != undefined) 
                     props.setState('nightShift', e.detail.value )  }}>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Sim</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>Não</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                 </IonItem>
                                
                 </IonRadioGroup>  )}
@@ -69,10 +63,10 @@ const MCTQ1 = (props: StepComponentProps) => {
             </IonItem>
 
             <IonLabel className="questions">Trabalhei/estudei _ dias por semana.</IonLabel>
-            <IonItem>
+            <IonItem lines="none">
                 
                 <Controller render={({onChange}) => ( 
-                            <IonSelect placeholder="Por favor, selecione..." value={nDiasTrabalhoSemana} onIonChange={(e) => {setNDiasTrabalhoSemana(e.detail.value);
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={nDiasTrabalhoSemana} onIonChange={(e) => {setNDiasTrabalhoSemana(e.detail.value);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
                                 props.setState('workDaysN', e.detail.value )  }}>
@@ -100,34 +94,106 @@ const MCTQ1 = (props: StepComponentProps) => {
 
             {/*DIAS DE TRABALHO ->0 */}
 
-            {nDiasTrabalhoSemana === "0" ?
-            <IonList>
+            
                 
-                <IonItem>
+                {nDiasTrabalhoSemana === "0" ?
+                <IonItem lines="none">
                     <IonLabel className="questions">Normalmente dormi às: </IonLabel>
+                    </IonItem>:null}
+                    {nDiasTrabalhoSemana === "0" ?
+                    <IonItem lines="none">
                     <Controller render={({onChange}) => (
-                     <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value);
                     if (e.detail.value != undefined) 
-                    props.setState('sleepWD', e.detail.value )  }}></IonDatetime> )} control={control} name={"sleepWD"} rules={{required:true}}/>
-                    {errors.sleepWD && <IonText color="danger">Campo obrigatório.</IonText>}
-                </IonItem>
+                    props.setState('sleepNoWork', e.detail.value )  }}></IonDatetime> )} control={control} name={"sleepNoWork"} rules={{required:true}}/>
+                    {errors.sleepNoWork && <IonText color="danger">Campo obrigatório.</IonText>}
+                </IonItem>:null}
                 
-                <IonItem>
+                {nDiasTrabalhoSemana === "0" ?
+                <IonItem lines="none">
                     <IonLabel className="questions">Normalmente acordei às: </IonLabel>
+                    </IonItem>:null}
+                    {nDiasTrabalhoSemana === "0" ?
+                    <IonItem lines="none">
                     <Controller render={({onChange}) => (
-                     <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
+                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
                     console.log(e);
                     onChange(e.detail.value);
                     if (e.detail.value != undefined) 
-                    props.setState('wakeUpWD', e.detail.value )  }}></IonDatetime> )} control={control} name={"wakeUpWD"} rules={{required:true}}/>
-                    {errors.wakeUpWD && <IonText color="danger">Campo obrigatório.</IonText>}
-                </IonItem>
+                    props.setState('wakeUpNoWork', e.detail.value )  }}></IonDatetime> )} control={control} name={"wakeUpNoWork"} rules={{required:true}}/>
+                    {errors.wakeUpNoWork && <IonText color="danger">Campo obrigatório.</IonText>}
+                </IonItem>:null}
                
-               
-                <IonItem><IonLabel className="questions">Usei o despertador:</IonLabel>
+                {nDiasTrabalhoSemana === "0" ?
+                <IonItem lines="none"><IonLabel className="questions">Usei o despertador:</IonLabel>
+                </IonItem>:null}
+                    {nDiasTrabalhoSemana === "0" ?
+                    <IonItem lines="none">
+                        <Controller render={({onChange})=> (
+                        <IonRadioGroup onIonChange={(e)=> {
+                            console.log(e);
+                            onChange(e.detail.value);
+                            if (e.detail.value != undefined) 
+                            props.setState('alarmNoWork', e.detail.value ) }}>
 
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>Sim</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                        </IonItem>
+                                    
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>Não</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
+                                        </IonItem>
+                                    
+                        </IonRadioGroup> )} control={control} name={"alarmNoWork"} rules={{required:true}}/>
+                        {errors.alarmNoWork && <IonText color="danger">Campo obrigatório.</IonText>}
+            </IonItem>:null}
+                
+           
+
+            {/*DIAS DE TRABALHO ->MAIS QUE 0 */}
+
+            
+
+{((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5")  || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7"))       ?
+                <IonItem lines="none">
+                    <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente dormi às: </IonLabel>
+                    </IonItem>:null}
+                    {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5")  || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7"))       ?
+                    <IonItem lines="none">
+                    <Controller render={({onChange}) => (
+                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value); 
+                    if (e.detail.value != undefined) 
+                    props.setState('sleepWD', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepWD"} rules={{required:true}}/>
+                    {errors.sleepWD && <IonText color="danger">Campo obrigatório.</IonText>}
+                </IonItem>:null}
+
+                {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5")  || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7"))       ?
+                <IonItem lines="none">
+                    <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente acordei às: </IonLabel>
+                    </IonItem>:null}
+                    {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5")  || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7"))       ?
+                    <IonItem lines="none">
+                    <Controller render={({onChange}) => (
+                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e)=> {
+                    console.log(e);
+                    onChange(e.detail.value);
+                    if (e.detail.value != undefined) 
+                    props.setState('wakeUpWD', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpWD"} rules={{required:true}}/>
+                    {errors.wakeUpWD && <IonText color="danger">Campo obrigatório.</IonText>}
+                </IonItem>:null}
+
+                {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5")  || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7"))       ?
+                <IonItem lines="none">
+                <IonLabel className="questions">Usei o despertador em dias de trabalho:</IonLabel>
+                </IonItem>:null}
+                    {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5")  || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7"))       ?
+                    <IonItem lines="none">
                         <Controller render={({onChange})=> (
                         <IonRadioGroup onIonChange={(e)=> {
                             console.log(e);
@@ -135,78 +201,27 @@ const MCTQ1 = (props: StepComponentProps) => {
                             if (e.detail.value != undefined) 
                             props.setState('alarmWD', e.detail.value ) }}>
 
-                                        <IonItem>
+                                        <IonItem lines="none" className={"ion-no-padding"}>
                                         <IonLabel>Sim</IonLabel>
-                                        <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
                                         </IonItem>
                                     
-                                        <IonItem>
+                                        <IonItem lines="none" className={"ion-no-padding"}>
                                         <IonLabel>Não</IonLabel>
-                                        <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                         </IonItem>
                                     
                         </IonRadioGroup> )} control={control} name={"alarmWD"} rules={{required:true}}/>
                         {errors.alarmWD && <IonText color="danger">Campo obrigatório.</IonText>}
-            </IonItem>
-                
-            </IonList> :null} 
+                </IonItem>:null}
 
-            {/*DIAS DE TRABALHO ->MAIS QUE 0 */}
+            
+                <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.16} color="orange"></IonProgressBar>
+                        </div>
 
-            {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5")  || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7"))       ?
-            <IonList>
-
-                <IonItem>
-                    <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente dormi às: </IonLabel>
-                    <Controller render={({onChange}) => (
-                     <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
-                    console.log(e);
-                    onChange(e.detail.value); 
-                    if (e.detail.value != undefined) 
-                    props.setState('sleepOnWork', e.detail.value )}}></IonDatetime> )} control={control} name={"sleepOnWork"} rules={{required:true}}/>
-                    {errors.sleepOnWork && <IonText color="danger">Campo obrigatório.</IonText>}
-                </IonItem>
-
-                <IonItem>
-                    <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente acordei às: </IonLabel>
-                    <Controller render={({onChange}) => (
-                     <IonDatetime display-format="h:mm A" picker-format="h:mm A" onIonChange={(e)=> {
-                    console.log(e);
-                    onChange(e.detail.value);
-                    if (e.detail.value != undefined) 
-                    props.setState('wakeUpOnWork', e.detail.value ) }}></IonDatetime> )} control={control} name={"wakeUpOnWork"} rules={{required:true}}/>
-                    {errors.wakeUpOnWork && <IonText color="danger">Campo obrigatório.</IonText>}
-                </IonItem>
-
-                <IonItem>
-                <IonLabel className="questions">Usei o despertador em dias de trabalho:</IonLabel>
-
-                        <Controller render={({onChange})=> (
-                        <IonRadioGroup onIonChange={(e)=> {
-                            console.log(e);
-                            onChange(e.detail.value);
-                            if (e.detail.value != undefined) 
-                            props.setState('alarmOnWork', e.detail.value ) }}>
-
-                                        <IonItem>
-                                        <IonLabel>Sim</IonLabel>
-                                        <IonRadio className={"radio-options"} color="primary" value="sim"></IonRadio>
-                                        </IonItem>
-                                    
-                                        <IonItem>
-                                        <IonLabel>Não</IonLabel>
-                                        <IonRadio className={"radio-options"} color="primary" value="não"></IonRadio>
-                                        </IonItem>
-                                    
-                        </IonRadioGroup> )} control={control} name={"alarmOnWork"} rules={{required:true}}/>
-                        {errors.alarmOnWork && <IonText color="danger">Campo obrigatório.</IonText>}
-                </IonItem>
-
-            </IonList> :null}
-    
-
-            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-            <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
+            <IonButton disabled={props.isFirst()}onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+            <IonButton disabled={formState.isValid === false} onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline">Próximo</IonButton>
             </form>
 
         </div>

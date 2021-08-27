@@ -34,19 +34,19 @@ const Who5 = (props: StepComponentProps) => {
     const [loader, setLoader]= useState<boolean>(false)
  
     return(
-        <IonContent fullscreen color="light"> 
+        <IonContent fullscreen color="background"> 
          
         <div>
-            <form className={"ion-padding"}>
+            <form className={"ion-padding texto-default"}>
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
             
                 <IonLabel className="questions">Nas últimas duas semanas...</IonLabel>
            
             <div>
-            <IonLabel className={"ion-text-wrapper questions"}>... eu estava alegre e de bom humor</IonLabel>
+            <IonLabel className={"ion-text-wrapper questions"}>...eu estava alegre e de bom humor</IonLabel>
             </div>
-            <IonItem>
+            <IonItem lines="none" className={"ion-no-padding"}>
 
 
                             <Controller render={({onChange}) => (
@@ -56,41 +56,41 @@ const Who5 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('who5_SQ001', e.detail.value )} } }>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ001"} rules={{required:true}}/>
                             {errors.who5_SQ001 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
-                    <IonLabel className={"ion-text-wrapper questions"}>... me senti calmo e relaxado</IonLabel>
-                    <IonItem>
+                    <IonLabel className={"ion-text-wrapper questions"}>...me senti calmo e relaxado</IonLabel>
+                    <IonItem lines="none" className={"ion-no-padding"}>
 
                             
                     <Controller render={({onChange}) => (
@@ -100,42 +100,42 @@ const Who5 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('who5_SQ002', e.detail.value )} } }>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ002"} rules={{required:true}}/>
                             {errors.who5_SQ002 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
-                    <IonLabel className={"ion-text-wrapper questions"}>... me senti disposto e renovado ao acordar</IonLabel>
-                    <IonItem>
+                    <IonLabel className={"ion-text-wrapper questions"}>...me senti disposto e renovado ao acordar</IonLabel>
+                    <IonItem lines="none" className={"ion-no-padding"}>
 
                              
                     <Controller render={({onChange}) => (
@@ -145,42 +145,42 @@ const Who5 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('who5_SQ003', e.detail.value )} } }>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ003"} rules={{required:true}}/>
                             {errors.who5_SQ003 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
-                    <IonLabel className={"ion-text-wrapper questions"}>... me senti cheio de energia e ativo</IonLabel>
-                    <IonItem>
+                    <IonLabel className={"ion-text-wrapper questions"}>...me senti cheio de energia e ativo</IonLabel>
+                    <IonItem lines="none" className={"ion-no-padding"}>
 
                             
                     <Controller render={({onChange}) => (
@@ -190,42 +190,42 @@ const Who5 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('who5_SQ004', e.detail.value )} } }>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio  className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio  slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio  className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio  slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ004"} rules={{required:true}}/>
                             {errors.who5_SQ004 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
 
-                    <IonLabel className={"ion-text-wrapper questions"}>... o meu dia foi cheio de coisas que interessavam</IonLabel>
-                    <IonItem>
+                    <IonLabel className={"ion-text-wrapper questions"}>...o meu dia foi cheio de coisas que interessavam</IonLabel>
+                    <IonItem lines="none" className={"ion-no-padding"}>
 
                              
                     <Controller render={({onChange}) => (
@@ -235,46 +235,48 @@ const Who5 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined) {
                                 props.setState('who5_SQ005', e.detail.value )} } }>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>o tempo todo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="6"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="6"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>a maioria do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="5"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="5"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>mais do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="4"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                 </IonItem>
                                
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>às vezes</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="3"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>menos do que metade do tempo</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="2"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" className={"ion-no-padding"}>
                                 <IonLabel>em nenhum momento</IonLabel>
-                                <IonRadio className={"radio-options"} color="primary" value="1"></IonRadio>
+                                <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
                                 </IonItem>
                                
                             </IonRadioGroup> )} control={control} name={"who5_SQ005"} rules={{required:true}}/>
                             {errors.who5_SQ005 && <IonText color="danger">Campo obrigatório.</IonText>}
                     </IonItem>
                     
-                
+                    <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.64} color="orange"></IonProgressBar>
+                        </div>
 
 
 
-            <IonButton disabled={props.isFirst()}onClick={props.prev} size="large" fill="clear">Anterior</IonButton>
-            <IonButton disabled={formState.isValid === false} onClick={props.next} size="large" className={"btnProximo"} fill="clear">Próximo</IonButton>
+            <IonButton disabled={props.isFirst()}onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
+            <IonButton disabled={formState.isValid === false} onClick={props.next} size="default" shape="round" className={"btnProximo"} fill="outline">Próximo</IonButton>
             </form>
 
         </div>

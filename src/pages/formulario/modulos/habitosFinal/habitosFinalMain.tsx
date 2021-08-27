@@ -40,9 +40,9 @@ function App() {
         <IonContent fullscreen>
                 
                 <Steps>
-                    <Step component={HabitosFinal1} />
-                    <Step component={HabitosFinal2} /> 
-                    <Step component={HabitosFinal3} /> 
+                   {/* <Step component={HabitosFinal1} /> */}
+                   {/*} <Step component={HabitosFinal2} /> */}
+                   {/*} <Step component={HabitosFinal3} /> */}
                     <Step component={HabitosFinal4} /> 
                 </Steps>
             
