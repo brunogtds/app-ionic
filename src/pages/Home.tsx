@@ -660,7 +660,7 @@ const Tab1: React.FC = () => {
         }
 
       //feedback regularidades e SJL
-     /* var sjlCalculo= Math.abs(midpointSleepFD - midpointSleepWD);
+      var sjlCalculo= Math.abs(midpointSleepFD - midpointSleepWD);
       console.log('sjl calculo' + sjlCalculo);
       
       if (sjlCalculo !== undefined){
@@ -668,6 +668,7 @@ const Tab1: React.FC = () => {
           setFeedbackSJLText("Observamos que você apresenta " + sjlCalculo.toFixed(2) + " horas de jetlag social, sugerindo que a sua rotina de sono é diferente entre dias de trabalho e dias livres. Você consegue organizar seus horários para tentar manter uma maior regularidade no seu sono sem abrir mão de dormir o suficiente? ")
         }
       }
+      /* 
       if (msfsc !== undefined){
         if ((msfsc >= 4.5) && (sjlCalculo > 1)){
           setVespSJLText("Como você é vespertino e seu jetlag social é alto, pode ser que você tenha dificuldade para dormir e acordar nos horários que tem vontade. Se você gostaria de dormir mais cedo e não consegue, tente ficar na luz do dia pela manhã (não esqueça o filtro solar!). Também evite se expor a telas (televisão, computador, celular) e luz azul pela noite. Estudos mostram que isso pode ajudar você a dormir mais cedo. Para saber mais, leia nossas recomendações sobre hábitos para manter seu sono saudável.");
@@ -731,8 +732,17 @@ const Tab1: React.FC = () => {
           setFeedbackCronoText('Não foi possível calcular seu cronotipo com os dados inseridos.')
         }
 
+        var sjlCalculo= Math.abs(midpointSleepFD - midpointSleepNW);
+        console.log('sjl calculo' + sjlCalculo);
+        
+        if (sjlCalculo !== undefined){
+          if (sjlCalculo > 1){
+            setFeedbackSJLText("Observamos que você apresenta " + sjlCalculo.toFixed(2) + " horas de jetlag social, sugerindo que a sua rotina de sono é diferente entre dias de trabalho e dias livres. Você consegue organizar seus horários para tentar manter uma maior regularidade no seu sono sem abrir mão de dormir o suficiente? ")
+          }
+        }
 
-      console.log('tá entrando aqui? ');
+
+     // console.log('tá entrando aqui? ');
       var durationSonoFDFloat= diffHoursMinutes(dataWakeUpFD, dataSleepFD);
       var durationSonoFDString= converToHoursAndMinutes(durationSonoFDFloat);
       var durationSonoNoWork= diffHoursMinutes(dataWakeUpNoWork, dataSleepNoWork);
@@ -745,6 +755,8 @@ const Tab1: React.FC = () => {
         setFeedbackSonoText(durationSonoNoWorkString + " em dias de semana e " + durationSonoFDString + " em dias livres. É recomendado que idosos (≥ 65 anos anos) durmam de 7 a 8 horas (podendo também ser 5 ou 6 a 9 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir.")
       }
     } 
+
+
 
      
     }
@@ -942,7 +954,7 @@ const Tab1: React.FC = () => {
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
+           <IonButton  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
@@ -995,7 +1007,9 @@ const Tab1: React.FC = () => {
 
 
                   <p className={"readMore-text"}>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
-                  <p className={"readMore-text"}>{feedbackSonoText}</p> <br/>
+                  <p className={"readMore-text"}>{feedbackSonoText}</p> 
+                  <p className={"readMore-text"}>{feedbackSJLText}</p><br/>
+                 
 
                   </IonSlide>
 
