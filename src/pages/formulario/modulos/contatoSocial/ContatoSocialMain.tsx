@@ -17,7 +17,9 @@ function App() {
 
     <IonPage>
 
-<div id="header-items">
+<IonHeader>
+        <IonToolbar color="orange">
+        <div id="header-items">
           <div className={"navigation"}>
           <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
           </div>
@@ -25,7 +27,9 @@ function App() {
           <img src={logo_regente} className={"logo"}/>
          </div>
   </div> 
-       
+        
+        </IonToolbar>
+      </IonHeader>
 
         <IonContent fullscreen>
            
