@@ -157,22 +157,22 @@ const PrivateRoutes: React.FC = () => {
             
             <IonItem href="/tab1" color="orange"> <IonIcon slot="start" icon={homeOutline}/>
                     Home 
-                    <IonBackButton className="backButton" defaultHref="/tab1" /> </IonItem>
+                    </IonItem>
             
             <IonItem href="/perfil" color="orange"> <IonIcon slot="start" icon={pencilOutline}/>
                     Editar perfil
-                    <IonBackButton className="backButton" defaultHref="/tab1" /> </IonItem>
+                    </IonItem>
                   <IonItem href="/recomendacoes" color="orange"> <IonIcon slot="start" icon={chatbubbleOutline}/>
                     Recomendações
-                    <IonBackButton className="backButton" defaultHref="/tab1" /></IonItem>
+                   </IonItem>
 
             <IonItem href="/recomendacoes" color="orange"> <IonIcon slot="start" icon={statsChartOutline}/>
                     Aderência
-                    <IonBackButton className="backButton" defaultHref="/tab1" /> </IonItem>
+                   </IonItem>
                  
             <IonItem href="/" onClick={Logout} color="orange"> <IonIcon slot="start" icon={logOutOutline}/>
                     Sair
-                    <IonBackButton className="backButton" defaultHref="/tab1" />   </IonItem>
+                   </IonItem>
                  
            
           </IonContent>
