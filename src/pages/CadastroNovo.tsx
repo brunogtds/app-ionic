@@ -55,16 +55,17 @@ const Cadastro = (props: StepComponentProps) => {
     return regexp.test(email);
   }
 
-  function isPasswordValid(password: any){
-    return password.length >= 6;
-  }
-
   function isRegisterValid(){
-    if (email === '' || senha === '' || csenha === '') {
+    if (props.state.email === '' || props.state.senha === '' || props.state.csenha === '') {
       toast ('Email e senha são requeridos')
       return false
 
-    } else if (senha != csenha){
+    } else if (String(props.state.senha).length < 6){
+      toast('A senha deve conter no mínimo 6 caracteres')
+      return false
+    }
+
+    else if (props.state.senha != props.state.csenha){
       toast ('As senhas não são iguais')
       return false
 
