@@ -7,10 +7,13 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs, IonLoading, IonToast, IonMenu, IonList, IonItem, IonHeader, IonToolbar, IonContent, IonSplitPane
+  IonTabs, IonLoading, IonToast, IonMenu, IonList, IonItem, IonHeader, IonToolbar, IonContent, IonSplitPane, IonBackButton
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
+
+import './App.css';
+import {homeOutline, chatbubbleOutline, pencilOutline, logOutOutline, statsChartOutline} from  'ionicons/icons';
 
 import Tab1 from './pages/Home';
 
@@ -146,31 +149,32 @@ const PrivateRoutes: React.FC = () => {
   return(
    <div>
      
-    <IonSplitPane contentId="main">
+    <IonSplitPane contentId="main" color="orange">
        <IonMenu side="start" contentId="main">
-           <IonHeader >
-             <IonToolbar color="orange">
-               </IonToolbar>
-           </IonHeader>
+          
 
-          <IonContent>
-            <IonList>
-            <IonItem href="/tab1">
-                    Home
-                  </IonItem>
+          <IonContent color="orange">
             
-            <IonItem href="/perfil">
+            <IonItem href="/tab1" color="orange"> <IonIcon slot="start" icon={homeOutline}/>
+                    Home 
+                    <IonBackButton className="backButton" defaultHref="/tab1" /> </IonItem>
+            
+            <IonItem href="/perfil" color="orange"> <IonIcon slot="start" icon={pencilOutline}/>
                     Editar perfil
-                  </IonItem>
-                  <IonItem href="/recomendacoes">
+                    <IonBackButton className="backButton" defaultHref="/tab1" /> </IonItem>
+                  <IonItem href="/recomendacoes" color="orange"> <IonIcon slot="start" icon={chatbubbleOutline}/>
                     Recomendações
-            </IonItem>
+                    <IonBackButton className="backButton" defaultHref="/tab1" /></IonItem>
+
+            <IonItem href="/recomendacoes" color="orange"> <IonIcon slot="start" icon={statsChartOutline}/>
+                    Aderência
+                    <IonBackButton className="backButton" defaultHref="/tab1" /> </IonItem>
                  
-            <IonItem href="/" onClick={Logout}>
+            <IonItem href="/" onClick={Logout} color="orange"> <IonIcon slot="start" icon={logOutOutline}/>
                     Sair
-                  </IonItem>
+                    <IonBackButton className="backButton" defaultHref="/tab1" />   </IonItem>
                  
-            </IonList>
+           
           </IonContent>
          </IonMenu>
           <IonRouterOutlet id="main">

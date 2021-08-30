@@ -31,9 +31,14 @@ function App() {
 <IonHeader>
         <IonToolbar color="orange">
         <div id="header-items">
+          <div className={"navigation"}>
+          <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
+          </div>
+          <div className={"img-logo"}>
           <img src={logo_regente} className={"logo"}/>
-          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
-        </div>   
+         </div>
+  </div> 
+        
         </IonToolbar>
       </IonHeader>
   

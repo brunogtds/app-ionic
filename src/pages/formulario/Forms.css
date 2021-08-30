@@ -5,6 +5,14 @@
     
 }
 
+.btnProximo_perguntaCadastro {
+  align-items: right;
+  float: right;
+  text-transform: capitalize;
+  margin-right: 30px;
+}
+
+
 .btnAnterior {
  
   text-transform: capitalize;
@@ -166,6 +174,10 @@ ion-label {
   margin-top: 10px;
 }
 
+.progress-bar-first-page{
+  margin-top: 10px;
+}
+
 .buttons-modulos{
   background-color: white;
 }
@@ -252,3 +264,37 @@ ion-select::part(icon) {
   
 }
 
+.img_cadastro{
+  margin-bottom: 32px;
+  width: 150px;
+  height: 180px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title_pergunta_cadastro{
+  font-family: Nunito !important;
+  font-weight: 900;
+  font-size: 24px;
+  color: #444950;
+  margin-bottom: 20px;
+}
+
+.subtitle_pergunta_cadastro{
+  font-family: Nunito !important;
+  font-weight: 400;
+  font-size: 18px;
+  color: #444950;
+  margin-bottom: 12px;
+}
+
+.bottom{
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.vertical-align{
+  vertical-align: center;
+}

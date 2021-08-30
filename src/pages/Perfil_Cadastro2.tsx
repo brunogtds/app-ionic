@@ -29,6 +29,10 @@ import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
 const Perfil_Cadastro2  = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
 
  const [dataUser, setData] = useState()
                                   
@@ -146,7 +150,7 @@ const onSubmit = (data: any) => {
                       
                            <Controller render={({onChange}) => (
 
-                           <IonSelect className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value= {props.getState("schooling", "")} id="schooling" onIonChange={(e)=> {
+                           <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value= {props.getState("schooling", "")} id="schooling" onIonChange={(e)=> {
                                console.log(e);
                                onChange(e.detail.value);
                              

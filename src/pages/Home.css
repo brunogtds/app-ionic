@@ -123,6 +123,7 @@ body{
   margin-bottom: 50px;
   width: 86px;
   height: 24px;
+  
 }
 
 #outer{
@@ -131,17 +132,38 @@ body{
   display: table;
 }
 
+
+
 #header-items {
   display: flex;
   width: 100%;
   height: 100%;
+  text-align: center;
+  position: relative;
 }
 
-#header-items img{
-  margin: auto;
+.img-logo{
+  position: absolute;
+  width: 86px;
+  height: 24px;
+  left: 0; 
+  right: 0; 
+ 
+  margin-left: auto; 
+  margin-right: auto;
   
+  bottom: 30%;
+}
+
+.navigation{
+  margin-bottom: 10px;
+}
+
+.header-img{
   display: block;
-  
+  margin-left: auto;
+  margin-right: auto;
+ 
 }
 
 .sobre-button{
@@ -183,8 +205,8 @@ ion-toolbar {
       }
 
 .logo{
-  width: 100px;
-  height: 50px;
+  width: 86px;
+  height: 24px;
   
 }
 

@@ -31,7 +31,7 @@ const Habitos1 = (props: StepComponentProps) => {
             <div className="ion-text-wrap">
                
                 <form className="ion-padding texto-default">
-                <div className="texto-title">Bem-estar</div>
+                <div className="texto-title">Hábitos</div>
                 <div className="texto-default">Para receber dicas personalizadas, preencha para sabermos mais sobre você e seus hábitos!</div>
 
                 <div className="ion-text-wrap texto-default">

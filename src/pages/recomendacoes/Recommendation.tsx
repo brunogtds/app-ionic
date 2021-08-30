@@ -31,6 +31,7 @@ import bons_habitos3 from '../../img/Bons_habitos_3.svg';
 import bons_habitos4 from '../../img/Bons_habitos_4.svg';
 import bons_habitos5 from '../../img/Bons_habitos_5.svg';
 import bons_habitos6 from '../../img/Bons_habitos_6.svg';
+import bons_habitos7 from '../../img/bons_habitos7.png';
 
 import sono1 from '../../img/Sono_1.svg';
 import sono2 from '../../img/Sono_2.svg';
@@ -116,9 +117,15 @@ const Recommendation: React.FC = () => {
       <IonHeader>
         <IonToolbar color="orange">
         <div id="header-items">
+          <div className={"navigation"}>
+          <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
+          </div>
+          <div className={"img-logo"}>
           <img src={logo_regente} className={"logo"}/>
-          <IonButtons slot="end"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
-        </div>   
+         </div>
+  </div> 
+       
+        
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-text-center" color="background">
@@ -421,6 +428,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
+                <img src={bons_habitos7} className={"img-slides"}/>
                 <p className={"main-text"}>Cuide da sua postura corporal.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos5(!saibaMaisBonsHabitos5)}}>{saibaMaisTextBonsHabitos5}</IonButton>

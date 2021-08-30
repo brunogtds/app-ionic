@@ -33,7 +33,7 @@ const HabitosFinal1 = (props: StepComponentProps) => {
                 <form className="ion-padding">
 
                 <div className="ion-text-wrap texto-default">
-                <div className="texto-title">Bem-estar</div>
+                <div className="texto-title">Hábitos</div>
                 <div className="texto-default">Para continuar marcando suas atividades, preencha para sabermos mais sobre você e seus hábitos!</div>
                
                         <IonLabel className="questions">Em quantos dias você trabalhou ou estudou nas últimas duas semanas? </IonLabel>

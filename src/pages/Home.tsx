@@ -1,5 +1,5 @@
 import React, {useState } from 'react';
-import { IonContent, IonHeader, IonPage,IonToolbar, IonModal, IonSlides, IonSlide, IonRow} from '@ionic/react';
+import { IonContent, IonHeader, IonPage,IonToolbar, IonModal, IonSlides, IonSlide, IonRow, IonGrid, IonCol} from '@ionic/react';
 
 import logo_regente from '../img/logo_regente_branco.svg';
 
@@ -59,6 +59,10 @@ import imc from '../img/Sono_5.svg';
 import matutino_wave from '../img/Matutino_boas-vindas.svg';
 import intermed_wave from '../img/Neutro_boas-vindas.svg';
 import vespertino_wave from '../img/Vespertino_boas-vindas.svg';
+
+import matutino_corda from '../img/matutino_corda.svg';
+import vespertino_corda from '../img/vespertino_corda.png';
+import intermed_corda from '../img/intermed_corda.png';
 
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 
@@ -836,16 +840,19 @@ const Tab1: React.FC = () => {
       <IonHeader>
         <IonToolbar color="orange">
         
-      
-        
         <div id="header-items">
-        <img src={logo_regente} className={"logo"}/>
-                 
+          <div className={"navigation"}>
+          <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
+          </div>
+          <div className={"img-logo"}>
+          <img src={logo_regente} className={"logo"}/>
+         </div>
+  </div> 
+       
         
-         
-        </div>
         
-        <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
+        
+        
         
         
           {/*
@@ -962,12 +969,12 @@ const Tab1: React.FC = () => {
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid"  className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid"  className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
             <div>
-           <IonButton  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
             <AccordionItemPanel>
@@ -1080,6 +1087,9 @@ const Tab1: React.FC = () => {
 
 
                   <p className={"readMore-text"}>{feedbackExerciseText} Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p> 
+                  {cronoImage === '1' ? <p><img src={matutino_corda} className="img-slides" /> </p> : null}
+                  {cronoImage === '2' ? <p><img src={intermed_corda} className="img-slides" /></p> : null}
+                  {cronoImage === '3' ? <p><img src={vespertino_corda} className="img-slides" /></p> : null}
                   <br/>
                   </IonSlide> 
 
@@ -1170,7 +1180,7 @@ const Tab1: React.FC = () => {
            <AccordionItemPanel>
 
            <div>
-           <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado}  onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar </div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado}  onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
            </AccordionItemPanel>
            <AccordionItemPanel>
@@ -1220,7 +1230,7 @@ const Tab1: React.FC = () => {
 
             <AccordionItemPanel>
             <div>
-           <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado}  onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
+           <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado}  onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80"/></IonButton> 
            </div>
             </AccordionItemPanel>
 

@@ -12,6 +12,7 @@ import {useState} from 'react';
 
 import { IonProgressBar} from '@ionic/react';
 
+import Sono_9 from '../img/Sono_9.svg';
 
 
 //imports user context do reactfire
@@ -45,7 +46,7 @@ const Perfil_CadastroPergunta = (props: StepComponentProps) => {
     
 
     return (
-        <IonContent fullscreen color="background">
+        <IonContent fullscreen color="white">
         <div>
 
            
@@ -53,16 +54,20 @@ const Perfil_CadastroPergunta = (props: StepComponentProps) => {
         
                 <form className="ion-padding texto-default">
 
-                <div className="texto-title">Sobre você</div>
                 
+                <img src={Sono_9} alt={"imagem do mascote dormindo"} className={"img_cadastro"}/>
+                
+    
+                        <div className="title_pergunta_cadastro">Olá!</div>
+                        <div className="subtitle_pergunta_cadastro">Eu gostaria muito de saber: </div>
 
-                        <IonLabel className="questions">O que faz você dormir bem?</IonLabel>
+                        <IonLabel className="questions">O que você faz que te ajuda a dormir?</IonLabel>
                         {errors.age && <IonText color="danger"> Campo obrigatório.</IonText>}
-                         <IonItem > 
+                         <IonItem className={"ion-no-padding"}> 
                             
                             
                             <Controller render={({onChange}) => (
-                                <IonInput className={"teste"} type="text" placeholder="Por exemplo: ler, meditar..." value= {props.getState("goodSleep", "")} onIonChange={
+                                <IonInput className={"teste"} type="text" placeholder="Digite" value= {props.getState("goodSleep", "")} onIonChange={
                                     (e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
@@ -82,16 +87,17 @@ const Perfil_CadastroPergunta = (props: StepComponentProps) => {
                          </IonItem>
                                             
                        
-
+                       
+                       <div className="bottom">
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={0.33} color="orange"></IonProgressBar>
+                      
                         </div>
-                        
                       
                         <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" color="orange" fill="outline">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} color="orange" fill="outline" onClick={props.next} className={"btnProximo"} size="default" shape="round" >Próximo</IonButton>
+                        <IonButton disabled={formState.isValid === false} color="orange" fill="outline" onClick={props.next} className={"btnProximo_perguntaCadastro"} size="default" shape="round" >Próximo</IonButton>
+                        </div>
                         
-                         
                 </form>
            
         </div>

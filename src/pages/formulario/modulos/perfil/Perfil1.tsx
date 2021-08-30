@@ -28,6 +28,10 @@ Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabel
 
 const Perfil1 = (props: StepComponentProps) => {
 
+    const options = {
+        cssClass: 'my-custom-interface'
+      };
+
     const {data: user}= useUser();
     const [dataUser, setData] = useState()
      
@@ -64,9 +68,10 @@ const Perfil1 = (props: StepComponentProps) => {
 
        
         
-                <form className="ion-padding">
+                <form className="ion-padding texto-default">
 
-                   
+                <div className="texto-title">Sobre você</div>
+                <div className="texto-default">Aqui você pode editar os dados que preencheu no cadastro!</div>
 
                         <IonLabel className="questions">Idade:</IonLabel>
                          <IonItem>
@@ -97,7 +102,7 @@ const Perfil1 = (props: StepComponentProps) => {
                             
 
                             <Controller render={({onChange}) => ( 
-                            <IonSelect placeholder="Por favor, selecione..." value= {props.getState("sex", "")} onIonChange={(e) => {
+                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value= {props.getState("sex", "")} onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -126,7 +131,7 @@ const Perfil1 = (props: StepComponentProps) => {
                             <IonLabel position="floating" className="questions">Primeiro dia da última menstruação:</IonLabel>
 
                             <Controller render={({onChange}) => (
-                                <IonDatetime placeholder="Selecione data" id="dateMenstruation" onIonChange={(e)=> {
+                                <IonDatetime monthShortNames="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Aug, Set, Out, Nov, Dez" placeholder="Selecione data" id="dateMenstruation" onIonChange={(e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
@@ -146,7 +151,7 @@ const Perfil1 = (props: StepComponentProps) => {
                             
 
                             <Controller render={({onChange}) => (
-                            <IonInput id="weight" type="number" onIonChange={(e)=> {
+                            <IonInput id="weight" type="number" placeholder="Digite um valor aproximado" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -164,7 +169,7 @@ const Perfil1 = (props: StepComponentProps) => {
                          <IonItem>
 
                             <Controller render={({onChange}) => (
-                            <IonInput id="height" type="number" onIonChange={(e)=> {
+                            <IonInput id="height" type="number" placeholder="Digite um valor aproximado" onIonChange={(e)=> {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined) 
@@ -185,7 +190,7 @@ const Perfil1 = (props: StepComponentProps) => {
                             
                             <Controller render={({onChange}) => (
                                
-                                <IonSelect placeholder="Por favor, selecione..." id="BRstate" onIonChange={(e)=> {
+                                <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." id="BRstate" onIonChange={(e)=> {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
@@ -237,43 +242,43 @@ const Perfil1 = (props: StepComponentProps) => {
                         <IonLabel className="questions">Atualmente sou:</IonLabel>
                         
                                         
-                        <IonItem>
+                        <IonItem className={"ion-no-padding"}>
   
                       
                         <Controller render={({onChange}) => (
-                        <IonRadioGroup 
+                        <IonRadioGroup allowEmptySelection={true}
                          name="currentOccupation" onIonChange={(e) => { 
                                     console.log(formState.isValid);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined) 
                                     props.setState('currentOccupation', e.detail.value )}}>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Estudante</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="estudante" ></IonRadio>
+                                    <IonRadio  slot="start" className={"radio-options"} name="currentOccupation" color="primary" value="estudante" ></IonRadio>
                                     </IonItem>
                                 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Assalariado</IonLabel>
-                                    <IonRadio  className={"radio-options"}  name="currentOccupation" color="primary" value="assalariado"></IonRadio>
+                                    <IonRadio  slot="start" className={"radio-options"}  name="currentOccupation" color="primary" value="assalariado"></IonRadio>
                                     </IonItem>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Autônomo</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="autonomo"></IonRadio>
+                                    <IonRadio  slot="start" className={"radio-options"} name="currentOccupation" color="primary" value="autonomo"></IonRadio>
                                     </IonItem>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}> 
                                     <IonLabel>Desempregado</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="desempregado"></IonRadio>
+                                    <IonRadio  slot="start" className={"radio-options"} name="currentOccupation" color="primary" value="desempregado"></IonRadio>
                                     </IonItem>
 
-                                    <IonItem>
+                                    <IonItem lines="none" className={"ion-no-padding"}>
                                     <IonLabel>Aposentado</IonLabel>
-                                    <IonRadio  className={"radio-options"} name="currentOccupation" color="primary" value="aposentado"></IonRadio>
+                                    <IonRadio  slot="start" className={"radio-options"} name="currentOccupation" color="primary" value="aposentado"></IonRadio>
                                     </IonItem>
 
-                                   <IonItem>
+                                    <IonItem className={"radio-options"}>
                                         
                                         <IonInput name="currentOccupation" placeholder="Outros" type="text" onIonChange={(e)=> {
                                     
@@ -294,10 +299,12 @@ const Perfil1 = (props: StepComponentProps) => {
                         </IonItem>
 
                       
-                        
+                        <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>
+                        </div>
                       
-                        <IonButton disabled={true} onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="clear">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} onClick={props.next} className={"btnProximo"} size="default" shape="round" fill="clear" >Próximo</IonButton>
+                        <IonButton onClick={props.prev} className="btnAnterior" size="default" shape="round" color="orange" fill="outline">Anterior</IonButton>
+                        <IonButton disabled={formState.isValid === false} color="orange" fill="outline" onClick={props.next} className={"btnProximo"} size="default" shape="round" >Próximo</IonButton>
                         
                          
                 </form>
