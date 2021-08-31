@@ -298,7 +298,7 @@ ion-select::part(icon) {
 
 /* Popover Interface: set color for the popover using Item's CSS variables */
 .my-custom-interface .select-interface-option {
-  --color: #F58B44;
+  --color: #444950;
   --color-hover: #F58B44;
   --background-color: #ffffff;
   --background-color-rgb: 18,18,18;

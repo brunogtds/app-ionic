@@ -61,7 +61,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
 
                         <IonLabel className="questions">Idade:</IonLabel>
                         {errors.age && <IonText color="danger"> Campo obrigatório.</IonText>}
-                         <IonItem > 
+                         <IonItem lines="none"> 
                             
                             
                             <Controller render={({onChange}) => (
@@ -85,7 +85,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                          </IonItem>
                                             
                         <IonLabel className="questions" >Sexo:</IonLabel>
-                         <IonItem>
+                         <IonItem lines="none">
                             
 
                             <Controller render={({onChange}) => ( 
@@ -114,7 +114,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                          </IonItem>
 
                         {watchGender === "feminino" ? 
-                        <IonItem>
+                        <IonItem lines="none">
                             <IonLabel position="floating" className="questions">Primeiro dia da última menstruação:</IonLabel>
 
                             <Controller render={({onChange}) => (
@@ -134,7 +134,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         
                         <IonLabel  className="questions">Peso (em kg):</IonLabel>
                         {errors.weight && <IonText color="danger"> Campo obrigatório.</IonText>}
-                        <IonItem>
+                        <IonItem lines="none">
                             
 
                             <Controller render={({onChange}) => (
@@ -154,7 +154,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                          <IonLabel className="questions">Altura (em cm): </IonLabel>
                          {errors.height && <IonText color="danger">Campo obrigatório.</IonText>}
                          
-                         <IonItem>
+                         <IonItem lines="none">
 
                             <Controller render={({onChange}) => (
                             <IonInput value={props.getState("height", "")} placeholder="Digite o valor em cm, por exemplo: 170" id="height" type="number" onIonChange={(e)=> {
@@ -171,7 +171,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         </IonItem>
 
                         <IonLabel className="questions">Estado do Brasil:</IonLabel>
-                        <IonItem>
+                        <IonItem lines="none">
                         
                             
                             
@@ -230,7 +230,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         <IonLabel className="questions">Atualmente sou:</IonLabel>
                         {errors.currentOccupation && <IonText color="danger"> Campo obrigatório.</IonText>}
                                         
-                        <IonItem className={"ion-no-padding"}>
+                        <IonItem className={"ion-no-padding "} lines="none">
   
                       
                         <Controller render={({onChange}) => (
