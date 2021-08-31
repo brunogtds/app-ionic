@@ -297,6 +297,16 @@ ion-alert{
     --ion-color-tint: var(--ion-color-white-tint);
   }
 
+  .ios ion-radio{
+    --color: #F58B44;
+    border-style: solid;
+  }
+
+  .ios ion-radio-icon{
+    border-style: solid;
+    border-color: #F58B44;
+  }
+
  
   /*
    * Material Design Dark Theme
