@@ -307,6 +307,9 @@ ion-alert{
     border-color: #F58B44;
   }
 
+  .ions ion-checkbox{
+    --border-radius: 1px;
+  }
  
   /*
    * Material Design Dark Theme
