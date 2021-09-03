@@ -85,6 +85,9 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
 
     await firebase.firestore().collection('usersFinal').doc(uid).set({
         uid: uid, }, { merge: true }); 
+
+    await firebase.firestore().collection('metas').doc(uid).set({
+        uid: uid, metaDaily: Number(0)}, { merge: true }); 
        
    
      console.log('firestore criado');
@@ -146,7 +149,7 @@ const onSubmit = (data: any) => {
                        
 
                        
-                       <IonItem>
+                       <IonItem lines="none">
                       
                            <Controller render={({onChange}) => (
 
@@ -179,7 +182,7 @@ const onSubmit = (data: any) => {
                          
 
 
-                         <IonItem>
+                         <IonItem lines="none">
                              
 
                                <Controller render={({onChange}) => (
@@ -204,7 +207,7 @@ const onSubmit = (data: any) => {
 
                         <IonLabel className="ion-text-wrap questions">Número de pessoas dependentes:</IonLabel>     
                         {errors.depend && <IonText color="danger">Campo obrigatório.</IonText>}       
-                       <IonItem>
+                       <IonItem lines="none">
                            
 
                            <Controller render={({onChange}) => (
@@ -225,7 +228,7 @@ const onSubmit = (data: any) => {
                         
                        <IonLabel className="questions">Moro em uma área: </IonLabel>
                        {errors.area && <IonText color="danger">Campo obrigatório.</IonText>}
-                       <IonItem className={"ion-no-padding"}>
+                       <IonItem className={"ion-no-padding"} lines="none">
                            
 
                            <Controller render={({onChange}) => (
