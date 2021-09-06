@@ -25,6 +25,8 @@ import  { useHistory } from 'react-router-dom'
 import {logoutUser} from '../../src/firebaseConfig/firebaseConfig';
 import { toast } from '../toast';
 
+import {chatbubbleOutline, statsChartOutline} from  'ionicons/icons';
+
 import {useUser} from 'reactfire';
 
 import firebase from 'firebase';
@@ -72,6 +74,8 @@ import './Home.css';
 import {format, sub} from 'date-fns';
 import {diffHoursMinutes} from '../dateFunctions';
 import {timeStampToFloat} from '../dateFunctions';
+
+import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 
 const Tab1: React.FC = () => {
 
@@ -159,6 +163,10 @@ const Tab1: React.FC = () => {
 
   function feedbackInicial(){
     history.push('/feedbackinicial');
+  }
+
+  function toAderencia(){
+    history.push('/aderencia');
   }
 
   const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
@@ -805,6 +813,21 @@ const Tab1: React.FC = () => {
     }
   }
 
+  async function createPDF(){
+    const pdfDoc= await PDFDocument.create()
+    
+    const page= pdfDoc.addPage()
+    const {width, height}= page.getSize()
+    const fontSize= 16
+    page.drawText("teste" + {feedbackCronoText})
+
+    const pdfBytes= await pdfDoc.save()
+    console.log("pdf " + pdfBytes);
+    
+   
+
+  }
+
   function modalFeedbackInicial(){
     setShowModalFeedbackInicial(true);
     getFeedbackLight();
@@ -984,6 +1007,9 @@ const Tab1: React.FC = () => {
            <div>
            <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline}/><div>Acessar dicas</div></IonButton> 
            </div>
+           <div>
+           <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)}  onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline}/><div>Acompanhe seu progresso</div></IonButton> 
+           </div>
 
            <IonModal isOpen={showModalFeedbackInicial} showBackdrop={true}
               cssClass='custom-modal selectable'
@@ -1140,10 +1166,11 @@ const Tab1: React.FC = () => {
                   
                   <p className={"readMore-text"}>{feedbackBemEstarText}</p>
                   <p className={"readMore-text"}>Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!</p>
-                 
+                  <IonButton onClick={createPDF}>gerar pdf</IonButton>
                   {cronoImage === '1' ? <p><img src={matutino_wave} className="img-slides" /> </p> : null}
                   {cronoImage === '2' ? <p><img src={intermed_wave} className="img-slides" /></p> : null}
                   {cronoImage === '3' ? <p><img src={vespertino_wave} className="img-slides" /></p> : null}
+                  
                   <br/>
                   </IonSlide>
 

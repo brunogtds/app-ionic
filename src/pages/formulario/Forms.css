@@ -312,22 +312,3 @@ ion-select::part(icon) {
   --background-color-rgb: 18,18,18;
 }
 
-/* Alert Interface: set color for alert options (single selection) */
-.my-custom-interface .select-interface-option .alert-radio-label {
-  color: #F58B44;
-}
-
-/* Alert Interface: set color for alert options (multiple selection) */
-.my-custom-interface .select-interface-option .alert-checkbox-label {
-  color: #F58B44;
-}
-
-/* Alert Interface: set color for checked alert options (single selection) */
-.my-custom-interface .select-interface-option[aria-checked=true] .alert-radio-label {
-  color: #F58B44;
-}
-
-/* Alert Interface: set color for checked alert options (multiple selection) */
-.my-custom-interface .select-interface-option[aria-checked=true] .alert-checkbox-label {
-  color: #F58B44;
-}

@@ -65,6 +65,10 @@ import HabitosFinalMain from './pages/formulario/modulos/habitosFinal/habitosFin
 
 import SonoSintomasFinalMain from './pages/formulario/modulos/sono_sintomasFinal/SonoSintomasFinalMain';
 
+import Aderencia_1 from './pages/Aderencia_1';
+import AderenciaFormMain from './pages/AderenciaFormMain';
+import CalendarPage from './pages/CalendarPage';
+import CalendarFormMain from './pages/CalendarFormMain';
 
 /*ExplanationSlides*/
 
@@ -166,8 +170,8 @@ const PrivateRoutes: React.FC = () => {
                     Recomendações
                    </IonItem>
 
-            <IonItem href="/recomendacoes" color="orange"> <IonIcon slot="start" icon={statsChartOutline}/>
-                    Aderência
+            <IonItem href="/calendar" color="orange"> <IonIcon slot="start" icon={statsChartOutline}/>
+                    Progresso
                    </IonItem>
                  
             <IonItem href="/" onClick={Logout} color="orange"> <IonIcon slot="start" icon={logOutOutline}/>
@@ -207,8 +211,10 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/mode2" component={Mode2}/>
           <Route path="/mode3" component={Mode3}/>
           <Route path="/sobre" component={Sobre}/>
-
-       
+          <Route path="/aderencia" component={Aderencia_1}/>
+          <Route path="/check" component={AderenciaFormMain} exact={true}/>
+          
+          <Route path="/calendar" component={CalendarFormMain} exact={true}/>
       
          
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
