@@ -3,8 +3,8 @@ import { Steps, Step } from "react-step-builder";
 
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton} from '@ionic/react';
 import '../../Forms.css';
-import SaudePost1 from "../saudePost/SaudePost1";
-import SaudePost2 from "../saudePost/SaudePost2";
+import SaudePost1 from "./SaudePost1";
+import SaudePost2 from "./SaudePost2";
 
 import logo_regente from '../../../../img/logo_regente_branco.svg';
   /*React-multi-step form 
@@ -18,8 +18,6 @@ import logo_regente from '../../../../img/logo_regente_branco.svg';
 
   
 function App() {
-
-
 
    return (
 
