@@ -79,9 +79,7 @@ import { timeStampToFloat } from '../dateFunctions';
 
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 import { SocialSharing } from '@ionic-native/social-sharing';
-import image_test1 from 'https://i.imgur.com/SbDtsdD.png';
-import image_test2 from 'https://i.imgur.com/QV38oR2.jpeg';
-import image_test3 from 'https://i.imgur.com/eLFAvtU.jpeg';
+
 
 const Tab1: React.FC = () => {
 
@@ -834,11 +832,11 @@ const Tab1: React.FC = () => {
 
   function sharingSocial() {
 
-    const imgs = [image_test1, image_test2, image_test3]
+    const imgs = ['https://i.imgur.com/SbDtsdD.png', 'https://i.imgur.com/QV38oR2.jpeg', 'https://i.imgur.com/eLFAvtU.jpeg']
     const index = Number(cronoImage) - 1; 
 
-    SocialSharing.share('', '', imgs[index]).then((res) => {
-    }).catch((e) => {
+    SocialSharing.share('', '', imgs[index]).then((_res: any) => {
+    }).catch((_e: any) => {
       
     });
 

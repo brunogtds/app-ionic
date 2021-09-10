@@ -3,7 +3,7 @@
   "appName": "appReact",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "build",
+  "webDir": "src",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
