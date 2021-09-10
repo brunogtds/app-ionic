@@ -260,6 +260,7 @@ ion-toolbar {
   font-family: Nunito !important;
   font-size: 22px !important;
   font-weight: 900 !important;
+  color: #444950; 
 }
 
 .texto-main-calendar{
@@ -267,12 +268,23 @@ ion-toolbar {
   font-size: 22px !important;
   font-weight: 900 !important;
   margin-bottom: 16px;
+  color: #444950; 
 }
 
 .texto-padrão{
   font-family: OpenSans;  
   font-size: 14px;
   font-weight: 400;
+  color: #444950; 
+}
+
+.texto-confirma{
+  font-family: OpenSans;  
+  font-size: 16px;
+  font-weight: 400;
+  display: block;
+  margin-top: 16px;
+  color: #444950; 
 }
 
 .texto-padrão-calendar{
@@ -496,8 +508,64 @@ ion-card{
   height: 180px;
 }
 
+.btnProximo {
+  align-items: right;
+  float: right;
+  text-transform: capitalize;
+  
+}
+
+.btnAnterior {
+ 
+  text-transform: capitalize;
+  margin-bottom: 16px;
+}
+
 .bold{
   font-weight: 600;
   margin-bottom: 32px;
 }
 
+.goals{
+  text-align: center;
+}
+
+.circle-progress-bar{
+   
+  width: 200px;
+  height: 150px;
+}
+.CircularProgressbar {
+  /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   */
+  width: 100%;
+  /*
+   * This fixes a centering issue with CircularProgressbarWithChildren:
+   * https://github.com/kevinsqi/react-circular-progressbar/issues/94
+   */
+  vertical-align: middle;
+}
+
+
+.CircularProgressbar-path {
+  stroke: #F58B44;
+}
+.CircularProgressbar-trail {
+  stroke: #F58B44;
+}
+.CircularProgressbar-text {
+  fill: #F58B44;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+.CircularProgressbar-background {
+  fill: #FDF5EB;
+}
+
+.mascote-circular-progress{
+  width: 50px;
+  height: 50px;
+  margin-top: -5;
+}

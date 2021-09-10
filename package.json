@@ -38,6 +38,7 @@
     "mobx": "^6.1.5",
     "mobx-react": "^7.1.0",
     "pdf-lib": "^1.16.0",
+    "pdfmake": "^0.2.2",
     "react": "^16.14.0",
     "react-accessible-accordion": "^3.3.4",
     "react-calendar": "^3.4.0",

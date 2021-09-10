@@ -55,29 +55,37 @@ const Aderencia_2= (props: StepComponentProps) => {
     cssClass: 'my-custom-interface'
   };
   const [meta1, setMeta1]= useState();
+ 
   const {data: user}= useUser();
   const [dataUser, setData] = useState()
 
   async function updateUserDataQuest1(dataUser: any){
      
     if(user){
-        firebase.firestore().collection('users').doc(user.uid).set({
-            meta01: String(props.state.meta01),
-            metaFreqSemanal: Number(props.state.metaFreqSemanal),
+        firebase.firestore().collection('metas').doc(user.uid).set({
+            meta01Coleta01: String(props.state.meta01Coleta01),
+            meta01Coleta01FreqSemanal: Number(props.state.meta01Coleta01FreqSemanal),
+            meta1Definida: String("sim")
             
            }, {merge: true})
         }
     
-        toast('Formulário submetido com sucesso!', 2000);
+        toast('Meta definida com sucesso!', 2000);
         
     
+    }
+
+    const history= useHistory();
+
+    function calendar(){
+      history.push('/calendar');
     }
 
     const onSubmit = (data: any) => {
       setData(dataUser);
       setLoader(true);
       updateUserDataQuest1(dataUser);
-    
+      calendar();
    }
 
   return (
@@ -103,13 +111,13 @@ const Aderencia_2= (props: StepComponentProps) => {
                       onChange(e.detail.value);
                       console.log(e);
                       if (e.detail.value != undefined) 
-                      props.setState('meta01', e.detail.value )}}>
+                      props.setState('meta01Coleta01', e.detail.value )}}>
                   <IonSelectOption value="exercicio" >Exercício</IonSelectOption>
                   <IonSelectOption value="alimentação" >Alimentação</IonSelectOption>
                   <IonSelectOption value="sono" >Sono</IonSelectOption>
                   <IonSelectOption value="luz" >Exposição à luz natural</IonSelectOption>
-                  </IonSelect> )} control={control} name={'meta01'} rules={{required:true}}/>
-                  {errors.meta01 && <IonText color="danger">Campo obrigatório.</IonText>}
+                  </IonSelect> )} control={control} name={'meta01Coleta01'} rules={{required:true}}/>
+                  {errors.meta01Coleta01 && <IonText color="danger">Campo obrigatório.</IonText>}
                </IonItem>
       
       {(meta1 === "exercicio") ?
@@ -132,39 +140,63 @@ const Aderencia_2= (props: StepComponentProps) => {
       <IonLabel className="questions">Quantas vezes por semana você quer se expor à luz natural?</IonLabel> :null
       } 
 
+      {errors.metaFreqSemanal && <IonText color="danger">Campo obrigatório.</IonText>}    
 
 
        {((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) ?
 
             <IonItem lines="none">
-                                        
+                            
                                    
-            <Controller render={({onChange}) => (
-                <IonInput type="number" placeholder="Digite o valor em dias" value= {props.getState("metaFreqSemanal", "")} onIonChange={
+                            <Controller render={({onChange}) => (
+                <IonInput type="number" placeholder="Digite o valor em dias" value= {props.getState("meta01Coleta01FreqSemanal", "")} onIonChange={
                     (e)=> {
                     console.log(e);
                     onChange(e.detail.value);
                     if (e.detail.value != undefined) 
-                    props.setState('metaFreqSemanal', e.detail.value ); }}
+                    props.setState('meta01Coleta01FreqSemanal', e.detail.value ); }}
                         
                     />
             )}
-            name= "metaFreqSemanal"
+            name= "meta01Coleta01FreqSemanal"
             rules= {{ required: true}}
             control= {control}     
                 
             />
-            {errors.metaFreqSemanal && <IonText color="danger">Campo obrigatório.</IonText>}    
+           
            
                       
             </IonItem> :null
       } 
+
+      {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta então é... controlar {meta1} {props.state.metaFreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+{(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
+
+<div className="texto-confirma">
+       Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
+</div> :null
+
+}
+
+
       
       </form>
 
 
-        <IonButton disabled={formState.isValid === false} color="orange" onClick={onSubmit} className={"btnProximo"} size="default" shape="round" fill="outline">Definir</IonButton>
+      <IonButton disabled={formState.isValid === false} color="orange"  className={"btnAnterior"} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+      <IonButton disabled={formState.isValid === false} color="orange"  className={"btnProximo"} onClick={onSubmit} size="default" shape="round" fill="outline">Definir</IonButton>
         
+      
+      
+      
+    
 
       </IonContent>
 

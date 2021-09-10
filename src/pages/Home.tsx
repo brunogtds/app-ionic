@@ -188,6 +188,8 @@ const Tab1: React.FC = () => {
   const [moduloHabitosFinalEnviado, setHabitosFinalEnviado] = React.useState(false);
   const [moduloSonoSintomasFinalEnviado, setSonoSintomasFinalEnviado] = React.useState(false);
 
+  const [meta1Coleta1Definida, setMeta1Coleta1Definida]= React.useState(false);
+
   const [minDaysPart1, setMinDaysPart1] = React.useState(false);
   const [minDaysPart2, setMinDaysPart2] = React.useState(false);
 

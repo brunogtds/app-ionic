@@ -87,7 +87,7 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
         uid: uid, }, { merge: true }); 
 
     await firebase.firestore().collection('metas').doc(uid).set({
-        uid: uid, metaDaily: Number(0)}, { merge: true }); 
+        uid: uid, metaDaily: Number(0), meta02Daily: Number(0), meta03Daily: Number(0)}, { merge: true }); 
        
    
      console.log('firestore criado');
