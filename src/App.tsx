@@ -69,6 +69,10 @@ import Aderencia_1 from './pages/Aderencia_1';
 import AderenciaFormMain from './pages/AderenciaFormMain';
 import CalendarPage from './pages/CalendarPage';
 import CalendarFormMain from './pages/CalendarFormMain';
+import Aderencia_1Post from './pages/Aderencia_1Post';
+import Aderencia_1Final from './pages/Aderencia_1Final';
+import AderenciaPostFormMain from './pages/AderenciaPostFormMain';
+import AderenciaFinalFormMain from './pages/AderenciaFinalFormMain';
 
 /*ExplanationSlides*/
 
@@ -213,6 +217,11 @@ const PrivateRoutes: React.FC = () => {
           <Route path="/sobre" component={Sobre}/>
           <Route path="/aderencia" component={Aderencia_1}/>
           <Route path="/check" component={AderenciaFormMain} exact={true}/>
+          <Route path="/checkPost" component={AderenciaPostFormMain} exact={true}/>
+          <Route path="/checkFinal" component={AderenciaFinalFormMain} exact={true}/>
+
+          <Route path="/aderencia1post" component={Aderencia_1Post}/>
+          <Route path="/aderencia1final" component={Aderencia_1Final}/>
           
           <Route path="/calendar" component={CalendarFormMain} exact={true}/>
       

@@ -42,6 +42,33 @@ const SaudeFinal1 = (props: StepComponentProps) => {
                 <div className="texto-title">Saúde</div>
                 <div className="texto-default">Para continuar marcando suas atividades, preencha para sabermos mais sobre você e sua saúde!</div>
 
+                <IonLabel className="questions">Você conseguiu finalizar suas metas principais?
+                            </IonLabel>
+                                               
+                        <IonItem className={"ion-no-padding"} lines="none">
+                            
+                            
+                            <Controller render={({onChange}) => (
+                            <IonRadioGroup onIonChange={(e) => {
+                                if (e.detail.value != undefined) 
+                                props.setState('meta01_02coleta02Complete', e.detail.value )  }}>
+
+                                <IonItem lines="none"  className={"ion-no-padding"}>
+                                <IonLabel>Sim</IonLabel>
+                                <IonRadio slot="start"  className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                </IonItem> 
+                                
+                               
+                                <IonItem lines="none"  className={"ion-no-padding"}>
+                                <IonLabel>Não</IonLabel>
+                                <IonRadio slot="start"  className={"radio-options"} color="primary" value="não"></IonRadio>
+                                </IonItem> 
+                            </IonRadioGroup>
+                            )}
+                            control={control}
+                            name={"meta01_02coleta02Complete"}
+                            />
+                        </IonItem>
                        
                 <IonLabel className="questions">Peso (em kg):</IonLabel>
                  {errors.weightFinal && <IonText color="danger"> Campo obrigatório.</IonText>}

@@ -172,7 +172,7 @@ const Aderencia_2= (props: StepComponentProps) => {
       {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
 
       <div className="texto-confirma">
-        Sua meta então é... controlar {meta1} {props.state.metaFreqSemanal} vezes por semana!
+        Sua meta então é... controlar {meta1} {props.state.meta01Coleta01FreqSemanal} vezes por semana!
       </div> :null
 
       }

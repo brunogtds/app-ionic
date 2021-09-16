@@ -67,6 +67,10 @@ import vespertino_corda from '../img/vespertino_corda.png';
 import intermed_corda from '../img/intermed_corda.png';
 import teste_imagem from '../img/distanciamentoExp.png';
 
+import home_intermed from '../img/home_intermed.png';
+import home_vespertino from '../img/home_matutino.png';
+import home_matutino from '../img/home_vespertino.png';
+import home_gif from '../img/Home-gif.gif';
 
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 
@@ -79,6 +83,8 @@ import { timeStampToFloat } from '../dateFunctions';
 
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 import { SocialSharing } from '@ionic-native/social-sharing';
+
+import {arrowForwardOutline, arrowBackOutline} from 'ionicons/icons';
 
 
 const Tab1: React.FC = () => {
@@ -173,6 +179,15 @@ const Tab1: React.FC = () => {
     history.push('/aderencia');
   }
 
+  function toAderenciaPost() {
+    history.push('/aderencia1post');
+  }
+
+  function toAderenciaFinal() {
+    history.push('/aderencia1final');
+  }
+
+
   const [moduloSaudeEnviado, setSaudeModulo1Enviado] = React.useState(false);
   const [moduloContatoEnviado, setContatoModulo1Enviado] = React.useState(false);
   const [moduloHabitosEnviado, setHabitosModulo1Enviado] = React.useState(false);
@@ -217,6 +232,17 @@ const Tab1: React.FC = () => {
   const [feedbackSJLText, setFeedbackSJLText] = React.useState("")
   const [vespSJLText, setVespSJLText] = React.useState("")
 
+  const [swiper, setSwiper] = useState<any>({});
+  const init = async function(this: any) {
+    setSwiper(await this.getSwiper());
+  };
+  const handleNext = () =>{
+    swiper.slideNext();
+  }
+ 
+   const handlePrevious = () =>{
+     swiper.slidePrev();
+   }
 
   const { data: user } = useUser();
   const db = firebase.firestore();
@@ -837,10 +863,9 @@ const Tab1: React.FC = () => {
     const imgs = ['https://i.imgur.com/SbDtsdD.png', 'https://i.imgur.com/QV38oR2.jpeg', 'https://i.imgur.com/eLFAvtU.jpeg']
     const index = Number(cronoImage) - 1; 
 
-    SocialSharing.share('', '', imgs[index]).then((_res: any) => {
-    }).catch((_e: any) => {
+    SocialSharing.share('', '', imgs[index]);
       
-    });
+   
 
   }
 
@@ -924,11 +949,18 @@ const Tab1: React.FC = () => {
 
       </IonHeader>
       <IonLoading message="Por favor aguarde..." duration={0} isOpen={loader} />
-      <IonContent fullscreen className="ion-text-center ion-padding texto-padrão" color="background">
 
-        {cronoImage === '1' ? <p><img src={matutino_feliz} className="img-home" /> </p> : null}
-        {cronoImage === '2' ? <p><img src={intermed_feliz} className="img-home" /></p> : null}
-        {cronoImage === '3' ? <p><img src={vespertino_feliz} className="img-home" /></p> : null}
+      
+      
+      <IonContent fullscreen className="ion-text-center texto-padrão" color="background">
+
+        {cronoImage === 'Carregando feedback...' ? <img className="img-home" src={home_gif}/>  : null}
+        {cronoImage === '1' ? <img src={home_matutino} className="img-home" />  : null}
+        {cronoImage === '2' ? <img src={home_intermed} className="img-home" /> : null}
+        {cronoImage === '3' ? <img src={home_vespertino} className="img-home" /> : null}
+          
+      
+          
 
         <p className="texto-main">Olá, boas-vindas!</p>
         <p className="texto-padrão ">Para receber dicas personalizadas e ajudar a alimentar a pesquisa, preencha os formulários abaixo! Após preencher você também poderá definir metas e acompanhar suas atividades.</p>
@@ -1040,7 +1072,7 @@ const Tab1: React.FC = () => {
                         Finalize o formulário e acesse todas as dicas personalizadas!
                       </div>
                       <div>
-                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
+                        <IonButton  onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
                       </div>
                       <div>
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
@@ -1051,7 +1083,7 @@ const Tab1: React.FC = () => {
                         onDidDismiss={() => setShowModalFeedbackInicial(false)}>
                         <IonContent>
 
-                          <IonSlides pager={true}>
+                          <IonSlides pager={true} id={"slides"} onIonSlidesDidLoad={init}>
                             <IonSlide>
                               <IonToolbar color="white">
                                 <div id="header-items">
@@ -1059,14 +1091,26 @@ const Tab1: React.FC = () => {
                                   <p className={"header-title"}>Resultados</p>
                                   <IonButton className={"button-header"} fill="clear" slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
 
+                               
+                              <br/>
                                 </div>
                               </IonToolbar>
 
-
+                  
+                             
 
                               {cronoImage === '1' ? <p><img src={matutino_feliz} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_feliz} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_feliz} className="img-slides" /></p> : null}
+                             
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                               
+                              
+                              <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                              </p>  
+                              </div>                         
+                              <br/>
                               <p className={"readMore-text"}>Você sabia que cada pessoa tem um relógio interno para organizar as funções do seu corpo? O cronotipo é uma característica que representa como o seu relógio está organizado em relação ao ambiente, principalmente em relação ao dia e a noite.  Considerando seus horários de sono, estimamos que seu cronotipo é...</p>
                               <p className={"readMore-text"}>{feedbackCronoText}</p>
                               <p>
@@ -1090,9 +1134,21 @@ const Tab1: React.FC = () => {
                               <p className={"readMore-text"}>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
                               <p className={"readMore-text"}>{feedbackSonoText}</p>
                               <p className={"readMore-text"}>{feedbackSJLText}</p>
+
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                              <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
+                              
+                              <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                              </p>  
+                              </div>                         
+                              <br/>
+                             
                               {cronoImage === '1' ? <p><img src={matutino_cansado} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_cansado} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_cansado} className="img-slides" /></p> : null}
+
+                              
 
                               <br />
 
@@ -1111,6 +1167,14 @@ const Tab1: React.FC = () => {
 
                               <p className={"readMore-text"}>Ao responder nossas perguntas, você também nos contou um pouco sobre hábitos que podem estar relacionados a manutenção da sua saúde. Aqui vão algumas informações que podem ser úteis para você:</p>
                               <p className={"readMore-text"}>{feedbackRegularidadesText}</p>
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                              <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
+                              
+                              <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                              </p>  
+                              </div>                         
+                              <br/>
                               <p><img src={sono_feedback} className="img-slides" /> </p>
 
                               <br />
@@ -1131,6 +1195,14 @@ const Tab1: React.FC = () => {
                               <p className={"readMore-text"}>Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo.</p>
                               <p className={"readMore-text"}>{feedbackLightText}</p>
                               <p className={"readMore-text"}>{feedbackHobbiesText}</p>
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                              <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
+                              
+                              <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                              </p>  
+                              </div>                         
+                              <br/>
                               <p><img src={sol} className="img-slides" /> </p>
 
                               <br />
@@ -1148,6 +1220,14 @@ const Tab1: React.FC = () => {
 
 
                               <p className={"readMore-text"}>{feedbackExerciseText} Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p>
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                              <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
+                              
+                              <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                              </p>  
+                              </div>                         
+                              <br/>
                               {cronoImage === '1' ? <p><img src={matutino_corda} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_corda} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_corda} className="img-slides" /></p> : null}
@@ -1168,6 +1248,14 @@ const Tab1: React.FC = () => {
                               <p className={"readMore-text"}>{feedbackMedText}</p>
                               <p className={"readMore-text"}>{feedbackFumoText}</p>
                               <p className={"readMore-text"}>{feedbackAlcoolText}</p>
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                              <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
+                              
+                              <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                              </p>  
+                              </div>                         
+                              <br/>
                               <p><img src={imc} className="img-slides" /> </p>
                               <br />
                             </IonSlide>
@@ -1184,6 +1272,14 @@ const Tab1: React.FC = () => {
                               <p className={"readMore-text"}>Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões.</p>
                               <p className={"readMore-text"}>{feedbackCIText}</p>
                               <p className={"readMore-text"}>{feedbackCI2Text}</p>
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                              <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
+                              
+                              <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                              </p>  
+                              </div>                         
+                              <br/>
                               <p><img src={contato_social} className="img-slides" /> </p>
                               <br />
                             </IonSlide>
@@ -1201,7 +1297,17 @@ const Tab1: React.FC = () => {
 
                               <p className={"readMore-text"}>{feedbackBemEstarText}</p>
                               <p className={"readMore-text"}>Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!</p>
+                              <div className={"arrows ion-no-padding"}>
+                              <p>
+                              <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
+                              
+                              
+                              </p>  
+                              </div>                         
+                              <br/>
+                              <br/>
                               <IonButton onClick={createPDF}>gerar pdf</IonButton>
+                              
                               {cronoImage === '1' ? <p><img src={matutino_wave} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_wave} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_wave} className="img-slides" /></p> : null}
@@ -1253,18 +1359,13 @@ const Tab1: React.FC = () => {
                   </AccordionItemPanel>
                   <AccordionItemPanel>
                     <div className={"texto-compartilhar"}>
-                      Finalize o formulário e acesse todas as dicas personalizadas!
+                      Finalize a segunda etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2)} color="orange" fill="solid" shape="round" onClick={() => setShowModalFeedbackPost(true)} size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2)}  onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                     </div>
-                    <IonModal isOpen={showModalFeedbackPost} showBackdrop={true}
-                      cssClass='custom-modal'
-                      onDidDismiss={() => setShowModalFeedbackPost(false)}>
-                      <IonContent>
-                        <p>Feedback post vai aqui</p>
-                      </IonContent>
-                    </IonModal>
+                   
+
                   </AccordionItemPanel>
                 </AccordionItem>
               </Accordion>
@@ -1280,7 +1381,7 @@ const Tab1: React.FC = () => {
                     <p>{thirdPartText}</p>
 
                     <div>
-                      <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2}  onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
                     </div>
                   </AccordionItemPanel>
 
@@ -1303,18 +1404,12 @@ const Tab1: React.FC = () => {
                   </AccordionItemPanel>
                   <AccordionItemPanel>
                     <div className={"texto-compartilhar"}>
-                      Finalize o formulário e acesse todas as dicas personalizadas!
+                      Finalize a última etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasFinalEnviado} color="orange" fill="solid" shape="round" onClick={() => setShowModalFeedbackFinal(true)} size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasFinalEnviado} onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                     </div>
-                    <IonModal isOpen={showModalFeedbackFinal} showBackdrop={true}
-                      cssClass='custom-modal'
-                      onDidDismiss={() => setShowModalFeedbackFinal(false)}>
-                      <IonContent>
-                        <p>Feedback final vai aqui</p>
-                      </IonContent>
-                    </IonModal>
+                   
                   </AccordionItemPanel>
 
                 </AccordionItem>

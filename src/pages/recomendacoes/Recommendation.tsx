@@ -5,6 +5,7 @@ import './Recommendation.css';
 import {useState} from 'react';
 
 import {bandage, moon, home, cloudyNight} from  'ionicons/icons';
+import {arrowForwardOutline, arrowBackOutline} from 'ionicons/icons';
 
 import thinking from '../../img/thinking.png';
 import logo_regente from '../../img/logo_regente_branco.svg';
@@ -112,6 +113,47 @@ const Recommendation: React.FC = () => {
   const [saibaMaisSono12, setSaibaMaisSono12]= useState(false);
   const saibaMaisTextSono12= saibaMaisSono12?'Voltar ▲':'Saiba mais ▼';
 
+  const [swiper, setSwiper] = useState<any>({});
+  const [swiper2, setSwiper2] = useState<any>({});
+  const [swiper3, setSwiper3] = useState<any>({});
+  const init = async function(this: any) {
+    setSwiper(await this.getSwiper());
+  };
+
+  const init2 = async function(this: any) {
+    setSwiper2(await this.getSwiper());
+  };
+
+  const init3 = async function(this: any) {
+    setSwiper3(await this.getSwiper());
+  };
+
+  const handleNext = () =>{
+   swiper.slideNext();
+ }
+
+  const handlePrevious = () =>{
+    swiper.slidePrev();
+  }
+
+  
+  const handleNext2 = () =>{
+    swiper2.slideNext();
+  }
+ 
+   const handlePrevious2 = () =>{
+     swiper2.slidePrev();
+   }
+
+   
+  const handleNext3 = () =>{
+    swiper3.slideNext();
+  }
+ 
+   const handlePrevious3 = () =>{
+     swiper3.slidePrev();
+   }
+
   return (
     <IonPage>
       <IonHeader>
@@ -158,8 +200,11 @@ const Recommendation: React.FC = () => {
         onDidDismiss={() => setShowModalCovid(false)}>
        
           <IonContent>
-            <IonSlides pager={true} >
-            
+              
+        
+            <IonSlides pager={true} id={"slides"} onIonSlidesDidLoad={init}>
+
+                        
                <IonSlide>
                
                 <IonToolbar color="white">
@@ -171,12 +216,25 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               
+                <div>
                 <img src={covid_1} className={"img-slides"}/>
+                </div>
+                
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
+               
+
                  <p className={"main-text"}>Evite ao máximo sair de casa. Se for necessário sair, evite permanecer em espaços fechados ou mal ventilados.</p>
                 
               
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid1(!saibaMaisCovid1)}}>{saibaMaisTextCovid1}</IonButton>
                 
+                
+               
                 {saibaMaisCovid1 ? 
                
                 <p className={"readMore-text"}>Trabalhe  de casa sempre que possível. Evite visitar familiares e amigos, principalmente os que estão nos grupos de risco (mantenha contato por telefone  ou redes sociais).
@@ -195,6 +253,14 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={covid_2} className={"img-slides"} width="170" height="122"/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
+               
                 <p className={"main-text"}>Use sempre máscara de proteção.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid2(!saibaMaisCovid2)}}>{saibaMaisTextCovid2}</IonButton>
@@ -233,6 +299,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={covid_3} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Lave as mãos regularmente com água e sabão ou use álcool 70%.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid3(!saibaMaisCovid3)}}>{saibaMaisTextCovid3}</IonButton>
@@ -256,6 +329,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={covid_4} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Procure manter no mínimo 2 metros de distância das pessoas.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid4(!saibaMaisCovid4)}}>{saibaMaisTextCovid4}</IonButton>
@@ -277,6 +357,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={covid_5} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Evite tocar no rosto. Ao tossir ou espirrar, cubra a boca e o nariz com a parte interna do cotovelo ou com um lenço descartável. </p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid5(!saibaMaisCovid5)}}>{saibaMaisTextCovid5}</IonButton>
@@ -296,6 +383,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={covid_6} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Fique em casa se não se sentir bem.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid6(!saibaMaisCovid6)}}>{saibaMaisTextCovid6}</IonButton>
@@ -319,6 +413,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={covid_7} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Quando tiver oportunidade, vacine-se.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid7(!saibaMaisCovid7)}}>{saibaMaisTextCovid7}</IonButton>
@@ -340,7 +441,7 @@ const Recommendation: React.FC = () => {
         onDidDismiss={() => setShowModalHabitos(false)}>
        
           <IonContent>
-            <IonSlides pager={true} >
+            <IonSlides pager={true} id={"slides"} onIonSlidesDidLoad={init2}>
             
                <IonSlide>
                <IonToolbar color="white">
@@ -352,6 +453,12 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                  <img src={bons_habitos1} className={"img-slides"}/>
+                 <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                  <p className={"main-text"}>Não fique ouvindo notícias o tempo todo.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos1(!saibaMaisBonsHabitos1)}}>{saibaMaisTextBonsHabitos1}</IonButton>
@@ -371,6 +478,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={bons_habitos2} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Use técnicas para relaxar o corpo e a mente.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos2(!saibaMaisBonsHabitos2)}}>{saibaMaisTextBonsHabitos2}</IonButton>
@@ -390,6 +504,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={bons_habitos3} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Reserve um tempo para atividades de lazer.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos3(!saibaMaisBonsHabitos3)}}>{saibaMaisTextBonsHabitos3}</IonButton>
@@ -409,6 +530,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={bons_habitos4} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Pratique atividades físicas.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos4(!saibaMaisBonsHabitos4)}}>{saibaMaisTextBonsHabitos4}</IonButton>
@@ -429,6 +557,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={bons_habitos7} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Cuide da sua postura corporal.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos5(!saibaMaisBonsHabitos5)}}>{saibaMaisTextBonsHabitos5}</IonButton>
@@ -448,6 +583,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={bons_habitos5} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Mantenha uma boa higiene bucal.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos6(!saibaMaisBonsHabitos6)}}>{saibaMaisTextBonsHabitos6}</IonButton>
@@ -467,6 +609,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                 <img src={bons_habitos6} className={"img-slides"}/>
+                <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                
+                </p>
+                </div>
+                <br/>
                 <p className={"main-text"}>Cuide da sua alimentação.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos7(!saibaMaisBonsHabitos7)}}>{saibaMaisTextBonsHabitos7}</IonButton>
@@ -487,7 +636,7 @@ const Recommendation: React.FC = () => {
       onDidDismiss={() => setShowModalSono(false)}>
      
         <IonContent>
-          <IonSlides pager={true} >
+          <IonSlides pager={true} id={"slides"} onIonSlidesDidLoad={init3}>
           
              <IonSlide>
              <IonToolbar color="white">
@@ -499,6 +648,12 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
                <img src={sono1} className={"img-slides"}/>
+               <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
                <p className={"main-text"}>Exponha-se à luz natural durante o dia.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono1(!saibaMaisSono1)}}>{saibaMaisTextSono1}</IonButton>
@@ -519,6 +674,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono2} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Apague a luz à noite.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono2(!saibaMaisSono2)}}>{saibaMaisTextSono2}</IonButton>
@@ -538,6 +700,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono3} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Reduza o tempo excessivo na frente das telas, em especial à noite.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono3(!saibaMaisSono3)}}>{saibaMaisTextSono3}</IonButton>
@@ -557,6 +726,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono4} className={"img-slides"} />
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Use apps que deixem a tela mais ‘amarelada’ à noite.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono4(!saibaMaisSono4)}}>{saibaMaisTextSono4}</IonButton>
@@ -576,6 +752,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono5} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Organize sua rotina pensando em seu cronotipo.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono5(!saibaMaisSono5)}}>{saibaMaisTextSono5}</IonButton>
@@ -595,6 +778,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono6} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Mantenha horários regulares.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono6(!saibaMaisSono6)}}>{saibaMaisTextSono6}</IonButton>
@@ -615,6 +805,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono7} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Evite cochilos prolongados.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono7(!saibaMaisSono7)}}>{saibaMaisTextSono7}</IonButton>
@@ -634,6 +831,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono8} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Na hora de deitar, evite ficar pensando nos problemas.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono8(!saibaMaisSono8)}}>{saibaMaisTextSono8}</IonButton>
@@ -653,6 +857,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono9} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Torne o seu quarto um ambiente que facilite o sono.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono9(!saibaMaisSono9)}}>{saibaMaisTextSono9}</IonButton>
@@ -674,6 +885,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono10} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}> Evite alimentos pesados muito próximo do horário de dormir.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono10(!saibaMaisSono10)}}>{saibaMaisTextSono10}</IonButton>
@@ -693,6 +911,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono11} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+                <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Evite ingerir cafeína ou álcool perto da hora de dormir.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono11(!saibaMaisSono11)}}>{saibaMaisTextSono11}</IonButton>
@@ -712,6 +937,13 @@ const Recommendation: React.FC = () => {
                 </div>   
                 </IonToolbar>
               <img src={sono12} className={"img-slides"}/>
+              <div className={"arrows-recommendations ion-no-padding"}>
+                <p>
+                <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
+               
+                </p>
+                </div>
+                <br/>
               <p className={"main-text"}>Planeje os horários dos seus exercícios considerando seu sono.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear"onClick={()=>{setSaibaMaisSono12(!saibaMaisSono12)}}>{saibaMaisTextSono12}</IonButton>
