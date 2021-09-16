@@ -251,10 +251,15 @@ ion-toolbar {
 }
 
 .img-home{
-  margin-bottom: 16px;
-  width: 150px;
-  height: 150px;
+  margin-top: 0;
+  width: 100%;
 }
+
+@media (min-width:1281px) { .img-home {
+  margin-top: 0;
+  width: 100%;
+  height: 550px;
+}/* hi-res laptops and desktops */ }
 
 .texto-main{
   font-family: Nunito !important;
@@ -530,42 +535,30 @@ ion-card{
   text-align: center;
 }
 
-.circle-progress-bar{
-   
-  width: 200px;
-  height: 150px;
+.button-control{
+  width: 250px;
 }
-.CircularProgressbar {
-  /*
-   * This fixes an issue where the CircularProgressbar svg has
-   * 0 width inside a "display: flex" container, and thus not visible.
-   */
-  width: 100%;
-  /*
-   * This fixes a centering issue with CircularProgressbarWithChildren:
-   * https://github.com/kevinsqi/react-circular-progressbar/issues/94
-   */
-  vertical-align: middle;
+
+.track-goals{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.arrow-forward{
+  float: right;
+  
+}
+
+.arrow-back{
+  float: left;
 }
 
 
-.CircularProgressbar-path {
-  stroke: #F58B44;
-}
-.CircularProgressbar-trail {
-  stroke: #F58B44;
-}
-.CircularProgressbar-text {
-  fill: #F58B44;
-  dominant-baseline: middle;
-  text-anchor: middle;
-}
-.CircularProgressbar-background {
-  fill: #FDF5EB;
+.arrows{
+  top: 50%;  
+  margin-bottom: 24px;
 }
 
-.mascote-circular-progress{
-  width: 50px;
-  height: 50px;
-  margin-top: -5;
+.div-pdf{
+  text-align: center;
 }
