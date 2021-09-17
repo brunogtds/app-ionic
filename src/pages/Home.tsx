@@ -1072,7 +1072,7 @@ const Tab1: React.FC = () => {
                         Finalize o formulário e acesse todas as dicas personalizadas!
                       </div>
                       <div>
-                        <IonButton  onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
+                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
                       </div>
                       <div>
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
@@ -1407,7 +1407,7 @@ const Tab1: React.FC = () => {
                       Finalize a última etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasFinalEnviado} onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasFinalEnviado}  onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                     </div>
                    
                   </AccordionItemPanel>

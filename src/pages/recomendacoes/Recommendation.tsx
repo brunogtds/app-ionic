@@ -14,7 +14,7 @@ import logo_clinicas from '../../img/logo_clinicas.svg';
 import logo_crono from '../../img/logo_crono.svg';
 import logo_innovaspace from '../../img/logo_innovaspace.svg';
 import logo_neurobio from '../../img/logo_neurobio.svg';
-import logo_nnnesp from '../../img/logo_nnnesp.svg';
+import logo_nnnesp from '../../img/logo_nnnesp.png';
 import logo_ufrgs from '../../img/logo_ufrgs.svg';
 import logo_unifesp from '../../img/logo_unifesp.svg';
 
