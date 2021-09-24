@@ -81,7 +81,7 @@ import { format, sub } from 'date-fns';
 import { diffHoursMinutes } from '../dateFunctions';
 import { timeStampToFloat } from '../dateFunctions';
 
-import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
+import { PDFGenerator } from '@ionic-native/pdf-generator';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 import {arrowForwardOutline, arrowBackOutline} from 'ionicons/icons';
@@ -845,16 +845,27 @@ const Tab1: React.FC = () => {
     }
   }
 
-  async function createPDF() {
-    const pdfDoc = await PDFDocument.create()
 
-    const page = pdfDoc.addPage()
-    const { width, height } = page.getSize()
-    const fontSize = 16
-    page.drawText("teste" + { feedbackCronoText })
-
-    const pdfBytes = await pdfDoc.save()
-    console.log("pdf " + pdfBytes);
+  function createPDF() {
+    
+    let options = {
+        //documentSize: 'A4',
+        type: 'share'
+    }
+    const page1 = "<html> Você sabia que cada pessoa tem um relógio interno para organizar as funções do seu corpo? O cronotipo é uma característica que representa como o seu relógio está organizado em relação ao ambiente, principalmente em relação ao dia e a noite.  Considerando seus horários de sono, estimamos que seu cronotipo é..." + feedbackCronoText + "</html>";
+    const page2 = "<html>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é... " + feedbackSonoText + feedbackSJLText +  "</html>";
+    const page3 = "<html> Ao responder nossas perguntas, você também nos contou um pouco sobre hábitos que podem estar relacionados a manutenção da sua saúde. Aqui vão algumas informações que podem ser úteis para você: " + feedbackRegularidadesText + "</html>";
+    const page4 = "<html> Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo." +feedbackLightText + feedbackHobbiesText +  "</html>";
+    const page5= "<html>" +feedbackExerciseText +"Para saber mais sobre exercícios você pode acessar"+  <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a> + "</html>";
+    const page6 = "<html>" + feedbackIMCText+ feedbackMedText + feedbackFumoText + feedbackAlcoolText + "</html>";
+    const page7 = "<html>" + "Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões." + feedbackCIText + feedbackCI2Text+ "</html>";
+    const page8 = "<html>" +"É sempre importante manter acompanhamento médico regularmente. De forma geral, quanto antes uma doença for identificada mais fácil e barato é seu tratamento, além de lhe causar menos transtornos. Faça suas revisões regulares e evite surpresas." +feedbackBemEstarText + "Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!" + "</html>"
+      
+      
+    PDFGenerator.fromData(page1 + page2 + page3 + page4 + page5 + page6 + page7 + page8, options)
+    .then((base64)=> console.log(base64) )   // returns base64:JVBERi0xLjQKJdPr6eEKMSAwIG9iago8PC9DcmVh...
+    .catch((err)=>console.error(err))
+  
 
   }
 
@@ -864,8 +875,6 @@ const Tab1: React.FC = () => {
     const index = Number(cronoImage) - 1; 
 
     SocialSharing.share('', '', imgs[index]);
-      
-   
 
   }
 
