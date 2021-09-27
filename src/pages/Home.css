@@ -562,3 +562,20 @@ ion-card{
 .div-pdf{
   text-align: center;
 }
+
+.div-sonoSintomas{
+  
+  margin-top: 48px;
+  margin-bottom: 24px;
+  font-family: OpenSans;
+  font-size: 32px;
+ 
+}
+
+.img-sonoSintomas{
+  height: 200px;
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}

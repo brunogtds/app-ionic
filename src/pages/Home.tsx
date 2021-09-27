@@ -72,6 +72,8 @@ import home_vespertino from '../img/home_matutino.png';
 import home_matutino from '../img/home_vespertino.png';
 import home_gif from '../img/Home-gif.gif';
 
+import sono3 from '../img/Sono_3.svg';
+
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 
 import 'react-vertical-timeline-component/style.min.css';
@@ -94,6 +96,7 @@ const Tab1: React.FC = () => {
   const [showModalFeedbackInicial, setShowModalFeedbackInicial] = useState(false);
   const [showModalFeedbackPost, setShowModalFeedbackPost] = useState(false);
   const [showModalFeedbackFinal, setShowModalFeedbackFinal] = useState(false);
+  const [showModalSonoSintomas, setShowModalSonoSintomas]= useState(false);
 
   function chamaSobre() {
     history.push('/sobre');
@@ -137,6 +140,7 @@ const Tab1: React.FC = () => {
 
   function sonoSintomas() {
     history.push('/sonosintomas');
+    setShowModalSonoSintomas(true);
   }
 
   function saudePost() {
@@ -153,6 +157,7 @@ const Tab1: React.FC = () => {
 
   function sonosintomasPost() {
     history.push('/sonosintomasPost');
+    setShowModalSonoSintomas(true);
   }
 
   function saudeFinal() {
@@ -169,6 +174,7 @@ const Tab1: React.FC = () => {
 
   function sonoSintomasFinal() {
     history.push('/sonoSintomasFinal');
+    setShowModalSonoSintomas(true);
   }
 
   function feedbackInicial() {
@@ -203,7 +209,9 @@ const Tab1: React.FC = () => {
   const [moduloHabitosFinalEnviado, setHabitosFinalEnviado] = React.useState(false);
   const [moduloSonoSintomasFinalEnviado, setSonoSintomasFinalEnviado] = React.useState(false);
 
-  const [meta1Coleta1Definida, setMeta1Coleta1Definida]= React.useState(false);
+  const [meta1Definida, setMeta1Definida]= React.useState(false);
+  const [meta2Definida, setMeta2Definida]= React.useState(false);
+  const [meta3Definida, setMeta3Definida]= React.useState(false);
 
   const [minDaysPart1, setMinDaysPart1] = React.useState(false);
   const [minDaysPart2, setMinDaysPart2] = React.useState(false);
@@ -845,6 +853,39 @@ const Tab1: React.FC = () => {
     }
   }
 
+  async function getMetasDefinidas() {
+    const dbRef = await db.collection('metas').doc(uid).get();
+    const data = (await dbRef).data();
+
+    if (data != undefined) {
+      const data2: any = data;
+      const dataMeta1Definida = data2.meta1Definida;
+      const dataMeta2Definida = data2.meta2Definida;
+      const dataMeta3Definida = data2.meta3Definida;
+
+      //console.log("dataSaude: " + dataMeta1Definida)
+
+      if (!(dataMeta1Definida=== undefined)) {
+        if (dataMeta1Definida === "sim"){
+          setMeta1Definida(true)
+        }
+        
+      }
+      if (!(dataMeta2Definida=== undefined)) {
+        if (dataMeta2Definida === "sim"){
+          setMeta2Definida(true)
+        }
+       
+      }
+      if (!(dataMeta3Definida=== undefined)) {
+        if (dataMeta3Definida === "sim"){
+          setMeta3Definida(true)
+        }
+      
+      }
+    }
+  }
+
 
   function createPDF() {
     
@@ -863,8 +904,8 @@ const Tab1: React.FC = () => {
       
       
     PDFGenerator.fromData(page1 + page2 + page3 + page4 + page5 + page6 + page7 + page8, options)
-    .then((base64)=> console.log(base64) )   // returns base64:JVBERi0xLjQKJdPr6eEKMSAwIG9iago8PC9DcmVh...
-    .catch((err)=>console.error(err))
+    .then((base64: any)=> console.log(base64) )   // returns base64:JVBERi0xLjQKJdPr6eEKMSAwIG9iago8PC9DcmVh...
+    .catch((err: any)=>console.error(err))
   
 
   }
@@ -925,6 +966,9 @@ const Tab1: React.FC = () => {
   getContatoFinalDate()
   getHabitosFinalDate()
   getSonoSintomasFinalDate()
+
+  //Checking metas
+  getMetasDefinidas()
 
 
   return (
@@ -1073,7 +1117,7 @@ const Tab1: React.FC = () => {
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" /></IonButton>
+                        <IonButton  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
@@ -1084,8 +1128,27 @@ const Tab1: React.FC = () => {
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
                       </div>
                       <div>
-                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                       </div>
+                     
+                      <IonModal isOpen={showModalSonoSintomas} showBackdrop={true}
+                        cssClass='custom-modal selectable'
+                        onDidDismiss={() => setShowModalSonoSintomas(false)}>
+                        <IonContent color="primary">
+                          
+                          <div className={"div-sonoSintomas"}>
+                          <img src={sono3} alt="mascote no celular" className={"img-sonoSintomas"}/>
+                          <br/>
+                          <p>As perguntas a seguir se referem ao seu comportamento de sono nos dias de trabalho e dias livres. Por favor, responda de acordo com o que ocorreu mais frequentemente nas duas últimas semanas. Considere também estudos e seus afazeres de casa. </p>
+                          <p>Por favor, responda todas as questões a seguir utilizando a escala de 24h (por exemplo, 23:00 no lugar de 11:00). Se você é um estudante, preencha os dias de trabalho considerando os dias de aula.</p>
+                          </div>
+                          <div className="ion-text-center">
+                          <IonButton color="white" onClick={() => setShowModalSonoSintomas(false)}>OK, entendi!</IonButton>
+                          </div>
+                       
+                        </IonContent>
+                      
+                      </IonModal>
 
                       <IonModal isOpen={showModalFeedbackInicial} showBackdrop={true}
                         cssClass='custom-modal selectable'
@@ -1371,7 +1434,7 @@ const Tab1: React.FC = () => {
                       Finalize a segunda etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2)}  onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida}  onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                     </div>
                    
 
@@ -1416,7 +1479,7 @@ const Tab1: React.FC = () => {
                       Finalize a última etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasFinalEnviado}  onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasFinalEnviado || meta3Definida}  onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                     </div>
                    
                   </AccordionItemPanel>
