@@ -98,6 +98,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                             }}>
                                 <IonSelectOption value="feminino">Feminino</IonSelectOption>
                                 <IonSelectOption value="masculino">Masculino</IonSelectOption>
+                                <IonSelectOption value="n/a">Prefiro não informar</IonSelectOption>
                             </IonSelect>
 
 

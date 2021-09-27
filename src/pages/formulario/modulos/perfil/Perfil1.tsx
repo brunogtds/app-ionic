@@ -105,7 +105,7 @@ const Perfil1 = (props: StepComponentProps) => {
 
 
                             <Controller render={({ onChange }) => (
-                                <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={props.getState("sex", "")} onIonChange={(e) => {
+                                <IonSelect interfaceOptions={options}  className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={props.getState("sex", "")} onIonChange={(e) => {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined)
@@ -113,6 +113,7 @@ const Perfil1 = (props: StepComponentProps) => {
                                 }}>
                                     <IonSelectOption value="feminino" >Feminino</IonSelectOption>
                                     <IonSelectOption value="masculino">Masculino</IonSelectOption>
+                                    <IonSelectOption value="n/a">Prefiro não informar</IonSelectOption>
                                 </IonSelect>
 
 

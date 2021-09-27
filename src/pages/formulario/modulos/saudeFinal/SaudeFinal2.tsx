@@ -30,6 +30,7 @@ const SaudeFinal2 = (props: StepComponentProps) => {
 
         if (user) {
             firebase.firestore().collection('usersFinal').doc(user.uid).set({
+                meta01_02coleta02Complete: String(props.state.meta01_02coleta02Complete),
                 weightFinal: Number(props.state.weightFinal), //STEP 1
                 disordersChangeFinal: String(props.state.disordersChangeFinal),
                 medsChangeFinal: String(props.state.medsChangeFinal),

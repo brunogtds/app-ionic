@@ -169,10 +169,36 @@ const Aderencia_2= (props: StepComponentProps) => {
             </IonItem> :null
       } 
 
-      {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
+     
+      {((meta1 === "exercicio") &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
 
       <div className="texto-confirma">
-        Sua meta então é... controlar {meta1} {props.state.meta01Coleta01FreqSemanal} vezes por semana!
+        Sua meta então é... se exercitar {props.state.meta01Coleta01FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      
+      {((meta1 === "alimentação") &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta então é... controlar alimentação {props.state.meta01Coleta01FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta1 === "sono") &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta então é... controlar sono {props.state.meta01Coleta01FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta1 === "luz") &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta então é... controlar exposição à luz natural {props.state.meta01Coleta01FreqSemanal} vezes por semana!
       </div> :null
 
       }

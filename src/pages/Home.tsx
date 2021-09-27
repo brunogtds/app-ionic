@@ -494,6 +494,8 @@ const Tab1: React.FC = () => {
       const dataWeight = data2.weight;
       const dataHeight = data2.height;
 
+      console.log('informou sexo? ' + dataSex);
+
       if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "adp 18-64") {
         setFeedbackIMCText("IMC: < 18,5. Através da relação do seu peso pela sua altura conseguimos identificar que o seu peso está um pouco abaixo do ideal. Fique atento e procure um médico ou um nutricionista para uma avaliação.")
       } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "pn 18-64") {
@@ -1409,7 +1411,7 @@ const Tab1: React.FC = () => {
                     <p>{secondPartText}</p>
 
                     <div>
-                      <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1} onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1}  onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
                     </div>
                   </AccordionItemPanel>
                   <AccordionItemPanel>

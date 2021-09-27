@@ -279,15 +279,113 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       </IonItem> :null
 } 
 
-      {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+      
+
+      {((meta1 === "exercicio")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
 
       <div className="texto-confirma">
-        Sua meta principal então é... controlar {meta1} {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      Sua meta principal então é... se exercitar {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+
+      }
+
+      
+      {((meta1 === "alimentação")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar alimentação {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+
+      }
+
+
+      {((meta1 === "sono")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar sono {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+
+      }
+
+
+      {((meta1 === "luz")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar exposição à luz natural {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+
+      }
+
+
+      {((meta1 === "exercicio")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta principal então é... se exercitar {props.state.meta01Coleta02FreqSemanal} vezes por semana!
       </div> :null
 
       }
 
-      {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+      {((meta1 === "alimentação")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta principal então é... controlar alimentação {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta1 === "sono")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta principal então é... controlar sono {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta1 === "luz")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua meta principal então é... controlar exposição à luz natural {props.state.meta01Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta2 === "exercicio")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+        Sua segunda meta então é... se exercitar {props.state.meta02Coleta02FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+    {((meta2 === "alimentação")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+
+    <div className="texto-confirma">
+      Sua segunda meta então é... controlar alimentação {props.state.meta02Coleta02FreqSemanal} vezes por semana!
+    </div> :null
+
+    }
+
+    {((meta2 === "sono")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+
+    <div className="texto-confirma">
+      Sua segunda meta então é... controlar sono {props.state.meta02Coleta02FreqSemanal} vezes por semana!
+    </div> :null
+
+    }
+
+    {((meta2 === "luz")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+
+    <div className="texto-confirma">
+      Sua segunda meta então é... controlar exposição à luz natural {props.state.meta02Coleta02FreqSemanal} vezes por semana!
+    </div> :null
+
+    }
+
+      {(((meta2 === "exercicio") || (meta2 === "alimentação") || (meta2 === "sono") || (meta2 === "luz") ) &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
 
       <div className="texto-confirma">
             Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
@@ -295,21 +393,14 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
       }
 
-      {(((meta2 === "exercicio") || (meta2 === "alimentação") || (meta2 === "sono") || (meta2 === "luz") ) &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+{(((meta2 === "exercicio") || (meta2 === "alimentação") || (meta2 === "sono") || (meta2 === "luz") ) &&  (props.state.meta02Coleta02FreqSemanal !== undefined) && (meta01Completa === "n")) ?
 
-      <div className="texto-confirma">
-        Sua segunda meta então é... controlar {meta2} {props.state.meta02Coleta02FreqSemanal} vezes por semana!
-      </div> :null
+<div className="texto-confirma">
+      Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
+</div> :null
 
-      }
+}
 
-      {(((meta2 === "exercicio") || (meta2 === "alimentação") || (meta2 === "sono") || (meta2 === "luz") ) &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
-
-      <div className="texto-confirma">
-            Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
-      </div> :null
-
-      }
 
 
       

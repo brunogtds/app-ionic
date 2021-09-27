@@ -75,7 +75,7 @@ const Aderencia_2Final= (props: StepComponentProps) => {
       const data2: any = data;
       const dataMeta02 = data2.meta01_02coleta02Complete;
 
-      //console.log("meta 01_02 complete: " + dataSaude)
+      console.log("meta 01_02 complete: " + dataMeta02)
 
       if (!(dataMeta02 === undefined)) {
         if (dataMeta02 === "sim"){
@@ -348,31 +348,145 @@ const Aderencia_2Final= (props: StepComponentProps) => {
                   
         </IonItem> :null
         } 
-      
 
-      {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta03FreqSemanal !== undefined)) ?
+      {((meta1 === "exercicio") &&  (props.state.meta01Coleta03FreqSemanal !== undefined) && (meta02Completa === "n")) ?
+
+        <div className="texto-confirma">
+        Sua meta principal então é... se exercitar {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+        </div> :null
+
+      }  
+
+      {((meta1 === "alimentação") &&  (props.state.meta01Coleta03FreqSemanal !== undefined) && (meta02Completa === "n")) ?
 
       <div className="texto-confirma">
-        Sua meta principal então é... controlar {meta1} {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+      Sua meta principal então é... controlar alimentação {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }  
+
+      {((meta1 === "sono") &&  (props.state.meta01Coleta03FreqSemanal !== undefined) && (meta02Completa === "n")) ?
+
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar sono {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }  
+
+      {((meta1 === "luz") &&  (props.state.meta01Coleta03FreqSemanal !== undefined) && (meta02Completa === "n")) ?
+
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar exposição à luz natural {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }  
+
+      {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta03FreqSemanal !== undefined) && (meta02Completa === "n")) ?
+
+      <div className="texto-confirma">
+            Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
       </div> :null
 
       }
 
-    {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta03FreqSemanal !== undefined) && (meta02Completa === "n")) ?
+      
 
-    <div className="texto-confirma">
-          Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
-    </div> :null
+      {((meta1 === "exercicio")  &&  (props.state.meta01Coleta03FreqSemanal !== undefined)) ?
 
-    }
+        <div className="texto-confirma">
+        Sua meta principal então é... se exercitar {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+        </div> :null
 
-    {((((meta2 && meta3) === "exercicio") || ((meta2 && meta3) === "alimentação") || ((meta2 && meta3) === "sono") || ((meta2 && meta3) === "luz") ) &&  ((props.state.meta02Coleta03FreqSemanal && props.state.meta03Coleta03FreqSemanal) !== undefined)) ?
+      }
 
-    <div className="texto-confirma">
-      Sua segunda meta então é... controlar {meta2} {props.state.meta02Coleta03FreqSemanal} vezes por semana! E sua terceira meta é... controlar {meta3} {props.state.meta03Coleta03FreqSemanal} vezes por semana!
-    </div> :null
+      {((meta1 === "alimentação")  &&  (props.state.meta01Coleta03FreqSemanal !== undefined)) ?
 
-    }
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar alimentação {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta1 === "sono")  &&  (props.state.meta01Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar sono {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta1 === "luz")  &&  (props.state.meta01Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua meta principal então é... controlar exposição à luz natural {props.state.meta01Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta2 === "exercicio")  &&  (props.state.meta02Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua segunda meta então é... se exercitar {props.state.meta02Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta2 === "alimentação")  &&  (props.state.meta02Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua segunda meta então é... controlar alimentação {props.state.meta02Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta2 === "sono")  &&  (props.state.meta02Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua segunda meta então é... controlar sono {props.state.meta02Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta2 === "luz")  &&  (props.state.meta02Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua segunda meta então é... controlar exposição à luz natural {props.state.meta02Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta3 === "luz")  &&  (props.state.meta03Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua terceira meta então é... controlar exposição à luz natural {props.state.meta03Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta3 === "exercicio")  &&  (props.state.meta03Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua terceira meta então é... se exercitar {props.state.meta03Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
+      {((meta3 === "sono")  &&  (props.state.meta03Coleta03FreqSemanal !== undefined)) ?
+
+            <div className="texto-confirma">
+            Sua terceira meta então é... controlar sono {props.state.meta03Coleta03FreqSemanal} vezes por semana!
+            </div> :null
+
+            }
+
+      {((meta3 === "alimentação")  &&  (props.state.meta03Coleta03FreqSemanal !== undefined)) ?
+
+      <div className="texto-confirma">
+      Sua terceira meta então é... controlar alimentação {props.state.meta03Coleta03FreqSemanal} vezes por semana!
+      </div> :null
+
+      }
+
 
   {((((meta2 && meta3) === "exercicio") || ((meta2 && meta3) === "alimentação") || ((meta2 && meta3) === "sono") || ((meta2 && meta3) === "luz") ) &&  ((props.state.meta02Coleta03FreqSemanal && props.state.meta03Coleta03FreqSemanal) !== undefined)) ?
 
