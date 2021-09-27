@@ -195,6 +195,11 @@ const Recommendation: React.FC = () => {
       <IonButton id="button-recommendation" color="white" onClick={() => setShowModalSono(true)} >  <div className="texto-button-recommend">Sono </div></IonButton>
       </div>
 
+     
+      <div className="texto-padrao-inicial">
+      Após terminar de ler as recomendações, você pode voltar para a <a className={"link"} href="/tab1">página inicial</a> ou <a className={"link"} href="/calendar">acompanhar seu progresso</a> caso já tenha terminado de preencher os questionários! </div>
+
+      
       <IonModal isOpen={showModalCovid} showBackdrop={true}
         cssClass='custom-modal'
         onDidDismiss={() => setShowModalCovid(false)}>

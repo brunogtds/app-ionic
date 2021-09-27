@@ -54,6 +54,17 @@
   text-align: left;
 }
 
+.texto-padrao-inicial{
+  margin-top: 24px;
+  font-family: OpenSans;  
+  color: #444950;
+  text-align: left;
+}
+
+.link{
+  color:#F58B44;
+}
+
 .texto-button-recommend{
   font-family: Nunito;  
   color: #8A8888;

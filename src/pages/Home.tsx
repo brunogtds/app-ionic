@@ -1117,7 +1117,7 @@ const Tab1: React.FC = () => {
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" /></IonButton>
+                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
