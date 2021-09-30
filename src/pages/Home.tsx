@@ -914,7 +914,7 @@ const Tab1: React.FC = () => {
 
   function sharingSocial() {
 
-    const imgs = ['https://i.imgur.com/SbDtsdD.png', 'https://i.imgur.com/QV38oR2.jpeg', 'https://i.imgur.com/eLFAvtU.jpeg']
+    const imgs = ['https://i.imgur.com/wokIZJ5.png', 'https://i.imgur.com/eyIIx96.png', 'https://i.imgur.com/S4LNb2n.png']
     const index = Number(cronoImage) - 1; 
 
     SocialSharing.share('', '', imgs[index]);
