@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 
 
@@ -44,6 +44,7 @@ import { useForm, Controller } from "react-hook-form";
 import {StepComponentProps} from "react-step-builder";
 
 import firebase from 'firebase';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 const Aderencia_2= (props: StepComponentProps) => {
 
@@ -55,6 +56,7 @@ const Aderencia_2= (props: StepComponentProps) => {
     cssClass: 'my-custom-interface'
   };
   const [meta1, setMeta1]= useState();
+  let metaShare = 0
  
   const {data: user}= useUser();
   const [dataUser, setData] = useState()
@@ -86,6 +88,29 @@ const Aderencia_2= (props: StepComponentProps) => {
       setLoader(true);
       updateUserDataQuest1(dataUser);
       calendar();
+   }
+
+   
+  
+   
+  function socialSharingMetas() {
+    if (meta1 === "alimentação"){
+      metaShare = 1;
+    } 
+    if (meta1 === "sono"){
+      metaShare = 2;
+    } 
+    if (meta1 === "exercicio"){
+      metaShare = 3;
+    } 
+    if (meta1 === "luz"){
+      metaShare = 4;
+    }
+    
+    const imgs = ['https://i.imgur.com/WwDvd17.png', 'https://i.imgur.com/db0zU94.png', 'https://i.imgur.com/ctBKmyA.png', 'https://i.imgur.com/8DZmmpy.png'];
+    const index =  metaShare - 1;
+    
+    SocialSharing.share('', '', imgs[index]);
    }
 
   return (
@@ -126,7 +151,7 @@ const Aderencia_2= (props: StepComponentProps) => {
       } 
 
       {(meta1 === "alimentação") ?
-
+       
       <IonLabel className="questions">Quantas vezes por semana você quer controlar a regularidade da sua alimentação?</IonLabel> :null
       } 
 
@@ -205,6 +230,7 @@ const Aderencia_2= (props: StepComponentProps) => {
 
 {(((meta1 === "exercicio") || (meta1 === "alimentação") || (meta1 === "sono") || (meta1 === "luz") ) &&  (props.state.meta01Coleta01FreqSemanal !== undefined)) ?
 
+
 <div className="texto-confirma">
        Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
 </div> :null
@@ -216,7 +242,7 @@ const Aderencia_2= (props: StepComponentProps) => {
       </form>
 
 
-      <IonButton disabled={formState.isValid === false} color="orange"  className={"btnAnterior"} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+      <IonButton disabled={formState.isValid === false} color="orange"  className={"btnAnterior"} onClick={socialSharingMetas} size="default" shape="round" fill="outline">Compartilhar</IonButton>
       <IonButton disabled={formState.isValid === false} color="orange"  className={"btnProximo"} onClick={onSubmit} size="default" shape="round" fill="outline">Definir</IonButton>
         
       

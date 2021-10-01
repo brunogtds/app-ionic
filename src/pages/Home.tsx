@@ -915,28 +915,11 @@ const Tab1: React.FC = () => {
   function sharingSocial() {
 
     const imgs = ['https://i.imgur.com/wokIZJ5.png', 'https://i.imgur.com/eyIIx96.png', 'https://i.imgur.com/S4LNb2n.png']
-    const index = Number(cronoImage) - 1; 
+    const index = Number(cronoImage) - 1;
 
     SocialSharing.share('', '', imgs[index]);
 
   }
-
-  // const file = new File()
-  // file.copyFile(`${file.applicationDirectory}build/assets/icon/`, 'favicon.png', file.cacheDirectory, `${new Date().getTime()}.jpg`)
-  // .then((img) => {
-  //     SocialSharing.share('message', 'subject', img.nativeURL)
-  //       .then((data) => console.log('data', data))
-  //       .catch((error) => console.log('erro', error));
-  //   })
-  //   .catch((error) => console.log(error))
-
-
-
-  //SocialSharing.share('message', 'subject', `${rola.applicationDirectory}/src/img/distanciamentoExp.png`)
-  //SocialSharing.share('message', 'subject', 'asset/img/distanciamentoExp.png')
-  //.then((data) => console.log('data', data))
-  //.catch((error) => console.log('erro', error));
-
 
 
   function modalFeedbackInicial() {
