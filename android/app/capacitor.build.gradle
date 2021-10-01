@@ -10,6 +10,7 @@ android {
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
 
+    implementation "com.airbnb.android:lottie:3.5.0"
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
 }
 

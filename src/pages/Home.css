@@ -579,3 +579,11 @@ ion-card{
   margin-left: auto;
   display: block;
 }
+
+.readMore-text-var{
+  font-family: OpenSans !important;
+  font-weight: 400;
+  size: 10px;
+  color: #F58B44;
+  text-align: left;
+}

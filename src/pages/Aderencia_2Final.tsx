@@ -44,6 +44,7 @@ import { useForm, Controller } from "react-hook-form";
 import {StepComponentProps} from "react-step-builder";
 
 import firebase from 'firebase';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 const Aderencia_2Final= (props: StepComponentProps) => {
 
@@ -116,6 +117,28 @@ const Aderencia_2Final= (props: StepComponentProps) => {
     function calendar(){
       history.push('/calendar');
     }
+
+    let metaShare = 0
+    function socialSharingMetas() {
+      if (meta1 === "alimentação"){
+        metaShare = 1;
+      } 
+      if (meta1 === "sono"){
+        metaShare = 2;
+      } 
+      if (meta1 === "exercicio"){
+        metaShare = 3;
+      } 
+      if (meta1 === "luz"){
+        metaShare = 4;
+      }
+      
+      const imgs = ['https://i.imgur.com/WwDvd17.png', 'https://i.imgur.com/db0zU94.png', 'https://i.imgur.com/ctBKmyA.png', 'https://i.imgur.com/8DZmmpy.png'];
+      const index =  metaShare - 1;
+      
+      SocialSharing.share('', '', imgs[index]);
+     }
+
 
     const onSubmit = (data: any) => {
       setData(dataUser);
@@ -500,7 +523,7 @@ const Aderencia_2Final= (props: StepComponentProps) => {
       </form>
 
 
-      <IonButton disabled={formState.isValid === false} color="orange"  className={"btnAnterior"} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+      <IonButton disabled={formState.isValid === false} color="orange" onClick={socialSharingMetas} className={"btnAnterior"} size="default" shape="round" fill="outline">Compartilhar</IonButton>
       <IonButton disabled={formState.isValid === false} color="orange"  className={"btnProximo"} onClick={onSubmit} size="default" shape="round" fill="outline">Definir</IonButton>
         
       

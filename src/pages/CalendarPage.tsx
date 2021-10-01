@@ -244,8 +244,8 @@ const CalendarPage= (props: StepComponentProps) => {
 
     if (!(dataMetaFreqSemanal === undefined)){
       if (dataMetaFreqSemanal > 0){
-      setFreqMeta01(dataMetaFreqSemanal)
-      setFreqMeta01Text(" "+ dataMetaFreqSemanal + " vezes por semana.")
+      setFreqMeta01(dataMetaFreqSemanal * 2)
+      setFreqMeta01Text(" "+ dataMetaFreqSemanal + " vezes por semana nos próximos 14 dias.")
       }
     }
 
@@ -277,8 +277,8 @@ const CalendarPage= (props: StepComponentProps) => {
 
     if (!(dataMeta02FreqSemanal === undefined)){
       if (dataMeta02FreqSemanal > 0){
-      setFreqMeta02(dataMeta02FreqSemanal)
-      setFreqMeta02Text(" "+ dataMeta02FreqSemanal + " vezes por semana.")
+      setFreqMeta02(dataMeta02FreqSemanal * 2)
+      setFreqMeta02Text(" "+ dataMeta02FreqSemanal + " vezes por semana nos próximos 14 dias.")
       }
     }
   }
@@ -309,8 +309,8 @@ const CalendarPage= (props: StepComponentProps) => {
 
     if (!(dataMeta03FreqSemanal === undefined)){
       if (dataMeta03FreqSemanal > 0){
-      setFreqMeta03(dataMeta03FreqSemanal)
-      setFreqMeta03Text(" "+ dataMeta03FreqSemanal + " vezes por semana.")
+      setFreqMeta03(dataMeta03FreqSemanal * 2)
+      setFreqMeta03Text(" "+ dataMeta03FreqSemanal + " vezes por semana nos próximos 14 dias.")
       }
     }
   }
@@ -341,8 +341,8 @@ const CalendarPage= (props: StepComponentProps) => {
 
     if (!(dataMeta04FreqSemanal === undefined)){
       if (dataMeta04FreqSemanal > 0){
-      setFreqMeta04(dataMeta04FreqSemanal)
-      setFreqMeta04Text(" "+ dataMeta04FreqSemanal + " vezes por semana.")
+      setFreqMeta04(dataMeta04FreqSemanal * 2)
+      setFreqMeta04Text(" "+ dataMeta04FreqSemanal + " vezes por semana nos próximos 14 dias.")
       }
     }
   }
@@ -374,8 +374,8 @@ const CalendarPage= (props: StepComponentProps) => {
 
     if (!(dataMeta05FreqSemanal === undefined)){
       if (dataMeta05FreqSemanal > 0){
-      setFreqMeta05(dataMeta05FreqSemanal)
-      setFreqMeta05Text(" "+ dataMeta05FreqSemanal + " vezes por semana.")
+      setFreqMeta05(dataMeta05FreqSemanal * 2)
+      setFreqMeta05Text(" "+ dataMeta05FreqSemanal + " vezes por semana nos próximos 14 dias.")
       }
     }
   }
@@ -406,8 +406,8 @@ const CalendarPage= (props: StepComponentProps) => {
 
     if (!(dataMeta06FreqSemanal === undefined)){
       if (dataMeta06FreqSemanal > 0){
-      setFreqMeta06(dataMeta06FreqSemanal)
-      setFreqMeta06Text(" "+ dataMeta06FreqSemanal + " vezes por semana.")
+      setFreqMeta06(dataMeta06FreqSemanal * 2)
+      setFreqMeta06Text(" "+ dataMeta06FreqSemanal + " vezes por semana nos próximos 14 dias.")
       }
     }
   }

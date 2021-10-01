@@ -111,7 +111,7 @@ import Perfil_2Novo from './pages/Perfil_Cadastro2';
 import {logoutUser} from '../src/firebaseConfig/firebaseConfig';
 import { toast } from './toast';
 
-
+import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx'
 
 
 const PublicRoutes: React.FC = () => {

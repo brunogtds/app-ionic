@@ -1169,7 +1169,7 @@ const Tab1: React.FC = () => {
                               </div>                         
                               <br/>
                               <p className={"readMore-text"}>Você sabia que cada pessoa tem um relógio interno para organizar as funções do seu corpo? O cronotipo é uma característica que representa como o seu relógio está organizado em relação ao ambiente, principalmente em relação ao dia e a noite.  Considerando seus horários de sono, estimamos que seu cronotipo é...</p>
-                              <p className={"readMore-text"}>{feedbackCronoText}</p>
+                              <p className={"readMore-text-var"}>{feedbackCronoText}</p>
                               <p>
 
                                 <IonButton onClick={sharingSocial} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /> Compartilhar resultados </IonButton>
@@ -1189,8 +1189,8 @@ const Tab1: React.FC = () => {
 
 
                               <p className={"readMore-text"}>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
-                              <p className={"readMore-text"}>{feedbackSonoText}</p>
-                              <p className={"readMore-text"}>{feedbackSJLText}</p>
+                              <p className={"readMore-text-var"}>{feedbackSonoText}</p>
+                              <p className={"readMore-text-var"}>{feedbackSJLText}</p>
 
                               <div className={"arrows ion-no-padding"}>
                               <p>
@@ -1223,7 +1223,7 @@ const Tab1: React.FC = () => {
                               </IonToolbar>
 
                               <p className={"readMore-text"}>Ao responder nossas perguntas, você também nos contou um pouco sobre hábitos que podem estar relacionados a manutenção da sua saúde. Aqui vão algumas informações que podem ser úteis para você:</p>
-                              <p className={"readMore-text"}>{feedbackRegularidadesText}</p>
+                              <p className={"readMore-text-var"}>{feedbackRegularidadesText}</p>
                               <div className={"arrows ion-no-padding"}>
                               <p>
                               <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
@@ -1250,8 +1250,8 @@ const Tab1: React.FC = () => {
                                 </div>
                               </IonToolbar>
                               <p className={"readMore-text"}>Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo.</p>
-                              <p className={"readMore-text"}>{feedbackLightText}</p>
-                              <p className={"readMore-text"}>{feedbackHobbiesText}</p>
+                              <p className={"readMore-text-var"}>{feedbackLightText}</p>
+                              <p className={"readMore-text-var"}>{feedbackHobbiesText}</p>
                               <div className={"arrows ion-no-padding"}>
                               <p>
                               <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
@@ -1276,7 +1276,7 @@ const Tab1: React.FC = () => {
                               </IonToolbar>
 
 
-                              <p className={"readMore-text"}>{feedbackExerciseText} Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p>
+                              <p className={"readMore-text-var"}>{feedbackExerciseText} Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p>
                               <div className={"arrows ion-no-padding"}>
                               <p>
                               <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
@@ -1301,10 +1301,10 @@ const Tab1: React.FC = () => {
                                 </div>
                               </IonToolbar>
 
-                              <p className={"readMore-text"}>{feedbackIMCText}</p>
-                              <p className={"readMore-text"}>{feedbackMedText}</p>
-                              <p className={"readMore-text"}>{feedbackFumoText}</p>
-                              <p className={"readMore-text"}>{feedbackAlcoolText}</p>
+                              <p className={"readMore-text-var"}>{feedbackIMCText}</p>
+                              <p className={"readMore-text-var"}>{feedbackMedText}</p>
+                              <p className={"readMore-text-var"}>{feedbackFumoText}</p>
+                              <p className={"readMore-text-var"}>{feedbackAlcoolText}</p>
                               <div className={"arrows ion-no-padding"}>
                               <p>
                               <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
@@ -1327,8 +1327,8 @@ const Tab1: React.FC = () => {
                                 </div>
                               </IonToolbar>
                               <p className={"readMore-text"}>Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões.</p>
-                              <p className={"readMore-text"}>{feedbackCIText}</p>
-                              <p className={"readMore-text"}>{feedbackCI2Text}</p>
+                              <p className={"readMore-text-var"}>{feedbackCIText}</p>
+                              <p className={"readMore-text-var"}>{feedbackCI2Text}</p>
                               <div className={"arrows ion-no-padding"}>
                               <p>
                               <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 
@@ -1352,7 +1352,7 @@ const Tab1: React.FC = () => {
                               </IonToolbar>
                               <p className={"readMore-text"}>É sempre importante manter acompanhamento médico regularmente. De forma geral, quanto antes uma doença for identificada mais fácil e barato é seu tratamento, além de lhe causar menos transtornos. Faça suas revisões regulares e evite surpresas.</p>
 
-                              <p className={"readMore-text"}>{feedbackBemEstarText}</p>
+                              <p className={"readMore-text-var"}>{feedbackBemEstarText}</p>
                               <p className={"readMore-text"}>Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!</p>
                               <div className={"arrows ion-no-padding"}>
                               <p>
