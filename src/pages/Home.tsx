@@ -89,6 +89,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import {arrowForwardOutline, arrowBackOutline} from 'ionicons/icons';
 
 
+
 const Tab1: React.FC = () => {
 
 
@@ -920,6 +921,9 @@ const Tab1: React.FC = () => {
     SocialSharing.share('', '', imgs[index]);
 
   }
+
+
+
 
 
   function modalFeedbackInicial() {
