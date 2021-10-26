@@ -89,7 +89,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import {arrowForwardOutline, arrowBackOutline} from 'ionicons/icons';
 
 
-
 const Tab1: React.FC = () => {
 
 
@@ -709,7 +708,7 @@ const Tab1: React.FC = () => {
             setCronoImage('3')
           } else if ((msfsc >= 6.5)) {
             setFeedbackCronoText('...vespertino extremo. Isso significa que você se sente bem acordando e dormindo mais tarde. Isso não quer dizer que você tem preguiça, já que essa é uma característica biológica sua.')
-            setCronoImage('4')
+            setCronoImage('3')
           }
         } else {
           setFeedbackCronoText('Não foi possível calcular seu cronotipo com os dados inseridos.')
@@ -923,9 +922,6 @@ const Tab1: React.FC = () => {
   }
 
 
-
-
-
   function modalFeedbackInicial() {
     setShowModalFeedbackInicial(true);
     getFeedbackLight();
@@ -936,6 +932,7 @@ const Tab1: React.FC = () => {
     getFeedbackBemEstar();
     getFeedbackSono();
     getFeedbackRegularidades();
+    console.log('crono image: ' + cronoImage);
   }
 
   //Checking the dates
@@ -1000,7 +997,7 @@ const Tab1: React.FC = () => {
         {cronoImage === '1' ? <img src={home_matutino} className="img-home" />  : null}
         {cronoImage === '2' ? <img src={home_intermed} className="img-home" /> : null}
         {cronoImage === '3' ? <img src={home_vespertino} className="img-home" /> : null}
-          
+        
       
           
 
@@ -1163,6 +1160,7 @@ const Tab1: React.FC = () => {
                               {cronoImage === '1' ? <p><img src={matutino_feliz} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_feliz} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_feliz} className="img-slides" /></p> : null}
+                              
                              
                               <div className={"arrows ion-no-padding"}>
                               <p>
@@ -1208,7 +1206,7 @@ const Tab1: React.FC = () => {
                               {cronoImage === '1' ? <p><img src={matutino_cansado} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_cansado} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_cansado} className="img-slides" /></p> : null}
-
+                            
                               
 
                               <br />
@@ -1292,6 +1290,7 @@ const Tab1: React.FC = () => {
                               {cronoImage === '1' ? <p><img src={matutino_corda} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_corda} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_corda} className="img-slides" /></p> : null}
+                              
                               <br />
                             </IonSlide>
 
@@ -1372,6 +1371,7 @@ const Tab1: React.FC = () => {
                               {cronoImage === '1' ? <p><img src={matutino_wave} className="img-slides" /> </p> : null}
                               {cronoImage === '2' ? <p><img src={intermed_wave} className="img-slides" /></p> : null}
                               {cronoImage === '3' ? <p><img src={vespertino_wave} className="img-slides" /></p> : null}
+                             
 
                               <br />
                             </IonSlide>
@@ -1423,7 +1423,7 @@ const Tab1: React.FC = () => {
                       Finalize a segunda etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida}   onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida}  onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                     </div>
                    
 
@@ -1442,7 +1442,7 @@ const Tab1: React.FC = () => {
                     <p>{thirdPartText}</p>
 
                     <div>
-                      <IonButton  disabled={moduloSaudeFinalEnviado || !minDaysPart2}  onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2}  onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
                     </div>
                   </AccordionItemPanel>
 
