@@ -163,7 +163,7 @@ const Recommendation: React.FC = () => {
           <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
           </div>
           <div className={"img-logo"}>
-          <img src={logo_regente} className={"logo"}/>
+          <img src={logo_regente} className={"logo"} alt={"Logo regente"}/>
          </div>
   </div> 
        
@@ -222,7 +222,7 @@ const Recommendation: React.FC = () => {
                 </IonToolbar>
               
                 <div>
-                <img src={covid_1} className={"img-slides"}/>
+                <img src={covid_1} className={"img-slides"} alt={"Mascote do Regente matutino, em cor laranja, sorrindo na janela. A janela está aberta."}/>
                 </div>
                 
                 <div className={"arrows-recommendations ion-no-padding"}>
@@ -257,7 +257,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_2} className={"img-slides"} width="170" height="122"/>
+                <img src={covid_2} className={"img-slides"} alt={"Mascote do Regente intermediário, em cor azul claro, colocando uma máscara."} width="170" height="122"/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -303,7 +303,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_3} className={"img-slides"}/>
+                <img src={covid_3} className={"img-slides"} alt={" Mascote Regente intermediário, em cor azul claro, lavando as mãos na pia. Na ilustração aparece suas mãos ensaboadas e água."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -333,7 +333,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_4} className={"img-slides"}/>
+                <img src={covid_4} className={"img-slides"} alt={"Mascote do Regente matutino, em cor laranja, e o mascote do Regente intermediário, em cor azul claro, de pé e separados em distanciamento social. Entre eles uma marcação em vermelho indicando 2 metros de distância."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -361,7 +361,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_5} className={"img-slides"}/>
+                <img src={covid_5} className={"img-slides"} alt={"Mascote do Regente intermediário, em cor azul claro, assoando o nariz com um lenço branco."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -387,7 +387,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_6} className={"img-slides"}/>
+                <img src={covid_6} className={"img-slides"} alt={"Mascote do Regente vespertino, em cor azul escuro, com uma aparência doente. Ele está com um termômetro na boca e um saco de gelo na cabeça."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -417,7 +417,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_7} className={"img-slides"}/>
+                <img src={covid_7} className={"img-slides"} alt={"Mão do mascote do Regente matutino, em cor laranja, segurando uma vacina."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -457,7 +457,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                 <img src={bons_habitos1} className={"img-slides"}/>
+                 <img src={bons_habitos1} className={"img-slides"} alt={"Rádio azul desconectado da tomada."}/>
                  <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
@@ -482,7 +482,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos2} className={"img-slides"}/>
+                <img src={bons_habitos2} className={"img-slides"} alt={"Mascote do Regente intermediário sentado de olhos fechados e em uma posição de meditação."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -508,7 +508,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos3} className={"img-slides"}/>
+                <img src={bons_habitos3} className={"img-slides"} alt={"Mascote do Regente matutino sentado lendo um livro enquanto escuta música nos seus fones de ouvidos."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -534,7 +534,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos4} className={"img-slides"}/>
+                <img src={bons_habitos4} className={"img-slides"} alt={"Mascote do Regente matutino preparando-se para atividades físicas. Ele está usando uma testeira branca com vermelho."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -561,7 +561,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos7} className={"img-slides"}/>
+                <img src={bons_habitos7} className={"img-slides"} alt={"Ilustração com dois mascotes do Regente intermediários, de cor azul claro. Um está na esquerda e o outro está na direita, em uma comparação. O da direita está com uma postura torta, e acima dele um X em vermelho. O da esquerda está com uma postura reta e acima dele um sinal correto em verde."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -587,7 +587,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos5} className={"img-slides"}/>
+                <img src={bons_habitos5} className={"img-slides"} alt={"Mão do mascote do Regente vespertino, em cor azul escuro, segurando uma escova de dentes."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -613,7 +613,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos6} className={"img-slides"}/>
+                <img src={bons_habitos6} className={"img-slides"} alt={"Uma maçã vermelha mordida."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -652,7 +652,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-               <img src={sono1} className={"img-slides"}/>
+               <img src={sono1} className={"img-slides"} alt={"Ilustração do sol com a cara do mascote do Regente matutino, em cor laranja, sorrindo."}/>
                <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
@@ -678,7 +678,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono2} className={"img-slides"}/>
+              <img src={sono2} className={"img-slides"} alt={" Mão do mascote do Regente vespertino, em cor azul escuro, puxando a corda para apagar a luz de um lustre."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -704,7 +704,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono3} className={"img-slides"}/>
+              <img src={sono3} className={"img-slides"} alt={"Máscara de dormir com a cara do mascote Regente vespertino, em azul escuro, tapando a tela frontal do celular"}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -730,7 +730,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono4} className={"img-slides"} />
+              <img src={sono4} className={"img-slides"} alt={"Tela do celular amarelada, com a cara do mascote Regente na tela."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -756,7 +756,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono5} className={"img-slides"}/>
+              <img src={sono5} className={"img-slides"} alt={"Lista de afazeres com três itens. Os 3 primeiros itens estão marcados como feitos."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -782,7 +782,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono6} className={"img-slides"}/>
+              <img src={sono6} className={"img-slides"} alt={"Mão do mascote do Regente vespertino, em cor azul claro, com um relógio."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -809,7 +809,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono7} className={"img-slides"}/>
+              <img src={sono7} className={"img-slides"} alt={"Mascote do Regente intermediário, em cor azul claro, de olhos fechados segurando um ursinho de pelúcia."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -835,7 +835,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono8} className={"img-slides"}/>
+              <img src={sono8} className={"img-slides"} alt={"Mascote do Regente vespertino deitado e com um cobertor na cama ."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -861,7 +861,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono9} className={"img-slides"}/>
+              <img src={sono9} className={"img-slides"} alt={"Ilustração de um ursinho de pelúcia na frente de um travesseiro azul."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -889,7 +889,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono10} className={"img-slides"}/>
+              <img src={sono10} className={"img-slides"} alt={"Ilustração de um relógio, em azul claro, com um hambúrguer no fundo."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -915,7 +915,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono11} className={"img-slides"}/>
+              <img src={sono11} className={"img-slides"} alt={"Ilustração de uma caneca azul escura, com o rosto do mascote do Regente vespertino estampado, cheia de café."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -941,7 +941,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono12} className={"img-slides"}/>
+              <img src={sono12} className={"img-slides"} alt={"Mascote do Regente matutino, em cor laranja, pulando corda com uma testeira branca e vermelha. Ele está feliz."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -991,15 +991,15 @@ const Recommendation: React.FC = () => {
       </div>
      
         <div>
-            <img src={logo_crono} width="120px" height="140px"/>
-            <img src={logo_clinicas} width="120px" height="140px"/>
-            <img src={logo_innovaspace} width="120px" height="140px"/>
-            <img src={logo_neurobio} width="120px" height="140px"/>
+            <img src={logo_crono} alt={"Logo do Laboratório de Cronobiologia e Sono - UFRGS/HCPA."} width="120px" height="140px"/>
+            <img src={logo_clinicas} alt={"Logo do Hospital de Clínicas de Porto Alegre - HCPA."} width="120px" height="140px"/>
+            <img src={logo_innovaspace} alt={"Logo do InnovaSpace."} width="120px" height="140px"/>
+            <img src={logo_neurobio} alt={"Logo do Laboratório de Neurobiologia da Pineal."} width="120px" height="140px"/>
             </div>
             <div>
-            <img src={logo_nnnesp} width="120px" height="140px"/>
-            <img src={logo_ufrgs} width="120px" height="140px"/>
-            <img src={logo_unifesp} width="120px" height="140px"/>
+            <img src={logo_nnnesp} alt={"Logo do Laboratório de Neurofisiologia e Neuroquímica da Excitabilidade Neuronal e Plasticidade Sináptica - UFRGS"} width="120px" height="140px"/>
+            <img src={logo_ufrgs} alt={"Logo da Universidade Federal do Rio Grande do Sul- UFRGS."} width="120px" height="140px"/>
+            <img src={logo_unifesp} alt={"Logo da Universidade Federal de São Paulo - UNIFESP."} width="120px" height="140px"/>
             
         </div>
       

@@ -914,6 +914,17 @@ const Tab1: React.FC = () => {
 
   function sharingSocial() {
 
+    /* 
+    1:
+    alt: Mascote do Regente matutino, em laranja. No fundo da animação um degradê em laranja em ondas representando o dia.
+        
+    2:
+    alt: Mascote do Regente vespertino, em azul escuro. No fundo da animação um degradê em  azul escuro, em ondas representando a noite.
+
+    3:
+    alt: Mascote do Regente intermediário, em azul claro. No fundo da animação um degradê em  azul, do claro para o escuro, em ondas representando a mistura entre o dia e a noite.
+    */
+
     const imgs = ['https://i.imgur.com/wokIZJ5.png', 'https://i.imgur.com/eyIIx96.png', 'https://i.imgur.com/S4LNb2n.png']
     const index = Number(cronoImage) - 1;
 
@@ -967,7 +978,7 @@ const Tab1: React.FC = () => {
               <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons>
             </div>
             <div className={"img-logo"}>
-              <img src={logo_regente} className={"logo"} />
+              <img src={logo_regente} className={"logo"} alt={"Logo regente"}/>
             </div>
           </div>
 
@@ -993,10 +1004,10 @@ const Tab1: React.FC = () => {
       
       <IonContent fullscreen className="ion-text-center texto-padrão" color="background">
 
-        {cronoImage === 'Carregando feedback...' ? <img className="img-home" src={home_gif}/>  : null}
-        {cronoImage === '1' ? <img src={home_matutino} className="img-home" />  : null}
-        {cronoImage === '2' ? <img src={home_intermed} className="img-home" /> : null}
-        {cronoImage === '3' ? <img src={home_vespertino} className="img-home" /> : null}
+        {cronoImage === 'Carregando feedback...' ? <img className="img-home" src={home_gif} alt={"Animação em gif que começa com o mascote do Regente matutino, em laranja, pulando, seguido pelo mascote do Regente vespertino, em azul escuro, pulando e por fim o mascote do Regente intermediário, em azul claro, também pulando. No fundo da animação um degradê em laranja"}/>  : null}
+        {cronoImage === '1' ? <img src={home_matutino} className="img-home" alt={"Mascote do Regente matutino, em laranja. No fundo da animação um degradê em laranja em ondas representando o dia."}/>  : null}
+        {cronoImage === '2' ? <img src={home_intermed} className="img-home" alt={"Mascote do Regente vespertino, em azul escuro. No fundo da animação um degradê em  azul escuro, em ondas representando a noite."} /> : null}
+        {cronoImage === '3' ? <img src={home_vespertino} className="img-home" alt={"Mascote do Regente intermediário, em azul claro. No fundo da animação um degradê em  azul, do claro para o escuro, em ondas representando a mistura entre o dia e a noite."}/> : null}
         
       
           
@@ -1087,23 +1098,23 @@ const Tab1: React.FC = () => {
 
 
                       <div>
-                        <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
+                        <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."} /></IonButton>
                       </div>
 
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" /></IonButton>
+                        <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" alt={"Mascote do Regente vespertino e matutino sorrindo e de mãos dadas."}/></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" /></IonButton>
+                        <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado} onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."}/></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" /></IonButton>
+                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."}/></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
@@ -1157,9 +1168,9 @@ const Tab1: React.FC = () => {
                   
                              
 
-                              {cronoImage === '1' ? <p><img src={matutino_feliz} className="img-slides" /> </p> : null}
-                              {cronoImage === '2' ? <p><img src={intermed_feliz} className="img-slides" /></p> : null}
-                              {cronoImage === '3' ? <p><img src={vespertino_feliz} className="img-slides" /></p> : null}
+                              {cronoImage === '1' ? <p><img src={matutino_feliz} className="img-slides" alt={"Mascote do Regente matutino, em cor laranja, sorrindo."}/> </p> : null}
+                              {cronoImage === '2' ? <p><img src={intermed_feliz} className="img-slides" alt={"Mascote do Regente intermediário, em cor azul claro, sorrindo."}/></p> : null}
+                              {cronoImage === '3' ? <p><img src={vespertino_feliz} className="img-slides" alt={"Mascote do Regente vespertino, em cor azul escuro, sorrindo."}/></p> : null}
                               
                              
                               <div className={"arrows ion-no-padding"}>
@@ -1203,9 +1214,9 @@ const Tab1: React.FC = () => {
                               </div>                         
                               <br/>
                              
-                              {cronoImage === '1' ? <p><img src={matutino_cansado} className="img-slides" /> </p> : null}
-                              {cronoImage === '2' ? <p><img src={intermed_cansado} className="img-slides" /></p> : null}
-                              {cronoImage === '3' ? <p><img src={vespertino_cansado} className="img-slides" /></p> : null}
+                              {cronoImage === '1' ? <p><img src={matutino_cansado} className="img-slides" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."}/> </p> : null}
+                              {cronoImage === '2' ? <p><img src={intermed_cansado} className="img-slides" alt={"Mascote do Regente intermediário de olhos fechados dormindo segurando um ursinho de pelúcia."}/></p> : null}
+                              {cronoImage === '3' ? <p><img src={vespertino_cansado} className="img-slides" alt={"Mascote do Regente vespertino de olhos fechados dormindo segurando um ursinho de pelúcia."}/></p> : null}
                             
                               
 
@@ -1234,7 +1245,7 @@ const Tab1: React.FC = () => {
                               </p>  
                               </div>                         
                               <br/>
-                              <p><img src={sono_feedback} className="img-slides" /> </p>
+                              <p><img src={sono_feedback} className="img-slides" alt={"Ilustração de um relógio, em azul claro, com um hambúrguer no fundo."} /> </p>
 
                               <br />
                             </IonSlide>
@@ -1262,7 +1273,7 @@ const Tab1: React.FC = () => {
                               </p>  
                               </div>                         
                               <br/>
-                              <p><img src={sol} className="img-slides" /> </p>
+                              <p><img src={sol} className="img-slides" alt={"Ilustração do sol com a cara do mascote do Regente matutino, em cor laranja, sorrindo."}/> </p>
 
                               <br />
                             </IonSlide>
@@ -1287,9 +1298,9 @@ const Tab1: React.FC = () => {
                               </p>  
                               </div>                         
                               <br/>
-                              {cronoImage === '1' ? <p><img src={matutino_corda} className="img-slides" /> </p> : null}
-                              {cronoImage === '2' ? <p><img src={intermed_corda} className="img-slides" /></p> : null}
-                              {cronoImage === '3' ? <p><img src={vespertino_corda} className="img-slides" /></p> : null}
+                              {cronoImage === '1' ? <p><img src={matutino_corda} className="img-slides" alt={"Mascote do Regente matutino, em cor laranja, pulando corda com uma testeira branca e vermelha. Ele está feliz."}/> </p> : null}
+                              {cronoImage === '2' ? <p><img src={intermed_corda} className="img-slides" alt={"Mascote do Regente intermediário, em cor azul claro, pulando corda com uma testeira branca e vermelha. Ele está feliz."}/></p> : null}
+                              {cronoImage === '3' ? <p><img src={vespertino_corda} className="img-slides" alt={"Mascote do Regente vespertino, em cor azul escuro, pulando corda com uma testeira branca e vermelha. Ele está feliz."}/></p> : null}
                               
                               <br />
                             </IonSlide>
@@ -1316,7 +1327,7 @@ const Tab1: React.FC = () => {
                               </p>  
                               </div>                         
                               <br/>
-                              <p><img src={imc} className="img-slides" /> </p>
+                              <p><img src={imc} className="img-slides" alt={"Lista de afazeres com três itens. Os 3 primeiros itens estão marcados como feitos."}/> </p>
                               <br />
                             </IonSlide>
 
@@ -1340,7 +1351,7 @@ const Tab1: React.FC = () => {
                               </p>  
                               </div>                         
                               <br/>
-                              <p><img src={contato_social} className="img-slides" /> </p>
+                              <p><img src={contato_social} className="img-slides" alt={"Mascote do Regente matutino, em cor laranja, e o mascote do Regente intermediário, em cor azul claro, de pé e separados em distanciamento social. Entre eles uma marcação em vermelho indicando 2 metros de distância."}/> </p>
                               <br />
                             </IonSlide>
 
@@ -1368,9 +1379,9 @@ const Tab1: React.FC = () => {
                               <br/>
                               <IonButton onClick={createPDF}>gerar pdf</IonButton>
                               
-                              {cronoImage === '1' ? <p><img src={matutino_wave} className="img-slides" /> </p> : null}
-                              {cronoImage === '2' ? <p><img src={intermed_wave} className="img-slides" /></p> : null}
-                              {cronoImage === '3' ? <p><img src={vespertino_wave} className="img-slides" /></p> : null}
+                              {cronoImage === '1' ? <p><img src={matutino_wave} className="img-slides" alt={"Mascote do Regente matutino, em cor laranja, sorrindo e abanando."} /> </p> : null}
+                              {cronoImage === '2' ? <p><img src={intermed_wave} className="img-slides" alt={"Mascote do Regente intermediário, em cor azul claro, sorrindo e abanando."}/></p> : null}
+                              {cronoImage === '3' ? <p><img src={vespertino_wave} className="img-slides" alt={" Mascote do Regente intermediário, em cor azul escuro, sorrindo e abanando."}/></p> : null}
                              
 
                               <br />
@@ -1398,23 +1409,23 @@ const Tab1: React.FC = () => {
                     <p>{secondPartText}</p>
 
                     <div>
-                      <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1}  onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1}  onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."}/></IonButton>
                     </div>
                   </AccordionItemPanel>
                   <AccordionItemPanel>
                     <div>
-                      <IonButton disabled={moduloContatoPostEnviado || !moduloSaudePostEnviado} onClick={contatoPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloContatoPostEnviado || !moduloSaudePostEnviado} onClick={contatoPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" alt={"Mascote do Regente vespertino e matutino sorrindo e de mãos dadas."} /></IonButton>
                     </div>
                   </AccordionItemPanel>
                   <AccordionItemPanel>
 
                     <div>
-                      <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."}/></IonButton>
                     </div>
                   </AccordionItemPanel>
                   <AccordionItemPanel>
                     <div>
-                      <IonButton disabled={moduloSonoSintomasPostEnviado || !moduloHabitosPostEnviado} onClick={sonosintomasPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloSonoSintomasPostEnviado || !moduloHabitosPostEnviado} onClick={sonosintomasPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={"Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."}/></IonButton>
                     </div>
 
                   </AccordionItemPanel>
@@ -1442,25 +1453,25 @@ const Tab1: React.FC = () => {
                     <p>{thirdPartText}</p>
 
                     <div>
-                      <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2}  onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2}  onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."}/></IonButton>
                     </div>
                   </AccordionItemPanel>
 
                   <AccordionItemPanel>
                     <div>
-                      <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado} onClick={contatoFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado} onClick={contatoFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" alt={"Mascote do Regente vespertino e matutino sorrindo e de mãos dadas."}/></IonButton>
                     </div>
                   </AccordionItemPanel>
 
                   <AccordionItemPanel>
                     <div>
-                      <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."}/></IonButton>
                     </div>
                   </AccordionItemPanel>
 
                   <AccordionItemPanel>
                     <div>
-                      <IonButton disabled={moduloSonoSintomasFinalEnviado || !moduloHabitosFinalEnviado} onClick={sonoSintomasFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" /></IonButton>
+                      <IonButton disabled={moduloSonoSintomasFinalEnviado || !moduloHabitosFinalEnviado} onClick={sonoSintomasFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={"Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."}/></IonButton>
                     </div>
                   </AccordionItemPanel>
                   <AccordionItemPanel>

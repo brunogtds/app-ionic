@@ -114,7 +114,7 @@ const Cadastro = (props: StepComponentProps) => {
       <div id="inner">
 
       <div>
-        <img src={logo_regente} className={"logo-login"}/>
+        <img src={logo_regente} className={"logo-login"} alt={"Logo regente"}/>
       </div>
       
       <div>

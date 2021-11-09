@@ -482,8 +482,24 @@ const CalendarPage= (props: StepComponentProps) => {
   }
 
   
+  
   let metaShare01 = 0;
   function socialSharingMeta01() {
+
+    /*
+    1:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Praticar exercícios físicos”.
+
+    2:
+	  alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Fazer refeições no mesmo horário”.
+
+    3:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Expor-se à luz natural da manhã”.
+
+    4:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Ir dormir no mesmo horário”.
+ 
+    */
 
     if (meta01 === "exercicio"){
       metaShare01 = 1;
@@ -508,6 +524,21 @@ const CalendarPage= (props: StepComponentProps) => {
   let metaShare02 = 0;
   function socialSharingMeta02() {
 
+    /*
+    1:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Praticar exercícios físicos”.
+
+    2:
+	  alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Fazer refeições no mesmo horário”.
+
+    3:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Expor-se à luz natural da manhã”.
+
+    4:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Ir dormir no mesmo horário”.
+ 
+    */
+
     if (meta02 === "exercicio"){
       metaShare02 = 1;
     } 
@@ -529,6 +560,21 @@ const CalendarPage= (props: StepComponentProps) => {
 
    let metaShare03 = 0;
   function socialSharingMeta03() {
+
+    /*
+    1:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Praticar exercícios físicos”.
+
+    2:
+	  alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Fazer refeições no mesmo horário”.
+
+    3:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Expor-se à luz natural da manhã”.
+
+    4:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Ir dormir no mesmo horário”.
+ 
+    */
 
     if (meta04 === "exercicio"){
       metaShare03 = 1;
@@ -602,7 +648,7 @@ const CalendarPage= (props: StepComponentProps) => {
 
                     </IonToolbar>
                    
-                    <p><img src={matutino_wave} className="img-modal-calendar" /> </p>
+                    <p><img src={matutino_wave} className="img-modal-calendar" alt={"Mascote do Regente matutino, em cor laranja, sorrindo e abanando."} /> </p>
                    
                    <div className={"goals"}>
                      <p>Clique no botão indicando sua meta!</p>

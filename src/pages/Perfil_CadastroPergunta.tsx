@@ -55,7 +55,7 @@ const Perfil_CadastroPergunta = (props: StepComponentProps) => {
                 <form className="ion-padding texto-default">
 
                 
-                <img src={Sono_9} alt={"imagem do mascote dormindo"} className={"img_cadastro"}/>
+                <img src={Sono_9} alt={"Ilustração de um ursinho de pelúcia na frente de um travesseiro azul."} className={"img_cadastro"}/>
                 
     
                         <div className="title_pergunta_cadastro">Olá!</div>
