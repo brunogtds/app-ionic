@@ -25,7 +25,7 @@ import firebase from 'firebase';
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
 //import ModuloComponents from "../ModulosComponent"
-import {cadastroUser} from '../firebaseConfig/firebaseConfig';
+import {cadastroUser, loginAnonimo} from '../firebaseConfig/firebaseConfig';
 
 const Perfil_Cadastro2  = (props: StepComponentProps) => {
 
@@ -48,7 +48,8 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
   const {data: user}= useUser();
 
   async function Cadastro(){
-  
+
+     
     if (props.state.email === '' || props.state.senha === '' || props.state.csenha === '' ) {
       return toast ('Email e senha são requeridos')
       
@@ -57,6 +58,19 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
     else if (props.state.senha != props.state.csenha){
       return toast ('As senhas não são iguais')
     } 
+
+    
+    if (props.state.loginAnonimo === true) {
+        const res= await loginAnonimo 
+        
+        toast('Cadastro feito com sucesso')
+        history.replace('/tab1'); 
+     //   const auth= firebase.auth();
+      //  
+      //  const uid = user.uid;
+     //   createDatabaseQuest1(uid)
+        } 
+   
      
     const res = await cadastroUser(props.state.email, props.state.senha)
     

@@ -45,7 +45,10 @@ const Login: React.FC = () => {
 
     async function LoginFacebook(){
       toast("Nao implementado ainda")
-    }
+    } 
+
+    
+     
 
   return (
     <IonPage>
@@ -105,7 +108,8 @@ const Login: React.FC = () => {
      <p><a href="/recuperacao_senha">Esqueci minha senha</a></p>
 
      <p>É a sua primeira vez no aplicativo? <a href="/cadastro_main">Clique aqui</a></p>
-  
+
+     
       </div>
       </div>
       </IonContent>
