@@ -382,116 +382,9 @@ const Saude2 = (props: StepComponentProps) => {
 
                         {/*VOCÊ BEBE -> SIM */}
 
-                        <IonLabel className="questions">Você faz uso de algum tipo de droga ilícita diariamente?</IonLabel>
-                        <IonList>
+                                              
 
-                            <IonItem className={"ion-no-padding"} lines="none">
-
-
-                                <Controller render={({ onChange }) => (
-                                    <IonRadioGroup value={drogas} onIonChange={(e) => {
-                                        setDrogas(e.detail.value);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('drugs', e.detail.value)
-                                    }}>
-
-                                        <IonItem className={"ion-no-padding"} lines="none">
-                                            <IonLabel>Sim</IonLabel>
-                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
-                                        </IonItem>
-
-                                        <IonItem className={"ion-no-padding"} lines="none">
-                                            <IonLabel>Não</IonLabel>
-                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
-                                        </IonItem>
-                                    </IonRadioGroup>
-                                )} control={control} name={"drugs"} rules={{ required: true }} />
-                                {errors.drugs && <IonText color="danger">Campo obrigatório.</IonText>}
-                            </IonItem>
-
-                            {/*DROGAS -> SIM */}
-
-                            {drogas === "sim" ?
-                                <IonItem lines="none">
-
-                                    <IonLabel className="questions">Qual(is) você usa com maior frequência?</IonLabel></IonItem> : null}
-
-                            {drogas === "sim" ?
-                                <IonItem>
-                                    <Controller render={({ onChange }) => (
-
-                                        <IonList className={"ion-no-padding"}>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'maconha')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Maconha</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'cocaína')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Cocaína</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'crack')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Crack</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'ecstasy')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Ecstasy</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-
-                                                <IonInput placeholder="Outros" onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', e.detail.value)
-                                                }} />
-                                            </IonItem>
-                                        </IonList>)} control={control} name={"drugsUsed"} //rules={{required:true}}
-                                    />
-                                    {errors.drugsUsed && <IonText color="danger">Campo obrigatório.</IonText>}
-
-                                </IonItem> : null}
-
-                            {drogas === "sim" ?
-                                <IonItem>
-
-                                    <Controller render={({ onChange }) => (
-                                        <IonInput placeholder="Há quantos anos você usa essa droga?" onIonChange={(e) => {
-                                            console.log(e);
-                                            onChange(e.detail.value);
-                                            if (e.detail.value != undefined)
-                                                props.setState('drugDur', e.detail.value)
-                                        }} />)} control={control} name={"drugDur"} rules={{ required: true }} />
-                                    {errors.drugDur && <IonText color="danger">Campo obrigatório.</IonText>}
-                                </IonItem> : null}
-
-                        </IonList>
+                          
 
                         <IonLabel className="questions">Você faz uso de algum estimulante diariamente (café, chimarrão)?</IonLabel>
                         <IonList>
@@ -535,7 +428,12 @@ const Saude2 = (props: StepComponentProps) => {
                                                     console.log(e);
                                                     onChange(e.detail.value);
                                                     if (e.detail.value != undefined)
-                                                        props.setState('stimulantTiming', 'manhã')
+                                                        if (props.state.stimulantTiming !== undefined)
+                                                            props.setState('stimulantTiming', props.state.stimulantTiming + ' manhã')
+                                                        else 
+                                                            props.setState('stimulantTiming', 'manhã')
+                                                  
+                                                        
                                                 }}></IonCheckbox>
                                                 <IonLabel>Manhã</IonLabel>
                                             </IonItem>
@@ -544,8 +442,11 @@ const Saude2 = (props: StepComponentProps) => {
                                                 <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTiming", "")} onIonChange={(e) => {
                                                     console.log(e);
                                                     onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('stimulantTiming', 'tarde')
+                                                     if (e.detail.value != undefined)
+                                                        if (props.state.stimulantTiming !== undefined)
+                                                            props.setState('stimulantTiming', props.state.stimulantTiming + ' tarde')
+                                                        else 
+                                                            props.setState('stimulantTiming', 'tarde')
                                                 }}></IonCheckbox>
                                                 <IonLabel>Tarde</IonLabel>
                                             </IonItem>
@@ -555,6 +456,9 @@ const Saude2 = (props: StepComponentProps) => {
                                                     console.log(e);
                                                     onChange(e.detail.value);
                                                     if (e.detail.value != undefined)
+                                                    if (props.state.stimulantTiming !== undefined)
+                                                        props.setState('stimulantTiming', props.state.stimulantTiming + ' noite')
+                                                    else 
                                                         props.setState('stimulantTiming', 'noite')
                                                 }}></IonCheckbox>
                                                 <IonLabel>Noite</IonLabel>

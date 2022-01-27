@@ -93,82 +93,114 @@ const SaudePost1 = (props: StepComponentProps) => {
 
                         <IonLabel className="questions">Você teve alguma doença diagnosticada depois que entrou no estudo?</IonLabel>
 
-                        <IonItem lines="none" className={"ion-no-padding"}>
+                       <IonItem className={"ion-no-padding"}>
+
+
                             <Controller render={({ onChange }) => (
 
-                                <IonList>
+                                <IonList className={"ion-no-padding"}>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChange", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.disordersChange !== undefined)
+                                                    props.setState('disordersChange', props.state.disordersChange + ' nenhuma')
+                                                else 
+                                                    props.setState('disordersChange', 'nenhuma')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Nenhuma</IonLabel>
+                                    </IonItem>
 
                                     <IonItem lines="none">
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChange", "")} onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
-                                                props.setState('disordersChange', 'nenhuma')
-                                        }}></IonCheckbox>
-                                        <IonLabel>Nenhuma</IonLabel>
-                                    </IonItem>
-
-                                    <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disorders", "")} onIonChange={(e) => {
-                                            console.log(e);
-                                            onChange(e.detail.value);
-                                            if (e.detail.value != undefined)
-                                                props.setState('disordersChange', 'diabetes')
+                                                if (props.state.disordersChange !== undefined)
+                                                    props.setState('disordersChange', props.state.disordersChange + ' diabetes')
+                                                else 
+                                                    props.setState('disordersChange', 'diabetes')
                                         }}></IonCheckbox>
                                         <IonLabel>Diabetes</IonLabel>
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disorders", "")} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChange", "")} onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
-                                                props.setState('disordersChange', 'hipertensão')
+                                                if (props.state.disordersChange !== undefined)
+                                                    props.setState('disordersChange', props.state.disordersChange + ' hipertensão')
+                                                else 
+                                                    props.setState('disordersChange', 'hipertensão')
                                         }}></IonCheckbox>
                                         <IonLabel>Hipertensão</IonLabel>
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disorders", "")} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChange", "")} onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
-                                                props.setState('disordersChange', 'asma')
+                                                if (props.state.disordersChange !== undefined)
+                                                    props.setState('disordersChange', props.state.disordersChange + ' asma')
+                                                else 
+                                                    props.setState('disordersChange', 'asma')
                                         }}></IonCheckbox>
                                         <IonLabel>Asma</IonLabel>
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disorders", "")} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChange", "")} onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
-                                            if (e.detail.value != undefined)
-                                                props.setState('disordersChange', 'depressão')
+                                           if (e.detail.value != undefined)
+                                                if (props.state.disordersChange !== undefined)
+                                                    props.setState('disordersChange', props.state.disordersChange + ' depressão')
+                                                else 
+                                                    props.setState('disordersChange', 'depressão')
                                         }}></IonCheckbox>
                                         <IonLabel>Depressão</IonLabel>
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disorders", "")} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChange", "")} onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
-                                            if (e.detail.value != undefined)
-                                                props.setState('disordersChange', 'imunodeficiência')
+                                             if (e.detail.value != undefined)
+                                                if (props.state.disordersChange !== undefined)
+                                                    props.setState('disordersChange', props.state.disordersChange + ' imunodeficiência')
+                                                else 
+                                                    props.setState('disordersChange', 'imunodeficiência')
                                         }}></IonCheckbox>
                                         <IonLabel>Imunodeficiência</IonLabel>
                                     </IonItem>
 
                                     <IonItem lines="none">
+
                                         <IonInput placeholder="Outros" type="text" onIonChange={(e) => {
                                             if (e.detail.value != undefined)
-                                                props.setState('disordersChange', e.detail.value)
+                                                if (props.state.disordersChange !== undefined)
+                                                    props.setState('disordersChange', props.state.disordersChange + " " + e.detail.value)
+                                                else 
+                                                    props.setState('disordersChange', e.detail.value)
                                         }} />
                                     </IonItem>
                                 </IonList>
                             )}
+
                                 control={control}
+                                // rules={{required: true}}
                                 name={"disordersChange"}
+
                             />
+                            <div>
+                                {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                            </div>
+
                         </IonItem>
 
                         <IonLabel className="questions">Você começou a fazer uso frequente de alguma medicação por orientação médica,

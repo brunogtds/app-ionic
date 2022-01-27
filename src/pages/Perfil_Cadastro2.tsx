@@ -1,7 +1,7 @@
 import React from "react";
 import {StepComponentProps} from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonLoading, IonRadioGroup, IonRadio } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonLoading, IonRadioGroup, IonRadio, IonModal } from "@ionic/react";
 import { IonContent, IonText} from '@ionic/react';
 import './Cadastro.css';
 
@@ -25,7 +25,7 @@ import firebase from 'firebase';
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
 //import ModuloComponents from "../ModulosComponent"
-import {cadastroUser, loginAnonimo} from '../firebaseConfig/firebaseConfig';
+import {cadastroUser} from '../firebaseConfig/firebaseConfig';
 
 const Perfil_Cadastro2  = (props: StepComponentProps) => {
 
@@ -45,7 +45,11 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
   const history= useHistory();
   const [loader, setLoader]= useState<boolean>(false)
 
+  const [showModalRec, setShowModalRec] = useState(false);
+
   const {data: user}= useUser();
+
+
 
   async function Cadastro(){
 
@@ -61,7 +65,7 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
 
     
     if (props.state.loginAnonimo === true) {
-        const res= await loginAnonimo 
+       // const res= await loginAnonimo 
         
         toast('Cadastro feito com sucesso')
         history.replace('/tab1'); 
@@ -114,7 +118,7 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
 
   function updateUserDataQuest1(uid: any, dataUser: any){
      
-  
+        
         firebase.firestore().collection('users').doc(uid).set({
             goodSleep: String(props.state.goodSleep),
             age: Number(props.state.age), //STEP 1
@@ -130,6 +134,10 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
             depend: Number(props.state.depend),
             
             area: String(props.state.area),
+            m1: String(props.state.m1),
+            m2: String(props.state.m2),
+            m3: String(props.state.m3),
+            
            }, {merge: true})
       
     
@@ -141,6 +149,7 @@ const Perfil_Cadastro2  = (props: StepComponentProps) => {
       
 const onSubmit = (data: any) => {
        Cadastro();
+       setShowModalRec(false);
       // createDatabaseQuest1();
        
         
@@ -272,6 +281,458 @@ const onSubmit = (data: any) => {
                             rules={{required: true}}
                             />
                         </IonItem>
+
+                        <IonModal isOpen={showModalRec} showBackdrop={true}
+                     
+                        onDidDismiss={() => setShowModalRec(false)}>
+                        <IonContent color="background">
+                          
+                          <div className="ion-padding texto-default">
+                                                   
+                       <IonLabel className="questions">Antes de prosseguir, gostaríamos de saber mais sobre alguns de seus hábitos antes de utilizar o app...</IonLabel>
+                       <IonLabel className="questions">Sobre a pandemia do Covid-19:</IonLabel> 
+
+                        <IonItem className={"ion-no-padding"}>
+
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonList className={"ion-no-padding"}>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m1", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m1 !== undefined)
+                                                    props.setState('m1', props.state.m1 + ' m1q1')
+                                                else 
+                                                    props.setState('m1', 'm1q1')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Evitei ao máximo sair de casa. Quando foi necessário sair, evitei permanecer em espaços fechados ou mal ventilados.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none">
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m1", "")} onIonChange={(e) => {
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                 if (props.state.m1 !== undefined)
+                                                    props.setState('m1', props.state.m1 + ' m1q2')
+                                                else 
+                                                    props.setState('m1', 'm1q2')
+                                        }}></IonCheckbox>
+                                        <IonLabel>Usei sempre máscara de proteção.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none">
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m1", "")} onIonChange={(e) => {
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m1 !== undefined)
+                                                    props.setState('m1', props.state.m1 + ' m1q3')
+                                                else 
+                                                    props.setState('m1', 'm1q3')
+                                        }}></IonCheckbox>
+                                        <IonLabel>Lavei as mãos regularmente com água e sabão ou use álcool 70%.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none">
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m1", "")} onIonChange={(e) => {
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m1 !== undefined)
+                                                    props.setState('m1', props.state.m1 + ' m1q4')
+                                                else 
+                                                    props.setState('m1', 'm1q4')
+                                        }}></IonCheckbox>
+                                        <IonLabel>Procurei manter no mínimo 2 metros de distância das pessoas.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none">
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m1", "")} onIonChange={(e) => {
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m1 !== undefined)
+                                                    props.setState('m1', props.state.m1 + ' m1q5')
+                                                else 
+                                                    props.setState('m1', 'm1q5')
+                                        }}></IonCheckbox>
+                                        <IonLabel>Evitei tocar no rosto. Ao tossir ou espirrar, cubri a boca e o nariz com a parte interna do cotovelo ou com um lenço descartável. </IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none">
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m1", "")} onIonChange={(e) => {
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m1 !== undefined)
+                                                    props.setState('m1', props.state.m1 + ' m1q6')
+                                                else 
+                                                    props.setState('m1', 'm1q6')
+                                        }}></IonCheckbox>
+                                        <IonLabel>Fiquei em casa quando não me se senti bem.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none">
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m1", "")} onIonChange={(e) => {
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m1 !== undefined)
+                                                    props.setState('m1', props.state.m1 + ' m1q7')
+                                                else 
+                                                    props.setState('m1', 'm1q7')
+                                        }}></IonCheckbox>
+                                        <IonLabel>Quando tive a oportunidade, me vacinei.</IonLabel>
+                                    </IonItem>
+                                   
+                                </IonList>
+                            )}
+
+                                control={control}
+                                // rules={{required: true}}
+                                name={"m1"}
+
+                            />
+                            <div>
+                                {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                            </div>
+
+                        </IonItem>
+
+                        <IonLabel className="questions">Sobre bons hábitos para se manter saudável:</IonLabel>
+
+                          <IonItem className={"ion-no-padding"}>
+
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonList className={"ion-no-padding"}>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m2 !== undefined)
+                                                    props.setState('m2', props.state.m2 + ' m2q1')
+                                                else 
+                                                    props.setState('m2', 'm2q1')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Não fiquei ouvindo notícias o tempo todo.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m2 !== undefined)
+                                                    props.setState('m2', props.state.m2 + ' m2q2')
+                                                else 
+                                                    props.setState('m2', 'm2q2')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Usei técnicas para relaxar o corpo e a mente.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m2 !== undefined)
+                                                    props.setState('m2', props.state.m2 + ' m2q3')
+                                                else 
+                                                    props.setState('m2', 'm2q3')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Reservei um tempo para atividades de lazer.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m2 !== undefined)
+                                                    props.setState('m2', props.state.m2 + ' m2q4')
+                                                else 
+                                                    props.setState('m2', 'm2q4')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Pratiquei atividades físicas em casa.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m2 !== undefined)
+                                                    props.setState('m2', props.state.m2 + ' m2q5')
+                                                else 
+                                                    props.setState('m2', 'm2q5')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Cuidei da minha postura corporal.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m2 !== undefined)
+                                                    props.setState('m2', props.state.m2 + ' m2q6')
+                                                else 
+                                                    props.setState('m2', 'm2q6')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Mantive uma boa higiene bucal.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m2 !== undefined)
+                                                    props.setState('m2', props.state.m2 + ' m2q7')
+                                                else 
+                                                    props.setState('m2', 'm2q7')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Cuidei da minha alimentação.</IonLabel>
+                                    </IonItem>
+
+
+                                    </IonList>
+                                      )}
+
+                                    control={control}
+                                    // rules={{required: true}}
+                                    name={"m2"}
+
+                                />
+                                <div>
+                                    {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                                </div>
+
+                            </IonItem>
+
+                            <IonLabel className="questions">Sobre seu relógio biológico e sono:</IonLabel>
+
+                            
+                          <IonItem className={"ion-no-padding"}>
+
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonList className={"ion-no-padding"}>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q1')
+                                                else 
+                                                    props.setState('m3', 'm3q1')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Expus-me à luz natural durante o dia.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q2')
+                                                else 
+                                                    props.setState('m3', 'm3q2')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Apaguei a luz à noite.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q3')
+                                                else 
+                                                    props.setState('m3', 'm3q3')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Reduzi o tempo excessivo na frente das telas, em especial à noite.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q4')
+                                                else 
+                                                    props.setState('m3', 'm3q4')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Usei apps que deixem a tela mais ‘amarelada’ à noite.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q5')
+                                                else 
+                                                    props.setState('m3', 'm3q5')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Organizei minha rotina pensando em meu cronotipo.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q6')
+                                                else 
+                                                    props.setState('m3', 'm3q6')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Mantive horários regulares.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q7')
+                                                else 
+                                                    props.setState('m3', 'm3q7')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Evitei cochilos prolongados.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q8')
+                                                else 
+                                                    props.setState('m3', 'm3q8')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Na hora de deitar, evitei ficar pensando nos problemas.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q9')
+                                                else 
+                                                    props.setState('m3', 'm3q9')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Tornei meu quarto um ambiente que facilita o sono.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q10')
+                                                else 
+                                                    props.setState('m3', 'm3q10')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Evitei alimentos pesados muito próximo do horário de dormir.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q11')
+                                                else 
+                                                    props.setState('m3', 'm3q11')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Evitei ingerir cafeína ou álcool perto da hora de dormir.</IonLabel>
+                                    </IonItem>
+
+                                    <IonItem lines="none"  >
+                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m3", "")} onIonChange={(e) => {
+
+                                            console.log(e);
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                if (props.state.m3 !== undefined)
+                                                    props.setState('m3', props.state.m3 + ' m3q12')
+                                                else 
+                                                    props.setState('m3', 'm3q12')
+                                        }}></IonCheckbox>
+                                        <IonLabel >Planejei os horários dos meus exercícios considerando meu sono.</IonLabel>
+                                    </IonItem>
+
+                                    </IonList>
+                                      )}
+
+                                    control={control}
+                                    // rules={{required: true}}
+                                    name={"m3"}
+
+                                />
+                                <div>
+                                    {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                                </div>
+
+                            </IonItem>
+
+                         <div className="ion-text-center">
+                          <IonButton color="white" onClick={onSubmit}>OK, cadastrar!</IonButton>
+                          </div>
+
+
+                          </div>
+                        
+
+
+                       
+                        </IonContent>
+                      
+                      </IonModal>
+
                      
 
                         <div id="progress-bar-div" >
@@ -279,7 +740,7 @@ const onSubmit = (data: any) => {
                         </div>
 
                         <IonButton disabled={props.isFirst()}onClick={props.prev} color="orange" className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>
-                        <IonButton disabled={formState.isValid === false} color="orange" onClick={onSubmit} className={"btnProximo"} size="default" shape="round" fill="outline">Submeter</IonButton>
+                        <IonButton disabled={formState.isValid === false} color="orange" onClick={() => setShowModalRec(true)} className={"btnProximo"} size="default" shape="round" fill="outline">Próximo</IonButton>
                        
                         
                </form>

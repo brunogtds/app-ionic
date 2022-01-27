@@ -11,7 +11,7 @@ import {useState} from 'react';
 import { toast } from '../toast';
 import {useHistory} from 'react-router';
 
-import {cadastroUser} from '../firebaseConfig/firebaseConfig';
+import {cadastroUser, loginAnonimo} from '../firebaseConfig/firebaseConfig';
 
 import {mailOutline, eyeOutline, eyeOffOutline, personOutline} from  'ionicons/icons';
 import {StepComponentProps} from "react-step-builder";
@@ -29,6 +29,7 @@ const Cadastro = (props: StepComponentProps) => {
 
   const [showModal, setShowModal] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
+  const [errorLogin, setErrorLogin]= useState(false);
 
   const agree = () => {
     setAgreeTerms(true)
@@ -42,6 +43,21 @@ const Cadastro = (props: StepComponentProps) => {
   const cpasswordVisibility = () => {
     setShowCSenha(showCSenha ? false: true)
   }
+
+  async function LoginAnonimo(){
+
+    const res= await loginAnonimo
+
+    if (!res){
+      setErrorLogin(true)
+    } 
+    else {
+      props.setState('loginAnonimo', true);
+      toast('Login feito com sucesso')
+      return props.jump(2);
+    } 
+  }
+
   
   async function goPerfil(){
     
@@ -125,6 +141,10 @@ const Cadastro = (props: StepComponentProps) => {
         <p>Para saber mais sobre o seu cronotipo e receber dicas personalizadas de acordo com o seu perfil, crie uma conta: </p>
       </div>
 
+      <div className="errorLogin" hidden={!errorLogin}>
+        <p><b>Erro no login anônima!</b> Tente novamente </p>
+      </div>
+
       <div className='label'>
         
       </div>
@@ -193,7 +213,8 @@ const Cadastro = (props: StepComponentProps) => {
 
       <p>Já possui uma conta? Faça <a href="/Login">login</a></p>
       
-        
+      <p>Gostaria de entrar de forma anônima? <IonButton onClick={LoginAnonimo}>Login anônimo </IonButton></p>
+   
       
       </div>
       </div>

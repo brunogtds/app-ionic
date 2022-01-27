@@ -1,8 +1,10 @@
 import firebase from 'firebase';
 import { toast } from '../toast';
 
+
 import "firebase/auth";
 import "firebase/firestore";
+
 
 /*Credenciais do Firebase vão num arquivo .env.local e .gitignore */
 
@@ -17,6 +19,10 @@ appId: process.env.REACT_APP_ID
 }
 
 firebase.initializeApp(config)
+
+firebase.firestore().settings({
+    ignoreUndefinedProperties: true,
+})
 
 export const auth= firebase.auth();
 export const user= firebase.auth().currentUser;
@@ -56,7 +62,7 @@ export async function cadastroUser (email: any, senha: any){
         return res
     }
     catch(error){
-        var errorCode = error.code;
+       /* const errorCode = error.code;
         var errorMessage = ''
         
         switch(errorCode){
@@ -77,7 +83,7 @@ export async function cadastroUser (email: any, senha: any){
 
 
         
-        return false
+        return false */
     }
 };
 
@@ -98,4 +104,17 @@ export async function recoverPassword (email: any, confirmation_email: any) {
          return false
      }
  
+ };
+
+ export async function loginAnonimo (){
+
+    
+    try{
+        const res= await firebase.auth().signInAnonymously();
+        return true
+     }
+     catch(error){
+         return false
+     }
+
  };
