@@ -3,7 +3,7 @@ import { Steps, Step } from "react-step-builder";
 
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton} from '@ionic/react';
 import '../../Forms.css';
-import ContatoFinal1 from "./contatoFinal1";
+
 import ContatoFinal2 from './contatoFinal2';
 
 import logo_regente from '../../../../img/logo_regente_branco.svg';
@@ -43,7 +43,7 @@ function App() {
         <IonContent fullscreen>
                 
                 <Steps>
-                    <Step component={ContatoFinal1} />
+                   
                     <Step component={ContatoFinal2} /> 
                 </Steps>
             

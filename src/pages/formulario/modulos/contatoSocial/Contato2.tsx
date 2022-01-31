@@ -37,14 +37,23 @@ const Contato2 = (props: StepComponentProps) => {
 
         if (user) {
             firebase.firestore().collection('users').doc(user.uid).set({
-                socialDist: String(props.state.socialDist), //STEP 3
+                 //STEP 3
 
-                quarantineRoom: String(props.state.quarantineRoom),
-                quarantineRoomDur: String(props.state.quarantineRoomDur),
-                quarantineOutDur: String(props.state.quarantineOutDur),
-                isolationComp: String(props.state.isolationComp),
-                internet: String(props.state.internet),
-                contactN: String(props.state.contactN), //FIM
+                sd1: Number(props.state.sd1),
+                sd2: Number(props.state.sd2),
+                sd3: Number(props.state.sd3),
+                sd4: Number(props.state.sd4),
+                sd7: Number(props.state.sd7),
+                sd9: Number(props.state.sd9),
+                sd12: Number(props.state.sd12),
+                sd13: Number(props.state.sd13),
+                sd14: Number(props.state.sd14),
+                sd15: Number(props.state.sd15),
+                sd17: Number(props.state.sd17),
+                pis4: Number(props.state.pis4),
+                pis7: Number(props.state.pis7),
+                pis9: Number(props.state.pis9),
+                pis10: Number(props.state.pis10), //FIM
 
 
                 dateContatoModule1: new Date()
@@ -84,7 +93,7 @@ const Contato2 = (props: StepComponentProps) => {
 
                         <div className="ion-text-wrap">
 
-
+{/*
 
                             <IonLabel className="questions">Quantas pessoas estão morando na sua residência, além de você?</IonLabel>
                             <IonItem lines="none">
@@ -156,7 +165,659 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonSelectOption value="Mais de 20">Mais de 20</IonSelectOption>
                                     </IonSelect>)} control={control} name={"contactN"} rules={{ required: true }} />
                                 {errors.contactN && <IonText color="danger">Campo obrigatório.</IonText>}
-                            </IonItem>
+                                </IonItem> */}
+
+                            <IonLabel className="questions">Marque a alternativa que melhor descreve suas atividades no ÚLTIMO MÊS (OBS: versão teste antes da validada) </IonLabel>
+
+                            <IonLabel className="questions">Durante o último mês, mantive distância de, pelo menos, dois metros de outras pessoas quando estava fora de casa:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd1', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd1"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd1 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Durante o último mês, fui em pequenas confraternizações com menos de 10 pessoas em espaços públicos, como parques ou restaurantes:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd2', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd2"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd2 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        
+                        <IonLabel className="questions">Durante o último mês, fui em pequenos eventos sociais com menos de 10 pessoas em espaços privados, como a casa de um amigo:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd3', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd3"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd3 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Durante o último mês, fui em lugares cheios e com grande aglomeração de pessoas, como shows e eventos esportivos:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd4', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd4"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd4 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Durante o último mês, trabalhei/estudei em casa:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd7', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd7"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd7 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        
+                        <IonLabel className="questions">Durante o último mês, saí de casa para comprar gás de cozinha, trabalhar, ir ao médico e no mercado:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd9', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd9"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd9 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Durante o último mês, nós fizemos pequenas confraternizações com familiares em minha casa ou na casa de algum parente:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd12', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd12"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd12 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Durante o último mês, fui obrigado a ir ao meu local de trabalho ou na escola (fora de casa):</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd13', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd13"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd13 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Durante o último mês, consegui manter uma distância de, pelo menos, dois metros de outras pessoas quando estive em meu local de trabalho ou na escola:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd14', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd14"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd14 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Durante o último mês, usei máscara facial quando estive em lugares públicos, local de trabalho ou na escola:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd15', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd15"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd15 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        
+                        <IonLabel className="questions">Durante o último mês, quando estive fora de casa, usei desinfetantes para as mãos ou lavei minhas mãos depois de tocar em objetos como maçanetas, teclados e mouses de computador, etc.</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('sd17', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"sd17"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.sd17 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Estive fisicamente distante de outras pessoas que não moram na minha casa neste último mês:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('pis4', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"pis4"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.pis4 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        
+                        <IonLabel className="questions">Visitei familiares mais velhos (quem tem 65 anos ou mais) neste último mês:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('pis7', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"pis7"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.pis7 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                          
+                        <IonLabel className="questions">Visitei familiares (64 anos ou menos) que moram fora de minha casa neste último mês:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('pis9', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"pis9"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.pis9 && <IonText color="danger">Campo obrigatório.</IonText>}
+
+                        <IonLabel className="questions">Visitei familiares que tem problemas graves de saúde neste último mês:</IonLabel>
+                            <IonItem lines="none" className={"ion-no-padding"}>
+
+                            <Controller render={({ onChange }) => (
+
+                                <IonRadioGroup onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    if (e.detail.value != undefined) {
+                                        props.setState('pis10', e.detail.value)
+                                    }
+                                }}>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>0</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>1</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>2</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>3</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
+                                    </IonItem>
+
+                                    <IonItem lines="none" className={"ion-no-padding"}>
+                                        <IonLabel>4</IonLabel>
+                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                                    </IonItem>
+
+                                </IonRadioGroup>)} control={control} name={"pis10"} rules={{ required: true }} />
+
+                        </IonItem>
+                        {errors.pis10 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>

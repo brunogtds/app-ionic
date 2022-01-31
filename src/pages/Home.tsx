@@ -15,6 +15,7 @@ import { feedbackFumo, feedbackAlcool, feedbackMed } from '../../src/feedbackSau
 import { bemEstar } from '../../src/feedbackBemEstarFunctions';
 import { feedbackSono } from '../../src/feedbackSono';
 import { regularides } from '../../src/feedbackRegularidesFunction';
+import {feedbackSD4} from '../../src/feedbackContatoFunctions';
 
 
 import { IonButton, IonLoading } from '@ionic/react';
@@ -234,6 +235,7 @@ const Tab1: React.FC = () => {
   const [feedbackSonoText, setFeedbackSonoText] = React.useState("Carregando feedback...")
   const [feedbackCronoText, setFeedbackCronoText] = React.useState('Carregando feedback...')
   const [feedbackRegularidadesText, setFeedbackRegularidadesText] = React.useState("Carregando o feedback...")
+  const [feedbackSD4Text, setFeedbackSD4Text]= React.useState("Carregando o feedback...")
 
   const [cronoImage, setCronoImage] = React.useState("Carregando feedback...")
 
@@ -493,8 +495,7 @@ const Tab1: React.FC = () => {
       const dataSex = data2.sex;
       const dataWeight = data2.weight;
       const dataHeight = data2.height;
-
-      console.log('informou sexo? ' + dataSex);
+      
 
       if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "adp 18-64") {
         setFeedbackIMCText("IMC: < 18,5. Através da relação do seu peso pela sua altura conseguimos identificar que o seu peso está um pouco abaixo do ideal. Fique atento e procure um médico ou um nutricionista para uma avaliação.")
@@ -569,6 +570,7 @@ const Tab1: React.FC = () => {
       const data2: any = data;
       const dataSocialDist = data2.socialDist;
       const dataContactN = data2.contactN;
+      const datasd4= data2.sd4;
 
       if (feedbackSocialDist(dataSocialDist) === "string1") {
         setfeedbackCIText("Você nos contou que está seguindo as medidas de distanciamento social. Parabéns! Sabemos que pode estar mais difícil manter o distanciamento social ao longo do tempo, mas seu esforço salva vidas!")
@@ -580,6 +582,12 @@ const Tab1: React.FC = () => {
         setfeedbackCI2Text("Uma sugestão para tornar mais fácil o distanciamento social é manter o contato e conversar com pessoas queridas, mesmo que por telefone ou mensagem. Isso diminui a nossa ansiedade e pode ser uma boa ferramenta no enfrantamento deste momento.")
       } else if (feedbackContactN(dataContactN) === "string2") {
         setfeedbackCI2Text("Você também nos contou que mantém contato social diariamente. Algum tipo de contato com pessoas que nos fazem bem, mesmo que à distância, é essencial pra nos ajudar a encarar esse momento.")
+      }
+
+      if (feedbackSD4(datasd4) === "string2") {
+        setFeedbackSD4Text("Você nos contou que está seguindo as medidas de distanciamento social. Parabéns! Sabemos que pode estar mais difícil manter o distanciamento social ao longo do tempo, mas seu esforço salva vidas!")
+      } else if (feedbackSD4(datasd4) === "string1") {
+        setFeedbackSD4Text("Você nos contou que não está seguindo as medidas de distanciamento social na maior parte do tempo. Sabemos que está sendo cada dia mais difícil manter o distanciamento social, mas evitar aglomerações é essencial para impedir que o vírus se espalhe. Enquanto não vacinamos a maior parte da população, manter o distaciamento social continua sendo essencial para evitarmos nos contaminar e contaminar aos outros.")
       }
     }
   }
@@ -1341,8 +1349,9 @@ const Tab1: React.FC = () => {
                                 </div>
                               </IonToolbar>
                               <p className={"readMore-text"}>Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões.</p>
-                              <p className={"readMore-text-var"}>{feedbackCIText}</p>
-                              <p className={"readMore-text-var"}>{feedbackCI2Text}</p>
+                            {/*  <p className={"readMore-text-var"}>{feedbackCIText}</p>
+                              <p className={"readMore-text-var"}>{feedbackCI2Text}</p> */}
+                              <p className={"readMore-text-var"}>{feedbackSD4Text}</p>
                               <div className={"arrows ion-no-padding"}>
                               <p>
                               <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton> 

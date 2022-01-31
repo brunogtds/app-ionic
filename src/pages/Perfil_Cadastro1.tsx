@@ -85,7 +85,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
 
                     </IonItem>
 
-                    <IonLabel className="questions" >Sexo:</IonLabel>
+                    <IonLabel className="questions" >Como você foi registrado ao nascer:</IonLabel>
                     <IonItem lines="none">
 
 
@@ -96,9 +96,9 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                                 if (e.detail.value != undefined)
                                     props.setState('sex', e.detail.value);
                             }}>
-                                <IonSelectOption value="feminino">Feminino</IonSelectOption>
-                                <IonSelectOption value="masculino">Masculino</IonSelectOption>
-                                <IonSelectOption value="n/a">Prefiro não informar</IonSelectOption>
+                                <IonSelectOption value="feminino">Sexo feminino</IonSelectOption>
+                                <IonSelectOption value="masculino">Sexo masculino</IonSelectOption>
+                             
                             </IonSelect>
 
 

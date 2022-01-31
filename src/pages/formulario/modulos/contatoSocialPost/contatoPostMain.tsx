@@ -43,7 +43,7 @@ function App() {
         <IonContent fullscreen>
                 
                 <Steps>
-                    <Step component={ContatoPost1} />
+                    
                     <Step component={ContatoPost2} /> 
                 </Steps>
             
