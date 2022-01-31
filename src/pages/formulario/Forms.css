@@ -325,3 +325,7 @@ ion-select::part(icon) {
   --background-color-rgb: 18,18,18;
 }
 
+.btn-ModalCadastro{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}

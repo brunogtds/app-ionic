@@ -88,6 +88,8 @@ import { PDFGenerator } from '@ionic-native/pdf-generator';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 import {arrowForwardOutline, arrowBackOutline} from 'ionicons/icons';
+import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications';
+
 
 
 const Tab1: React.FC = () => {
@@ -98,6 +100,7 @@ const Tab1: React.FC = () => {
   const [showModalFeedbackPost, setShowModalFeedbackPost] = useState(false);
   const [showModalFeedbackFinal, setShowModalFeedbackFinal] = useState(false);
   const [showModalSonoSintomas, setShowModalSonoSintomas]= useState(false);
+
 
   function chamaSobre() {
     history.push('/sobre');
@@ -1103,14 +1106,13 @@ const Tab1: React.FC = () => {
 
                     <AccordionItemPanel>
 
-
-
                       <div>
                         <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."} /></IonButton>
                       </div>
 
                     </AccordionItemPanel>
                     <AccordionItemPanel>
+                    
                       <div>
                         <IonButton disabled={moduloContatoEnviado || !moduloSaudeEnviado} onClick={contato} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" alt={"Mascote do Regente vespertino e matutino sorrindo e de mãos dadas."}/></IonButton>
                       </div>

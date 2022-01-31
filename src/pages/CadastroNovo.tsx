@@ -46,16 +46,20 @@ const Cadastro = (props: StepComponentProps) => {
 
   async function LoginAnonimo(){
 
-    const res= await loginAnonimo
+   // const res = await loginAnonimo
 
-    if (!res){
+   props.setState('loginAnonimo', true);
+   toast('Login feito com sucesso')
+   return props.jump(2);
+
+   /* if (!res){
       setErrorLogin(true)
     } 
     else {
       props.setState('loginAnonimo', true);
       toast('Login feito com sucesso')
       return props.jump(2);
-    } 
+    } */
   }
 
   
@@ -212,8 +216,10 @@ const Cadastro = (props: StepComponentProps) => {
       <IonButton size="default" shape="round" color="orange" fill="solid" disabled={!agreeTerms} onClick={validateFields} className={"ion-button-cadastro"}>Criar conta</IonButton>
 
       <p>Já possui uma conta? Faça <a href="/Login">login</a></p>
+
+      <p>Gostaria de entrar de forma anônima?  <a onClick={LoginAnonimo}>Login Anônimo.</a></p>
       
-      <p>Gostaria de entrar de forma anônima? <IonButton onClick={LoginAnonimo}>Login anônimo </IonButton></p>
+     {/* <p>Gostaria de entrar de forma anônima? <IonButton size="small" shape="round" color="orange" fill="clear" onClick={LoginAnonimo}>Login anônimo </IonButton></p> */}
    
       
       </div>
