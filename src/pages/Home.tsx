@@ -317,6 +317,7 @@ const Tab1: React.FC = () => {
         //passou 14 dias
         setMinDaysPart1(true)
         setSecondPartText("")
+        
       } else {
         setSecondPartText(verifyTimeLeft(dataSonoSintomas))
       }
@@ -324,6 +325,8 @@ const Tab1: React.FC = () => {
 
     }
   }
+
+
 
   async function getHabitosDate() {
     const dbRef = await db.collection('users').doc(uid).get();
@@ -944,6 +947,7 @@ const Tab1: React.FC = () => {
   }
 
 
+
   function modalFeedbackInicial() {
     setShowModalFeedbackInicial(true);
     getFeedbackLight();
@@ -962,6 +966,7 @@ const Tab1: React.FC = () => {
   getContatoDate()
   getHabitosDate()
   getSonoSintomasDate()
+
 
   //Checking the dates post-14
   getSaudesPostDate()
@@ -1087,6 +1092,7 @@ const Tab1: React.FC = () => {
         </IonGrid> */}
 
 
+        
 
         <div className="ion-text-center">
 

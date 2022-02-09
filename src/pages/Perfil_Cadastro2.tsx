@@ -27,6 +27,7 @@ Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabel
 
 //import ModuloComponents from "../ModulosComponent"
 import { cadastroUser, loginAnonimo } from '../firebaseConfig/firebaseConfig';
+import { at } from "ionicons/icons";
 
 const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
@@ -54,13 +55,41 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
     const [errorLogin, setErrorLogin] = useState(false);
 
     
-    function notification() {
+    function loginNotification() {
         LocalNotifications.schedule([{
         id:1,
         title: 'ReGente',
         text: 'Bem-vindo ao aplicativo Regente! A partir de agora você pode responder ao questionário do estudo e receber nossas recomendações.',
         }]);
     }
+
+    
+    function secondPartNotification() {
+        LocalNotifications.schedule([{
+        id:2,
+        title: 'ReGente',
+        text: 'Já faz 14 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
+        trigger: { at: new Date(Date.now() + 15000) }
+        }]);
+    }
+
+    function thirdPartNotification() {
+        LocalNotifications.schedule([{
+        id:3,
+        title: 'ReGente',
+        text: 'Já faz 28 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
+        trigger: { at: new Date(Date.now() + 30000) }
+        }]);
+    }
+
+    // function notification() {
+    //     LocalNotifications.schedule([{
+    //     id:2,
+    //     title: 'ReGente',
+    //     text: 'bla bla bla',
+    //     trigger: { in: 14, unit: "day"}
+    //     }]);
+    // }
 
 
     async function Cadastro() {
@@ -92,7 +121,9 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
             else {
                 console.log('cadastro anonimo feito')
                 toast('Cadastro feito com sucesso')
-                notification()
+                loginNotification()
+                secondPartNotification()
+                thirdPartNotification()
                 history.replace('/tab1');
                 createDatabaseQuest1(res.user?.uid)
 
@@ -112,7 +143,9 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
             toast('Cadastro feito com sucesso')
             res.user?.sendEmailVerification();
             history.replace('/tab1');
-            notification()
+            loginNotification()
+            secondPartNotification()
+            thirdPartNotification()
             createDatabaseQuest1(res.user?.uid)
             //history.replace('/tab1');
         }
