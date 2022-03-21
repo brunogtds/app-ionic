@@ -54,31 +54,31 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
     const [errorLogin, setErrorLogin] = useState(false);
 
-    
+
     function loginNotification() {
         LocalNotifications.schedule([{
-        id:1,
-        title: 'ReGente',
-        text: 'Bem-vindo ao aplicativo Regente! A partir de agora você pode responder ao questionário do estudo e receber nossas recomendações.',
+            id: 1,
+            title: 'ReGente',
+            text: 'Bem-vindo ao aplicativo Regente! A partir de agora você pode responder ao questionário do estudo e receber nossas recomendações.',
         }]);
     }
 
-    
+
     function secondPartNotification() {
         LocalNotifications.schedule([{
-        id:2,
-        title: 'ReGente',
-        text: 'Já faz 14 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
-        trigger: { at: new Date(Date.now() + 15000) }
+            id: 2,
+            title: 'ReGente',
+            text: 'Já faz 14 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
+            trigger: { at: new Date(Date.now() + 15000) }
         }]);
     }
 
     function thirdPartNotification() {
         LocalNotifications.schedule([{
-        id:3,
-        title: 'ReGente',
-        text: 'Já faz 28 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
-        trigger: { at: new Date(Date.now() + 30000) }
+            id: 3,
+            title: 'ReGente',
+            text: 'Já faz 28 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
+            trigger: { at: new Date(Date.now() + 30000) }
         }]);
     }
 
@@ -794,7 +794,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                     <IonButton className={"btn-ModalCadastro"} color="white" onClick={onSubmit}>OK, cadastrar!</IonButton>
                                 </div>
 
-                                <br/>
+                                <br />
 
 
                             </div>
