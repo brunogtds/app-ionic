@@ -32,6 +32,12 @@ const SaudePost2 = (props: StepComponentProps) => {
             firebase.firestore().collection('usersPost').doc(user.uid).set({
                 meta01coleta01Complete: String(props.state.meta01coleta01Complete),
                 weightPost: Number(props.state.weightPost), //STEP 1
+                disordersChangeNenhuma: Boolean(props.state.disordersChangeNenhuma), 
+                disordersChangeDiabetes: Boolean(props.state.disordersChangeDiabete),
+                disordersChangeHipert: Boolean(props.state.disordersChangeHipert),
+                disordersChangeAsma: Boolean(props.state.disordersChangeAsma),
+                disordersChangeDep: Boolean(props.state.disordersChangeDep),
+                disordersChangeImunod: Boolean(props.state.disordersChangeImunod),
                 disordersChange: String(props.state.disordersChange), 
                 medsChange: String(props.state.medsChange),
                 medsUsedChange: String(props.state.medsUsedChange),

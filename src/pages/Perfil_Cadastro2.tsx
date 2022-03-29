@@ -657,7 +657,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q4', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Usei apps que deixem a tela mais "`"amarelada"`" à noite.</IonLabel>
+                                                <IonLabel >Usei apps que deixem a tela mais 'amarelada' à noite.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >

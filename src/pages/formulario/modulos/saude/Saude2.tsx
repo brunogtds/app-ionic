@@ -18,6 +18,7 @@ import { toast } from '../../../../toast';
 
 import { useUser } from 'reactfire';
 import firebase from 'firebase';
+import { createFalse } from "typescript";
 
 
 const Saude2 = (props: StepComponentProps) => {
@@ -43,11 +44,18 @@ const Saude2 = (props: StepComponentProps) => {
 
     async function updateUserDataQuest1(dataUser: any) {
 
+        
 
         if (user) {
             console.log('ta aqui');
 
             firebase.firestore().collection('users').doc(user.uid).set({
+                disordersNenhuma: Boolean(props.state.disordersNenhuma),
+                disordersDiabetes: Boolean(props.state.disordersDiabetes),
+                disordersHipert: Boolean(props.state.disordersHipert),
+                disordersAsma: Boolean(props.state.disordersAsma),
+                disordersDep: Boolean(props.state.disordersDep),
+                disordersImunod: Boolean(props.state.disordersImunod),
                 disorders: String(props.state.disorders), //STEP 2 
                 meds: String(props.state.meds),
                 medsUsed: String(props.state.medsUsed),
@@ -70,7 +78,9 @@ const Saude2 = (props: StepComponentProps) => {
                 drugsUsed: String(props.state.drugsUsed),
                 drugDur: Number(props.state.drugDur),
                 stimulants: String(props.state.stimulants),
-                stimulantTiming: String(props.state.stimulantTiming),
+                stimulantTimingManha: Boolean(props.state.stimulantTimingManha),
+                stimulantTimingTarde: Boolean(props.state.stimulantTimingTarde),
+                stimulantTimingNoite: Boolean(props.state.stimulantTimingNoite),
                 dateSaudeModule1: new Date(),
             }, { merge: true })
         }
@@ -237,7 +247,7 @@ const Saude2 = (props: StepComponentProps) => {
                                     <IonItem>
 
                                         <Controller render={({ onChange }) => (
-                                            <IonInput placeholder="Há quanto tempo você parou de fumar?" onIonChange={(e) => {
+                                            <IonInput placeholder="Há quanto tempo você parou de fumar? (em anos)" onIonChange={(e) => {
                                                 console.log(e);
                                                 onChange(e.detail.value);
                                                 if (e.detail.value != undefined)
@@ -424,14 +434,12 @@ const Saude2 = (props: StepComponentProps) => {
                                     <Controller render={({ onChange }) => (
                                         <IonList className={"ion-no-padding"}>
                                             <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTiming", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        if (props.state.stimulantTiming !== undefined)
-                                                            props.setState('stimulantTiming', props.state.stimulantTiming + ' manhã')
-                                                        else 
-                                                            props.setState('stimulantTiming', 'manhã')
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTimingManha", false)} onIonChange={(e) => {
+                                                     if (e.detail.checked) {
+                                                        props.setState('stimulantTimingManha', true)                                                
+                                                    } else {
+                                                        props.setState('stimulantTimingManha', false)                                                
+                                                    }
                                                   
                                                         
                                                 }}></IonCheckbox>
@@ -439,27 +447,23 @@ const Saude2 = (props: StepComponentProps) => {
                                             </IonItem>
 
                                             <IonItem lines="none" className={"ion-no-padding"} >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTiming", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                     if (e.detail.value != undefined)
-                                                        if (props.state.stimulantTiming !== undefined)
-                                                            props.setState('stimulantTiming', props.state.stimulantTiming + ' tarde')
-                                                        else 
-                                                            props.setState('stimulantTiming', 'tarde')
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTimingTarde", false)} onIonChange={(e) => {
+                                                     if (e.detail.checked) {
+                                                        props.setState('stimulantTimingTarde', true)                                                
+                                                    } else {
+                                                        props.setState('stimulantTimingTarde', false)                                                
+                                                    }
                                                 }}></IonCheckbox>
                                                 <IonLabel>Tarde</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTiming", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                    if (props.state.stimulantTiming !== undefined)
-                                                        props.setState('stimulantTiming', props.state.stimulantTiming + ' noite')
-                                                    else 
-                                                        props.setState('stimulantTiming', 'noite')
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTimingNoite", false)} onIonChange={(e) => {
+                                                    if (e.detail.checked) {
+                                                        props.setState('stimulantTimingNoite', true)                                                
+                                                    } else {
+                                                        props.setState('stimulantTimingNoite', false)                                                
+                                                    }
                                                 }}></IonCheckbox>
                                                 <IonLabel>Noite</IonLabel>
                                             </IonItem>
