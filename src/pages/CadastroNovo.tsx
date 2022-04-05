@@ -217,7 +217,7 @@ const Cadastro = (props: StepComponentProps) => {
 
       <p>Já possui uma conta? Faça <a href="/Login">login</a></p>
 
-      <p>Gostaria de entrar de forma anônima?  <a onClick={LoginAnonimo}>Login Anônimo.</a></p>
+      <p>Gostaria de entrar de forma anônima? Aceite os termos e faça o <IonButton fill="clear" size="small" disabled={!agreeTerms} onClick={LoginAnonimo}>Login Anônimo.</IonButton></p>
       
      {/* <p>Gostaria de entrar de forma anônima? <IonButton size="small" shape="round" color="orange" fill="clear" onClick={LoginAnonimo}>Login anônimo </IonButton></p> */}
    
