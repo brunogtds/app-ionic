@@ -233,7 +233,7 @@ const Recommendation: React.FC = () => {
                 <br/>
                
 
-                 <p className={"main-text"}>Evite ao máximo sair de casa. Se for necessário sair, evite permanecer em espaços fechados ou mal ventilados.</p>
+                 <p className={"main-text"}>Prefira estar em ambientes abertos e bem ventilados.</p>
                 
               
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid1(!saibaMaisCovid1)}}>{saibaMaisTextCovid1}</IonButton>
@@ -266,14 +266,14 @@ const Recommendation: React.FC = () => {
                 </div>
                 <br/>
                
-                <p className={"main-text"}>Use sempre máscara de proteção.</p>
+                <p className={"main-text"}>Use máscara de proteção.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid2(!saibaMaisCovid2)}}>{saibaMaisTextCovid2}</IonButton>
                 
                 {saibaMaisCovid2 ? 
                 <p className={"readMore-text"}> O que fazer:
                 <ul>
-                  <li>Use sempre máscara quando estiver fora de casa.</li>
+                  <li>Procure usar máscara sempre que estiver em lugares fechadas, com grandes aglomerações das pessoas e que não seja possível manter distanciamento de 1 metro entre as pessoas.</li>
                   <li>Se for possível, prefira os respiradores (PFF2 ou N95).</li>
                   <li>Coloque e retire a máscara pelos elásticos.</li>
                   <li>Cubra boca, nariz e queixo e ajuste bem a máscara ao rosto.</li>
@@ -324,7 +324,8 @@ const Recommendation: React.FC = () => {
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
-                <IonSlide>
+               
+               {/* <IonSlide>
                 <IonToolbar color="white">
                 <div id="header-items">
                   
@@ -351,7 +352,7 @@ const Recommendation: React.FC = () => {
                 
                 </p> : <p></p>
                 }<br/>
-                </IonSlide>
+              </IonSlide> */}
                 <IonSlide>
                 <IonToolbar color="white">
                 <div id="header-items">
@@ -395,7 +396,7 @@ const Recommendation: React.FC = () => {
                 </p>
                 </div>
                 <br/>
-                <p className={"main-text"}>Fique em casa se não se sentir bem.</p>
+                <p className={"main-text"}>Se você apresentar sintomas de resfriado ou gripe, procure ficar em casa.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid6(!saibaMaisCovid6)}}>{saibaMaisTextCovid6}</IonButton>
                 
@@ -712,7 +713,7 @@ const Recommendation: React.FC = () => {
                 </p>
                 </div>
                 <br/>
-              <p className={"main-text"}>Reduza o tempo excessivo na frente das telas, em especial à noite.</p>
+              <p className={"main-text"}>Tente reduzir o tempo na frente das telas, em especial à noite.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono3(!saibaMaisSono3)}}>{saibaMaisTextSono3}</IonButton>
                 
@@ -949,7 +950,7 @@ const Recommendation: React.FC = () => {
                 </p>
                 </div>
                 <br/>
-              <p className={"main-text"}>Planeje os horários dos seus exercícios considerando seu sono.</p>
+              <p className={"main-text"}>Planeje os horários dos seus exercícios considerando sua hora de dormir.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear"onClick={()=>{setSaibaMaisSono12(!saibaMaisSono12)}}>{saibaMaisTextSono12}</IonButton>
                 

@@ -1,7 +1,7 @@
 import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonLoading } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonLoading, IonRange } from "@ionic/react";
 import { IonContent, IonText } from '@ionic/react';
 
 import '../../Forms.css';
@@ -167,10 +167,12 @@ const Contato2 = (props: StepComponentProps) => {
                                 {errors.contactN && <IonText color="danger">Campo obrigatório.</IonText>}
                                 </IonItem> */}
 
-                            <IonLabel className="questions">Marque a alternativa que melhor descreve suas atividades no ÚLTIMO MÊS (OBS: versão teste antes da validada) </IonLabel>
+                            <IonLabel className="questions">Marque a alternativa que melhor descreve suas atividades no último mês </IonLabel>
 
                             <IonLabel className="questions">Durante o último mês, mantive distância de, pelo menos, dois metros de outras pessoas quando estava fora de casa:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                           {/*
 
                             <Controller render={({ onChange }) => (
 
@@ -207,15 +209,43 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd1"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd1"} rules={{ required: true }} /> */}
+
+                                <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Nunca</p>
+                                      
+                                       <p>Raramente</p>
+                                                                        
+                                       <p>Às 
+                                           vezes</p>
+                                      
+                                       <p>Frequentemente</p>
+                                     
+                                       <p>Sempre</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd1 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, fui em pequenas confraternizações com menos de 10 pessoas em espaços públicos, como parques ou restaurantes:</IonLabel>
+                          
                             <IonItem lines="none" className={"ion-no-padding"}>
 
-                            <Controller render={({ onChange }) => (
+                         {/*   <Controller render={({ onChange }) => (
 
                                 <IonRadioGroup onIonChange={(e) => {
                                     console.log(e);
@@ -250,15 +280,50 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd2"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd2"} rules={{ required: true }} /> */}
+
+                            <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
+
+
                         {errors.sd2 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         
                         <IonLabel className="questions">Durante o último mês, fui em pequenos eventos sociais com menos de 10 pessoas em espaços privados, como a casa de um amigo:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
 
+                            {/*}
                             <Controller render={({ onChange }) => (
 
                                 <IonRadioGroup onIonChange={(e) => {
@@ -294,13 +359,47 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd3"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd3"} rules={{ required: true }} /> */}
+
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd3 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, fui em lugares cheios e com grande aglomeração de pessoas, como shows e eventos esportivos:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                            {/*
 
                             <Controller render={({ onChange }) => (
 
@@ -337,13 +436,47 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd4"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd4"} rules={{ required: true }} /> */}
+
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd4 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, trabalhei/estudei em casa:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                                {/*
 
                             <Controller render={({ onChange }) => (
 
@@ -380,7 +513,39 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd7"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd7"} rules={{ required: true }} /> */}
+
+                              <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd7 && <IonText color="danger">Campo obrigatório.</IonText>}
@@ -389,6 +554,7 @@ const Contato2 = (props: StepComponentProps) => {
                         <IonLabel className="questions">Durante o último mês, saí de casa para comprar gás de cozinha, trabalhar, ir ao médico e no mercado:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
 
+                            {/*
                             <Controller render={({ onChange }) => (
 
                                 <IonRadioGroup onIonChange={(e) => {
@@ -421,17 +587,49 @@ const Contato2 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
                                         <IonLabel>4</IonLabel>
-                                        <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
+                            <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd9"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd9"} rules={{ required: true }} /> */}
+
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd9 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, nós fizemos pequenas confraternizações com familiares em minha casa ou na casa de algum parente:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
-
+                            {/*
                             <Controller render={({ onChange }) => (
 
                                 <IonRadioGroup onIonChange={(e) => {
@@ -467,13 +665,42 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd12"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd12"} rules={{ required: true }} /> */}
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Nunca</p>
+                                      
+                                       <p>Raramente</p>
+                                                                        
+                                       <p>Às 
+                                           vezes</p>
+                                      
+                                       <p>Frequentemente</p>
+                                     
+                                       <p>Sempre</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
+                       
                         {errors.sd12 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, fui obrigado a ir ao meu local de trabalho ou na escola (fora de casa):</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                                {/*
 
                             <Controller render={({ onChange }) => (
 
@@ -510,13 +737,42 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd13"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd13"} rules={{ required: true }} /> */}
+
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Nunca</p>
+                                      
+                                       <p>Raramente</p>
+                                                                        
+                                       <p>Às 
+                                           vezes</p>
+                                      
+                                       <p>Frequentemente</p>
+                                     
+                                       <p>Sempre</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd13 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, consegui manter uma distância de, pelo menos, dois metros de outras pessoas quando estive em meu local de trabalho ou na escola:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                            {/*}
 
                             <Controller render={({ onChange }) => (
 
@@ -553,13 +809,42 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd14"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd14"} rules={{ required: true }} /> */}
+
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Nunca</p>
+                                      
+                                       <p>Raramente</p>
+                                                                        
+                                       <p>Às 
+                                           vezes</p>
+                                      
+                                       <p>Frequentemente</p>
+                                     
+                                       <p>Sempre</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd14 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, usei máscara facial quando estive em lugares públicos, local de trabalho ou na escola:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                                {/*}
 
                             <Controller render={({ onChange }) => (
 
@@ -596,7 +881,42 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd15"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd15"} rules={{ required: true }} /> */}
+
+                              <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
+
+
+                            
 
                         </IonItem>
                         {errors.sd15 && <IonText color="danger">Campo obrigatório.</IonText>}
@@ -604,6 +924,8 @@ const Contato2 = (props: StepComponentProps) => {
                         
                         <IonLabel className="questions">Durante o último mês, quando estive fora de casa, usei desinfetantes para as mãos ou lavei minhas mãos depois de tocar em objetos como maçanetas, teclados e mouses de computador, etc.</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                                {/*}
 
                             <Controller render={({ onChange }) => (
 
@@ -640,13 +962,47 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"sd17"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"sd17"} rules={{ required: true }} /> */}
+
+                            <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.sd17 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Estive fisicamente distante de outras pessoas que não moram na minha casa neste último mês:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                                {/*}
 
                             <Controller render={({ onChange }) => (
 
@@ -683,7 +1039,40 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"pis4"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"pis4"} rules={{ required: true }} /> */}
+
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Nunca</p>
+                                      
+                                       <p>Às vezes</p>
+                                                                        
+                                       <p>Metade 
+                                           do tempo
+                                       </p>
+                                      
+                                       <p>Maior parte
+                                           do tempo
+                                           
+                                       </p>
+                                     
+                                       <p>Sempre</p>
+                                  
+                                    
+                                   </div>
+                                   </div>       
+
+
 
                         </IonItem>
                         {errors.pis4 && <IonText color="danger">Campo obrigatório.</IonText>}
@@ -692,6 +1081,7 @@ const Contato2 = (props: StepComponentProps) => {
                         <IonLabel className="questions">Visitei familiares mais velhos (quem tem 65 anos ou mais) neste último mês:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
 
+                            {/*}
                             <Controller render={({ onChange }) => (
 
                                 <IonRadioGroup onIonChange={(e) => {
@@ -727,7 +1117,40 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"pis7"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"pis7"} rules={{ required: true }} /> */}
+
+                             <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
+
 
                         </IonItem>
                         {errors.pis7 && <IonText color="danger">Campo obrigatório.</IonText>}
@@ -735,6 +1158,8 @@ const Contato2 = (props: StepComponentProps) => {
                           
                         <IonLabel className="questions">Visitei familiares (64 anos ou menos) que moram fora de minha casa neste último mês:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
+
+                                {/*
 
                             <Controller render={({ onChange }) => (
 
@@ -771,7 +1196,38 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"pis9"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"pis9"} rules={{ required: true }} /> */}
+                            <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.pis9 && <IonText color="danger">Campo obrigatório.</IonText>}
@@ -779,6 +1235,7 @@ const Contato2 = (props: StepComponentProps) => {
                         <IonLabel className="questions">Visitei familiares que tem problemas graves de saúde neste último mês:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
 
+                            {/*}
                             <Controller render={({ onChange }) => (
 
                                 <IonRadioGroup onIonChange={(e) => {
@@ -814,7 +1271,39 @@ const Contato2 = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="4"></IonRadio>
                                     </IonItem>
 
-                                </IonRadioGroup>)} control={control} name={"pis10"} rules={{ required: true }} />
+                            </IonRadioGroup>)} control={control} name={"pis10"} rules={{ required: true }} /> */}
+
+                            <div className="container">
+                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                       {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
+                                        
+                                    <IonIcon slot="end" icon={sunnyOutline} /> */}
+
+                                
+                                       
+                                    </IonRange>
+                                    
+                                  
+                                  <div className="tickmarksSDS">
+                                       <p>Diariamente</p>
+                                      
+                                       <p>4-6
+                                           vezes por semana
+                                       </p>
+                                                                        
+                                       <p>2-3
+                                           vezes por semana
+                                       </p>
+                                      
+                                       <p>Uma vez por semana
+                                           ou menos
+                                       </p>
+                                     
+                                       <p>Nunca</p>
+                                  
+                                    
+                                   </div>
+                                   </div> 
 
                         </IonItem>
                         {errors.pis10 && <IonText color="danger">Campo obrigatório.</IonText>}

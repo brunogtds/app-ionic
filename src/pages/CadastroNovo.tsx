@@ -183,7 +183,7 @@ const Cadastro = (props: StepComponentProps) => {
       <p>Antes de se cadastrar, leia nossos <a onClick={() => setShowModal(true)}>termos e condições de uso.</a></p>
       <IonModal 
         isOpen={showModal} 
-        cssClass='custom-modal'
+        
         onDidDismiss={() => setShowModal(false)}
       >
         

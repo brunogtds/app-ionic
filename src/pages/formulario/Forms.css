@@ -329,3 +329,63 @@ ion-select::part(icon) {
   margin-top: 10px;
   margin-bottom: 30px;
 }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tickmarks{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.tickmarks p {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 0.5px;
+  padding: 15px;
+  height: 10px;
+  line-height: 5px;
+  margin: 0 0 50px 0;
+  font-family: OpenSans;
+  font-size: 12px;
+}
+
+.tickmarksSDS{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.tickmarksSDS p {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 2px;
+  padding-left: 35px;
+  padding-right: 35px;
+  height: 30px;
+  line-height: 15px;
+  margin: 0 0 50px 0;
+  font-family: OpenSans;
+  font-size: 11px;
+}
+
+#slidercontainer{
+ 
+
+  width: 100px;
+}
+
