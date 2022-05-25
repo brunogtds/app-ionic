@@ -1,7 +1,7 @@
 import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonIcon, IonRange } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonNote, IonIcon, IonRange, IonToggle } from "@ionic/react";
 import { IonContent, IonText } from '@ionic/react';
 
 import '../../Forms.css';
@@ -37,13 +37,15 @@ const Habitos4 = (props: StepComponentProps) => {
     }>({ lower: 0, upper: 0 });
    
       
-
+   
   
     const { data: user } = useUser();
     const [dataUser, setData] = useState()
 
     const history = useHistory();
     const [loader, setLoader] = useState<boolean>(false)
+
+    const [copiaHor, setCopiaHor] = useState(false);
 
     const timeformat: Intl.DateTimeFormatOptions = {
         weekday: 'short',
@@ -121,7 +123,21 @@ const Habitos4 = (props: StepComponentProps) => {
                 dia_Anterior13_Boolean: Boolean(props.state.dia_Anterior13_Boolean),
                 dia_Anterior14_Boolean: Boolean(props.state.dia_Anterior14_Boolean),
     
-
+                diaAtual_LightQ: String(props.state.diaAtual_LightQ),
+                dia_Anterior1_LightQ: String(props.state.dia_Anterior1_LightQ),
+                dia_Anterior2_LightQ: String(props.state.dia_Anterior2_LightQ),
+                dia_Anterior3_LightQ: String(props.state.dia_Anterior3_LightQ),
+                dia_Anterior4_LightQ: String(props.state.dia_Anterior4_LightQ),
+                dia_Anterior5_LightQ: String(props.state.dia_Anterior5_LightQ),
+                dia_Anterior6_LightQ: String(props.state.dia_Anterior6_LightQ),
+                dia_Anterior7_LightQ: String(props.state.dia_Anterior7_LightQ),
+                dia_Anterior8_LightQ: String(props.state.dia_Anterior8_LightQ),
+                dia_Anterior9_LightQ: String(props.state.dia_Anterior9_LightQ),
+                dia_Anterior10_LightQ: String(props.state.dia_Anterior10_LightQ),
+                dia_Anterior11_LightQ: String(props.state.dia_Anterior11_LightQ),
+                dia_Anterior12_LightQ: String(props.state.dia_Anterior12_LightQ),
+                dia_Anterior13_LightQ: String(props.state.dia_Anterior13_LightQ),
+                dia_Anterior14_LightQ: String(props.state.dia_Anterior14_LightQ),
 
                 dateHabitosModule1: new Date()
             }, { merge: true })
@@ -151,6 +167,7 @@ const Habitos4 = (props: StepComponentProps) => {
     const [frequenciaLuzNatural, setFrequenciaLuzNatural] = useState();
     const [horarioLuzNatural, setHorarioLuzNatural] = useState();
 
+    
     return (
         <IonContent fullscreen color="background">
 
@@ -197,7 +214,7 @@ const Habitos4 = (props: StepComponentProps) => {
                             {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                     <Controller render={({ onChange }) => (
-                                        <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
+                                        <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Clique para selecionar..." onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined) {
@@ -218,6 +235,13 @@ const Habitos4 = (props: StepComponentProps) => {
                                     Pode ser marcado mais de um horário por dia.
                                     
                                     </IonLabel>
+
+                                </IonItem> : null}
+
+                                {(props.state.lightExposure === "sim") ?
+                                <IonItem lines="none">
+                                   
+                                    <IonNote>Se seus foram os mesmos em todos dias, preencha os horários no primeiro dia e a opção REPETIR HORÁRIOS no final.</IonNote>
                                 </IonItem> : null}
 
                                 {(props.state.lightExposure === "sim") ?
@@ -238,8 +262,58 @@ const Habitos4 = (props: StepComponentProps) => {
                                 {(props.state.diaAtual_Boolean === true) ? 
                                 <IonItem lines="none">
 
-                                    <p>aqui vai o horário para marcar</p>
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('diaAtual_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"diaAtual_LightQ"} rules={{ required: true }} />
                                 </IonItem> : null}
+
+
+                                {/*}
+                                {(props.state.diaAtual_Boolean === true) ? 
+
+                                <IonItem lines="none">
+                                    <IonLabel>Repetir horários</IonLabel>
+                                    <IonToggle slot="start" color="primary" onIonChange={(e) => {
+                                        if (e.detail.checked){
+                                            props.setState('dia_Anterior1_LightQ', props.state.dia_Anterior1_LightQ === props.state.diaAtual_LightQ);
+                                            props.setState('dia_Anterior2_LightQ', props.state.dia_Anterior2_LightQ === props.state.diaAtual_LightQ);
+                                            props.setState('dia_Anterior3_LightQ', props.state.dia_Anterior3_LightQ === props.state.diaAtual_LightQ);
+                                        }
+                                        
+                                    }
+                                        
+                                    }/>
+                                </IonItem>
+
+                                :null} */}
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -255,21 +329,98 @@ const Habitos4 = (props: StepComponentProps) => {
                                                 <IonLabel >{dia_Anterior1.toLocaleDateString("pt-br", timeformat)}</IonLabel>
                                                                      
                                 </IonItem> : null}
+                             
+                                {(props.state.dia_Anterior1_Boolean === true) ? 
+
+                                <IonItem lines="none">
+
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior1_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior1_LightQ"} rules={{ required: true }} />
+                                </IonItem> :null}
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                    
-                                    <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("dia_Anterior2_Boolean", false)} onIonChange={(e) => {
+                                    <IonCheckbox  className={"checkbox-options"} color="primary" value={props.getState("dia_Anterior2_Boolean", false)} onIonChange={(e) => {
 
                                                     if (e.detail.checked) {
                                                         props.setState('dia_Anterior2_Boolean', true)
                                                     } else {
-                                                        props.setState('dia_Anterior3_Boolean', false)
+                                                        props.setState('dia_Anterior2_Boolean', false)
                                                     }
                                                 }}></IonCheckbox>
                                                 <IonLabel >{dia_Anterior2.toLocaleDateString("pt-br", timeformat)}</IonLabel>
                                                                      
                                 </IonItem> : null}
+
+                                {(props.state.dia_Anterior2_Boolean === true) ? 
+
+                                <IonItem lines="none">
+
+                                     <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior2_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior2_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+
+                                :null}
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -286,6 +437,46 @@ const Habitos4 = (props: StepComponentProps) => {
                                                                      
                                 </IonItem> : null}
 
+                                {(props.state.dia_Anterior3_Boolean === true) ? 
+                                
+                                <IonItem lines="none">
+
+                                     <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior3_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior3_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+                                
+                                :null}
+
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                    
@@ -300,6 +491,46 @@ const Habitos4 = (props: StepComponentProps) => {
                                                 <IonLabel >{dia_Anterior4.toLocaleDateString("pt-br", timeformat)}</IonLabel>
                                                                      
                                 </IonItem> : null}
+
+                                {(props.state.dia_Anterior4_Boolean === true) ? 
+
+                                <IonItem lines="none">
+
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior4_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior4_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+
+                                :null}
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -316,6 +547,46 @@ const Habitos4 = (props: StepComponentProps) => {
                                                                      
                                 </IonItem> : null}
 
+                                {(props.state.dia_Anterior5_Boolean === true) ? 
+
+                                <IonItem lines="none">
+
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior5_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior5_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+                                
+                                :null}
+
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                    
@@ -331,6 +602,45 @@ const Habitos4 = (props: StepComponentProps) => {
                                                                      
                                 </IonItem> : null}
 
+                                {(props.state.dia_Anterior6_Boolean === true) ? 
+
+                                <IonItem lines="none">
+
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior6_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior6_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+                                
+                                :null}
                                 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -347,6 +657,46 @@ const Habitos4 = (props: StepComponentProps) => {
                                                                      
                                 </IonItem> : null}
 
+                                {(props.state.dia_Anterior7_Boolean === true) ? 
+
+                                <IonItem lines="none">
+
+                                     <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior7_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior7_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+                                
+                                :null}
+
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                    
@@ -361,6 +711,44 @@ const Habitos4 = (props: StepComponentProps) => {
                                                 <IonLabel >{dia_Anterior8.toLocaleDateString("pt-br", timeformat)}</IonLabel>
                                                                      
                                 </IonItem> : null}
+
+                                {(props.state.dia_Anterior8_Boolean === true) ? 
+
+                                <IonItem lines="none">
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior8_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior8_LightQ"} rules={{ required: true }} />
+                                </IonItem>
+                                
+                                :null}
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -377,6 +765,44 @@ const Habitos4 = (props: StepComponentProps) => {
                                                                      
                                 </IonItem> : null}
 
+                                {(props.state.dia_Anterior9_Boolean === true) ? 
+
+                                <IonItem lines="none">
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior9_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior9_LightQ"} rules={{ required: true }} />
+                                </IonItem>
+                                
+                                :null}
+
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                    
@@ -391,6 +817,45 @@ const Habitos4 = (props: StepComponentProps) => {
                                                 <IonLabel >{dia_Anterior10.toLocaleDateString("pt-br", timeformat)}</IonLabel>
                                                                      
                                 </IonItem> : null}
+
+                                {(props.state.dia_Anterior10_Boolean === true) ? 
+
+                                <IonItem lines="none">
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior10_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior10_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+                                
+                                :null}
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -407,6 +872,45 @@ const Habitos4 = (props: StepComponentProps) => {
                                                                      
                                 </IonItem> : null}
 
+                                {(props.state.dia_Anterior11_Boolean === true) ? 
+
+                                <IonItem lines="none">
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior11_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior11_LightQ"} rules={{ required: true }} />
+                            
+                                </IonItem>
+                                
+                                :null}
+
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                    
@@ -421,6 +925,46 @@ const Habitos4 = (props: StepComponentProps) => {
                                                 <IonLabel >{dia_Anterior12.toLocaleDateString("pt-br", timeformat)}</IonLabel>
                                                                      
                                 </IonItem> : null}
+
+                                {(props.state.dia_Anterior12_Boolean) === true ? 
+
+                                <IonItem lines="none">
+
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior12_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior12_LightQ"} rules={{ required: true }} />
+
+                                </IonItem>
+                                
+                                :null}
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -437,6 +981,45 @@ const Habitos4 = (props: StepComponentProps) => {
                                                                      
                                 </IonItem> : null}
 
+                                {(props.state.dia_Anterior13_Boolean === true) ? 
+
+                                <IonItem lines="none">
+
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior13_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior13_LightQ"} rules={{ required: true }} />
+                                </IonItem>
+                                
+                                :null}
+
                                 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -452,6 +1035,44 @@ const Habitos4 = (props: StepComponentProps) => {
                                                 <IonLabel >{dia_Anterior14.toLocaleDateString("pt-br", timeformat)}</IonLabel>
                                                                      
                                 </IonItem> : null}
+
+                                {(props.state.dia_Anterior14_Boolean === true) ? 
+
+                                <IonItem lines="none">
+                                    <Controller render={({ onChange }) => (
+                                    <IonSelect interfaceOptions={options} ok-text="Ok" cancel-text="Cancelar" placeholder="Clique para selecionar os horários..." multiple={true}
+                                         onIonChange={(e) => {
+                                            onChange(e.detail.value);
+                                            if (e.detail.value != undefined)
+                                                props.setState('dia_Anterior14_LightQ', e.detail.value)
+                                        }}>
+                                        <IonSelectOption value={1}>6:00 - 6:30</IonSelectOption>
+                                        <IonSelectOption value={2}>6:30 - 7:00</IonSelectOption>
+                                        <IonSelectOption value={3}>7:30 - 8:00</IonSelectOption>
+                                        <IonSelectOption value={4}>8:00 - 8:30</IonSelectOption>
+                                        <IonSelectOption value={5}>8:30 - 9:00</IonSelectOption>
+                                        <IonSelectOption value={6}>9:00 - 9:30</IonSelectOption>
+                                        <IonSelectOption value={7}>9:30 - 10:00</IonSelectOption>
+                                        <IonSelectOption value={8}>10:00 - 10:30</IonSelectOption>
+                                        <IonSelectOption value={9}>10:30 - 11:00</IonSelectOption>
+                                        <IonSelectOption value={10}>11:00 - 11:30</IonSelectOption>
+                                        <IonSelectOption value={11}>11:30 - 12:00</IonSelectOption>
+                                        <IonSelectOption value={12}>12:00 - 12:30</IonSelectOption>
+                                        <IonSelectOption value={13}>12:30 - 13:00</IonSelectOption>
+                                        <IonSelectOption value={14}>13:00 - 13:30</IonSelectOption>
+                                        <IonSelectOption value={15}>13:30 - 14:00</IonSelectOption>
+                                        <IonSelectOption value={16}>14:00 - 14:30</IonSelectOption>
+                                        <IonSelectOption value={17}>14:30 - 15:00</IonSelectOption>
+                                        <IonSelectOption value={18}>15:00 - 15:30</IonSelectOption>
+                                        <IonSelectOption value={19}>15:30 - 16:00</IonSelectOption>
+                                        <IonSelectOption value={20}>16:00 - 16:30</IonSelectOption>
+                                        <IonSelectOption value={21}>16:30 - 17:00</IonSelectOption>
+                                        <IonSelectOption value={22}>17:00 - 17:30</IonSelectOption>
+                                        <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
+                                    </IonSelect> )} control={control} name={"dia_Anterior14_LightQ"} rules={{ required: true }} />
+                                </IonItem>
+                                
+                                :null}
 
 
                                 {/*
