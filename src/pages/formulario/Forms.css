@@ -334,6 +334,9 @@ ion-select::part(icon) {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: #FDF5EB;
+  margin: 0;
+ 
 }
 
 .tickmarks{
@@ -342,7 +345,7 @@ ion-select::part(icon) {
   list-style: none;
   margin: 0;
   padding: 0;
-  
+  background-color: #FDF5EB;
 }
 
 .tickmarks p {
@@ -357,6 +360,7 @@ ion-select::part(icon) {
   margin: 0 0 50px 0;
   font-family: OpenSans;
   font-size: 12px;
+  background-color: #FDF5EB;
 }
 
 .tickmarksSDS{
@@ -365,27 +369,39 @@ ion-select::part(icon) {
   list-style: none;
   margin: 0;
   padding: 0;
-  
+  background-color: #FDF5EB;
 }
 
 .tickmarksSDS p {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
-  width: 2px;
+  width: 3px;
   padding-left: 35px;
   padding-right: 35px;
-  height: 30px;
+  height: 40px;
   line-height: 15px;
   margin: 0 0 50px 0;
   font-family: OpenSans;
-  font-size: 11px;
+  font-size: 12px;
+  background-color: #FDF5EB;
 }
 
 #slidercontainer{
  
 
   width: 100px;
+  background-color: #FDF5EB;
 }
 
+ion-item{
+  --padding-end: 0px;
+  --inner-padding-end: 0px;
+}
+
+ion-range{
+  --knob-size: 20px;
+  --bar-height: 3px;
+  background-color: #FDF5EB;
+}

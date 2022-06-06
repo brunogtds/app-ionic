@@ -7,7 +7,7 @@ import { IonContent, IonText } from '@ionic/react';
 import '../../Forms.css';
 
 import { useForm, Controller } from "react-hook-form";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { IonProgressBar } from '@ionic/react';
 
@@ -32,14 +32,17 @@ const Contato2 = (props: StepComponentProps) => {
     const history = useHistory();
     const [loader, setLoader] = useState<boolean>(false)
 
+    const [valueSD1, setValueSD1] = useState(0);
+
+   
     async function updateUserDataQuest1(dataUser: any) {
 
-
+        
         if (user) {
             firebase.firestore().collection('users').doc(user.uid).set({
                  //STEP 3
 
-                sd1: Number(props.state.sd1),
+                sd1: Number(props.state.sd1), 
                 sd2: Number(props.state.sd2),
                 sd3: Number(props.state.sd3),
                 sd4: Number(props.state.sd4),
@@ -55,6 +58,7 @@ const Contato2 = (props: StepComponentProps) => {
                 pis9: Number(props.state.pis9),
                 pis10: Number(props.state.pis10), //FIM
 
+                //se valor for NaN = 0 selecionado
 
                 dateContatoModule1: new Date()
             }, { merge: true })
@@ -212,14 +216,17 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd1"} rules={{ required: true }} /> */}
 
                                 <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd1', e.detail.value as number)} pin snaps color="primary">
+                                        
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd1"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -283,14 +290,16 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd2"} rules={{ required: true }} /> */}
 
                             <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd2', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd2"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -362,14 +371,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd3"} rules={{ required: true }} /> */}
 
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd3', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd3"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -439,14 +449,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd4"} rules={{ required: true }} /> */}
 
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd4', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd4"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -516,14 +527,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd7"} rules={{ required: true }} /> */}
 
                               <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                  <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd7', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd7"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -593,14 +605,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd9"} rules={{ required: true }} /> */}
 
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd9', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd9"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -667,14 +680,15 @@ const Contato2 = (props: StepComponentProps) => {
 
                             </IonRadioGroup>)} control={control} name={"sd12"} rules={{ required: true }} /> */}
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd12', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd12"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -740,14 +754,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd13"} rules={{ required: true }} /> */}
 
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd13', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd13"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -812,14 +827,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd14"} rules={{ required: true }} /> */}
 
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd14', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd14"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -884,14 +900,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd15"} rules={{ required: true }} /> */}
 
                               <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd15', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd15"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -965,14 +982,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"sd17"} rules={{ required: true }} /> */}
 
                             <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('sd17', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"sd17"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -1042,14 +1060,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"pis4"} rules={{ required: true }} /> */}
 
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('pis4', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"pis4"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -1120,14 +1139,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"pis7"} rules={{ required: true }} /> */}
 
                              <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('pis7', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"pis7"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -1198,14 +1218,15 @@ const Contato2 = (props: StepComponentProps) => {
 
                             </IonRadioGroup>)} control={control} name={"pis9"} rules={{ required: true }} /> */}
                             <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('pis9', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"pis9"}  />
                                     
                                   
                                   <div className="tickmarksSDS">
@@ -1274,14 +1295,15 @@ const Contato2 = (props: StepComponentProps) => {
                             </IonRadioGroup>)} control={control} name={"pis10"} rules={{ required: true }} /> */}
 
                             <div className="container">
-                                    <IonRange min={0} max={4} step={1} ticks={true} pin snaps color="primary">
+                                    <Controller render={({ onChange }) => (
+                                    <IonRange min={0} max={4} step={1} ticks={true} onIonChange={(e) => props.setState('pis10', e.detail.value as number)} pin snaps color="primary">
                                        {/*} <IonIcon size="small" slot="start" icon={sunnyOutline} /> 
                                         
                                     <IonIcon slot="end" icon={sunnyOutline} /> */}
 
                                 
                                        
-                                    </IonRange>
+                                    </IonRange> )} control={control} name={"pis10"}  />
                                     
                                   
                                   <div className="tickmarksSDS">

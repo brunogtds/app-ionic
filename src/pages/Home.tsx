@@ -1427,15 +1427,11 @@ const Tab1: React.FC = () => {
                       <IonButton disabled={moduloSaudePostEnviado || !minDaysPart1} onClick={saudePost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."} /></IonButton>
                     </div>
                   </AccordionItemPanel>
-                  <AccordionItemPanel>
-                    <div>
-                      <IonButton disabled={moduloContatoPostEnviado || !moduloSaudePostEnviado} onClick={contatoPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" alt={"Mascote do Regente vespertino e matutino sorrindo e de mãos dadas."} /></IonButton>
-                    </div>
-                  </AccordionItemPanel>
+                 
                   <AccordionItemPanel>
 
                     <div>
-                      <IonButton disabled={moduloHabitosPostEnviado || !moduloContatoPostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
+                      <IonButton disabled={moduloHabitosPostEnviado || !moduloSaudePostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
                     </div>
                   </AccordionItemPanel>
                   <AccordionItemPanel>
