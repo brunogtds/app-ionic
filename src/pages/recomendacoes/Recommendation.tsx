@@ -1003,6 +1003,10 @@ const Recommendation: React.FC = () => {
             <img src={logo_unifesp} alt={"Logo da Universidade Federal de São Paulo - UNIFESP."} width="120px" height="140px"/>
             
         </div>
+
+        <div className="texto-padrao-email">
+          Sugestões e contato através do e-mail: <a className={"link"}> regenteapp@gmail.com </a>
+        </div>
       
       </div>
       </IonContent>

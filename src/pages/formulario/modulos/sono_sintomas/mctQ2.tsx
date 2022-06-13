@@ -45,7 +45,7 @@ const MCTQ2 = (props: StepComponentProps) => {
                                     if (e.detail.value != undefined)
                                         props.setState('sleepFD', e.detail.value)
                                 }}></IonDatetime>)} control={control} name={"sleepFD"} rules={{ required: true }} />
-                            {errors.sleepFD && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                         </IonItem>
 
                         <IonLabel className="questions">Em dias livres, quando não usei o despertador, eu normalmente acordei às: </IonLabel>
@@ -58,7 +58,7 @@ const MCTQ2 = (props: StepComponentProps) => {
                                     if (e.detail.value != undefined)
                                         props.setState('wakeUpFD', e.detail.value)
                                 }}></IonDatetime>)} control={control} name={"wakeUpFD"} rules={{ required: true }} />
-                            {errors.wakeUpFD && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                         </IonItem>
 
                         <IonLabel className="questions">Usei o despertador em dias livres:</IonLabel>
@@ -84,9 +84,18 @@ const MCTQ2 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"alarmFD"} rules={{ required: true }} />
-                            {errors.alarmFD && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
 
                         </IonItem>
+
+                          {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
+
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={0.32} color="orange"></IonProgressBar>

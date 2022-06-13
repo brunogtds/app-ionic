@@ -52,6 +52,7 @@ const SaudePost1 = (props: StepComponentProps) => {
 
                             <Controller render={({ onChange }) => (
                                 <IonRadioGroup onIonChange={(e) => {
+                                    onChange(e.detail.value)
                                     if (e.detail.value != undefined)
                                         props.setState('meta01coleta01Complete', e.detail.value)
                                 }}>
@@ -70,11 +71,12 @@ const SaudePost1 = (props: StepComponentProps) => {
                             )}
                                 control={control}
                                 name={"meta01coleta01Complete"}
+                                rules={{ required: true }}
                             />
                         </IonItem>
 
                         <IonLabel className="questions">Peso (em kg):</IonLabel>
-                        {errors.weightPost && <IonText color="danger"> Campo obrigatório.</IonText>}
+                       
                         <IonItem lines="none">
 
                             <Controller render={({ onChange }) => (
@@ -87,7 +89,8 @@ const SaudePost1 = (props: StepComponentProps) => {
                             )}
                                 name="weightPost"
                                 control={control}
-                                rules={{ required: true }} />
+                                rules={{ required: true }}
+                                 />
 
                         </IonItem>
 
@@ -184,7 +187,7 @@ const SaudePost1 = (props: StepComponentProps) => {
 
                             />
                             <div>
-                                {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                               
                             </div>
 
                         </IonItem>
@@ -199,6 +202,7 @@ const SaudePost1 = (props: StepComponentProps) => {
 
                                 <Controller render={({ onChange }) => (
                                     <IonRadioGroup value={medsChange} onIonChange={(e) => {
+                                        onChange(e.detail.value)
                                         setmedsChange(e.detail.value);
                                         if (e.detail.value != undefined)
                                             props.setState('medsChange', e.detail.value)
@@ -218,6 +222,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 )}
                                     control={control}
                                     name={"medsChange"}
+                                    rules={{ required: true }}
                                 />
                             </IonItem>
 
@@ -242,6 +247,7 @@ const SaudePost1 = (props: StepComponentProps) => {
 
                                 <Controller render={({ onChange }) => (
                                     <IonRadioGroup value={selectedMedsNoOrientation} onIonChange={(e) => {
+                                        onChange(e.detail.value);
                                         setSelectedMedsNoOrientation(e.detail.value);
                                         if (e.detail.value != undefined)
                                             props.setState('medsOffChange', e.detail.value)
@@ -260,6 +266,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 )}
                                     control={control}
                                     name={"medsOffChange"}
+                                    rules={{ required: true }}
                                 />
                             </IonItem>
 
@@ -309,7 +316,15 @@ const SaudePost1 = (props: StepComponentProps) => {
                                 rules={{ required: true }}
                             />
                         </IonItem>
-                        {errors.psychother && <IonText color="danger">Campo obrigatório.</IonText>}
+                        
+
+                         {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>

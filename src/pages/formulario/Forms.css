@@ -2,7 +2,8 @@
     align-items: right;
     float: right;
     text-transform: capitalize;
-    
+    margin-bottom: 16px;
+ 
 }
 
 .btnProximo_perguntaCadastro {
@@ -404,4 +405,34 @@ ion-range{
   --knob-size: 20px;
   --bar-height: 3px;
   background-color: #FDF5EB;
+}
+
+ion-select::part(text) {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+
+}
+
+.preenchimentoObri {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ion-select{
+  --placeholder-color: #444950 !important;
+  --placeholder-opacity: 0.5 !important;
+}
+
+ion-input{
+  --placeholder-color: #444950 !important;
+  --placeholder-opacity: 0.5 !important;
+}
+
+.questions-inside{
+  color: #444950; 
+  opacity: 0.5;
+  
+  display: block;
+  margin-top: 16px;
+  
 }

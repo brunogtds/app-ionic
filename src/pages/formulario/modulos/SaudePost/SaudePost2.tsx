@@ -110,6 +110,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     )}
                     control={control}
                     name={"alcoholChange"} 
+                    rules={{ required: true }}
                     />
                 </IonItem>
 
@@ -143,6 +144,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     )}
                     control={control}
                     name={"stimulantsChange"} 
+                    rules={{ required: true }}
                     />
                 </IonItem>
 
@@ -182,8 +184,17 @@ const SaudePost2 = (props: StepComponentProps) => {
                     )}
                     control={control}
                     name={"smokeChange"} 
+                    rules={{ required: true }}
                     />
                 </IonItem>
+
+                   {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                 <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>

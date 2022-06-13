@@ -587,3 +587,9 @@ ion-card{
   color: #F58B44;
   text-align: left;
 }
+
+.sono-sintomas-modalText{
+  color: white !important;
+  font-size: 18px;
+
+}

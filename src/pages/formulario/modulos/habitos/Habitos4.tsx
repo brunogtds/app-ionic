@@ -1353,6 +1353,15 @@ const Habitos4 = (props: StepComponentProps) => {
                                 {errors.beck02 && <IonText color="danger">Campo obrigatório.</IonText>}
                             </IonItem> */}
 
+                              {formState.isValid === false ? 
+
+                            <div className="preenchimentoObri">
+                                <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                            </div>
+                            
+                            :null}
+
+
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
                             </div>

@@ -80,7 +80,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq01Post14' rules={{ required: true }} />
-                            {errors.phq01Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
                         </IonItem>
 
                         <IonLabel className="questions">Nas últimas duas semanas, quantos dias você se sentiu para baixo, deprimido(a) ou sem perspectiva?</IonLabel>
@@ -118,7 +118,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq02Post14' rules={{ required: true }} />
-                            {errors.phq02Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                         </IonItem>
 
 
@@ -156,7 +156,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq03Post14' rules={{ required: true }} />
-                            {errors.phq03Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
 
                         <IonLabel className="questions">Nas últimas duas semanas, quantos dias você se sentiu cansado(a) ou com pouca energia?</IonLabel>
@@ -193,7 +193,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq04Post14' rules={{ required: true }} />
-                            {errors.phq04Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
 
                         <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você teve falta de apetite ou comeu demais?</IonLabel>
@@ -230,7 +230,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq05Post14' rules={{ required: true }} />
-                            {errors.phq05Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                         </IonItem>
 
                         <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você se sentiu mal consigo mesmo(a) ou achou que é um fracasso ou que decepcionou sua família ou a você mesmo(a)?</IonLabel>
@@ -267,7 +267,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq06Post14' rules={{ required: true }} />
-                            {errors.phq06Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                         </IonItem>
 
                         <IonLabel className="questions"> Nas últimas duas semanas, quantos dias você teve dificuldade para se concentrar nas coisas (como ler o jornal ou ver televisão)?</IonLabel>
@@ -304,7 +304,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq07Post14' rules={{ required: true }} />
-                            {errors.phq07Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                        
                         </IonItem>
 
                         <IonLabel className="questions">Nas últimas duas semanas, quantos dias você teve lentidão para se movimentar ou falar (a ponto das outras pessoas perceberem), ou ao contrário, esteve tão agitado(a) que você ficava andando de um lado para o outro mais do que de costume?</IonLabel>
@@ -341,7 +341,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq08Post14' rules={{ required: true }} />
-                            {errors.phq08Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
                         </IonItem>
 
                         <IonLabel className="questions">Nas últimas duas semanas, quantos dias você pensou em se ferir de alguma maneira ou que seria melhor estar morto(a)?</IonLabel>
@@ -378,7 +378,7 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq09Post14' rules={{ required: true }} />
-                            {errors.phq09Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
                         </IonItem>
 
 
@@ -416,8 +416,16 @@ const PHQPost = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name='phq10Post14' rules={{ required: true }} />
-                            {errors.phq10Post14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
                         </IonItem>
+
+                        {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={0.8} color="orange"></IonProgressBar>

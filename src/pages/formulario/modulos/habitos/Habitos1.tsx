@@ -33,6 +33,14 @@ const Habitos1 = (props: StepComponentProps) => {
 
     ];
 
+    const timeformatBD: Intl.DateTimeFormatOptions = {
+        
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    
+    };
+
     const timeformat: Intl.DateTimeFormatOptions = {
         weekday: 'short',
         year: 'numeric',
@@ -83,23 +91,23 @@ const Habitos1 = (props: StepComponentProps) => {
                                                 props.setState('workQ', e.detail.value)
                                         }}>
                                             
-                                            <IonSelectOption value={dia_Atual}>{dia_Atual.toLocaleDateString("pt-br", timeformat)}</IonSelectOption> 
-                                            <IonSelectOption value={dia_Anterior1}>{dia_Anterior1.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior2}>{dia_Anterior2.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior3}>{dia_Anterior3.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior4}>{dia_Anterior4.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior5}>{dia_Anterior5.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior6}>{dia_Anterior6.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior7}>{dia_Anterior7.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior8}>{dia_Anterior8.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior9}>{dia_Anterior9.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior10}>{dia_Anterior10.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior11}>{dia_Anterior11.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior12}>{dia_Anterior12.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior13}>{dia_Anterior13.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
-                                            <IonSelectOption value={dia_Anterior14}>{dia_Anterior14.toLocaleDateString("pt-br", timeformat)}</IonSelectOption> 
+                                            <IonSelectOption value={dia_Atual.toLocaleDateString("pt-br", timeformatBD)}>{dia_Atual.toLocaleDateString("pt-br", timeformat)}</IonSelectOption> 
+                                            <IonSelectOption value={dia_Anterior1.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior1.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior2.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior2.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior3.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior3.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior4.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior4.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior5.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior5.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior6.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior6.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior7.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior7.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior8.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior8.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior9.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior9.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior10.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior10.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior11.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior11.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior12.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior12.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior13.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior13.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior14.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior14.toLocaleDateString("pt-br", timeformat)}</IonSelectOption> 
                                         </IonSelect>)} control={control} name={"workQ"} rules={{ required: true }} /> 
-                                    {errors.workQ && <IonText color="danger">Campo obrigatório.</IonText>}
+                                 
                                 </IonItem> 
 
                                 {/*MAIS QUE 0*/}
@@ -126,7 +134,7 @@ const Habitos1 = (props: StepComponentProps) => {
                                                 <IonSelectOption value="até 8 horas">até 8 horas</IonSelectOption>
                                                 <IonSelectOption value="mais de 8 horas">mais de 8 horas</IonSelectOption>
                                             </IonSelect>)} control={control} name={"workDur"} rules={{ required: true }} />
-                                        {errors.workDur && <IonText color="danger">Campo obrigatório.</IonText>}
+                                       
                                     </IonItem> : null}
 
                                 {/** 
@@ -207,6 +215,16 @@ const Habitos1 = (props: StepComponentProps) => {
                                         {errors.workStart && <IonText color="danger">Campo obrigatório.</IonText>}
                                         </IonItem> : null} */ }
                             </IonList> 
+
+
+                       {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
+                            
 
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={0.25} color="orange"></IonProgressBar>

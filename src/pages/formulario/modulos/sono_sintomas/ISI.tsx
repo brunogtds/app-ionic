@@ -129,7 +129,7 @@ const ISI = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                     </IonItem>
                                 </IonRadioGroup>)} control={control} name={"sleepProblem"} rules={{ required: true }} />
-                            {errors.sleepProblem && <IonText color="danger">Campo obrigatório.</IonText>}
+                       
                         </IonItem>
 
                         {problemasSono == "sim" ?
@@ -183,7 +183,7 @@ const ISI = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name='isi_isi01' rules={{ required: true }} />
-                                {errors.isi_isi01 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                             </IonItem> : null}
 
                         {problemasSono == "sim" ?
@@ -228,7 +228,7 @@ const ISI = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name='isi_isi02' rules={{ required: true }} />
-                                {errors.isi_isi02 && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                             </IonItem> : null}
 
                         {problemasSono == "sim" ?
@@ -273,7 +273,7 @@ const ISI = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name='isi_isi03' rules={{ required: true }} />
-                                {errors.isi_isi03 && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                             </IonItem>
 
                             : null}
@@ -311,8 +311,17 @@ const ISI = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
                                 </IonRadioGroup>)} control={control} name={"sleepQual"} rules={{ required: true }} />
-                            {errors.sleepQual && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
                         </IonItem>
+
+                          {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
+
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>

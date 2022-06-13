@@ -45,7 +45,7 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none"  >
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersNenhuma", false)} onIonChange={(e) => {
-
+                                           
                                              if (e.detail.checked) {
                                                         props.setState('disordersNenhuma', true)                                                
                                                     } else {
@@ -58,6 +58,7 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none">
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersDiabetes", false)} onIonChange={(e) => {
+                                          
                                              if (e.detail.checked) {
                                                 props.setState('disordersDiabetes', true)                                                
                                             } else {
@@ -69,7 +70,8 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none">
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersHipert", false)} onIonChange={(e) => {
-                                             if (e.detail.checked) {
+                                           
+                                            if (e.detail.checked) {
                                                 props.setState('disordersHipert', true)                                                
                                             } else {
                                                 props.setState('disordersHipert', false)                                                
@@ -80,7 +82,8 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none">
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersAsma", false)} onIonChange={(e) => {
-                                             if (e.detail.checked) {
+                                         
+                                            if (e.detail.checked) {
                                                 props.setState('disordersAsma', true)                                                
                                             } else {
                                                 props.setState('disordersAsma', false)                                                
@@ -91,7 +94,8 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none">
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersDep", false)} onIonChange={(e) => {
-                                             if (e.detail.checked) {
+                                           
+                                            if (e.detail.checked) {
                                                 props.setState('disordersDep', true)                                                
                                             } else {
                                                 props.setState('disordersDep', false)                                                
@@ -102,7 +106,8 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none">
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersImunod", false)} onIonChange={(e) => {
-                                             if (e.detail.checked) {
+                                          
+                                            if (e.detail.checked) {
                                                 props.setState('disordersImunod', true)                                                
                                             } else {
                                                 props.setState('disordersImunod', false)                                                
@@ -114,7 +119,8 @@ const Saude1 = (props: StepComponentProps) => {
                                     <IonItem lines="none">
 
                                         <IonInput placeholder="Outros" type="text" onIonChange={(e) => {
-                                            if (e.detail.value != undefined)
+                                       
+                                          if (e.detail.value != undefined)
                                                 props.setState('disorders', e.detail.value)        
                                         }} />
                                     </IonItem>
@@ -127,7 +133,7 @@ const Saude1 = (props: StepComponentProps) => {
 
                             />
                             <div>
-                                {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                              
                             </div>
 
                         </IonItem>
@@ -173,10 +179,10 @@ const Saude1 = (props: StepComponentProps) => {
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
                                                 props.setState('medsUsed', e.detail.value)
-                                        }} />)} control={control} name={'medsUsed'} rules={{ required: true }} />
+                                        }} />)} control={control} name={'medsUsed'} />
 
                                 </IonItem> : null
-                            } {errors.medsUsed && <IonText color="danger">Campo obrigatório.</IonText>}
+                            } 
                         </IonList>
 
 
@@ -209,7 +215,7 @@ const Saude1 = (props: StepComponentProps) => {
                                     rules={{ required: true }}
                                 />
                             </IonItem>
-                            {errors.medsOff && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
 
                             {selectedNoOrientation === "sim" ?
                                 <IonItem lines="none">
@@ -219,8 +225,8 @@ const Saude1 = (props: StepComponentProps) => {
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
                                                 props.setState('medsOffUsed', e.detail.value)
-                                        }} />)} control={control} name={'medsOffUsed'} rules={{ required: true }} />
-                                </IonItem> : null} {errors.medsOffUsed && <IonText color="danger">Campo obrigatório.</IonText>}
+                                        }} />)} control={control} name={'medsOffUsed'} />
+                                </IonItem> : null} 
                         </IonList>
 
                         <IonLabel className="questions">Você fez psicoterapia nas últimas duas semanas? </IonLabel>
@@ -257,7 +263,16 @@ const Saude1 = (props: StepComponentProps) => {
                                 rules={{ required: true }}
                             />
                         </IonItem>
-                        {errors.psychother && <IonText color="danger">Campo obrigatório.</IonText>}
+                      
+
+
+                        {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>

@@ -63,7 +63,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                 name={"NightShiftFinal"}
                                 rules={{ required: true }}
                             />
-                            {errors.NightShiftFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
 
                         <IonLabel className="questions">Trabalhei/estudei _ dias por semana.</IonLabel>
@@ -94,7 +94,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                 rules={{ required: true }}
 
                             />
-                            {errors.workDaysNFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
                         </IonItem>
 
 
@@ -115,7 +115,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('sleepNoWorkFinal', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"sleepNoWorkFinal"} rules={{ required: true }} />
-                                {errors.sleepNoWorkFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                             </IonItem> : null}
 
                         {nDiasTrabalhoSemana === "0" ?
@@ -131,7 +131,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('wakeUpNoWorkFinal', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"wakeUpNoWorkFinal"} rules={{ required: true }} />
-                                {errors.wakeUpNoWorkFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                             
                             </IonItem> : null}
 
                         {nDiasTrabalhoSemana === "0" ?
@@ -158,7 +158,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name={"AlarmNoWorkFinal"} rules={{ required: true }} />
-                                {errors.AlarmNoWorkFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                              
                             </IonItem> : null}
 
                         {/*DIAS DE TRABALHO ->MAIS QUE 0 */}
@@ -178,7 +178,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('sleepWDFinal', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"sleepWDFinal"} rules={{ required: true }} />
-                                {errors.sleepWDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                              
                             </IonItem> : null}
 
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
@@ -194,7 +194,7 @@ const MCTQ1Final = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('wakeUpWDFinal', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"wakeUpWDFinal"} rules={{ required: true }} />
-                                {errors.wakeUpWDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                             </IonItem> : null}
 
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
@@ -223,10 +223,17 @@ const MCTQ1Final = (props: StepComponentProps) => {
 
 
                                     </IonRadioGroup>)} control={control} name={"alarmWDFinal"} rules={{ required: true }} />
-                                {errors.alarmWDFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                             </IonItem> : null}
 
 
+                          {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={0.16} color="orange"></IonProgressBar>

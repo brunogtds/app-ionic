@@ -127,7 +127,7 @@ const ISIFinal = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                     </IonItem>
                                 </IonRadioGroup>)} control={control} name={"sleepProblemFinal"} rules={{ required: true }} />
-                            {errors.sleepProblemFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                         </IonItem>
 
                         {problemasSono == "sim" ?
@@ -181,7 +181,7 @@ const ISIFinal = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name='isiFinal_isi01' rules={{ required: true }} />
-                                {errors.isiFinal_isi01 && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                             </IonItem> : null}
 
                         {problemasSono == "sim" ?
@@ -226,7 +226,7 @@ const ISIFinal = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name='isiFinal_isi02' rules={{ required: true }} />
-                                {errors.isiFinal_isi02 && <IonText color="danger">Campo obrigatório.</IonText>}
+                             
                             </IonItem> : null}
 
                         {problemasSono == "sim" ?
@@ -271,7 +271,7 @@ const ISIFinal = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name='isiFinal_isi03' rules={{ required: true }} />
-                                {errors.isiFinal_isi03 && <IonText color="danger">Campo obrigatório.</IonText>}
+                              
                             </IonItem>
 
                             : null}
@@ -308,8 +308,16 @@ const ISIFinal = (props: StepComponentProps) => {
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
                                 </IonRadioGroup>)} control={control} name={"sleepQualFinal"} rules={{ required: true }} />
-                            {errors.sleepQualFinal && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
+
+                          {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>

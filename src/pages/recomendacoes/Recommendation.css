@@ -54,6 +54,13 @@
   text-align: left;
 }
 
+.texto-padrao-email{
+  font-family: OpenSans;  
+  color: #444950;
+  text-align: center;
+  
+}
+
 .texto-padrao-inicial{
   margin-top: 24px;
   font-family: OpenSans;  

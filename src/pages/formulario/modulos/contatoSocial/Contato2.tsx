@@ -246,7 +246,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd1 && <IonText color="danger">Campo obrigatório.</IonText>}
+                       
 
                         <IonLabel className="questions">Durante o último mês, fui em pequenas confraternizações com menos de 10 pessoas em espaços públicos, como parques ou restaurantes:</IonLabel>
                           
@@ -326,7 +326,7 @@ const Contato2 = (props: StepComponentProps) => {
                         </IonItem>
 
 
-                        {errors.sd2 && <IonText color="danger">Campo obrigatório.</IonText>}
+                 
 
                         
                         <IonLabel className="questions">Durante o último mês, fui em pequenos eventos sociais com menos de 10 pessoas em espaços privados, como a casa de um amigo:</IonLabel>
@@ -404,7 +404,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd3 && <IonText color="danger">Campo obrigatório.</IonText>}
+                   
 
                         <IonLabel className="questions">Durante o último mês, fui em lugares cheios e com grande aglomeração de pessoas, como shows e eventos esportivos:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -482,7 +482,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd4 && <IonText color="danger">Campo obrigatório.</IonText>}
+                      
 
                         <IonLabel className="questions">Durante o último mês, trabalhei/estudei em casa:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -560,7 +560,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd7 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    
 
                         
                         <IonLabel className="questions">Durante o último mês, saí de casa para comprar gás de cozinha, trabalhar, ir ao médico e no mercado:</IonLabel>
@@ -638,7 +638,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd9 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    
 
                         <IonLabel className="questions">Durante o último mês, nós fizemos pequenas confraternizações com familiares em minha casa ou na casa de algum parente:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -709,7 +709,6 @@ const Contato2 = (props: StepComponentProps) => {
 
                         </IonItem>
                        
-                        {errors.sd12 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, fui obrigado a ir ao meu local de trabalho ou na escola (fora de casa):</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -782,7 +781,6 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd13 && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         <IonLabel className="questions">Durante o último mês, consegui manter uma distância de, pelo menos, dois metros de outras pessoas quando estive em meu local de trabalho ou na escola:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -855,7 +853,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                        
 
                         <IonLabel className="questions">Durante o último mês, usei máscara facial quando estive em lugares públicos, local de trabalho ou na escola:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -936,7 +934,7 @@ const Contato2 = (props: StepComponentProps) => {
                             
 
                         </IonItem>
-                        {errors.sd15 && <IonText color="danger">Campo obrigatório.</IonText>}
+                      
 
                         
                         <IonLabel className="questions">Durante o último mês, quando estive fora de casa, usei desinfetantes para as mãos ou lavei minhas mãos depois de tocar em objetos como maçanetas, teclados e mouses de computador, etc.</IonLabel>
@@ -1015,7 +1013,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.sd17 && <IonText color="danger">Campo obrigatório.</IonText>}
+                      
 
                         <IonLabel className="questions">Estive fisicamente distante de outras pessoas que não moram na minha casa neste último mês:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -1094,7 +1092,7 @@ const Contato2 = (props: StepComponentProps) => {
 
 
                         </IonItem>
-                        {errors.pis4 && <IonText color="danger">Campo obrigatório.</IonText>}
+                     
 
                         
                         <IonLabel className="questions">Visitei familiares mais velhos (quem tem 65 anos ou mais) neste último mês:</IonLabel>
@@ -1173,8 +1171,7 @@ const Contato2 = (props: StepComponentProps) => {
 
 
                         </IonItem>
-                        {errors.pis7 && <IonText color="danger">Campo obrigatório.</IonText>}
-
+                      
                           
                         <IonLabel className="questions">Visitei familiares (64 anos ou menos) que moram fora de minha casa neste último mês:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -1251,7 +1248,7 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.pis9 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    
 
                         <IonLabel className="questions">Visitei familiares que tem problemas graves de saúde neste último mês:</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
@@ -1328,7 +1325,15 @@ const Contato2 = (props: StepComponentProps) => {
                                    </div> 
 
                         </IonItem>
-                        {errors.pis10 && <IonText color="danger">Campo obrigatório.</IonText>}
+                        
+
+                            {formState.isValid === false ? 
+
+                            <div className="preenchimentoObri">
+                                <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                            </div>
+
+                            :null}
 
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
