@@ -180,7 +180,7 @@ const Cadastro = (props: StepComponentProps) => {
       </IonInput>
 
 
-      <p>Antes de se cadastrar, leia nossos <a onClick={() => setShowModal(true)}>termos e condições de uso.</a></p>
+      <p>Antes de se cadastrar, leia nossos <a onClick={() => setShowModal(true)}>termos de uso - ReGente.</a></p>
       <IonModal 
         isOpen={showModal} 
         
@@ -188,10 +188,12 @@ const Cadastro = (props: StepComponentProps) => {
       >
         
         <IonContent>
-        <h1>Termos e condições de uso</h1>
-        <h2>Topico 1</h2>
+        <h1>Termos de uso</h1>
+       
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dapibus ante sed ex tempus, vitae feugiat metus sagittis. Nunc convallis, nisi ac fringilla blandit, augue magna facilisis erat, vel egestas risus orci in dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer sit amet rhoncus sapien, eu molestie mauris. Fusce sollicitudin enim velit, ac mattis ipsum pretium eget. Quisque vitae nulla sed tortor tristique eleifend vitae eget mi. Aenean tristique tincidunt risus vel scelerisque. Suspendisse scelerisque nunc dignissim velit hendrerit, et gravida velit porta. Cras porttitor, mauris in ornare aliquam, augue elit aliquet lacus, tristique mollis nulla dui at purus. Donec commodo cursus dapibus.
+          
+          Olá! Agradecemos a sua escolha pelo aplicativo “ReGente”
+
         </p>
         
         <h2>Topico 2</h2>
