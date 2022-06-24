@@ -65,6 +65,7 @@ const Perfil2 = (props: StepComponentProps) => {
                 married: String(props.state.married),
                 depend: Number(props.state.depend),
 
+                avatar: String(props.state.avatar),
                 area: String(props.state.area),
             }, { merge: true })
         }

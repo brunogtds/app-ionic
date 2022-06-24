@@ -2,7 +2,8 @@
     align-items: right;
     float: right;
     text-transform: capitalize;
-    
+    margin-bottom: 16px;
+ 
 }
 
 .btnProximo_perguntaCadastro {
@@ -325,3 +326,117 @@ ion-select::part(icon) {
   --background-color-rgb: 18,18,18;
 }
 
+.btn-ModalCadastro{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #FDF5EB;
+  margin: 0;
+ 
+}
+
+.tickmarks{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #FDF5EB;
+}
+
+.tickmarks p {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 0.5px;
+  padding: 15px;
+  height: 10px;
+  line-height: 5px;
+  margin: 0 0 50px 0;
+  font-family: OpenSans;
+  font-size: 12px;
+  background-color: #FDF5EB;
+}
+
+.tickmarksSDS{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #FDF5EB;
+}
+
+.tickmarksSDS p {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 3px;
+  padding-left: 35px;
+  padding-right: 35px;
+  height: 40px;
+  line-height: 15px;
+  margin: 0 0 50px 0;
+  font-family: OpenSans;
+  font-size: 12px;
+  background-color: #FDF5EB;
+}
+
+#slidercontainer{
+ 
+
+  width: 100px;
+  background-color: #FDF5EB;
+}
+
+ion-item{
+  --padding-end: 0px;
+  --inner-padding-end: 0px;
+}
+
+ion-range{
+  --knob-size: 20px;
+  --bar-height: 3px;
+  background-color: #FDF5EB;
+}
+
+ion-select::part(text) {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+
+}
+
+.preenchimentoObri {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ion-select{
+  --placeholder-color: #444950 !important;
+  --placeholder-opacity: 0.5 !important;
+}
+
+ion-input{
+  --placeholder-color: #444950 !important;
+  --placeholder-opacity: 0.5 !important;
+}
+
+.questions-inside{
+  color: #444950; 
+  opacity: 0.5;
+  
+  display: block;
+  margin-top: 16px;
+  
+}
+
+ion-note {
+  font-size: 14px;
+}

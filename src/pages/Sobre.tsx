@@ -120,6 +120,9 @@ const Sobre: React.FC = () => {
           <div>
           Laboratório de Neurobiologia da Pineal - UNIFESP
           </div>
+          <div>
+          Sugestões e contato através do e-mail: regenteapp@gmail.com
+          </div>
        
         <IonItem>
         <div>
@@ -133,7 +136,8 @@ const Sobre: React.FC = () => {
             
         </div>
         </IonItem>
-       </IonCardContent>
+
+        </IonCardContent>
   
         </IonCard>
 

@@ -91,7 +91,7 @@ const Who5Post = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"who5Post14_SQ001"} rules={{ required: true }} />
-                            {errors.who5Post14_SQ001 && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                         </IonItem>
                         <IonLabel className={"ion-text-wrapper questions"}>...me senti calmo e relaxado</IonLabel>
                         <IonItem lines="none" className={"ion-no-padding"}>
@@ -137,7 +137,7 @@ const Who5Post = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"who5Post14_SQ002"} rules={{ required: true }} />
-                            {errors.who5Post14_SQ002 && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                         </IonItem>
 
                         <IonLabel className={"ion-text-wrapper questions"}>...me senti disposto e renovado ao acordar</IonLabel>
@@ -184,7 +184,7 @@ const Who5Post = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"who5Post14_SQ003"} rules={{ required: true }} />
-                            {errors.who5Post14_SQ003 && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
 
                         <IonLabel className={"ion-text-wrapper questions"}>...me senti cheio de energia e ativo</IonLabel>
@@ -231,7 +231,7 @@ const Who5Post = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"who5Post14_SQ004"} rules={{ required: true }} />
-                            {errors.who5Post14_SQ004 && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
 
                         <IonLabel className={"ion-text-wrapper questions"}>...o meu dia foi cheio de coisas que interessavam</IonLabel>
@@ -278,8 +278,16 @@ const Who5Post = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"who5Post14_SQ005"} rules={{ required: true }} />
-                            {errors.who5Post14_SQ005 && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
+
+                        {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
 
                         <div id="progress-bar-div" >

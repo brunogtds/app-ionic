@@ -163,7 +163,7 @@ const Recommendation: React.FC = () => {
           <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
           </div>
           <div className={"img-logo"}>
-          <img src={logo_regente} className={"logo"}/>
+          <img src={logo_regente} className={"logo"} alt={"Logo regente"}/>
          </div>
   </div> 
        
@@ -222,7 +222,7 @@ const Recommendation: React.FC = () => {
                 </IonToolbar>
               
                 <div>
-                <img src={covid_1} className={"img-slides"}/>
+                <img src={covid_1} className={"img-slides"} alt={"Mascote do Regente matutino, em cor laranja, sorrindo na janela. A janela está aberta."}/>
                 </div>
                 
                 <div className={"arrows-recommendations ion-no-padding"}>
@@ -233,7 +233,7 @@ const Recommendation: React.FC = () => {
                 <br/>
                
 
-                 <p className={"main-text"}>Evite ao máximo sair de casa. Se for necessário sair, evite permanecer em espaços fechados ou mal ventilados.</p>
+                 <p className={"main-text"}>Quando sair de casa, prefira ambientes abertos ou bem ventilados.</p>
                 
               
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid1(!saibaMaisCovid1)}}>{saibaMaisTextCovid1}</IonButton>
@@ -242,9 +242,16 @@ const Recommendation: React.FC = () => {
                
                 {saibaMaisCovid1 ? 
                
-                <p className={"readMore-text"}>Trabalhe  de casa sempre que possível. Evite visitar familiares e amigos, principalmente os que estão nos grupos de risco (mantenha contato por telefone  ou redes sociais).
-                Caso precise sair, evite aglomerações e espaços fechados ou mal ventilados, onde aerossóis contendo o vírus podem ficar em suspensão no ar por várias horas. Use máscara, cobrindo o nariz, a boca e o queixo e higienize frequentemente as mãos.
-                Ao retornar a casa, observe os cuidados de higienização necessários, sobretudo das mãos, roupas e objetos. 
+                <p className={"readMore-text"}>Evite aglomerações e espaços fechados ou
+                mal ventilados, onde aerossóis contendo o
+                vírus podem ficar em suspensão no ar por
+                várias horas. Quando estiver em lugares
+                fechados ou com aglomeração de pessoas,
+                use máscara, cobrindo o nariz, a boca e o
+                queixo e higienize frequentemente as mãos.
+                Ao retornar a casa, observe os cuidados de
+                higienização necessários, especialmente das
+                mãos e de objetos.
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
@@ -257,7 +264,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_2} className={"img-slides"} width="170" height="122"/>
+                <img src={covid_2} className={"img-slides"} alt={"Mascote do Regente intermediário, em cor azul claro, colocando uma máscara."} width="170" height="122"/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -266,33 +273,69 @@ const Recommendation: React.FC = () => {
                 </div>
                 <br/>
                
-                <p className={"main-text"}>Use sempre máscara de proteção.</p>
+                <p className={"main-text"}>Use máscara de proteção.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid2(!saibaMaisCovid2)}}>{saibaMaisTextCovid2}</IonButton>
                 
                 {saibaMaisCovid2 ? 
                 <p className={"readMore-text"}> O que fazer:
-                <ul>
-                  <li>Use sempre máscara quando estiver fora de casa.</li>
-                  <li>Se for possível, prefira os respiradores (PFF2 ou N95).</li>
-                  <li>Coloque e retire a máscara pelos elásticos.</li>
-                  <li>Cubra boca, nariz e queixo e ajuste bem a máscara ao rosto.</li>
-                  <li>Troque a máscara a cada 3-4 horas.</li>
-                  <li>Descarte a máscara dentro de um saquinho de plástico e feche bem.</li>
-                 
-                </ul>
-                O que não fazer:
-                <ul>
-                <li>Não use máscara furada ou úmida.</li>
-                <li>Não use a máscara abaixo do nariz.</li>
-                <li>Não use a máscara frouxa.</li>
-                <li>Não toque a frente da máscara.</li>
-                <li>Não retire a máscara para falar.</li>
-                <li>Não deixe a máscara usada ao alcance de crianças ou outras pessoas.</li>
-                <li>Não compartilhe a sua máscara, ela é de uso individual.</li>
-                </ul> </p>
-                : <p></p>
-                }<br/>
+                <p className={"readMore-text"}>
+                  -Sempre que estiver com sintomas de gripe ou de resfriado (dor de garganta, tosse, espirro...), use máscara.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Use máscara quando estiver em lugares fechados ou com aglomeração.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Se for possível, opte por respiradores (PFF2 ou N95). Coloque e retire a máscara pelos elásticos.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Cubra boca, nariz e queixo e ajuste bem a máscara ao rosto.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Troque a máscara a cada 3-4 horas.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Descarte a máscara dentro de um saquinho de plástico e feche-o bem.
+                </p>
+                
+                O que não fazer: 
+
+                <p className={"readMore-text"}>
+                  -Não use máscara furada ou úmida.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Não use a máscara abaixo do nariz.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Não use a máscara frouxa.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Não toque a frente da máscara.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Não retire a máscara para falar.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Não deixe a máscara usada ao alcance de crianças ou outras pessoas.
+                </p>
+
+                <p className={"readMore-text"}>
+                  -Não compartilhe a sua máscara, ela é de uso individual.
+                </p>
+
+                </p> :<p></p>  } <br/>
+
+               
                 </IonSlide>
                 <IonSlide>
                 <IonToolbar color="white">
@@ -303,7 +346,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_3} className={"img-slides"}/>
+                <img src={covid_3} className={"img-slides"} alt={" Mascote Regente intermediário, em cor azul claro, lavando as mãos na pia. Na ilustração aparece suas mãos ensaboadas e água."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -324,7 +367,8 @@ const Recommendation: React.FC = () => {
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
-                <IonSlide>
+               
+               {/* <IonSlide>
                 <IonToolbar color="white">
                 <div id="header-items">
                   
@@ -333,7 +377,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_4} className={"img-slides"}/>
+                <img src={covid_4} className={"img-slides"} alt={"Mascote do Regente matutino, em cor laranja, e o mascote do Regente intermediário, em cor azul claro, de pé e separados em distanciamento social. Entre eles uma marcação em vermelho indicando 2 metros de distância."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -351,7 +395,7 @@ const Recommendation: React.FC = () => {
                 
                 </p> : <p></p>
                 }<br/>
-                </IonSlide>
+              </IonSlide> */}
                 <IonSlide>
                 <IonToolbar color="white">
                 <div id="header-items">
@@ -361,7 +405,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_5} className={"img-slides"}/>
+                <img src={covid_5} className={"img-slides"} alt={"Mascote do Regente intermediário, em cor azul claro, assoando o nariz com um lenço branco."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -369,12 +413,16 @@ const Recommendation: React.FC = () => {
                 </p>
                 </div>
                 <br/>
-                <p className={"main-text"}>Evite tocar no rosto. Ao tossir ou espirrar, cubra a boca e o nariz com a parte interna do cotovelo ou com um lenço descartável. </p>
+                <p className={"main-text"}>Cubra a boca e o nariz com a parte interna do cotovelo ou com um lenço descartável ao tossir e espirrar. </p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid5(!saibaMaisCovid5)}}>{saibaMaisTextCovid5}</IonButton>
                 
                 {saibaMaisCovid5 ? 
-                <p className={"readMore-text"}>Não retire a máscara para tossir ou espirrar, utilize a parte interna do cotovelo ou um lenço descartável sobre a máscara para reforçar o bloqueio de gotículas de saliva.
+                <p className={"readMore-text"}>Não retire a máscara para tossir ou espirrar.
+                Evite tocar no rosto e utilize a parte interna
+                do cotovelo ou um lenço descartável sobre a
+                máscara para reforçar o bloqueio de gotículas
+                de saliva.
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
@@ -387,7 +435,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_6} className={"img-slides"}/>
+                <img src={covid_6} className={"img-slides"} alt={"Mascote do Regente vespertino, em cor azul escuro, com uma aparência doente. Ele está com um termômetro na boca e um saco de gelo na cabeça."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -395,7 +443,7 @@ const Recommendation: React.FC = () => {
                 </p>
                 </div>
                 <br/>
-                <p className={"main-text"}>Fique em casa se não se sentir bem.</p>
+                <p className={"main-text"}>Fique em casa se você apresentar sintomas de resfriado ou gripe</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid6(!saibaMaisCovid6)}}>{saibaMaisTextCovid6}</IonButton>
                 
@@ -403,11 +451,13 @@ const Recommendation: React.FC = () => {
                 <p className={"readMore-text"}>Se tiver sintomas de COVID-19 ou tiver suspeita de estar infectado, faça o isolamento profilático:
                 Fique em casa, se possível isolado em um cômodo, use máscara na presença dos outros habitantes da casa e não partilhe nenhum objeto de uso pessoal (talheres, toalhas, lençóis, escova de dentes, etc.). Desinfete frequentemente superfícies comuns como maçanetas de portas.
                 Se sentir falta de ar, muito cansaço e/ou febre alta, procure atendimento médico. 
-                Mantenha o isolamento por 14 dias ou até ser liberado por uma autoridade de Saúde.
+               
                 
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
+
+                {/*
                 <IonSlide>
                 <IonToolbar color="white">
                 <div id="header-items">
@@ -417,7 +467,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={covid_7} className={"img-slides"}/>
+                <img src={covid_7} className={"img-slides"} alt={"Mão do mascote do Regente matutino, em cor laranja, segurando uma vacina."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -436,7 +486,7 @@ const Recommendation: React.FC = () => {
                 
                 </p> : <p></p>
                 }<br/>
-                </IonSlide>
+              </IonSlide> */}
             </IonSlides>
           </IonContent>
       </IonModal>
@@ -457,19 +507,22 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                 <img src={bons_habitos1} className={"img-slides"}/>
+                 <img src={bons_habitos1} className={"img-slides"} alt={"Rádio azul desconectado da tomada."}/>
                  <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-forward"} onClick={handleNext2}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
                 </p>
                 </div>
                 <br/>
-                 <p className={"main-text"}>Não fique ouvindo notícias o tempo todo.</p>
+                 <p className={"main-text"}>Evite o excesso de informação.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos1(!saibaMaisBonsHabitos1)}}>{saibaMaisTextBonsHabitos1}</IonButton>
                 
                 {saibaMaisBonsHabitos1 ? 
-                <p className={"readMore-text"}>Não fique ouvindo notícias o tempo todo. Faça pausas longe do jornal, rádio, TV ou mídias sociais. Para saber mais, clique <a target="_blank" href="https://www.youtube.com/watch?v=X6FOPoZNMVo" className={"link-text"}>aqui</a>.
+                <p className={"readMore-text"}>A informação em excesso pode provocar
+                estresse ou ansiedade. Não fique ouvindo
+                notícias o tempo todo. Faça pausas longe do
+                jornal, rádio, TV ou mídias sociais.
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
@@ -482,7 +535,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos2} className={"img-slides"}/>
+                <img src={bons_habitos2} className={"img-slides"} alt={"Mascote do Regente intermediário sentado de olhos fechados e em uma posição de meditação."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -508,7 +561,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos3} className={"img-slides"}/>
+                <img src={bons_habitos3} className={"img-slides"} alt={"Mascote do Regente matutino sentado lendo um livro enquanto escuta música nos seus fones de ouvidos."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -521,7 +574,11 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos3(!saibaMaisBonsHabitos3)}}>{saibaMaisTextBonsHabitos3}</IonButton>
                 
                 {saibaMaisBonsHabitos3 ? 
-                <p className={"readMore-text"}>Faça uma lista de possíveis atividades de lazer que você possa fazer e defina em quais momentos da sua semana que você vai realizar essas atividades que você gosta. Programe-se para reservar esse tempo na sua rotina e crie horários específicos para esses momentos.
+                <p className={"readMore-text"}>Faça uma lista de atividades de lazer
+                que gostaria de fazer e defina em quais
+                momentos da semana você vai realizá-las.
+                Reserve esse tempo na sua rotina e crie
+                horários específicos para esses momentos.
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
@@ -534,7 +591,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos4} className={"img-slides"}/>
+                <img src={bons_habitos4} className={"img-slides"} alt={"Mascote do Regente matutino preparando-se para atividades físicas. Ele está usando uma testeira branca com vermelho."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -547,7 +604,17 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos4(!saibaMaisBonsHabitos4)}}>{saibaMaisTextBonsHabitos4}</IonButton>
                 
                 {saibaMaisBonsHabitos4 ? 
-                <p className={"readMore-text"}>Exercícios físicos melhoram a saúde de uma forma geral. As evidências mostram que 30 minutos de exercícios físicos já podem ser benéficos, desde que seja regular (idealmente 5 vezes na semana). Reserve horários específicos para se exercitar para que a prática faça parte da sua rotina. Praticar uma atividade física em casa é sempre uma opção, e você também pode convidar alguém para praticar junto para ajudar na motivação.
+                <p className={"readMore-text"}>Exercícios físicos melhoram a saúde de uma
+                forma geral. As evidências mostram que
+                30 minutos de exercícios físicos já podem
+                ser benéficos, desde que sejam realizados
+                regularmente (idealmente 5 vezes na
+                semana). Reserve horários específicos para
+                se exercitar para que a prática faça parte
+                da sua rotina. Praticar uma atividade física
+                em casa também é uma opção. Além disso,
+                você também pode convidar alguém para
+                praticarem juntos, ajudando na motivação.
 
                 </p> : <p></p>
                 }<br/>
@@ -561,7 +628,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos7} className={"img-slides"}/>
+                <img src={bons_habitos7} className={"img-slides"} alt={"Ilustração com dois mascotes do Regente intermediários, de cor azul claro. Um está na esquerda e o outro está na direita, em uma comparação. O da direita está com uma postura torta, e acima dele um X em vermelho. O da esquerda está com uma postura reta e acima dele um sinal correto em verde."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -587,7 +654,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos5} className={"img-slides"}/>
+                <img src={bons_habitos5} className={"img-slides"} alt={"Mão do mascote do Regente vespertino, em cor azul escuro, segurando uma escova de dentes."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -613,7 +680,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-                <img src={bons_habitos6} className={"img-slides"}/>
+                <img src={bons_habitos6} className={"img-slides"} alt={"Uma maçã vermelha mordida."}/>
                 <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious2}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -652,7 +719,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-               <img src={sono1} className={"img-slides"}/>
+               <img src={sono1} className={"img-slides"} alt={"Ilustração do sol com a cara do mascote do Regente matutino, em cor laranja, sorrindo."}/>
                <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-forward"} onClick={handleNext3}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
@@ -664,7 +731,13 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono1(!saibaMaisSono1)}}>{saibaMaisTextSono1}</IonButton>
                 
                 {saibaMaisSono1 ? 
-                <p className={"readMore-text"}>Se você puder, exponha-se à luz natural durante a manhã. Claro, lembrando de evitar se expor diretamente ao sol em horários pouco saudáveis para a pele (entre 9h e 15h, quando o sol é muito forte). Mantenha as janelas abertas e fique perto da janela. Se sua casa lhe proporciona essa opção, passe um tempo em um ambiente aberto, mesmo que na sombra e mesmo que o dia esteja nublado. Pense em como a iluminação é diferente dentro e fora de casa.
+                <p className={"readMore-text"}>Se você puder, exponha-se à luz natural durante a
+                manhã. Claro, lembrando-se de evitar a exposição
+                direta ao sol em horários pouco saudáveis para a
+                pele (entre 9h e 15h, quando o sol é muito forte).
+                Mantenha as janelas abertas e fique perto delas. Se possível, passe um tempo em um
+                ambiente aberto, mesmo que na sombra ou que o dia esteja nublado. Pense em como a
+                iluminação é diferente dentro e fora de casa.
 
                 </p> : <p></p>
                 }<br/>
@@ -678,7 +751,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono2} className={"img-slides"}/>
+              <img src={sono2} className={"img-slides"} alt={" Mão do mascote do Regente vespertino, em cor azul escuro, puxando a corda para apagar a luz de um lustre."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -691,7 +764,15 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono2(!saibaMaisSono2)}}>{saibaMaisTextSono2}</IonButton>
                 
                 {saibaMaisSono2 ? 
-                <p className={"readMore-text"}>Se você ficar na frente da tela de aparelhos eletrônicos (televisão, celular e computador, por exemplo) ou se a luz que estiver ligada for branca e forte, seu corpo vai entender que é “ainda é cedo - não é hora de dormir”, principalmente se durante o dia você nem viu a luz do sol. Se você precisa ligar as luzes após anoitecer, estabeleça um horário padrão aproximado para desligar as luzes todos os dias. Se não for possível desligar, procure por iluminação de coloração amarelada ou avermelhada (e não branca ou azulada).
+                <p className={"readMore-text"}>Se você ficar na frente da tela de aparelhos eletrônicos
+                (televisão, celular e computador, por exemplo) ou se a luz
+                que estiver ligada for branca e forte, seu corpo vai entender
+                que “ainda é cedo - não é hora de dormir”, principalmente se
+                durante o dia você nem viu a luz do sol. Se você precisa ligar as
+                luzes após anoitecer, estabeleça um horário padrão aproximado
+                para desligar as luzes todos os dias. Se não for possível
+                desligar, procure por iluminação de coloração amarelada ou
+                avermelhada (e não branca ou azulada).
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -704,7 +785,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono3} className={"img-slides"}/>
+              <img src={sono3} className={"img-slides"} alt={"Máscara de dormir com a cara do mascote Regente vespertino, em azul escuro, tapando a tela frontal do celular"}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -717,7 +798,10 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono3(!saibaMaisSono3)}}>{saibaMaisTextSono3}</IonButton>
                 
                 {saibaMaisSono3 ? 
-                <p className={"readMore-text"}>A situação em que estamos pode provocar aumento expressivo do tempo passado na frente de telas: seja pelo trabalho ser agora todo realizado de casa, pelas reuniões de amigos que agora são por vídeo-chamada, ou maratonas de seriados em serviços de streaming. No final do dia, a luz azul das telas dificulta o “desligar” do nosso organismo. Ela, por exemplo, inibe a produção de melatonina, o hormônio que sinaliza para nosso corpo que é escuro e, portanto, nossa hora de repouso.
+                <p className={"readMore-text"}>Atualmente passamos mais tempo na frente de telas, seja
+                por trabalho, comunicação ou lazer. No final do dia, a luz azul
+                das telas dificulta o “desligar” do nosso organismo e pode
+                atrapalhar o sono.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -730,7 +814,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono4} className={"img-slides"} />
+              <img src={sono4} className={"img-slides"} alt={"Tela do celular amarelada, com a cara do mascote Regente na tela."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -743,7 +827,12 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono4(!saibaMaisSono4)}}>{saibaMaisTextSono4}</IonButton>
                 
                 {saibaMaisSono4 ? 
-                <p className={"readMore-text"}>Caso largar as telas à noite seja difícil, o uso de aplicativos como nightshift, f.lux (IOS) e Twilight (Android), que deixam a luz ‘amarelada’ à noite são uma ótima ideia! Nosso relógio é muito responsivo à luz azul/branca. A luz menos azulada não tem a mesma capacidade de interferir com o relógio biológico.
+                <p className={"readMore-text"}>Caso não utilizar as telas à noite seja difícil, o uso
+                de aplicativos como nightshift, f.lux (IOS) e Twilight
+                (Android), que deixam a luz ‘amarelada’ à noite é uma
+                ótima ideia! Nosso relógio é muito responsivo à luz
+                azul/branca. A luz menos azulada não tem a mesma
+                capacidade de interferir com o relógio biológico.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -756,7 +845,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono5} className={"img-slides"}/>
+              <img src={sono5} className={"img-slides"} alt={"Lista de afazeres com três itens. Os 3 primeiros itens estão marcados como feitos."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -769,7 +858,7 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono5(!saibaMaisSono5)}}>{saibaMaisTextSono5}</IonButton>
                 
                 {saibaMaisSono5 ? 
-                <p className={"readMore-text"}>Você sabe qual é o seu cronotipo? Preenchendo o questionário, você pode ler um pouco a respeito e tentar identificá-lo. Se você puder, organize seu horário de trabalho e sua rotina pensando nele: durma o suficiente e esqueça o despertador. Só não se esqueça da importância de manter a regularidade e de evitar prolongar atividades à noite - em especial, com a luz ligada e com o uso de telas! - quando seu relógio está sinalizando que é hora de dormir.
+                <p className={"readMore-text"}>Você sabe qual é o seu cronotipo? Preenchendo o questionário na página inicial e participando da pesquisa, você pode ler um pouco a respeito e tentar identificá-lo. Se você puder, organize seu horário de trabalho e sua rotina pensando nele: durma o suficiente e esqueça o despertador. Só não se esqueça da importância de manter a regularidade e de evitar prolongar atividades à noite - em especial, com a luz ligada e com o uso de telas! - quando seu relógio está sinalizando que é hora de dormir.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -782,7 +871,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono6} className={"img-slides"}/>
+              <img src={sono6} className={"img-slides"} alt={"Mão do mascote do Regente vespertino, em cor azul claro, com um relógio."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -795,7 +884,9 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono6(!saibaMaisSono6)}}>{saibaMaisTextSono6}</IonButton>
                 
                 {saibaMaisSono6 ? 
-                <p className={"readMore-text"}>Seja nos seus horários de dormir e acordar, de trabalho-lazer ou de alimentação, a consistência parece ser essencial para ter um relógio biológico e uma vida saudáveis.
+                <p className={"readMore-text"}>Seja nos seus horários de dormir e acordar, de trabalho-lazer ou de
+                alimentação, a consistência parece ser essencial para ter um relógio biológico
+                e uma vida saudáveis.
 
                 </p> : <p></p>
                 }<br/>
@@ -809,7 +900,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono7} className={"img-slides"}/>
+              <img src={sono7} className={"img-slides"} alt={"Mascote do Regente intermediário, em cor azul claro, de olhos fechados segurando um ursinho de pelúcia."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -822,7 +913,10 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono7(!saibaMaisSono7)}}>{saibaMaisTextSono7}</IonButton>
                 
                 {saibaMaisSono7 ? 
-                <p className={"readMore-text"}>Com a maior liberdade para escolher seus horários, é possível que os cochilos durante o dia se tornem mais frequentes, especialmente depois do almoço. No entanto, se você consegue dormir o suficiente à noite, procure não cochilar por períodos muito prolongados ou perto da hora em que você costuma ir dormir, já que isso pode dificultar o início do sono à noite.
+                <p className={"readMore-text"}>Procure não cochilar por períodos muito
+                prolongados ou perto da hora em que você
+                costuma ir dormir, já que isso pode dificultar
+                o início do sono.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -835,7 +929,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono8} className={"img-slides"}/>
+              <img src={sono8} className={"img-slides"} alt={"Mascote do Regente vespertino deitado e com um cobertor na cama ."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -848,7 +942,12 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono8(!saibaMaisSono8)}}>{saibaMaisTextSono8}</IonButton>
                 
                 {saibaMaisSono8 ? 
-                <p className={"readMore-text"}>Pensar em problemas ou em tarefas pode fazer com que seja mais difícil pegar no sono. Esse comportamento é comumente associado à insônia. Tente ir dormir só quando estiver com sono e, ao deitar, tente pensar em coisas agradáveis.
+                <p className={"readMore-text"}>Pensar em problemas ou em tarefas pode
+                fazer com que seja mais difícil pegar no
+                sono. Esse comportamento é comumente
+                associado à insônia. Tente ir dormir só
+                quando estiver com sono e, ao deitar, tente
+                pensar em coisas agradáveis.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -861,7 +960,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono9} className={"img-slides"}/>
+              <img src={sono9} className={"img-slides"} alt={"Ilustração de um ursinho de pelúcia na frente de um travesseiro azul."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -869,13 +968,19 @@ const Recommendation: React.FC = () => {
                 </p>
                 </div>
                 <br/>
-              <p className={"main-text"}>Torne o seu quarto um ambiente que facilite o sono.</p>
+              <p className={"main-text"}>Torne o local em que você dorme um ambiente que facilite o sono.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono9(!saibaMaisSono9)}}>{saibaMaisTextSono9}</IonButton>
                 
                 {saibaMaisSono9 ? 
-                <p className={"readMore-text"}>Torne o ambiente em que dorme tão confortável quanto possível. Um ambiente escuro, quieto, com temperatura agradável e com ventilação adequada podem ajudá-lo a ter uma melhor noite de sono. 
-                Caso seja impossível bloquear o barulho que vem da rua, um ruído constante que mascare os demais pode ajudar.
+                <p className={"readMore-text"}>Torne o ambiente em que dorme tão
+                confortável quanto possível. Um ambiente
+                escuro, quieto, com temperatura agradável
+                e com ventilação adequada podem ajudá-lo
+                a ter uma melhor noite de sono. Caso seja
+                impossível bloquear o barulho que vem da
+                rua, o uso de tampões ou um ruído constante
+                que mascare os demais pode ajudar.
                 
                 </p> : <p></p>
                 }<br/>
@@ -889,7 +994,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono10} className={"img-slides"}/>
+              <img src={sono10} className={"img-slides"} alt={"Ilustração de um relógio, em azul claro, com um hambúrguer no fundo."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -902,7 +1007,13 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono10(!saibaMaisSono10)}}>{saibaMaisTextSono10}</IonButton>
                 
                 {saibaMaisSono10 ? 
-                <p className={"readMore-text"}>Tanto comer alimentos pesados, quanto ir para cama com fome pode prejudicar a qualidade do sono de algumas pessoas. Alimentos pesados exigem do seu organismo  tempo e esforço para digeri-los e metabolizá-los. Portanto, não deixe para comer muito tarde e prefira alimentos leves.
+                <p className={"readMore-text"}>Tanto comer alimentos pesados, quanto
+                ir para cama com fome pode prejudicar a
+                qualidade do sono de algumas pessoas.
+                Alimentos pesados exigem do seu organismo
+                tempo e esforço para digeri-los e metabolizá-
+                los. Portanto, não deixe para comer muito
+                tarde e prefira alimentos leves à noite.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -915,7 +1026,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono11} className={"img-slides"}/>
+              <img src={sono11} className={"img-slides"} alt={"Ilustração de uma caneca azul escura, com o rosto do mascote do Regente vespertino estampado, cheia de café."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -928,7 +1039,13 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisSono11(!saibaMaisSono11)}}>{saibaMaisTextSono11}</IonButton>
                 
                 {saibaMaisSono11 ? 
-                <p className={"readMore-text"}>Algumas substâncias podem  manter acordado ou alterar o sono de certas pessoas por ativarem certos sistemas neurobiológicos. Por isso, é recomendado evitar cafeína (café, chimarrão, ...), nicotina e álcool perto do horário de dormir. O álcool, apesar de inicialmente induzir sonolência, perturba e fragmenta o sono, em especial na segunda metade da noite.
+                <p className={"readMore-text"}>Existem substâncias que podem manter
+                algumas pessoas acordadas ou alterar seu
+                sono. Por isso, é recomendado evitar cafeína
+                (café, chimarrão, ...), nicotina e álcool perto do
+                horário de dormir. O álcool, apesar de induzir
+                sonolência, perturba e fragmenta o sono, em
+                especial na segunda metade da noite.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -941,7 +1058,7 @@ const Recommendation: React.FC = () => {
                  
                 </div>   
                 </IonToolbar>
-              <img src={sono12} className={"img-slides"}/>
+              <img src={sono12} className={"img-slides"} alt={"Mascote do Regente matutino, em cor laranja, pulando corda com uma testeira branca e vermelha. Ele está feliz."}/>
               <div className={"arrows-recommendations ion-no-padding"}>
                 <p>
                 <IonButton  className={"arrow-back"} onClick={handlePrevious3}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>  
@@ -949,12 +1066,18 @@ const Recommendation: React.FC = () => {
                 </p>
                 </div>
                 <br/>
-              <p className={"main-text"}>Planeje os horários dos seus exercícios considerando seu sono.</p>
+              <p className={"main-text"}>Planeje os horários dos seus exercícios considerando sua hora de dormir.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear"onClick={()=>{setSaibaMaisSono12(!saibaMaisSono12)}}>{saibaMaisTextSono12}</IonButton>
                 
                 {saibaMaisSono12 ? 
-                <p className={"readMore-text"}>Para uma noite de sono ótima, evitar exercícios intensos perto da hora de dormir pode ser uma boa recomendação para a maioria das pessoas. Entretanto, o efeito do exercício à noite é diferente para cada pessoa, portanto, descubra os horários que funcionam melhor para você.
+                <p className={"readMore-text"}>Para uma melhor noite de sono, evitar
+                exercícios intensos perto da hora de dormir
+                pode ser uma boa recomendação para a
+                maioria. Entretanto, o efeito do exercício à
+                noite pode ser diferente para cada pessoa.
+                Portanto, descubra os horários que funcionam
+                melhor para você.
                 </p> : <p></p>
                 }<br/>
               </IonSlide>
@@ -991,16 +1114,20 @@ const Recommendation: React.FC = () => {
       </div>
      
         <div>
-            <img src={logo_crono} width="120px" height="140px"/>
-            <img src={logo_clinicas} width="120px" height="140px"/>
-            <img src={logo_innovaspace} width="120px" height="140px"/>
-            <img src={logo_neurobio} width="120px" height="140px"/>
+            <img src={logo_crono} alt={"Logo do Laboratório de Cronobiologia e Sono - UFRGS/HCPA."} width="120px" height="140px"/>
+            <img src={logo_clinicas} alt={"Logo do Hospital de Clínicas de Porto Alegre - HCPA."} width="120px" height="140px"/>
+            <img src={logo_innovaspace} alt={"Logo do InnovaSpace."} width="120px" height="140px"/>
+            <img src={logo_neurobio} alt={"Logo do Laboratório de Neurobiologia da Pineal."} width="120px" height="140px"/>
             </div>
             <div>
-            <img src={logo_nnnesp} width="120px" height="140px"/>
-            <img src={logo_ufrgs} width="120px" height="140px"/>
-            <img src={logo_unifesp} width="120px" height="140px"/>
+            <img src={logo_nnnesp} alt={"Logo do Laboratório de Neurofisiologia e Neuroquímica da Excitabilidade Neuronal e Plasticidade Sináptica - UFRGS"} width="120px" height="140px"/>
+            <img src={logo_ufrgs} alt={"Logo da Universidade Federal do Rio Grande do Sul- UFRGS."} width="120px" height="140px"/>
+            <img src={logo_unifesp} alt={"Logo da Universidade Federal de São Paulo - UNIFESP."} width="120px" height="140px"/>
             
+        </div>
+
+        <div className="texto-padrao-email">
+          Sugestões e contato através do e-mail: <a className={"link"}> regenteapp@gmail.com </a>
         </div>
       
       </div>

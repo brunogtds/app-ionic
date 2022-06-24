@@ -18,6 +18,9 @@
     stroke: #F58B44;
   }
 
+ 
+  
+
   .circle-progress-bar{
     width: 100%;
     /*
@@ -34,6 +37,8 @@
   .circle-progress-bar-trail {
     stroke: #F58B44;
   }
+
+ 
 
   .circle-progress-bar-div{
       display: block;

@@ -54,6 +54,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { buildStyles } from 'react-circular-progressbar';
 
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 import 'react-circular-progressbar/dist/styles.css';
 import './ProgressBar.css'
 
@@ -113,10 +115,10 @@ const CalendarPage= (props: StepComponentProps) => {
       const dataMeta03Coleta03= data2.meta03Coleta03;
 
       //display meta -> 1 === uma meta na primeira coleta
-      //display meta -> 2 === meta principal segunda coleta + segunda meta segunda coleta
-      //display meta -> 3 === meta principal sem segunda meta na segunda coleta
-      //display meta -> 4 === meta principal terceira coleta + segunda meta e terceira meta terceira coleta
-      //display meta -> 5 === meta principal terceira coleta sem segunda e terceira meta na terceira coleta
+      //display meta -> 2 === histórico da primeira coleta (1) + meta principal segunda coleta + segunda meta segunda coleta 
+      //display meta -> 3 === histórico da primeira coleta (1) + meta principal sem segunda meta na segunda coleta
+      //display meta -> 4 === histórico da primeira e segunda coleta (2) + meta principal terceira coleta + segunda meta e terceira meta terceira coleta
+      //display meta -> 5 === histórico da primeira e segunda coleta (3) + meta principal terceira coleta sem segunda e terceira meta na terceira coleta
 
       if ((dataMeta01Coleta01 === undefined)){
         setMetaText("Você não definiu nenhuma meta...")
@@ -479,6 +481,121 @@ const CalendarPage= (props: StepComponentProps) => {
     setShowModalProgresso(true);
   }
 
+  
+  
+  let metaShare01 = 0;
+  function socialSharingMeta01() {
+
+    /*
+    1:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Praticar exercícios físicos”.
+
+    2:
+	  alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Fazer refeições no mesmo horário”.
+
+    3:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Expor-se à luz natural da manhã”.
+
+    4:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Ir dormir no mesmo horário”.
+ 
+    */
+
+    if (meta01 === "exercicio"){
+      metaShare01 = 1;
+    } 
+    if (meta01 === "alimentação"){
+      metaShare01 = 2;
+    } 
+    if (meta01 === "luz"){
+      metaShare01 = 3;
+    } 
+    if (meta01 === "sono"){
+      metaShare01 = 4;
+    }
+       
+    const imgs = ['https://i.imgur.com/eDpcNGK.png', 'https://i.imgur.com/dT7VSaI.png', 'https://i.imgur.com/owdP1zf.png', 'https://i.imgur.com/wsAE7Q2.png'];
+    const index =  metaShare01 - 1;
+    
+    SocialSharing.share('', '', imgs[index]);
+   }
+
+   
+  let metaShare02 = 0;
+  function socialSharingMeta02() {
+
+    /*
+    1:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Praticar exercícios físicos”.
+
+    2:
+	  alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Fazer refeições no mesmo horário”.
+
+    3:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Expor-se à luz natural da manhã”.
+
+    4:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Ir dormir no mesmo horário”.
+ 
+    */
+
+    if (meta02 === "exercicio"){
+      metaShare02 = 1;
+    } 
+    if (meta02 === "alimentação"){
+      metaShare02 = 2;
+    } 
+    if (meta02 === "luz"){
+      metaShare02 = 3;
+    } 
+    if (meta02 === "sono"){
+      metaShare02 = 4;
+    }
+       
+    const imgs = ['https://i.imgur.com/eDpcNGK.png', 'https://i.imgur.com/dT7VSaI.png', 'https://i.imgur.com/owdP1zf.png', 'https://i.imgur.com/wsAE7Q2.png'];
+    const index =  metaShare02 - 1;
+    
+    SocialSharing.share('', '', imgs[index]);
+   }
+
+   let metaShare03 = 0;
+  function socialSharingMeta03() {
+
+    /*
+    1:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Praticar exercícios físicos”.
+
+    2:
+	  alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Fazer refeições no mesmo horário”.
+
+    3:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Expor-se à luz natural da manhã”.
+
+    4:
+    alt: Troféu no formato do Mascote do Regente com o texto “Parabéns! Você atingiu sua meta. Ir dormir no mesmo horário”.
+ 
+    */
+
+    if (meta04 === "exercicio"){
+      metaShare03 = 1;
+    } 
+    if (meta04 === "alimentação"){
+      metaShare03 = 2;
+    } 
+    if (meta04 === "luz"){
+      metaShare03 = 3;
+    } 
+    if (meta04 === "sono"){
+      metaShare03 = 4;
+    }
+       
+    const imgs = ['https://i.imgur.com/eDpcNGK.png', 'https://i.imgur.com/dT7VSaI.png', 'https://i.imgur.com/owdP1zf.png', 'https://i.imgur.com/wsAE7Q2.png'];
+    const index =  metaShare03 - 1;
+    
+    SocialSharing.share('', '', imgs[index]);
+   }
+
+
 
     const history= useHistory();
     const [value, onChange] = useState(new Date());
@@ -531,7 +648,7 @@ const CalendarPage= (props: StepComponentProps) => {
 
                     </IonToolbar>
                    
-                    <p><img src={matutino_wave} className="img-modal-calendar" /> </p>
+                    <p><img src={matutino_wave} className="img-modal-calendar" alt={"Mascote do Regente matutino, em cor laranja, sorrindo e abanando."} /> </p>
                    
                    <div className={"goals"}>
                      <p>Clique no botão indicando sua meta!</p>
@@ -548,6 +665,9 @@ const CalendarPage= (props: StepComponentProps) => {
                    {metaDaily >= freqMeta01 ? <p>Parabéns, você completou sua meta! Na segunda etapa da pesquisa você poderá escolher mais metas.</p>  :null }
                   </p> :null} 
                    
+
+                  {/* */}
+
                    {displayMeta === 2 ? 
                    <p>
                    {freqMeta02 > meta02Daily ?  <IonButton className={"button-control"} disabled={meta02Daily > freqMeta02} onClick={updateMeta02Daily}>Meta principal</IonButton>  :null}
@@ -689,8 +809,38 @@ const CalendarPage= (props: StepComponentProps) => {
                     </CircularProgressbarWithChildren>
                     </div> </p>:null}
 
+                    {displayMeta === 1 ? <p>
+                      <div className={"goals"}>
+                    <IonButton disabled={freqMeta01 > metaDaily} color="orange"  className={"btnAnterior"} onClick={socialSharingMeta01} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+                    </div> </p>:null}
                    {/* ------------------- CENÁRIO 2 ------------------- 
                      ------------------- ------------------- ------------------- */}
+
+
+                  {displayMeta === 2  ? <p>
+                  <div className={"goals"}>
+                    <p>{meta01}{freqMeta01Text}</p>
+                   </div>
+                    <div className={"circle-progress-bar-div"}>
+                    <CircularProgressbarWithChildren className={"circle-progress-bar"} value={metaDaily} maxValue={freqMeta01} background={true}
+                    styles={buildStyles({ 
+
+                      pathColor: '#F58B44',
+                      backgroundColor: '#f2b546',
+                      trailColor: '#f2b546'
+                    })}
+                    >
+                      
+                      <div>
+                        <img style={{ width: 50, marginTop: -5 }} src={mascote_progress_bar} className={"mascote-circular-progress"}/> 
+                      </div>
+                      <div style={{ fontSize: 16, marginTop: -5 }}>
+                       {`${((metaDaily * 100)/freqMeta01).toFixed(2)}%`}
+                      </div>
+
+                    </CircularProgressbarWithChildren>
+                    </div> </p>:null}
+
 
                     {displayMeta === 2 ? <p>
 
@@ -699,10 +849,10 @@ const CalendarPage= (props: StepComponentProps) => {
                       </div>
                    
                    <div className={"circle-progress-bar-div"}>
-                   <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta02Daily} maxValue={freqMeta02} background={true}
+                   <CircularProgressbarWithChildren className={"circle-progress-bar circle2-trail"} value={meta02Daily} maxValue={freqMeta02} background={true}
                    styles={buildStyles({ 
 
-                     pathColor: '#F58B44',
+                     pathColor: '#59a3df',
                      backgroundColor: '#f2b546',
                      trailColor: '#f2b546'
                    })}
@@ -729,7 +879,7 @@ const CalendarPage= (props: StepComponentProps) => {
                       <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta03Daily} maxValue={freqMeta03} background={true}
                       styles={buildStyles({ 
 
-                      pathColor: '#F58B44',
+                      pathColor: '#59a3df',
                       backgroundColor: '#f2b546',
                       trailColor: '#f2b546'
                       })}
@@ -747,8 +897,37 @@ const CalendarPage= (props: StepComponentProps) => {
 
                       </p> :null}
 
+                      {displayMeta === 2 ? <p>
+                      <div className={"goals"}>
+                    <IonButton disabled={freqMeta01 > metaDaily} color="orange"  className={"btnAnterior"} onClick={socialSharingMeta02} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+                    </div> </p>:null}
+
                       {/* ------------------- CENÁRIO 3 ------------------- 
                      ------------------- ------------------- ------------------- */}
+
+                  {displayMeta === 3  ? <p>
+                  <div className={"goals"}>
+                    <p>{meta01}{freqMeta01Text}</p>
+                   </div>
+                    <div className={"circle-progress-bar-div"}>
+                    <CircularProgressbarWithChildren className={"circle-progress-bar"} value={metaDaily} maxValue={freqMeta01} background={true}
+                    styles={buildStyles({ 
+
+                      pathColor: '#F58B44',
+                      backgroundColor: '#f2b546',
+                      trailColor: '#f2b546'
+                    })}
+                    >
+                      
+                      <div>
+                        <img style={{ width: 50, marginTop: -5 }} src={mascote_progress_bar} className={"mascote-circular-progress"}/> 
+                      </div>
+                      <div style={{ fontSize: 16, marginTop: -5 }}>
+                       {`${((metaDaily * 100)/freqMeta01).toFixed(2)}%`}
+                      </div>
+
+                    </CircularProgressbarWithChildren>
+                    </div> </p>:null}
 
                       {displayMeta === 3 ? <p>
                         <div className={"goals"}>
@@ -759,7 +938,7 @@ const CalendarPage= (props: StepComponentProps) => {
                       <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta02Daily} maxValue={freqMeta02} background={true}
                       styles={buildStyles({ 
 
-                      pathColor: '#F58B44',
+                      pathColor: '#59a3df',
                       backgroundColor: '#f2b546',
                       trailColor: '#f2b546'
                       })}
@@ -777,8 +956,93 @@ const CalendarPage= (props: StepComponentProps) => {
 
                       </p> :null}
 
+                      {displayMeta === 3 ? <p>
+                      <div className={"goals"}>
+                    <IonButton disabled={freqMeta01 > metaDaily} color="orange"  className={"btnAnterior"} onClick={socialSharingMeta02} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+                    </div> </p>:null}
+
                       {/* ------------------- CENÁRIO 4 ------------------- 
                      ------------------- ------------------- ------------------- */}
+
+                  {displayMeta === 4  ? <p>
+                  <div className={"goals"}>
+                    <p>{meta01}{freqMeta01Text}</p>
+                   </div>
+                    <div className={"circle-progress-bar-div"}>
+                    <CircularProgressbarWithChildren className={"circle-progress-bar"} value={metaDaily} maxValue={freqMeta01} background={true}
+                    styles={buildStyles({ 
+
+                      pathColor: '#F58B44',
+                      backgroundColor: '#f2b546',
+                      trailColor: '#f2b546'
+                    })}
+                    >
+                      
+                      <div>
+                        <img style={{ width: 50, marginTop: -5 }} src={mascote_progress_bar} className={"mascote-circular-progress"}/> 
+                      </div>
+                      <div style={{ fontSize: 16, marginTop: -5 }}>
+                       {`${((metaDaily * 100)/freqMeta01).toFixed(2)}%`}
+                      </div>
+
+                    </CircularProgressbarWithChildren>
+                    </div> </p>:null}
+
+
+                    {displayMeta === 4 ? <p>
+
+                       <div className={"goals"}>
+                      <p>{meta02}{freqMeta02Text}</p>
+                      </div>
+                   
+                   <div className={"circle-progress-bar-div"}>
+                   <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta02Daily} maxValue={freqMeta02} background={true}
+                   styles={buildStyles({ 
+
+                     pathColor: '#59a3df',
+                     backgroundColor: '#f2b546',
+                     trailColor: '#f2b546'
+                   })}
+                   >
+                     
+                     <div>
+                       <img style={{ width: 50, marginTop: -5 }} src={mascote_progress_bar} className={"mascote-circular-progress"}/> 
+                     </div>
+                     <div style={{ fontSize: 16, marginTop: -5 }}>
+                      {`${((meta02Daily * 100)/freqMeta02).toFixed(2)}%`}
+                     </div>
+
+                   </CircularProgressbarWithChildren>
+                   </div>
+
+                    </p> :null}
+
+                    {displayMeta === 4 ? <p>
+                      <div className={"goals"}>
+                      <p>{meta03}{freqMeta03Text}</p>
+                      </div>
+
+                      <div className={"circle-progress-bar-div"}>
+                      <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta03Daily} maxValue={freqMeta03} background={true}
+                      styles={buildStyles({ 
+
+                      pathColor: '#59a3df',
+                      backgroundColor: '#f2b546',
+                      trailColor: '#f2b546'
+                      })}
+                      >
+
+                      <div>
+                      <img style={{ width: 50, marginTop: -5 }} src={mascote_progress_bar} className={"mascote-circular-progress"}/> 
+                      </div>
+                      <div style={{ fontSize: 16, marginTop: -5 }}>
+                      {`${((meta03Daily * 100)/freqMeta03).toFixed(2)}%`}
+                      </div>
+
+                      </CircularProgressbarWithChildren>
+                      </div>
+
+                      </p> :null}
 
                       {displayMeta === 4 ? <p>
                         <div className={"goals"}>
@@ -789,7 +1053,7 @@ const CalendarPage= (props: StepComponentProps) => {
                       <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta04Daily} maxValue={freqMeta04} background={true}
                       styles={buildStyles({ 
 
-                      pathColor: '#F58B44',
+                      pathColor: '#2d4b87',
                       backgroundColor: '#f2b546',
                       trailColor: '#f2b546'
                       })}
@@ -816,7 +1080,7 @@ const CalendarPage= (props: StepComponentProps) => {
                       <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta05Daily} maxValue={freqMeta05} background={true}
                       styles={buildStyles({ 
 
-                      pathColor: '#F58B44',
+                      pathColor: '#2d4b87',
                       backgroundColor: '#f2b546',
                       trailColor: '#f2b546'
                       })}
@@ -839,11 +1103,11 @@ const CalendarPage= (props: StepComponentProps) => {
                       <p>{meta06}{freqMeta06Text}</p>
                       </div>
 
-                      <div className={"circle-progress-bar-div"}>
+                      <div className={"circle-progress-bar-div "}>
                       <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta06Daily} maxValue={freqMeta06} background={true}
                       styles={buildStyles({ 
 
-                      pathColor: '#F58B44',
+                      pathColor: '#2d4b87',
                       backgroundColor: '#f2b546',
                       trailColor: '#f2b546'
                       })}
@@ -861,8 +1125,65 @@ const CalendarPage= (props: StepComponentProps) => {
 
                       </p> :null}
 
+                      {displayMeta === 4 ? <p>
+                      <div className={"goals"}>
+                    <IonButton disabled={freqMeta01 > metaDaily} color="orange"  className={"btnAnterior"} onClick={socialSharingMeta03} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+                    </div> </p>:null}
+
                        {/* ------------------- CENÁRIO 5 ------------------- 
                      ------------------- ------------------- ------------------- */}
+
+                  {displayMeta === 5  ? <p>
+                  <div className={"goals"}>
+                    <p>{meta01}{freqMeta01Text}</p>
+                   </div>
+                    <div className={"circle-progress-bar-div"}>
+                    <CircularProgressbarWithChildren className={"circle-progress-bar"} value={metaDaily} maxValue={freqMeta01} background={true}
+                    styles={buildStyles({ 
+
+                      pathColor: '#F58B44',
+                      backgroundColor: '#f2b546',
+                      trailColor: '#f2b546'
+                    })}
+                    >
+                      
+                      <div>
+                        <img style={{ width: 50, marginTop: -5 }} src={mascote_progress_bar} className={"mascote-circular-progress"}/> 
+                      </div>
+                      <div style={{ fontSize: 16, marginTop: -5 }}>
+                       {`${((metaDaily * 100)/freqMeta01).toFixed(2)}%`}
+                      </div>
+
+                    </CircularProgressbarWithChildren>
+                    </div> </p>:null}
+
+                      {displayMeta === 5 ? <p>
+                        <div className={"goals"}>
+                      <p>{meta02}{freqMeta02Text}</p>
+                      </div>
+
+                      <div className={"circle-progress-bar-div"}>
+                      <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta02Daily} maxValue={freqMeta02} background={true}
+                      styles={buildStyles({ 
+
+                      pathColor: '#59a3df',
+                      backgroundColor: '#f2b546',
+                      trailColor: '#f2b546'
+                      })}
+                      >
+
+                      <div>
+                      <img style={{ width: 50, marginTop: -5 }} src={mascote_progress_bar} className={"mascote-circular-progress"}/> 
+                      </div>
+                      <div style={{ fontSize: 16, marginTop: -5 }}>
+                      {`${((meta02Daily * 100)/freqMeta02).toFixed(2)}%`}
+                      </div>
+
+                      </CircularProgressbarWithChildren>
+                      </div>
+
+                      </p> :null}
+
 
                     {displayMeta === 5 ? <p>
                       <div className={"goals"}>
@@ -873,7 +1194,7 @@ const CalendarPage= (props: StepComponentProps) => {
                     <CircularProgressbarWithChildren className={"circle-progress-bar"} value={meta04Daily} maxValue={freqMeta04} background={true}
                     styles={buildStyles({ 
 
-                    pathColor: '#F58B44',
+                    pathColor: '#2d4b87',
                     backgroundColor: '#f2b546',
                     trailColor: '#f2b546'
                     })}
@@ -890,6 +1211,12 @@ const CalendarPage= (props: StepComponentProps) => {
                     </div>
 
                     </p> :null}
+
+                    {displayMeta === 5 ? <p>
+                      <div className={"goals"}>
+                    <IonButton disabled={freqMeta01 > metaDaily} color="orange"  className={"btnAnterior"} onClick={socialSharingMeta03} size="default" shape="round" fill="outline">Compartilhar</IonButton>
+                    </div> </p>:null}
+
 
 
                    

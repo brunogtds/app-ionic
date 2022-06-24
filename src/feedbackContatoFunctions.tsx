@@ -25,5 +25,18 @@ function feedbackContactN (contactN: any){
     }
 }
 
+function feedbackSD4 (sd4: any){
+    if (sd4 === undefined){
+        return "Não preencheu o questionário"
+    } 
+    else if ((sd4 === 0) || (sd4 === 1) || (sd4 === 2) ) {
+        return "string1";
+    } 
+    else {
+        return "string2";
+    }
+}
+
 export {feedbackSocialDist};
 export {feedbackContactN};
+export {feedbackSD4};

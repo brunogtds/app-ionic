@@ -35,7 +35,7 @@ function App() {
           <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
           </div>
           <div className={"img-logo"}>
-          <img src={logo_regente} className={"logo"}/>
+          <img src={logo_regente} className={"logo"} alt={"Logo regente"}/>
          </div>
   </div> 
         
@@ -45,9 +45,9 @@ function App() {
         <IonContent fullscreen>
                 
                 <Steps>
-                   {/* <Step component={HabitosFinal1} /> */}
-                   {/*} <Step component={HabitosFinal2} /> */}
-                   {/*} <Step component={HabitosFinal3} /> */}
+                   <Step component={HabitosFinal1} /> 
+                    <Step component={HabitosFinal2} /> 
+                    <Step component={HabitosFinal3} /> 
                     <Step component={HabitosFinal4} /> 
                 </Steps>
             

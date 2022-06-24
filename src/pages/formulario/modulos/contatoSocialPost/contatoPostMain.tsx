@@ -33,7 +33,7 @@ function App() {
           <IonButtons slot="start"> <IonMenuButton id="main"></IonMenuButton> </IonButtons> 
           </div>
           <div className={"img-logo"}>
-          <img src={logo_regente} className={"logo"}/>
+          <img src={logo_regente} className={"logo"} alt={"Logo regente"}/>
          </div>
   </div> 
         
@@ -43,7 +43,7 @@ function App() {
         <IonContent fullscreen>
                 
                 <Steps>
-                    <Step component={ContatoPost1} />
+                    
                     <Step component={ContatoPost2} /> 
                 </Steps>
             

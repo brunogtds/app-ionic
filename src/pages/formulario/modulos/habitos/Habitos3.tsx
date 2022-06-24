@@ -52,7 +52,7 @@ const Habitos3 = (props: StepComponentProps) => {
                                         <IonSelectOption value="em mais da metade dos dias">Em mais da metade dos dias</IonSelectOption>
                                         <IonSelectOption value="todos os dias">Todos os dias</IonSelectOption>
                                     </IonSelect>)} control={control} name={"hobbiesFreq"} rules={{ required: true }} />
-                                {errors.hobbiesFreq && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                             </IonItem>
 
                             <IonLabel className="questions">Você praticou atividade física nas duas últimas semanas?</IonLabel>
@@ -82,7 +82,7 @@ const Habitos3 = (props: StepComponentProps) => {
                                             </IonItem>
 
                                         </IonRadioGroup>)} control={control} name={"exercise"} rules={{ required: true }} />
-                                    {errors.exercise && <IonText color="danger">Campo obrigatório.</IonText>}
+                                
                                 </IonItem>
 
 
@@ -112,7 +112,7 @@ const Habitos3 = (props: StepComponentProps) => {
                                                 <IonSelectOption value="7 vezes por semana">7 vezes por semana</IonSelectOption>
 
                                             </IonSelect>)} control={control} name={"exerciseFreq"} rules={{ required: true }} />
-                                        {errors.exerciseFreq && <IonText color="danger">Campo obrigatório.</IonText>}
+                                       
                                     </IonItem> : null}
 
                                 {atividadeFisica === "sim" ?
@@ -134,7 +134,7 @@ const Habitos3 = (props: StepComponentProps) => {
                                                 <IonSelectOption value="regulares">Regulares</IonSelectOption>
                                                 <IonSelectOption value="muitoRegulares">Muito regulares</IonSelectOption>
                                             </IonSelect>)} control={control} name={"exerciseReg"} rules={{ required: true }} />
-                                        {errors.exerciseReg && <IonText color="danger">Campo obrigatório.</IonText>}
+                                       
                                     </IonItem> : null}
 
                                 {atividadeFisica === "sim" ?
@@ -156,7 +156,7 @@ const Habitos3 = (props: StepComponentProps) => {
                                                 <IonSelectOption value="entre 1 e 2 horas">Entre 1 e 2 horas</IonSelectOption>
                                                 <IonSelectOption value="mais de 2 horas">Mais de 2 horas</IonSelectOption>
                                             </IonSelect>)} control={control} name={"exerciseDur"} rules={{ required: true }} />
-                                        {errors.exerciseDur && <IonText color="danger">Campo obrigatório.</IonText>}
+                                       
                                     </IonItem> : null}
                             </IonList>
 
@@ -177,11 +177,19 @@ const Habitos3 = (props: StepComponentProps) => {
                                                 props.setState('exerciseTiming', e.detail.value)
                                             }
                                         }}></IonDatetime>)} control={control} name={"exerciseTiming"} rules={{ required: true }} />
-                                    {errors.exerciseTiming && <IonText color="danger">Campo obrigatório.</IonText>}
+                                 
 
 
 
                                 </IonItem> : null}
+
+                            {formState.isValid === false ? 
+
+                            <div className="preenchimentoObri">
+                                <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                            </div>
+                            
+                            :null}
 
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={0.75} color="orange"></IonProgressBar>

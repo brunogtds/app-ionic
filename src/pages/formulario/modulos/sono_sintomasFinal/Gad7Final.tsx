@@ -82,7 +82,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                 </IonRadioGroup>)} control={control} name={"gad7Final_gad01"} rules={{ required: true }} />
 
                         </IonItem>
-                        {errors.gad7Final_gad01 && <IonText color="danger">Campo obrigatório.</IonText>}
+                     
 
                         <IonLabel className="questions">Não ser capaz de parar ou controlar as preocupações.</IonLabel>
 
@@ -121,7 +121,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"gad7Final_gad02"} rules={{ required: true }} />
-                            {errors.gad7Final_gad02 && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
 
                         <IonLabel className="questions">Preocupar-se muito com coisas diferentes.</IonLabel>
@@ -160,7 +160,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"gad7Final_gad03"} rules={{ required: true }} />
-                            {errors.gad7Final_gad03 && <IonText color="danger">Campo obrigatório.</IonText>}
+                    
                         </IonItem>
 
                         <IonLabel className="questions">Dificuldade de relaxar.</IonLabel>
@@ -199,7 +199,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"gad7Final_gad04"} rules={{ required: true }} />
-                            {errors.gad7Final_gad04 && <IonText color="danger">Campo obrigatório.</IonText>}
+                       
                         </IonItem>
 
                         <IonLabel className="questions">Ser tão inquieto que é difícil ficar parado.</IonLabel>
@@ -236,7 +236,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"gad7Final_gad05"} rules={{ required: true }} />
-                            {errors.gad7Final_gad05 && <IonText color="danger">Campo obrigatório.</IonText>}
+                       
 
 
 
@@ -280,7 +280,7 @@ const Gad7Final = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"gad7Final_gad06"} rules={{ required: true }} />
-                            {errors.gad7Final_gad06 && <IonText color="danger">Campo obrigatório.</IonText>}
+                         
                         </IonItem>
 
                         <IonLabel className="questions">Sentir medo como se algo terrível pudesse acontecer.</IonLabel>
@@ -317,11 +317,17 @@ const Gad7Final = (props: StepComponentProps) => {
                                     </IonItem>
 
                                 </IonRadioGroup>)} control={control} name={"gad7Final_gad07"} rules={{ required: true }} />
-                            {errors.gad7Final_gad07 && <IonText color="danger">Campo obrigatório.</IonText>}
+                       
 
                         </IonItem>
 
+                          {formState.isValid === false ? 
 
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={0.48} color="orange"></IonProgressBar>

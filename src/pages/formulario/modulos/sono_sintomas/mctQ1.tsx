@@ -62,7 +62,7 @@ const MCTQ1 = (props: StepComponentProps) => {
                                 name={"nightShift"}
                                 rules={{ required: true }}
                             />
-                            {errors.nightShift && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                         </IonItem>
 
                         <IonLabel className="questions">Trabalhei/estudei _ dias por semana.</IonLabel>
@@ -93,7 +93,7 @@ const MCTQ1 = (props: StepComponentProps) => {
                                 rules={{ required: true }}
 
                             />
-                            {errors.workDaysN && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
 
 
@@ -114,7 +114,7 @@ const MCTQ1 = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('sleepNoWork', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"sleepNoWork"} rules={{ required: true }} />
-                                {errors.sleepNoWork && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                             </IonItem> : null}
 
                         {nDiasTrabalhoSemana === "0" ?
@@ -130,7 +130,7 @@ const MCTQ1 = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('wakeUpNoWork', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"wakeUpNoWork"} rules={{ required: true }} />
-                                {errors.wakeUpNoWork && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                             </IonItem> : null}
 
                         {nDiasTrabalhoSemana === "0" ?
@@ -157,7 +157,7 @@ const MCTQ1 = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name={"alarmNoWork"} rules={{ required: true }} />
-                                {errors.alarmNoWork && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                             </IonItem> : null}
 
 
@@ -179,7 +179,7 @@ const MCTQ1 = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('sleepWD', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"sleepWD"} rules={{ required: true }} />
-                                {errors.sleepWD && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                             </IonItem> : null}
 
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
@@ -195,7 +195,7 @@ const MCTQ1 = (props: StepComponentProps) => {
                                         if (e.detail.value != undefined)
                                             props.setState('wakeUpWD', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"wakeUpWD"} rules={{ required: true }} />
-                                {errors.wakeUpWD && <IonText color="danger">Campo obrigatório.</IonText>}
+                             
                             </IonItem> : null}
 
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
@@ -223,8 +223,16 @@ const MCTQ1 = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name={"alarmWD"} rules={{ required: true }} />
-                                {errors.alarmWD && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                             </IonItem> : null}
+
+                        {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
 
                         <div id="progress-bar-div" >

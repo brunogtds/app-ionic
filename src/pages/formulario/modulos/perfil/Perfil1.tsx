@@ -1,7 +1,7 @@
 import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonDatetime, IonNote, IonRadioGroup, IonRadio, IonText } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonDatetime, IonNote, IonRadioGroup, IonRadio, IonText, IonAvatar } from "@ionic/react";
 import { IonContent } from '@ionic/react';
 import '../../Forms.css';
 
@@ -22,6 +22,11 @@ import { truncate } from "fs";
 import { createTrue } from "typescript";
 import { faAngry } from "@fortawesome/free-solid-svg-icons";
 import { trendingUpOutline } from "ionicons/icons";
+
+import matutino_wave from '../../../../img/Matutino_boas-vindas.svg';
+
+import intermed_wave from '../../../../img/Neutro_boas-vindas.svg';
+import vespertino_wave from '../../../../img/Vespertino_boas-vindas.svg';
 
 /*STEP 1 => Página 1 do formulário
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
@@ -75,6 +80,25 @@ const Perfil1 = (props: StepComponentProps) => {
                         <div className="texto-title">Sobre você</div>
                         <div className="texto-default">Aqui você pode editar os dados que preencheu no cadastro!</div>
 
+                        <IonAvatar>
+                            <img src={matutino_wave} />
+                        </IonAvatar>
+
+                        <IonLabel className="questions">Escolha seu avatar</IonLabel>
+                        <IonItem>
+                        <IonAvatar>
+                            <img src={matutino_wave} />
+                        </IonAvatar>
+
+                        <IonAvatar>
+                            <img src={intermed_wave} />
+                        </IonAvatar>
+
+                        <IonAvatar>
+                            <img src={vespertino_wave} />
+                        </IonAvatar>
+                        </IonItem>
+
                         <IonLabel className="questions">Idade:</IonLabel>
                         <IonItem>
 
@@ -100,7 +124,7 @@ const Perfil1 = (props: StepComponentProps) => {
 
                         </IonItem>
 
-                        <IonLabel className="questions" >Sexo:</IonLabel>
+                        <IonLabel className="questions" >Como você foi registrado ao nascer:</IonLabel>
                         <IonItem>
 
 
@@ -111,9 +135,9 @@ const Perfil1 = (props: StepComponentProps) => {
                                     if (e.detail.value != undefined)
                                         props.setState('sex', e.detail.value);
                                 }}>
-                                    <IonSelectOption value="feminino" >Feminino</IonSelectOption>
-                                    <IonSelectOption value="masculino">Masculino</IonSelectOption>
-                                    <IonSelectOption value="n/a">Prefiro não informar</IonSelectOption>
+                                    <IonSelectOption value="feminino" >Sexo feminino</IonSelectOption>
+                                    <IonSelectOption value="masculino">Sexo masculino</IonSelectOption>
+                                   
                                 </IonSelect>
 
 
@@ -156,7 +180,7 @@ const Perfil1 = (props: StepComponentProps) => {
 
 
                             <Controller render={({ onChange }) => (
-                                <IonInput id="weight" type="number" placeholder="Digite um valor aproximado" onIonChange={(e) => {
+                                <IonInput id="weight" type="number" min="0" placeholder="Digite um valor aproximado" onIonChange={(e) => {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined)

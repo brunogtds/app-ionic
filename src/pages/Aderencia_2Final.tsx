@@ -120,6 +120,21 @@ const Aderencia_2Final= (props: StepComponentProps) => {
 
     let metaShare = 0
     function socialSharingMetas() {
+
+      /* 
+    1:
+    alt: Mascote do Regente vespertino, em cor azul escuro, dormindo. Em cima a frase: “Minha meta nas próximas duas semanas: ir dormir no mesmo horário”.
+
+    2:
+    alt: Mascote do Regente matutino, em cor laranja, com uma testeira branca e vermelha. Em cima a frase: “Minha meta nas próximas duas semanas: praticar exercício físico”.
+
+
+    3:
+    alt: Mascote do Regente matutino, em cor laranja, sorrindo de óculos escuros. Em cima a frase: “Minha meta nas próximas duas semanas: expor-se à luz natural de manhã”.
+
+    4:
+    alt: Mascote do Regente intermediário, em cor azul claro, comendo um sanduíche. Em cima a frase: “Minha meta nas próximas duas semanas: fazer as refeições no mesmo horário”.
+    */
       if (meta1 === "alimentação"){
         metaShare = 1;
       } 

@@ -18,6 +18,7 @@ import { toast } from '../../../../toast';
 
 import { useUser } from 'reactfire';
 import firebase from 'firebase';
+import { createFalse } from "typescript";
 
 
 const Saude2 = (props: StepComponentProps) => {
@@ -43,11 +44,18 @@ const Saude2 = (props: StepComponentProps) => {
 
     async function updateUserDataQuest1(dataUser: any) {
 
+        
 
         if (user) {
             console.log('ta aqui');
 
             firebase.firestore().collection('users').doc(user.uid).set({
+                disordersNenhuma: Boolean(props.state.disordersNenhuma),
+                disordersDiabetes: Boolean(props.state.disordersDiabetes),
+                disordersHipert: Boolean(props.state.disordersHipert),
+                disordersAsma: Boolean(props.state.disordersAsma),
+                disordersDep: Boolean(props.state.disordersDep),
+                disordersImunod: Boolean(props.state.disordersImunod),
                 disorders: String(props.state.disorders), //STEP 2 
                 meds: String(props.state.meds),
                 medsUsed: String(props.state.medsUsed),
@@ -70,7 +78,9 @@ const Saude2 = (props: StepComponentProps) => {
                 drugsUsed: String(props.state.drugsUsed),
                 drugDur: Number(props.state.drugDur),
                 stimulants: String(props.state.stimulants),
-                stimulantTiming: String(props.state.stimulantTiming),
+                stimulantTimingManha: Boolean(props.state.stimulantTimingManha),
+                stimulantTimingTarde: Boolean(props.state.stimulantTimingTarde),
+                stimulantTimingNoite: Boolean(props.state.stimulantTimingNoite),
                 dateSaudeModule1: new Date(),
             }, { merge: true })
         }
@@ -128,15 +138,15 @@ const Saude2 = (props: StepComponentProps) => {
                                     </IonRadioGroup>
                                 )} control={control} name={"smoke"} rules={{ required: true }} />
                             </IonItem>
-                            {errors.smoke && <IonText color="danger">Campo obrigatório.</IonText>}
+                
 
                             {/*VOCÊ FUMA? -> SIM */}
 
                             {fuma === "sim" ?
-                                <IonItem  >
-                                    <IonLabel position="floating" className="questions">Quantos cigarros você fuma por dia?</IonLabel>
+                                <IonItem  lines="none">
+                                  
                                     <Controller render={({ onChange }) => (
-                                        <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
+                                        <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Quantos cigarros você fuma por dia?" onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
@@ -147,11 +157,11 @@ const Saude2 = (props: StepComponentProps) => {
                                             <IonSelectOption value={"mais que duas carteiras de cigarro por dia"}>Mais que duas carteiras de cigarro por dia</IonSelectOption>
 
                                         </IonSelect>)} control={control} name={"cigarrets"} rules={{ required: true }} />
-                                    {errors.cigarrets && <IonText color="danger">Campo obrigatório.</IonText>}
+                                  
                                 </IonItem> : null}
 
                             {fuma === "sim" ?
-                                <IonItem>
+                                <IonItem lines="none">
 
                                     <Controller render={({ onChange }) => (
                                         <IonInput placeholder="Há quanto tempo você fuma? (em anos)" onIonChange={(e) => {
@@ -160,7 +170,7 @@ const Saude2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('smokeDur', e.detail.value)
                                         }} />)} control={control} name={"smokeDur"} rules={{ required: true }} />
-                                    {errors.smokeDur && <IonText color="danger">Campo obrigatório.</IonText>}
+                                   
 
                                 </IonItem> : null}
                             {/*VOCÊ FUMA? -> SIM */}
@@ -197,16 +207,15 @@ const Saude2 = (props: StepComponentProps) => {
                                         </IonRadioGroup>
                                     )} control={control} name={"smokeBef"} rules={{ required: true }} />
                                 </IonItem>
-                                {errors.smokeBef && <IonText color="danger">Campo obrigatório.</IonText>}
+                             
 
                                 {/*VOCÊ FUMOU ANTES? -> SIM */}
 
                                 {fumou === "sim" ?
                                     <IonItem lines="none">
-                                        <IonLabel position="floating" className="questions">Quantos cigarros você fumava por dia?</IonLabel>
-
+                                        
                                         <Controller render={({ onChange }) => (
-                                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
+                                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Quantos cigarros você fumava por dia?" onIonChange={(e) => {
                                                 console.log(e);
                                                 onChange(e.detail.value);
                                                 if (e.detail.value != undefined)
@@ -217,11 +226,11 @@ const Saude2 = (props: StepComponentProps) => {
                                                 <IonSelectOption value={"mais que duas carteiras de cigarro por dia"}>Mais que duas carteiras de cigarro por dia</IonSelectOption>
 
                                             </IonSelect>)} control={control} name={'cigarretsBef'} rules={{ required: true }} />
-                                        {errors.cigarretsBef && <IonText color="danger">Campo obrigatório.</IonText>}
+                                       
                                     </IonItem> : null}
 
                                 {fumou === "sim" ?
-                                    <IonItem>
+                                    <IonItem lines="none">
 
                                         <Controller render={({ onChange }) => (
                                             <IonInput placeholder="Por quanto tempo você fumou? (em anos) " onIonChange={(e) => {
@@ -230,20 +239,20 @@ const Saude2 = (props: StepComponentProps) => {
                                                 if (e.detail.value != undefined)
                                                     props.setState('smokeBefDur', e.detail.value)
                                             }} />)} control={control} name={'smokeBefDur'} rules={{ required: true }} />
-                                        {errors.smokeBefDur && <IonText color="danger">Campo obrigatório.</IonText>}
+                                     
                                     </IonItem> : null}
 
                                 {fumou === "sim" ?
-                                    <IonItem>
+                                    <IonItem lines="none">
 
                                         <Controller render={({ onChange }) => (
-                                            <IonInput placeholder="Há quanto tempo você parou de fumar?" onIonChange={(e) => {
+                                            <IonInput placeholder="Há quanto tempo você parou de fumar? (em anos)" onIonChange={(e) => {
                                                 console.log(e);
                                                 onChange(e.detail.value);
                                                 if (e.detail.value != undefined)
                                                     props.setState('smokeStop', e.detail.value)
                                             }} />)} control={control} name={'smokeStop'} rules={{ required: true }} />
-                                        {errors.smokeStop && <IonText color="danger">Campo obrigatório.</IonText>}
+                                    
                                     </IonItem> : null}
 
                             </IonList> : null}
@@ -274,14 +283,14 @@ const Saude2 = (props: StepComponentProps) => {
                                         </IonItem>
                                     </IonRadioGroup>
                                 )} control={control} name={"alcohol"} rules={{ required: true }} />
-                                {errors.alcohol && <IonText color="danger">Campo obrigatório.</IonText>}
+                            
                             </IonItem>
 
                             {/*VOCÊ CONSOME BEBIDAS ALCÓOLICAS -> SIM */}
 
                             {bebe === "sim" ?
-                                <IonItem>
-                                    <IonLabel className="questions" >Alguma vez você sentiu que deveria diminuir a quantidade de bebida?</IonLabel>
+                                <IonItem lines="none">
+                                    <IonLabel className="questions-inside" >Alguma vez você sentiu que deveria diminuir a quantidade de bebida?</IonLabel>
 
                                     <Controller render={({ onChange }) => (
                                         <IonRadioGroup onIonChange={(e) => {
@@ -301,12 +310,12 @@ const Saude2 = (props: StepComponentProps) => {
                                                 <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                             </IonItem>
                                         </IonRadioGroup>)} control={control} name={"cage01"} rules={{ required: true }} />
-                                    {errors.cage01 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                
                                 </IonItem> : null}
 
                             {bebe === "sim" ?
-                                <IonItem>
-                                    <IonLabel className="questions">As pessoas o aborrecem porque criticam o seu modo de beber?</IonLabel>
+                                <IonItem lines="none">
+                                    <IonLabel className="questions-inside">As pessoas o aborrecem porque criticam o seu modo de beber?</IonLabel>
 
                                     <Controller render={({ onChange }) => (
                                         <IonRadioGroup onIonChange={(e) => {
@@ -326,12 +335,12 @@ const Saude2 = (props: StepComponentProps) => {
                                                 <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                             </IonItem>
                                         </IonRadioGroup>)} control={control} name={"cage02"} rules={{ required: true }} />
-                                    {errors.cage02 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                
                                 </IonItem> : null}
 
                             {bebe === "sim" ?
-                                <IonItem>
-                                    <IonLabel className="questions">Você se sente culpado pela maneira como bebe?</IonLabel>
+                                <IonItem lines="none">
+                                    <IonLabel className="questions-inside">Você se sente culpado pela maneira como bebe?</IonLabel>
                                     <Controller render={({ onChange }) => (
                                         <IonRadioGroup onIonChange={(e) => {
                                             console.log(e);
@@ -350,12 +359,12 @@ const Saude2 = (props: StepComponentProps) => {
                                                 <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                             </IonItem>
                                         </IonRadioGroup>)} control={control} name={"cage03"} rules={{ required: true }} />
-                                    {errors.cage03 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                 
                                 </IonItem> : null}
 
                             {bebe === "sim" ?
-                                <IonItem>
-                                    <IonLabel className="questions">Você costuma beber de manhã para diminuir o nervosimo ou ressaca?</IonLabel>
+                                <IonItem lines="none">
+                                    <IonLabel className="questions-inside">Você costuma beber de manhã para diminuir o nervosimo ou ressaca?</IonLabel>
 
                                     <Controller render={({ onChange }) => (
                                         <IonRadioGroup onIonChange={(e) => {
@@ -375,123 +384,16 @@ const Saude2 = (props: StepComponentProps) => {
                                                 <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                             </IonItem>
                                         </IonRadioGroup>)} control={control} name={"cage04"} rules={{ required: true }} />
-                                    {errors.cage04 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                  
                                 </IonItem> : null}
 
                         </IonList>
 
                         {/*VOCÊ BEBE -> SIM */}
 
-                        <IonLabel className="questions">Você faz uso de algum tipo de droga ilícita diariamente?</IonLabel>
-                        <IonList>
+                                              
 
-                            <IonItem className={"ion-no-padding"} lines="none">
-
-
-                                <Controller render={({ onChange }) => (
-                                    <IonRadioGroup value={drogas} onIonChange={(e) => {
-                                        setDrogas(e.detail.value);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('drugs', e.detail.value)
-                                    }}>
-
-                                        <IonItem className={"ion-no-padding"} lines="none">
-                                            <IonLabel>Sim</IonLabel>
-                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
-                                        </IonItem>
-
-                                        <IonItem className={"ion-no-padding"} lines="none">
-                                            <IonLabel>Não</IonLabel>
-                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
-                                        </IonItem>
-                                    </IonRadioGroup>
-                                )} control={control} name={"drugs"} rules={{ required: true }} />
-                                {errors.drugs && <IonText color="danger">Campo obrigatório.</IonText>}
-                            </IonItem>
-
-                            {/*DROGAS -> SIM */}
-
-                            {drogas === "sim" ?
-                                <IonItem lines="none">
-
-                                    <IonLabel className="questions">Qual(is) você usa com maior frequência?</IonLabel></IonItem> : null}
-
-                            {drogas === "sim" ?
-                                <IonItem>
-                                    <Controller render={({ onChange }) => (
-
-                                        <IonList className={"ion-no-padding"}>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'maconha')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Maconha</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'cocaína')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Cocaína</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'crack')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Crack</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("drugsUsed", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', 'ecstasy')
-                                                }}></IonCheckbox>
-                                                <IonLabel>Ecstasy</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none" className={"ion-no-padding"}>
-
-                                                <IonInput placeholder="Outros" onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('drugsUsed', e.detail.value)
-                                                }} />
-                                            </IonItem>
-                                        </IonList>)} control={control} name={"drugsUsed"} //rules={{required:true}}
-                                    />
-                                    {errors.drugsUsed && <IonText color="danger">Campo obrigatório.</IonText>}
-
-                                </IonItem> : null}
-
-                            {drogas === "sim" ?
-                                <IonItem>
-
-                                    <Controller render={({ onChange }) => (
-                                        <IonInput placeholder="Há quantos anos você usa essa droga?" onIonChange={(e) => {
-                                            console.log(e);
-                                            onChange(e.detail.value);
-                                            if (e.detail.value != undefined)
-                                                props.setState('drugDur', e.detail.value)
-                                        }} />)} control={control} name={"drugDur"} rules={{ required: true }} />
-                                    {errors.drugDur && <IonText color="danger">Campo obrigatório.</IonText>}
-                                </IonItem> : null}
-
-                        </IonList>
+                          
 
                         <IonLabel className="questions">Você faz uso de algum estimulante diariamente (café, chimarrão)?</IonLabel>
                         <IonList>
@@ -519,43 +421,48 @@ const Saude2 = (props: StepComponentProps) => {
                                             <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
                                         </IonItem>
                                     </IonRadioGroup>)} control={control} name={"stimulants"} rules={{ required: true }} />
-                                {errors.stimulants && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                             </IonItem>
 
 
                             {estimulantes === "sim" ?
                                 <IonItem lines="none">
-                                    <IonLabel className="questions">Em qual(is) momento(s) do dia você usa com mais frequência? </IonLabel> </IonItem> : null}
+                                    <IonLabel className="questions-inside">Em qual(is) momento(s) do dia você usa com mais frequência? </IonLabel> </IonItem> : null}
                             {estimulantes === "sim" ?
                                 <IonItem lines="none">
                                     <Controller render={({ onChange }) => (
                                         <IonList className={"ion-no-padding"}>
                                             <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTiming", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('stimulantTiming', 'manhã')
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTimingManha", false)} onIonChange={(e) => {
+                                                     if (e.detail.checked) {
+                                                        props.setState('stimulantTimingManha', true)                                                
+                                                    } else {
+                                                        props.setState('stimulantTimingManha', false)                                                
+                                                    }
+                                                  
+                                                        
                                                 }}></IonCheckbox>
                                                 <IonLabel>Manhã</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none" className={"ion-no-padding"} >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTiming", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('stimulantTiming', 'tarde')
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTimingTarde", false)} onIonChange={(e) => {
+                                                     if (e.detail.checked) {
+                                                        props.setState('stimulantTimingTarde', true)                                                
+                                                    } else {
+                                                        props.setState('stimulantTimingTarde', false)                                                
+                                                    }
                                                 }}></IonCheckbox>
                                                 <IonLabel>Tarde</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none" className={"ion-no-padding"}>
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTiming", "")} onIonChange={(e) => {
-                                                    console.log(e);
-                                                    onChange(e.detail.value);
-                                                    if (e.detail.value != undefined)
-                                                        props.setState('stimulantTiming', 'noite')
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("stimulantTimingNoite", false)} onIonChange={(e) => {
+                                                    if (e.detail.checked) {
+                                                        props.setState('stimulantTimingNoite', true)                                                
+                                                    } else {
+                                                        props.setState('stimulantTimingNoite', false)                                                
+                                                    }
                                                 }}></IonCheckbox>
                                                 <IonLabel>Noite</IonLabel>
                                             </IonItem>
@@ -564,13 +471,21 @@ const Saude2 = (props: StepComponentProps) => {
                                         </IonList>)}
                                         control={control}
                                         name={"stimulantTiming"}
-                                    //rules={{required:true}}
+                                        rules={{required:true}}
                                     />
-                                    {errors.stimulantTiming && <IonText color="danger">Campo obrigatório.</IonText>}
+                                
                                 </IonItem> : null}
 
 
                         </IonList>
+
+                        {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>

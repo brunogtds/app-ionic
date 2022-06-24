@@ -50,7 +50,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                         <IonSelectOption value="regulares">Regulares</IonSelectOption>
                                         <IonSelectOption value="muito regulares">Muito regulares</IonSelectOption>
                                     </IonSelect>)} control={control} name={"sleepReg"} rules={{ required: true }} />
-                                {errors.sleepReg && <IonText color="danger">Campo obrigatório.</IonText>}
+                             
                             </IonItem>
 
                             <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
@@ -68,7 +68,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                         <IonSelectOption value="ruim">Ruim</IonSelectOption>
                                         <IonSelectOption value="muito ruim">Muito ruim</IonSelectOption>
                                     </IonSelect>)} control={control} name={"sleepQual"} rules={{ required: true }} />
-                                {errors.sleepQual && <IonText color="danger">Campo obrigatório.</IonText>}
+                              
                             </IonItem>
 
                             <IonLabel className="questions">Como foram suas rotinas de alimentação nas últimas duas semanas?</IonLabel>
@@ -90,7 +90,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                             <IonSelectOption value="regulares">Regulares</IonSelectOption>
                                             <IonSelectOption value="muito regulares">Muito regulares</IonSelectOption>
                                         </IonSelect>)} control={control} name="feedReg" rules={{ required: true }} />
-                                    {errors.feedReg && <IonText color="danger">Campo obrigatório.</IonText>}
+                                 
                                 </IonItem>
 
                                 {/*REGULARES OU MUITO REGULARES*/}
@@ -110,7 +110,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                                 if (e.detail.value != undefined)
                                                     props.setState('feedStartWD', e.detail.value)
                                             }}></IonDatetime>)} control={control} name="feedStartWD" rules={{ required: true }} />
-                                        {errors.feedStartWD && <IonText color="danger">Campo obrigatório.</IonText>}
+                                       
                                     </IonItem> : null}
 
                                 {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
@@ -126,7 +126,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                                 if (e.detail.value != undefined)
                                                     props.setState('feedEndWD', e.detail.value)
                                             }}></IonDatetime>)} control={control} name="feedEndWD" rules={{ required: true }} />
-                                        {errors.feedEndWD && <IonText color="danger">Campo obrigatório.</IonText>}
+                                     
                                     </IonItem> : null}
 
                             </IonList>
@@ -153,7 +153,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name={"feedfdyn"} rules={{ required: true }} />
-                                {errors.feedfdyn && <IonText color="danger">Campo obrigatório.</IonText>}
+                              
                             </IonItem>
 
                             {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
@@ -169,7 +169,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedStart', e.detail.value)
                                         }}></IonDatetime>)} control={control} name={"feedStart"} rules={{ required: true }} />
-                                    {errors.feedStart && <IonText color="danger">Campo obrigatório.</IonText>}
+                                  
                                 </IonItem> : null}
 
                             {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
@@ -185,7 +185,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedEnd', e.detail.value)
                                         }}></IonDatetime>)} control={control} name={"feedEnd"} rules={{ required: true }} />
-                                    {errors.feedEnd && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                                 </IonItem> : null}
 
                             <IonLabel className="questions">Nas últimas duas semanas, você comeu lanches ao longo do dia, em média: </IonLabel>
@@ -231,8 +231,16 @@ const Habitos2 = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name={"snacks"} rules={{ required: true }} />
-                                {errors.snacks && <IonText color="danger">Campo obrigatório.</IonText>}
+                             
                             </IonItem>
+
+                            {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>

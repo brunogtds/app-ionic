@@ -52,7 +52,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                         <IonSelectOption value="regulares">Regulares</IonSelectOption>
                                         <IonSelectOption value="muito regulares">Muito regulares</IonSelectOption>
                                     </IonSelect>)} control={control} name={"sleepRegPost14"} rules={{ required: true }} />
-                                {errors.sleepRegPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                              
                             </IonItem>
 
                             <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
@@ -70,7 +70,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                         <IonSelectOption value="ruim">Ruim</IonSelectOption>
                                         <IonSelectOption value="muito ruim">Muito ruim</IonSelectOption>
                                     </IonSelect>)} control={control} name={"sleepQualPost14"} rules={{ required: true }} />
-                                {errors.sleepQualPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                             
                             </IonItem>
 
                             <IonLabel className="questions">Como foram suas rotinas de alimentação nas últimas duas semanas?</IonLabel>
@@ -92,7 +92,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                         <IonSelectOption value="regulares">Regulares</IonSelectOption>
                                         <IonSelectOption value="muitoRegulares">Muito regulares</IonSelectOption>
                                     </IonSelect>)} control={control} name="feedRegPost14" rules={{ required: true }} />
-                                {errors.feedRegPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                              
                             </IonItem>
 
                             {/*REGULARES OU MUITO REGULARES*/}
@@ -111,7 +111,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedStartWDPost14', e.detail.value)
                                         }}></IonDatetime>)} control={control} name="feedStartWDPost14" rules={{ required: true }} />
-                                    {errors.feedStartWDPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                  
                                 </IonItem> : null}
 
                             {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
@@ -127,7 +127,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedEndWDPost14', e.detail.value)
                                         }}></IonDatetime>)} control={control} name="feedEndWDPost14" rules={{ required: true }} />
-                                    {errors.feedEndWDPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                  
                                 </IonItem> : null}
 
                             {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
@@ -143,7 +143,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedStartFDPost14', e.detail.value)
                                         }}></IonDatetime>)} control={control} name="feedStartFDPost14" rules={{ required: true }} />
-                                    {errors.feedStartFDPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                                 </IonItem> : null}
 
                             {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
@@ -159,7 +159,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedEndFDPost14', e.detail.value)
                                         }}></IonDatetime>)} control={control} name="feedEndFDPost14" rules={{ required: true }} />
-                                    {errors.feedEndFDPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                  
                                 </IonItem> : null}
 
 
@@ -187,7 +187,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name={"feedFDYNPost14"} rules={{ required: true }} />
-                                {errors.feedFDYNPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                           
                             </IonItem>
 
                             {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
@@ -203,7 +203,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedStartPost14', e.detail.value)
                                         }}></IonDatetime>)} control={control} name={"feedStartPost14"} rules={{ required: true }} />
-                                    {errors.feedStartPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                  
                                 </IonItem> : null}
 
                             {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
@@ -219,7 +219,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('feedEndPost14', e.detail.value)
                                         }}></IonDatetime>)} control={control} name={"feedEndPost14"} rules={{ required: true }} />
-                                    {errors.feedEndPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                                 
                                 </IonItem> : null}
 
                             <IonLabel className="questions">Nas últimas duas semanas, você comeu lanches ao longo do dia, em média: </IonLabel>
@@ -265,8 +265,17 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                         </IonItem>
 
                                     </IonRadioGroup>)} control={control} name={"snacksPost14"} rules={{ required: true }} />
-                                {errors.snacksPost14 && <IonText color="danger">Campo obrigatório.</IonText>}
+                               
                             </IonItem>
+
+                                    
+                        {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={0.5} color="orange"></IonProgressBar>

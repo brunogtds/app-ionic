@@ -32,6 +32,12 @@ const SaudeFinal2 = (props: StepComponentProps) => {
             firebase.firestore().collection('usersFinal').doc(user.uid).set({
                 meta01_02coleta02Complete: String(props.state.meta01_02coleta02Complete),
                 weightFinal: Number(props.state.weightFinal), //STEP 1
+                disordersChangeFinalNenhuma: Boolean(props.state.disordersChangeFinalNenhuma),
+                disordersChangeFinalDiabetes: Boolean(props.state.disordersChangeFinalDiabetes),
+                disordersChangeFinalHipert: Boolean(props.state.disordersChangeFinalHipert),
+                disordersChangeFinalAsma: Boolean(props.state.disordersChangeFinalAsma),
+                disordersChangeFinalDep: Boolean(props.state.disordersChangeFinalDep),
+                disordersChangeFinalImunod: Boolean(props.state.disordersChangeFinalImunod),
                 disordersChangeFinal: String(props.state.disordersChangeFinal),
                 medsChangeFinal: String(props.state.medsChangeFinal),
                 medsUsedChangeFinal: String(props.state.medsUsedChangeFinal),
@@ -107,6 +113,7 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                             )}
                                 control={control}
                                 name={"alcoholChangeFinal"}
+                                rules={{ required: true }}
                             />
                         </IonItem>
 
@@ -140,6 +147,7 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                             )}
                                 control={control}
                                 name={"stimulantsChangeFinal"}
+                                rules={{ required: true }}
                             />
                         </IonItem>
 
@@ -179,8 +187,17 @@ const SaudeFinal2 = (props: StepComponentProps) => {
                             )}
                                 control={control}
                                 name={"smokeChangeFinal"}
+                                rules={{ required: true }}
                             />
                         </IonItem>
+
+                        {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                         <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>

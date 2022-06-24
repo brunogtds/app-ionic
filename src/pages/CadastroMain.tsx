@@ -9,6 +9,8 @@ import CadastroNovo from './CadastroNovo';
 import Perfil_Cadastro1 from './Perfil_Cadastro1';
 import Perfil_Cadastro2 from './Perfil_Cadastro2';
 import Perfil_CadastroPergunta from './Perfil_CadastroPergunta';
+
+
   
   /*React-multi-step form 
   Cada página do formulário é um step no app*/

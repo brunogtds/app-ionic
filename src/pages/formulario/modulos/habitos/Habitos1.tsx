@@ -10,6 +10,8 @@ import { useForm, Controller } from "react-hook-form";
 import { useState } from 'react';
 
 import { IonProgressBar } from '@ionic/react';
+import { daysToWeeks } from "date-fns/fp";
+import { useRemoteConfigString } from "reactfire";
 
 const Habitos1 = (props: StepComponentProps) => {
 
@@ -22,6 +24,45 @@ const Habitos1 = (props: StepComponentProps) => {
 
     const [diasTrabalho, setDiasTrabalho] = useState();
     const [horasTrabalhoRegulares, setHorasTrabalhoRegulares] = useState();
+
+    
+    const datas = [
+
+        {nome: "atual", data: new Date()},
+        {nome: "ontem", data: new Date(new Date().setDate(new Date().getDate()-1))}
+
+    ];
+
+    const timeformatBD: Intl.DateTimeFormatOptions = {
+        
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    
+    };
+
+    const timeformat: Intl.DateTimeFormatOptions = {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    
+    };
+    var dia_Atual= new Date();
+    var dia_Anterior1= new Date(new Date().setDate(new Date().getDate()-1));
+    var dia_Anterior2= new Date(new Date().setDate(new Date().getDate()-2));
+    var dia_Anterior3= new Date(new Date().setDate(new Date().getDate()-3));
+    var dia_Anterior4= new Date(new Date().setDate(new Date().getDate()-4));
+    var dia_Anterior5= new Date(new Date().setDate(new Date().getDate()-5));
+    var dia_Anterior6= new Date(new Date().setDate(new Date().getDate()-6));
+    var dia_Anterior7= new Date(new Date().setDate(new Date().getDate()-7));
+    var dia_Anterior8= new Date(new Date().setDate(new Date().getDate()-8));
+    var dia_Anterior9= new Date(new Date().setDate(new Date().getDate()-9));
+    var dia_Anterior10= new Date(new Date().setDate(new Date().getDate()-10));
+    var dia_Anterior11= new Date(new Date().setDate(new Date().getDate()-11));
+    var dia_Anterior12= new Date(new Date().setDate(new Date().getDate()-12));
+    var dia_Anterior13= new Date(new Date().setDate(new Date().getDate()-13));
+    var dia_Anterior14= new Date(new Date().setDate(new Date().getDate()-14));
 
 
     return (
@@ -37,45 +78,48 @@ const Habitos1 = (props: StepComponentProps) => {
 
                         <div className="ion-text-wrap texto-default">
 
-                            <IonLabel className="questions">Em quantos dias você trabalhou ou estudou nas últimas duas semanas? </IonLabel>
+                            <IonLabel className="questions">Marque os dias livres, em que você não teve compromissos (por exemplo: estudo, trabalho, trabalho doméstico), nas duas últimas semanas: </IonLabel>
                             <IonList>
-
+                             
                                 <IonItem lines="none">
 
                                     <Controller render={({ onChange }) => (
-                                        <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={diasTrabalho} onIonChange={(e) => {
+                                        <IonSelect multiple={true} interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={diasTrabalho} onIonChange={(e) => {
                                             setDiasTrabalho(e.detail.value);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
                                                 props.setState('workQ', e.detail.value)
                                         }}>
-                                            <IonSelectOption value="0">0</IonSelectOption>
-                                            <IonSelectOption value="1">1</IonSelectOption>
-                                            <IonSelectOption value="2">2</IonSelectOption>
-                                            <IonSelectOption value="3">3</IonSelectOption>
-                                            <IonSelectOption value="4">4</IonSelectOption>
-                                            <IonSelectOption value="5">5</IonSelectOption>
-                                            <IonSelectOption value="6">6</IonSelectOption>
-                                            <IonSelectOption value="7">7</IonSelectOption>
-                                            <IonSelectOption value="8">8</IonSelectOption>
-                                            <IonSelectOption value="9">9</IonSelectOption>
-                                            <IonSelectOption value="10">10</IonSelectOption>
-                                            <IonSelectOption value="11">11</IonSelectOption>
-                                            <IonSelectOption value="12">12</IonSelectOption>
-                                            <IonSelectOption value="13">13</IonSelectOption>
-                                            <IonSelectOption value="14">14</IonSelectOption>
-                                        </IonSelect>)} control={control} name={"workQ"} rules={{ required: true }} />
-                                    {errors.workQ && <IonText color="danger">Campo obrigatório.</IonText>}
-                                </IonItem>
+                                            
+                                            <IonSelectOption value={dia_Atual.toLocaleDateString("pt-br", timeformatBD)}>{dia_Atual.toLocaleDateString("pt-br", timeformat)}</IonSelectOption> 
+                                            <IonSelectOption value={dia_Anterior1.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior1.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior2.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior2.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior3.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior3.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior4.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior4.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior5.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior5.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior6.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior6.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior7.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior7.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior8.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior8.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior9.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior9.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior10.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior10.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior11.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior11.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior12.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior12.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior13.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior13.toLocaleDateString("pt-br", timeformat)}</IonSelectOption>
+                                            <IonSelectOption value={dia_Anterior14.toLocaleDateString("pt-br", timeformatBD)}>{dia_Anterior14.toLocaleDateString("pt-br", timeformat)}</IonSelectOption> 
+                                        </IonSelect>)} control={control} name={"workQ"} rules={{ required: true }} /> 
+                                 
+                                </IonItem> 
 
                                 {/*MAIS QUE 0*/}
 
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
+                                                        
+
+                                { (props.state.workQ != null) ?
 
                                     <IonItem lines="none">
-                                        <IonLabel className="questions">Quantas horas em média você trabalhou/estudou nestes dias? </IonLabel> </IonItem> : null}
+                                        <IonLabel className="questions">Nos dias em que você teve compromissos (por exemplo: estudo, trabalho, trabalho doméstico), duraram quantas horas do dia? </IonLabel> </IonItem> : null}
 
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
+                                {(props.state.workQ != null) ? 
                                     <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
                                             <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
@@ -90,8 +134,10 @@ const Habitos1 = (props: StepComponentProps) => {
                                                 <IonSelectOption value="até 8 horas">até 8 horas</IonSelectOption>
                                                 <IonSelectOption value="mais de 8 horas">mais de 8 horas</IonSelectOption>
                                             </IonSelect>)} control={control} name={"workDur"} rules={{ required: true }} />
-                                        {errors.workDur && <IonText color="danger">Campo obrigatório.</IonText>}
+                                       
                                     </IonItem> : null}
+
+                                {/** 
 
                                 {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
                                     <IonItem lines="none">
@@ -148,7 +194,9 @@ const Habitos1 = (props: StepComponentProps) => {
 
 
 
-                                {/*REGULARES OU MUITO REGULARES: */}
+                                {/*REGULARES OU MUITO REGULARES: */
+
+                                /*
 
                                 {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) && ((horasTrabalhoRegulares === "regulares") || (horasTrabalhoRegulares === "muitoRegulares")) ?
 
@@ -165,8 +213,18 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('workStart', e.detail.value)
                                             }}></IonDatetime>)} control={control} name={"workStart"} rules={{ required: true }} />
                                         {errors.workStart && <IonText color="danger">Campo obrigatório.</IonText>}
-                                    </IonItem> : null}
-                            </IonList>
+                                        </IonItem> : null} */ }
+                            </IonList> 
+
+
+                       {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
+                            
 
                             <div id="progress-bar-div" >
                                 <IonProgressBar className={"progress-bar"} value={0.25} color="orange"></IonProgressBar>

@@ -32,6 +32,12 @@ const SaudePost2 = (props: StepComponentProps) => {
             firebase.firestore().collection('usersPost').doc(user.uid).set({
                 meta01coleta01Complete: String(props.state.meta01coleta01Complete),
                 weightPost: Number(props.state.weightPost), //STEP 1
+                disordersChangeNenhuma: Boolean(props.state.disordersChangeNenhuma), 
+                disordersChangeDiabetes: Boolean(props.state.disordersChangeDiabete),
+                disordersChangeHipert: Boolean(props.state.disordersChangeHipert),
+                disordersChangeAsma: Boolean(props.state.disordersChangeAsma),
+                disordersChangeDep: Boolean(props.state.disordersChangeDep),
+                disordersChangeImunod: Boolean(props.state.disordersChangeImunod),
                 disordersChange: String(props.state.disordersChange), 
                 medsChange: String(props.state.medsChange),
                 medsUsedChange: String(props.state.medsUsedChange),
@@ -104,6 +110,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     )}
                     control={control}
                     name={"alcoholChange"} 
+                    rules={{ required: true }}
                     />
                 </IonItem>
 
@@ -137,6 +144,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     )}
                     control={control}
                     name={"stimulantsChange"} 
+                    rules={{ required: true }}
                     />
                 </IonItem>
 
@@ -176,8 +184,17 @@ const SaudePost2 = (props: StepComponentProps) => {
                     )}
                     control={control}
                     name={"smokeChange"} 
+                    rules={{ required: true }}
                     />
                 </IonItem>
+
+                   {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                        :null}
 
                 <div id="progress-bar-div" >
                             <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
