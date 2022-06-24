@@ -101,12 +101,16 @@ hr{
   margin-left: 10px;
 }
 
-.custom-modal .ion-button-termos{
+.ion-button-termos{
   margin-top: 10px;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
   
   text-transform: none;
-  float: right;
+
+  display: block;
+ 
 }
 
 .logo-login{
@@ -131,4 +135,14 @@ color: #F58B44;
 
 .texto-app{
   font-family: OpenSans;
+}
+
+.botãoConcordo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabelaPrivacidade{
+  border: 1px solid;
 }

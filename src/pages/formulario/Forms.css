@@ -436,3 +436,7 @@ ion-input{
   margin-top: 16px;
   
 }
+
+ion-note {
+  font-size: 14px;
+}

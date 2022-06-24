@@ -228,11 +228,12 @@ const HabitosFinal4 = (props: StepComponentProps) => {
 
                                 </IonItem> : null}
 
+                                {/*}
                                 {(props.state.lightExposureFinal === "sim") ?
                                 <IonItem lines="none">
                                    
                                     <IonNote>Se seus foram os mesmos em todos dias, preencha os horários no primeiro dia e a opção REPETIR HORÁRIOS no final.</IonNote>
-                                </IonItem> : null}
+                                    </IonItem> : null} */}
 
                                 {(props.state.lightExposureFinal === "sim") ?
                                 <IonItem lines="none">

@@ -47,6 +47,8 @@ const Habitos4 = (props: StepComponentProps) => {
 
     const [copiaHor, setCopiaHor] = useState(false);
 
+
+
     const timeformat: Intl.DateTimeFormatOptions = {
         weekday: 'short',
         year: 'numeric',
@@ -133,6 +135,7 @@ const Habitos4 = (props: StepComponentProps) => {
                 dia_Anterior13_LightQ: String(props.state.dia_Anterior13_LightQ),
                 dia_Anterior14_LightQ: String(props.state.dia_Anterior14_LightQ),
 
+               
                 dateHabitosModule1: new Date()
             }, { merge: true })
         }
@@ -232,11 +235,14 @@ const Habitos4 = (props: StepComponentProps) => {
 
                                 </IonItem> : null}
 
+                                {/*}
+
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
                                    
-                                    <IonNote>Se seus foram os mesmos em todos dias, preencha os horários no primeiro dia e a opção REPETIR HORÁRIOS no final.</IonNote>
-                                </IonItem> : null}
+                                    <IonNote>Se seus foram os mesmos em todos dias, preencha os horários no primeiro dia e a marque a opção REPETIR HORÁRIOS.</IonNote>
+                                </IonItem> : null} */
+                                    }
 
                                 {(props.state.lightExposure === "sim") ?
                                 <IonItem lines="none">
@@ -288,6 +294,7 @@ const Habitos4 = (props: StepComponentProps) => {
                                         <IonSelectOption value={23}>17:30 - 18:00</IonSelectOption>
                                     </IonSelect> )} control={control} name={"diaAtual_LightQ"} rules={{ required: true }} />
                                 </IonItem> : null}
+                                                           
 
 
                                 {/*}
@@ -416,7 +423,7 @@ const Habitos4 = (props: StepComponentProps) => {
 
                                 :null}
 
-                                {(props.state.lightExposure === "sim") ?
+                                {(props.state.lightExposure === "sim")  ?
                                 <IonItem lines="none">
                                    
                                     <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("dia_Anterior3_Boolean", false)} onIonChange={(e) => {

@@ -54,6 +54,8 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
     const [errorLogin, setErrorLogin] = useState(false);
 
+    const [modalBemVindo, setModalBemVindo] = useState(false);
+
 
     function loginNotification() {
         LocalNotifications.schedule([{
@@ -245,6 +247,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
         Cadastro();
         setShowModalRec(false);
+       
         // createDatabaseQuest1();
 
 
@@ -787,7 +790,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
                     </IonModal>
 
-
+                    
 
                     <div id="progress-bar-div" >
                         <IonProgressBar className={"progress-bar"} value={1.0} color="orange"></IonProgressBar>
