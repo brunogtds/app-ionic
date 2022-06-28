@@ -71,7 +71,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
             id: 2,
             title: 'ReGente',
             text: 'Já faz 14 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
-            trigger: { at: new Date(Date.now() + 15000) }
+            trigger: { at: new Date(Date.now() + 1209600000000) } //14 dias em ms
         }]);
     }
 
@@ -80,7 +80,16 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
             id: 3,
             title: 'ReGente',
             text: 'Já faz 28 dias que você se cadastrou no aplicativo! Entre novamente para continuar respondendo os questionários.',
-            trigger: { at: new Date(Date.now() + 30000) }
+            trigger: { at: new Date(Date.now() + 2419200000000) } //28 dias em ms
+        }]);
+    }
+
+    function dailyNotification() {
+        LocalNotifications.schedule([{
+            id: 4,
+            title: 'ReGente',
+            text: 'Realizou alguma meta hoje? Entre no aplicativo e chegue ',
+            trigger: { at: new Date(Date.now() + 86400000000) } //1 dia em ms
         }]);
     }
 
@@ -148,6 +157,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
             loginNotification()
             secondPartNotification()
             thirdPartNotification()
+            dailyNotification()
             createDatabaseQuest1(res.user?.uid)
             //history.replace('/tab1');
         }
@@ -329,7 +339,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
 
                     <IonLabel className="ion-text-wrap questions">Número de pessoas dependentes:</IonLabel>
-                    {errors.depend && <IonText color="danger">Campo obrigatório.</IonText>}
+                   
                     <IonItem lines="none">
 
 
@@ -601,7 +611,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
                                     />
                                     <div>
-                                        {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                                       
                                     </div>
 
                                 </IonItem>
@@ -769,7 +779,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
                                     />
                                     <div>
-                                        {/*errors.disorders && <IonText color="danger">Campo obrigatório.</IonText>*/}
+                                  
                                     </div>
 
                                 </IonItem>
@@ -789,6 +799,14 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                         </IonContent>
 
                     </IonModal>
+
+                    {formState.isValid === false ? 
+
+                        <div className="preenchimentoObri">
+                            <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                        </div>
+                        
+                    :null}
 
                     
 

@@ -60,7 +60,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                     <div className="texto-default">Para começar e receber dicas personalizadas, preencha para sabermos mais sobre você!</div>
 
                     <IonLabel className="questions">Idade:</IonLabel>
-                    {errors.age && <IonText color="danger"> Campo obrigatório.</IonText>}
+             
                     <IonItem lines="none">
 
 
@@ -111,7 +111,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
 
                         />
 
-                        {errors.sex && <IonText color="danger">Campo obrigatório.</IonText>}
+                      
 
                     </IonItem>
 
@@ -131,7 +131,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                                 rules={{ required: true }}
                                 control={control}
                             />
-                            {errors.sex && <IonText color="danger">Campo obrigatório.</IonText>}
+                          
                         </IonItem>
                         : null}
 
@@ -156,7 +156,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                     </IonItem>
 
                     <IonLabel className="questions">Altura (em cm): </IonLabel>
-                    {errors.height && <IonText color="danger">Campo obrigatório.</IonText>}
+                
 
                     <IonItem lines="none">
 
@@ -234,7 +234,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
 
 
                     <IonLabel className="questions">Atualmente sou:</IonLabel>
-                    {errors.currentOccupation && <IonText color="danger"> Campo obrigatório.</IonText>}
+                   
 
                     <IonItem className={"ion-no-padding "} lines="none">
 
@@ -293,6 +293,14 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         />
 
                     </IonItem>
+
+                    {formState.isValid === false ? 
+
+                    <div className="preenchimentoObri">
+                        <IonText  color="danger">Preencha todos campos obrigatórios para prosseguir</IonText>
+                    </div>
+
+                    :null}
 
                     <div id="progress-bar-div" >
                         <IonProgressBar className={"progress-bar"} value={0.66} color="orange"></IonProgressBar>
