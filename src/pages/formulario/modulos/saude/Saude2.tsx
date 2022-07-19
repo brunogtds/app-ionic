@@ -471,7 +471,7 @@ const Saude2 = (props: StepComponentProps) => {
                                         </IonList>)}
                                         control={control}
                                         name={"stimulantTiming"}
-                                        rules={{required:true}}
+                                      //  rules={{required:true}}
                                     />
                                 
                                 </IonItem> : null}

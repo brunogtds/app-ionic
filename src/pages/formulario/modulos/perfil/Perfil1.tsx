@@ -80,6 +80,7 @@ const Perfil1 = (props: StepComponentProps) => {
                         <div className="texto-title">Sobre você</div>
                         <div className="texto-default">Aqui você pode editar os dados que preencheu no cadastro!</div>
 
+                        {/*
                         <IonAvatar>
                             <img src={matutino_wave} />
                         </IonAvatar>
@@ -97,7 +98,7 @@ const Perfil1 = (props: StepComponentProps) => {
                         <IonAvatar>
                             <img src={vespertino_wave} />
                         </IonAvatar>
-                        </IonItem>
+    </IonItem> */}
 
                         <IonLabel className="questions">Idade:</IonLabel>
                         <IonItem>

@@ -76,12 +76,13 @@ const Who5 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>às vezes</IonLabel>
+                                        <IonLabel>menos do que metade do tempo</IonLabel>
+                                      
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>menos do que metade do tempo</IonLabel>
+                                        <IonLabel>às vezes</IonLabel>
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                     </IonItem>
 
@@ -122,12 +123,13 @@ const Who5 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>às vezes</IonLabel>
+                                        <IonLabel>menos do que metade do tempo</IonLabel>
+                                        
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>menos do que metade do tempo</IonLabel>
+                                         <IonLabel>às vezes</IonLabel>
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                     </IonItem>
 
@@ -169,12 +171,13 @@ const Who5 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>às vezes</IonLabel>
+                                         <IonLabel>menos do que metade do tempo</IonLabel>
+                                        
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>menos do que metade do tempo</IonLabel>
+                                         <IonLabel>às vezes</IonLabel>
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                     </IonItem>
 
@@ -216,12 +219,13 @@ const Who5 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>às vezes</IonLabel>
+                                        <IonLabel>menos do que metade do tempo</IonLabel>
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>menos do que metade do tempo</IonLabel>
+                                        
+                                        <IonLabel>às vezes</IonLabel>
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                     </IonItem>
 
@@ -263,12 +267,13 @@ const Who5 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>às vezes</IonLabel>
+                                        <IonLabel>menos do que metade do tempo</IonLabel>
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                     </IonItem>
 
                                     <IonItem lines="none" className={"ion-no-padding"}>
-                                        <IonLabel>menos do que metade do tempo</IonLabel>
+                                        
+                                        <IonLabel>às vezes</IonLabel>
                                         <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
                                     </IonItem>
 
