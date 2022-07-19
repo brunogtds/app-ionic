@@ -24,6 +24,8 @@ import { createTrue } from "typescript";
 import { faAngry } from "@fortawesome/free-solid-svg-icons";
 import { trendingUpOutline } from "ionicons/icons";
 
+import { toast } from '../toast';
+
 /*STEP 1 => Página 1 do formulário
 Se user autenticado entrou aqui -> createDataBaseQuest 1 cria a entrada na tabela users no Firebase  */
 
