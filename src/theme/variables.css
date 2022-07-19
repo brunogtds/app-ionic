@@ -163,12 +163,16 @@ ion-alert{
   font-family: 'OpenSans';
   src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
 }
+
+/** dark mode comentado
   
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: darks) {
   /*
    * Dark Colors
    * -------------------------------------------
    */
+
+/*
 
   body {
 
@@ -246,12 +250,15 @@ ion-alert{
   
    
   }
+  
+  */
 
   /*
    * iOS Dark Theme
    * -------------------------------------------
    */
 
+   /*
   .ios body {
     --ion-background-color: #ffffff;
     --ion-background-color-rgb: 0,0,0;
@@ -311,11 +318,15 @@ ion-alert{
   .ions ion-checkbox{
     --border-radius: 1px;
   }
+
+  */
  
   /*
    * Material Design Dark Theme
    * -------------------------------------------
    */
+
+   /*
 
   .md body {
     --ion-background-color: #ffffff;
@@ -362,11 +373,13 @@ ion-alert{
   margin-top: 15%;
   background-color: #F58B44;
 }
-
+*/
 /*
  * iOS Dark Theme
  * -------------------------------------------
  */
+
+ /*
 
  .ios body.dark {
   --ion-background-color: #000000;
@@ -407,10 +420,14 @@ ion-alert{
   --ion-item-background: var(--ion-color-step-150);
 }
 
+*/
+
 /*
  * Material Design Dark Theme
  * -------------------------------------------
  */
+
+ /*
 
 .md body.dark {
   --ion-background-color: #121212;
@@ -449,3 +466,5 @@ ion-alert{
 
   --ion-card-background: #1e1e1e;
 }
+
+*/

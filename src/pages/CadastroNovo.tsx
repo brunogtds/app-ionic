@@ -129,6 +129,7 @@ const Cadastro = (props: StepComponentProps) => {
     var register = await validateRegister();
       if(register) {
         //toast('ESTAMOS AQUI!!!')
+        toast('Bem-vindo ao ReGente! Continue nas próximas páginas para efetuar o cadastro com sucesso. Atenção: após finalizar o última pergunta pode demorar para ser redirecionado para a página inicial!!!', 5000)
         return props.jump(2);
       }
 
