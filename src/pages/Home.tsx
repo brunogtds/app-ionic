@@ -1123,7 +1123,7 @@ const Tab1: React.FC = () => {
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado}  onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
+                        <IonButton disabled={moduloHabitosEnviado || !moduloContatoEnviado}  onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Sono e hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
@@ -1431,7 +1431,7 @@ const Tab1: React.FC = () => {
                   <AccordionItemPanel>
 
                     <div>
-                      <IonButton disabled={moduloHabitosPostEnviado || !moduloSaudePostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos </div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
+                      <IonButton disabled={moduloHabitosPostEnviado || !moduloSaudePostEnviado} onClick={habitosPost} color="orange" fill="solid" className="button-forms"><div className="texto-button">Sono e hábitos </div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
                     </div>
                   </AccordionItemPanel>
                   <AccordionItemPanel>
@@ -1468,15 +1468,17 @@ const Tab1: React.FC = () => {
                     </div>
                   </AccordionItemPanel>
 
-                  <AccordionItemPanel>
+               {/*}   <AccordionItemPanel>
                     <div>
                       <IonButton disabled={moduloContatoFinalEnviado || !moduloSaudeFinalEnviado} onClick={contatoFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Contato social</div><img className="img-button" src={button_contato} width="80" height="80" alt={"Mascote do Regente vespertino e matutino sorrindo e de mãos dadas."} /></IonButton>
                     </div>
                   </AccordionItemPanel>
 
+                            */}
+
                   <AccordionItemPanel>
                     <div>
-                      <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
+                      <IonButton disabled={moduloHabitosFinalEnviado || !moduloContatoFinalEnviado} onClick={habitosFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Sono e hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
                     </div>
                   </AccordionItemPanel>
 

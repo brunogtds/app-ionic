@@ -182,6 +182,10 @@ const Recommendation: React.FC = () => {
       <div id="inner texto-padrao">
 
       <h1 className="texto-titulo">Recomendações</h1>
+
+      <div id="recommendations">
+      <IonButton id="button-recommendation" color="white" onClick={() => setShowModalSono(true)} >  <div className="texto-button-recommend-habitos">Relógio biológico e sono </div></IonButton>
+      </div>
    
       <div id="recommendations">
       <IonButton id="button-recommendation" onClick={() => setShowModalCovid(true)} color="white"> <div className="texto-button-recommend"> Pandemia COVID-19 </div></IonButton>
@@ -191,11 +195,6 @@ const Recommendation: React.FC = () => {
       <IonButton id="button-recommendation" color="white" onClick={() => setShowModalHabitos(true)} > <div className="texto-button-recommend-habitos"> Bons hábitos </div></IonButton>
       </div>
     
-      <div id="recommendations">
-      <IonButton id="button-recommendation" color="white" onClick={() => setShowModalSono(true)} >  <div className="texto-button-recommend">Sono </div></IonButton>
-      </div>
-
-     
       <div className="texto-padrao-inicial">
       Após terminar de ler as recomendações, você pode voltar para a <a className={"link"} href="/tab1">página inicial</a> ou <a className={"link"} href="/calendar">acompanhar seu progresso</a> caso já tenha terminado de preencher os questionários! </div>
 
