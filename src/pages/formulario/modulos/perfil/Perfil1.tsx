@@ -154,27 +154,7 @@ const Perfil1 = (props: StepComponentProps) => {
                             {errors.sex && <IonText color="danger">Campo obrigatório.</IonText>}
 
                         </IonItem>
-
-                        {watchGender === "feminino" ?
-                            <IonItem color="light">
-                                <IonLabel position="floating" className="questions" >Primeiro dia da última menstruação:</IonLabel>
-
-                                <Controller render={({ onChange }) => (
-                                    <IonDatetime monthShortNames="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Aug, Set, Out, Nov, Dez" placeholder="Selecione data" id="dateMenstruation" doneText="ok" cancelText="Cancelar" onIonChange={(e) => {
-                                        console.log(e);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('dateMenstruation', e.detail.value)
-                                    }} ></IonDatetime>
-                                )}
-                                    name="dateMenstruação"
-                                    rules={{ required: true }}
-                                    control={control}
-                                />
-                                {errors.sex && <IonText color="danger">Campo obrigatório.</IonText>}
-                            </IonItem>
-                            : null}
-
+                       
                         <IonLabel className="questions">Peso (em kg):</IonLabel>
 
                         <IonItem>

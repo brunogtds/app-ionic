@@ -202,6 +202,9 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
             goodSleep: String(props.state.goodSleep),
             age: Number(props.state.age), //STEP 1
             sex: String(props.state.sex),
+            questionMenstrua: String(props.state.questionMenstrua),
+            questionCicloMenstrua: String(props.state.questionCicloMenstrua),
+            motNoMenstr: String(props.state.motNoMenstr),
             dateMenstruation: String(props.state.dateMenstruation),
             weight: Number(props.state.weight),
             height: Number(props.state.height),
@@ -214,22 +217,13 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
             area: String(props.state.area),
 
-            m1q1: Boolean(props.state.m1q1),
-            m1q2: Boolean(props.state.m1q2),
-            m1q3: Boolean(props.state.m1q3),
-            m1q4: Boolean(props.state.m1q4),
-            m1q5: Boolean(props.state.m1q5),
-            m1q6: Boolean(props.state.m1q6),
-            m1q7: Boolean(props.state.m1q7),
-
             m2q1: Boolean(props.state.m2q1),
             m2q2: Boolean(props.state.m2q2),
             m2q3: Boolean(props.state.m2q3),
             m2q4: Boolean(props.state.m2q4),
             m2q5: Boolean(props.state.m2q5),
             m2q6: Boolean(props.state.m2q6),
-            m2q7: Boolean(props.state.m2q7),
-
+            
             m3q1: Boolean(props.state.m3q1),
             m3q2: Boolean(props.state.m3q2),
             m3q3: Boolean(props.state.m3q3),
@@ -401,7 +395,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
                             <div className="ion-padding texto-default">
 
-                                <IonLabel className="questions">Antes de prosseguir, gostaríamos de saber mais sobre alguns de seus hábitos antes de utilizar o app...</IonLabel>
+                                <IonLabel className="questions">Antes de prosseguir, gostaríamos de saber mais sobre você...</IonLabel>
                               
                               {/*  <IonLabel className="questions">Sobre a pandemia do Covid-19:</IonLabel>
 
@@ -506,117 +500,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
 
                                 </IonItem> */}
 
-                                <IonLabel className="questions">Sobre bons hábitos para se manter saudável:</IonLabel>
-
-                                <IonItem className={"ion-no-padding"}>
-
-
-                                    <Controller render={({ onChange }) => (
-
-                                        <IonList className={"ion-no-padding"}>
-
-                                            <IonItem lines="none"  >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q1", false)} onIonChange={(e) => {
-
-                                                     if (e.detail.checked) {
-                                                        props.setState('m2q1', true)
-                                                    } else {
-                                                        props.setState('m2q1', false)
-                                                    }
-                                                }}></IonCheckbox>
-                                                <IonLabel >Evitei ouvir notícias o tempo todo.</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none"  >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q2", false)} onIonChange={(e) => {
-
-                                                      if (e.detail.checked) {
-                                                        props.setState('m2q2', true)
-                                                    } else {
-                                                        props.setState('m2q2', false)
-                                                    }
-                                                }}></IonCheckbox>
-                                                <IonLabel >Usei técnicas para relaxar o corpo e a mente.</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none"  >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q3", false)} onIonChange={(e) => {
-
-                                                      if (e.detail.checked) {
-                                                        props.setState('m2q3', true)
-                                                    } else {
-                                                        props.setState('m2q3', false)
-                                                    }
-                                                }}></IonCheckbox>
-                                                <IonLabel >Reservei um tempo para atividades de lazer.</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none"  >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q4", false)} onIonChange={(e) => {
-
-                                                    
-                                                      if (e.detail.checked) {
-                                                        props.setState('m2q4', true)
-                                                    } else {
-                                                        props.setState('m2q4', false)
-                                                    }
-                                                }}></IonCheckbox>
-                                                <IonLabel >Pratiquei atividades físicas.</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none"  >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q5", false)} onIonChange={(e) => {
-
-                                                    
-                                                      if (e.detail.checked) {
-                                                        props.setState('m2q5', true)
-                                                    } else {
-                                                        props.setState('m2q5', false)
-                                                    }
-                                                }}></IonCheckbox>
-                                                <IonLabel >Cuidei da minha postura corporal.</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none"  >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q6", false)} onIonChange={(e) => {
-
-                                                      if (e.detail.checked) {
-                                                        props.setState('m2q6', true)
-                                                    } else {
-                                                        props.setState('m2q6', false)
-                                                    }
-                                                }}></IonCheckbox>
-                                                <IonLabel >Mantive uma boa higiene bucal.</IonLabel>
-                                            </IonItem>
-
-                                            <IonItem lines="none"  >
-                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q7", false)} onIonChange={(e) => {
-
-                                                   if (e.detail.checked) {
-                                                        props.setState('m2q7', true)
-                                                    } else {
-                                                        props.setState('m2q7', false)
-                                                    }
-                                                }}></IonCheckbox>
-                                                <IonLabel >Cuidei da minha alimentação.</IonLabel>
-                                            </IonItem>
-
-
-                                        </IonList>
-                                    )}
-
-                                        control={control}
-                                        // rules={{required: true}}
-                                        name={"m2"}
-
-                                    />
-                                    <div>
-                                       
-                                    </div>
-
-                                </IonItem>
-
-                                <IonLabel className="questions">Sobre seu relógio biológico e sono:</IonLabel>
+                                 <IonLabel className="questions">Sobre seu relógio biológico e sono:</IonLabel>
 
 
                                 <IonItem className={"ion-no-padding"}>
@@ -635,7 +519,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q1', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Expus-me à luz natural durante o dia.</IonLabel>
+                                                <IonLabel >Exponho-me à luz natural durante o dia.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -647,7 +531,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q2', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Apaguei as luzes cedo e/ou evitei me expor à luz branca à noite.</IonLabel>
+                                                <IonLabel >Apago as luzes cedo e/ou evitei me expor à luz forte à noite.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -659,7 +543,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q3', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Reduzi o tempo em frente às telas (computador, televisão, celular, etc) à noite.</IonLabel>
+                                                <IonLabel >Evito telas (computador, televisão, celular, etc) à noite.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -671,7 +555,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q4', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Usei app que deixa a tela amarelada à noite.</IonLabel>
+                                                <IonLabel >Uso app que deixa a tela amarelada à noite.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -683,7 +567,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q5', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Organizei minha rotina pensando em meu cronotipo.</IonLabel>
+                                                <IonLabel >Organizo minha rotina pensando nas minhas necessidades de sono e nos horários que me sinto mais ativo(a).</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -695,7 +579,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q6', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Mantive horários regulares (sono, alimentação, trabalho-lazer).</IonLabel>
+                                                <IonLabel >Mantenho horários regulares (sono, alimentação, trabalho-lazer).</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -707,7 +591,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q7', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Evitei tirar cochilos longos durante o dia.</IonLabel>
+                                                <IonLabel >Evito tirar cochilos longos durante o dia e perto da hora de dormir.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -719,7 +603,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q8', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Na hora de deitar, evitei ficar pensando em meus problemas.</IonLabel>
+                                                <IonLabel >Na hora de deitar, evito ficar pensando em meus problemas.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -731,7 +615,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q9', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Meu quarto foi um ambiente que facilitou o sono.</IonLabel>
+                                                <IonLabel >O espaço onde eu durmo é um ambiente que facilita o sono.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -743,7 +627,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q10', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Evitei comer alimentos pesados próximo a hora de dormir.</IonLabel>
+                                                <IonLabel >Evito comer alimentos pesados próximo a hora de dormir.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -755,7 +639,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q11', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Evitei ingerir bebidas/alimentos com cafeína perto da hora de dormir.</IonLabel>
+                                                <IonLabel >Evito ingerir bebidas/alimentos que contenham álcool ou cafeína perto da hora de dormir.</IonLabel>
                                             </IonItem>
 
                                             <IonItem lines="none"  >
@@ -767,7 +651,7 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                                         props.setState('m3q12', false)
                                                     }
                                                 }}></IonCheckbox>
-                                                <IonLabel >Evitei praticar exercício próximo a hora de dormir.</IonLabel>
+                                                <IonLabel >Evito praticar exercício físico próximo a hora de dormir.</IonLabel>
                                             </IonItem>
 
                                         </IonList>
@@ -783,6 +667,119 @@ const Perfil_Cadastro2 = (props: StepComponentProps) => {
                                     </div>
 
                                 </IonItem>
+
+                                <IonLabel className="questions">Sobre bons hábitos para se manter saudável:</IonLabel>
+
+                                <IonItem className={"ion-no-padding"}>
+
+
+                                    <Controller render={({ onChange }) => (
+
+                                        <IonList className={"ion-no-padding"}>
+
+                                            {/*}
+                                            <IonItem lines="none"  >
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q1", false)} onIonChange={(e) => {
+
+                                                     if (e.detail.checked) {
+                                                        props.setState('m2q1', true)
+                                                    } else {
+                                                        props.setState('m2q1', false)
+                                                    }
+                                                }}></IonCheckbox>
+                                                <IonLabel >Evitei ouvir notícias o tempo todo.</IonLabel>
+                                            </IonItem> */}
+
+                                            <IonItem lines="none"  >
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q2", false)} onIonChange={(e) => {
+
+                                                      if (e.detail.checked) {
+                                                        props.setState('m2q1', true)
+                                                    } else {
+                                                        props.setState('m2q1', false)
+                                                    }
+                                                }}></IonCheckbox>
+                                                <IonLabel >Uso técnicas para relaxar o corpo e a mente.</IonLabel>
+                                            </IonItem>
+
+                                            <IonItem lines="none"  >
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q3", false)} onIonChange={(e) => {
+
+                                                      if (e.detail.checked) {
+                                                        props.setState('m2q2', true)
+                                                    } else {
+                                                        props.setState('m2q2', false)
+                                                    }
+                                                }}></IonCheckbox>
+                                                <IonLabel >Reservo um tempo para atividades de lazer.</IonLabel>
+                                            </IonItem>
+
+                                            <IonItem lines="none"  >
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q4", false)} onIonChange={(e) => {
+
+                                                    
+                                                      if (e.detail.checked) {
+                                                        props.setState('m2q3', true)
+                                                    } else {
+                                                        props.setState('m2q3', false)
+                                                    }
+                                                }}></IonCheckbox>
+                                                <IonLabel >Pratico exercícios físicas.</IonLabel>
+                                            </IonItem>
+
+                                            <IonItem lines="none"  >
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q5", false)} onIonChange={(e) => {
+
+                                                    
+                                                      if (e.detail.checked) {
+                                                        props.setState('m2q4', true)
+                                                    } else {
+                                                        props.setState('m2q4', false)
+                                                    }
+                                                }}></IonCheckbox>
+                                                <IonLabel >Cuido da minha postura corporal.</IonLabel>
+                                            </IonItem>
+
+                                            <IonItem lines="none"  >
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q6", false)} onIonChange={(e) => {
+
+                                                      if (e.detail.checked) {
+                                                        props.setState('m2q5', true)
+                                                    } else {
+                                                        props.setState('m2q5', false)
+                                                    }
+                                                }}></IonCheckbox>
+                                                <IonLabel >Mantenho uma boa higiene bucal.</IonLabel>
+                                            </IonItem>
+
+                                            <IonItem lines="none"  >
+                                                <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("m2q7", false)} onIonChange={(e) => {
+
+                                                   if (e.detail.checked) {
+                                                        props.setState('m2q6', true)
+                                                    } else {
+                                                        props.setState('m2q6', false)
+                                                    }
+                                                }}></IonCheckbox>
+                                                <IonLabel >Cuido da minha alimentação.</IonLabel>
+                                            </IonItem>
+
+
+                                        </IonList>
+                                    )}
+
+                                        control={control}
+                                        // rules={{required: true}}
+                                        name={"m2"}
+
+                                    />
+                                    <div>
+                                       
+                                    </div>
+
+                                </IonItem>
+
+                               
 
                                 <div className="ion-text-center">
                                     <IonButton className={"btn-ModalCadastro"} color="white" onClick={onSubmit}>OK, cadastrar!</IonButton>

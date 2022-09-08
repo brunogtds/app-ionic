@@ -55,7 +55,7 @@ const Perfil2 = (props: StepComponentProps) => {
             firebase.firestore().collection('users').doc(user.uid).set({
                 age: Number(props.state.age), //STEP 1
                 sex: String(props.state.sex),
-                dateMenstruation: String(props.state.dateMenstruation),
+               
                 weight: Number(props.state.weight),
                 height: Number(props.state.height),
                 BRstate: String(props.state.BRstate),

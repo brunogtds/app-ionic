@@ -189,7 +189,7 @@ const Cadastro = (props: StepComponentProps) => {
       </IonInput>
 
 
-      <p>Antes de se cadastrar, leia nossos <a onClick={() => setShowModal(true)}>termos de uso - ReGente</a> e <a onClick={() => setShowModalPriv(true)}>política de privacidade.</a></p>
+      <p>Antes de se cadastrar, leia nossos <a onClick={() => setShowModal(true)}>termos de uso e de consentimento livre e esclarecido- ReGente</a>,  e nossa <a onClick={() => setShowModalPriv(true)}>política de privacidade.</a></p>
       
       <IonModal 
         isOpen={showModal} 
@@ -489,6 +489,30 @@ f.	Não carregará para a plataforma qualquer arquivo corrompido, malicioso ou q
 
 
 
+
+        </p>
+        <h1>Termo de Consentimento Livre e Esclarecido (TCLE) - ReGente</h1>
+        <p>Estudo do aplicativo com amostra da comunidade</p>
+        <p>Convidamos você a utilizar o aplicativo, que faz parte do estudo intitulado <b>“RITMOS BIOLÓGICOS, SONO E HUMOR EM INDIVÍDUOS EM DISTANCIAMENTO SOCIAL”</b>, cuja pesquisadora responsável é a Profª Maria Paz Hidalgo e o telefone para contato é +55 51 3359-6339. Dúvidas também podem ser esclarecidas pelo e-mail: lab.crono.hcpa@gmail.com. </p>
+        <p>O objetivo do estudo é entender como os hábitos e a organização de rotinas estão associados a aspectos de sua saúde. </p>
+        <p>Caso você decida participar, você será direcionado para preencher questões sobre seu perfil sociodemográfico para completar seu cadastro e logo após terá acesso a um questionário, contendo algumas perguntas sobre como você está se sentindo e sobre suas rotinas durante o período de distanciamento social. O questionário é dividido em 3 partes, que são liberadas a cada 14 dias (a partir do momento que você responder o primeiro). Após completar o cadastro, você também receberá algumas recomendações relacionadas ao sono e a hábitos saudáveis e será convidado a avaliá-las nos próximos questionários. Assim que terminar de responder o primeiro questionário, você também terá a possibilidade de definir metas em tópicos específicos relacionados ao uso do aplicativo (sono, exercício físico, exposição à luz e alimentação) e marcar e acompanhar suas metas na aba de Progresso.
+        </p>
+        <p>Seus dados coletados através dos questionários serão utilizados para que possamos dar um retorno personalizado após você enviar todas as respostas do primeiro questionário. Os dados também poderão ser utilizados para a construção de um modelo de aprendizado de máquina, que busque aprender padrões a partir dos dados informados em busca de dar um retorno e possibilitar uma orientação cada vez mais personalizada e relevante para os usuários.</p>
+        <p>Os possíveis desconfortos decorrentes da participação na pesquisa serão apenas os relacionados a responder às perguntas dos questionários.</p>
+        <p>Os dados coletados serão posteriormente disponibilizados em bancos de acesso aberto para que outros pesquisadores também possam entender melhor questões de saúde, utilizando estes dados. Os dados serão, porém, disponibilizados sem a identificação de a quem pertencem, isto é, não constará nome, e-mail ou outra informação que possa identificar diretamente você. Os principais achados da pesquisa envolvendo o aplicativo para entender como os hábitos e a organização de rotinas estão associados à saúde serão publicados também em formato acessível ao público geral. Nenhuma publicação deste estudo irá expor dados relacionados à identificação pessoal, isto é, seu nome ou e-mail.</p>
+        <p>Sua participação na pesquisa se dará de forma totalmente voluntária. Caso você decida não participar, basta não se cadastrar. Caso você concorde, você também terá a oportunidade de ser convidado a participar de outros estudos.</p>
+        <p><b>*Onde posso esclarecer dúvidas sobre os meus direitos como participante da pesquisa</b>
+        Este projeto foi avaliado e aprovado pela Comissão Nacional de Ética em Pesquisa (CONEP).  A CONEP é uma comissão do Conselho Nacional de Saúde que avalia pesquisas em seres humanos em áreas temáticas especiais. Os Comitês de Ética em Pesquisa (CEPs) avaliam, a nível institucional, protocolos de pesquisas envolvendo seres humanos e implementa normas regulamentadoras, garantindo a integridade e os direitos dos voluntários de pesquisa. 
+        </p>
+        <p>Se você tiver dúvidas sobre seus direitos como participante desta pesquisa, poderá entrar em contato com o CEP do Hospital de Clínicas de Porto Alegre nos seguintes horários: de segunda a sexta-feira das 8h às 17h, ou com o Comissão Nacional de Ética em Pesquisa (CONEP), pelo telefone (61) 3315-5878 ou e-mail conep@saude.gov.br.</p>
+        <p>
+          CEP do Hospital de Clínicas de Porto Alegre na Av. Protásio Alves, 211 - Portão 4 - 5º andar
+          do Bloco C - Rio Branco - Porto Alegre/RS, de segunda à sexta, das 8h às 17h, telefone (51)
+          33596246, e-mail cep@hcpa.edu.br. 
+        </p>
+        <p>
+          
+        CONEP – Comissão Nacional de Ética em Pesquisa Telefone: (61) 3315-5878/E-mail: conep@saude.gov.br Endereço: SRTV 701, Via W 5 Norte, lote D - Edifício PO 700, 3º andar – Asa Norte CEP 70719-040, Brasília – DF Horário de funcionamento: 08h às 18h.
 
         </p>
         <IonButton onClick={agree} size="default" shape="round" color="orange" fill="solid" className="ion-button-termos">Concordo com os termos</IonButton>

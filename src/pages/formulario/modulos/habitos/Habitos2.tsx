@@ -1,7 +1,7 @@
 import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonText } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonText, IonNote } from "@ionic/react";
 import { IonContent } from '@ionic/react';
 
 import '../../Forms.css';
@@ -71,7 +71,8 @@ const Habitos2 = (props: StepComponentProps) => {
                               
                             </IonItem>
 
-                            <IonLabel className="questions">Como foram suas rotinas de alimentação nas últimas duas semanas?</IonLabel>
+                            <IonLabel className="questions">Como foram seus horários de alimentação nas últimas duas semanas?</IonLabel>
+                            <IonNote>Ser muito regular significa se alimentar sempre no mesmo horário.</IonNote>
                             <IonList>
 
 
@@ -88,7 +89,7 @@ const Habitos2 = (props: StepComponentProps) => {
                                             <IonSelectOption value="muito irregulares">Muito irregulares</IonSelectOption>
                                             <IonSelectOption value="irregulares">Irregulares</IonSelectOption>
                                             <IonSelectOption value="regulares">Regulares</IonSelectOption>
-                                            <IonSelectOption value="muito regulares">Muito regulares</IonSelectOption>
+                                            <IonSelectOption value="muitoRegulares">Muito regulares</IonSelectOption>
                                         </IonSelect>)} control={control} name="feedReg" rules={{ required: true }} />
                                  
                                 </IonItem>
@@ -115,12 +116,13 @@ const Habitos2 = (props: StepComponentProps) => {
 
                                 {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
                                     <IonItem lines="none">
-                                        <IonLabel className="questions">Em que horário, em média, você se alimentou pela última vez no dia, nas últimas duas semanas?</IonLabel>
+                                        <IonLabel className="questions">Em que horário, em média, você se alimentou pela última vez no dia, nas últimas duas semanas, nos dias de trabalho ou semana?</IonLabel>
+                                        
                                     </IonItem> : null}
                                 {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
                                     <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
-                                            <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
+                                            <IonDatetime placeholder="Use o formato 24:00. Por exemplo, se seu último horário de alimentação foi às 9h da noite, responda 21:00..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
                                                 console.log(e);
                                                 onChange(e.detail.value);
                                                 if (e.detail.value != undefined)
@@ -131,6 +133,7 @@ const Habitos2 = (props: StepComponentProps) => {
 
                             </IonList>
 
+                            {/*}
                             <IonLabel className="questions">Seus horários de alimentação foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana) nas últimas duas semanas?</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"}>
 
@@ -155,35 +158,38 @@ const Habitos2 = (props: StepComponentProps) => {
                                     </IonRadioGroup>)} control={control} name={"feedfdyn"} rules={{ required: true }} />
                               
                             </IonItem>
+                                */}
 
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") ) ?
                                 <IonItem lines="none">
                                     <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias livres ou fins de semana?</IonLabel>
+                                   
                                 </IonItem> : null}
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") ) ?
                                 <IonItem lines="none">
                                     <Controller render={({ onChange }) => (
                                         <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
-                                                props.setState('feedStart', e.detail.value)
+                                                props.setState('feedStartFD', e.detail.value)
                                         }}></IonDatetime>)} control={control} name={"feedStart"} rules={{ required: true }} />
                                   
                                 </IonItem> : null}
 
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")) ?
                                 <IonItem lines="none">
                                     <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você se alimentou pela última vez no dia, nos dias livres ou fins de semana?</IonLabel>
+                                  
                                 </IonItem> : null}
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") ) ?
                                 <IonItem lines="none">
                                     <Controller render={({ onChange }) => (
-                                        <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
+                                        <IonDatetime placeholder="Use o formato 24:00. Por exemplo, se seu último horário de alimentação foi às 9h da noite, responda 21:00..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
                                             console.log(e);
                                             onChange(e.detail.value);
                                             if (e.detail.value != undefined)
-                                                props.setState('feedEnd', e.detail.value)
+                                                props.setState('feedEndFD', e.detail.value)
                                         }}></IonDatetime>)} control={control} name={"feedEnd"} rules={{ required: true }} />
                                
                                 </IonItem> : null}

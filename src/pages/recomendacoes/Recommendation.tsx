@@ -186,13 +186,13 @@ const Recommendation: React.FC = () => {
       <div id="recommendations">
       <IonButton id="button-recommendation" color="white" onClick={() => setShowModalSono(true)} >  <div className="texto-button-recommend-habitos">Relógio biológico e sono </div></IonButton>
       </div>
-   
-      <div id="recommendations">
-      <IonButton id="button-recommendation" onClick={() => setShowModalCovid(true)} color="white"> <div className="texto-button-recommend"> Pandemia COVID-19 </div></IonButton>
-      </div>
-  
+     
       <div id="recommendations">
       <IonButton id="button-recommendation" color="white" onClick={() => setShowModalHabitos(true)} > <div className="texto-button-recommend-habitos"> Bons hábitos </div></IonButton>
+      </div>
+      
+      <div id="recommendations">
+      <IonButton id="button-recommendation" onClick={() => setShowModalCovid(true)} color="white"> <div className="texto-button-recommend-habitos"> Etiqueta respiratória </div></IonButton>
       </div>
     
       <div className="texto-padrao-inicial">
@@ -497,6 +497,7 @@ const Recommendation: React.FC = () => {
           <IonContent>
             <IonSlides pager={true} id={"slides"} onIonSlidesDidLoad={init2}>
             
+              {/*}
                <IonSlide>
                <IonToolbar color="white">
                 <div id="header-items">
@@ -525,6 +526,7 @@ const Recommendation: React.FC = () => {
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
+              */}
                 <IonSlide>
                 <IonToolbar color="white">
                 <div id="header-items">

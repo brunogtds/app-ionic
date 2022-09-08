@@ -1,7 +1,7 @@
 import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonDatetime, IonNote, IonRadioGroup, IonRadio, IonText } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonDatetime, IonNote, IonRadioGroup, IonRadio, IonText, IonCheckbox } from "@ionic/react";
 import { IonContent } from '@ionic/react';
 import './Cadastro.css';
 
@@ -43,6 +43,8 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
     const [showOptions, setShowOptions] = React.useState(false);
 
     const watchGender = watch("sex", "");
+    const [questionMenstrua, setQuestionMenstrua] = useState();
+    const [questionCicloMenstrua, setQuestionCicloMenstrua] = useState();
 
     const [ocupation, setOcupation] = React.useState(false);
 
@@ -116,11 +118,98 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                     </IonItem>
 
                     {watchGender === "feminino" ?
+                        <IonLabel className="questions">Você menstrua?</IonLabel>
+                        : null}
+                    {watchGender === "feminino" ?
+                        <IonItem lines="none">
+
+                            <Controller render={({ onChange }) => (
+                                <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
+                                    console.log(e);
+                                    onChange(e.detail.value);
+                                    setQuestionMenstrua(e.detail.value)
+                                    if (e.detail.value != undefined)
+                                        props.setState('questionMenstrua', e.detail.value)
+                                }}>
+                                    <IonSelectOption value="sim">Sim</IonSelectOption>
+                                    <IonSelectOption value="não">Não</IonSelectOption>
+                                 
+                                </IonSelect>)} control={control} name={"questionMenstrua"} rules={{ required: true }} />
+                          
+                        </IonItem>
+                        : null}
+
+                        {questionMenstrua === "não" ?
+                       <IonLabel className="questions">Qual o motivo?</IonLabel>
+                        : null}
+
+                        {questionMenstrua === "não" ? 
+                        
+                        <IonItem mode="md" className={"ion-no-padding"} lines="none">
+
+
+                                <Controller render={({ onChange }) => (
+                                    <IonRadioGroup onIonChange={(e) => {
+                                       
+                                        onChange(e.detail.value);
+                                        if (e.detail.value != undefined)
+                                            props.setState('motNoMenstr', e.detail.value)
+                                    }}>
+
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                            <IonLabel>Menopausa</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="menopausa"></IonRadio>
+                                        </IonItem>
+
+
+                                         <IonItem lines="none">
+
+                                        <IonInput placeholder="Outro?" type="text" onIonChange={(e) => {
+                                       
+                                          if (e.detail.value != undefined)
+                                                props.setState('motNoMenstr', e.detail.value)        
+                                        }} />
+                                    </IonItem>
+                                    </IonRadioGroup>
+                                )}
+                                    control={control}
+                                  //  rules={{ required: true }}
+                                    name={"motNoMenstr"}
+                                />
+                            </IonItem>
+
+                        
+                        : null}
+
+                        {questionMenstrua === "sim" ?
+                       <IonLabel className="questions">Seu ciclo é regular ou irregular?</IonLabel>
+                        : null}
+
+                        {questionMenstrua === "sim" ?
+                       <IonItem lines="none">
+
+                       <Controller render={({ onChange }) => (
+                           <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
+                               console.log(e);
+                               onChange(e.detail.value);
+                               setQuestionCicloMenstrua(e.detail.value);
+                               if (e.detail.value != undefined)
+                                   props.setState('questionCicloMenstrua', e.detail.value)
+                           }}>
+                               <IonSelectOption value="regular">Regular</IonSelectOption>
+                               <IonSelectOption value="irregular">Irregular</IonSelectOption>
+                            
+                           </IonSelect>)} control={control} name={"questionCicloMenstrua"} rules={{ required: true }} />
+                     
+                   </IonItem>
+                        : null}
+
+                    {((questionCicloMenstrua === "regular") || (questionCicloMenstrua === "irregular")) && (questionMenstrua === "sim")  ?
                         <IonItem lines="none">
                             <IonLabel position="floating" className="questions">Primeiro dia da última menstruação:</IonLabel>
 
                             <Controller render={({ onChange }) => (
-                                <IonDatetime monthShortNames="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Aug, Set, Out, Nov, Dez" placeholder="Selecione data" id="dateMenstruation" onIonChange={(e) => {
+                                <IonDatetime monthShortNames="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Aug, Set, Out, Nov, Dez" doneText="Ok" cancelText="Cancelar" placeholder="Selecione data" id="dateMenstruation" onIonChange={(e) => {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined)
@@ -128,11 +217,33 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                                 }} ></IonDatetime>
                             )}
                                 name="dateMenstruação"
-                                rules={{ required: true }}
+                                //rules={{ required: true }}
                                 control={control}
                             />
                           
                         </IonItem>
+                        : null}
+
+                    {((questionCicloMenstrua === "regular") || (questionCicloMenstrua === "irregular")) && (questionMenstrua === "sim")  ?
+                        
+                        <IonItem lines="none"  >
+                       <Controller render={({ onChange }) => (
+                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("questionMenstruaNoDate", false)} onIonChange={(e) => {
+
+                            if (e.detail.checked) {
+                                props.setState('questionMenstruaNoDate', true)
+                            } else {
+                                props.setState('questionMenstruaNoDate', false)
+                            }
+                        }}></IonCheckbox>  )}
+
+                        control={control}
+                        // rules={{required: true}}
+                        name={"questionMenstruaNoDate"}
+
+                    />
+                        <IonLabel >Não lembro a data</IonLabel>
+                    </IonItem>
                         : null}
 
                     <IonLabel className="questions">Peso (em kg):</IonLabel>
@@ -190,15 +301,16 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                                     props.setState('BRstate', e.detail.value)
                             }} >
 
-                                <IonSelectOption>RS</IonSelectOption>
-                                <IonSelectOption>SP</IonSelectOption>
-                                <IonSelectOption>Moro fora do país</IonSelectOption>
+                               
+                                
+                                
                                 <IonSelectOption>AC</IonSelectOption>
                                 <IonSelectOption>AL</IonSelectOption>
                                 <IonSelectOption>AP</IonSelectOption>
                                 <IonSelectOption>AM</IonSelectOption>
                                 <IonSelectOption>BA</IonSelectOption>
                                 <IonSelectOption>CE</IonSelectOption>
+                                <IonSelectOption>DF</IonSelectOption>
                                 <IonSelectOption>ES</IonSelectOption>
                                 <IonSelectOption>GO</IonSelectOption>
                                 <IonSelectOption>MA</IonSelectOption>
@@ -212,12 +324,14 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                                 <IonSelectOption>PI</IonSelectOption>
                                 <IonSelectOption>RJ</IonSelectOption>
                                 <IonSelectOption>RN</IonSelectOption>
+                                <IonSelectOption>RS</IonSelectOption>
                                 <IonSelectOption>RO</IonSelectOption>
                                 <IonSelectOption>RR</IonSelectOption>
                                 <IonSelectOption>SC</IonSelectOption>
                                 <IonSelectOption>SE</IonSelectOption>
+                                <IonSelectOption>SP</IonSelectOption>
                                 <IonSelectOption>TO</IonSelectOption>
-                                <IonSelectOption>DF</IonSelectOption>
+                                <IonSelectOption>Moro fora do país</IonSelectOption>
                             </IonSelect>
 
                         )}

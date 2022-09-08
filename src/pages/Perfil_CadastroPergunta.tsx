@@ -63,7 +63,7 @@ const Perfil_CadastroPergunta = (props: StepComponentProps) => {
                         <div className="title_pergunta_cadastro">Olá!</div>
                         <div className="subtitle_pergunta_cadastro">Eu gostaria muito de saber: </div>
 
-                        <IonLabel className="questions">O que você faz que te ajuda a dormir?</IonLabel>
+                        <IonLabel className="questions">O que você faz que lhe ajuda a dormir?</IonLabel>
                         {errors.age && <IonText color="danger"> Campo obrigatório.</IonText>}
                          <IonItem className={"ion-no-padding"}> 
                             
