@@ -67,7 +67,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
 
 
                         <Controller render={({ onChange }) => (
-                            <IonInput className={"teste"} type="number" placeholder="Digite" value={props.getState("age", "")} onIonChange={
+                            <IonInput className={"teste"} type="number" placeholder="Digite um valor" value={props.getState("age", "")} onIonChange={
                                 (e) => {
                                     console.log(e);
                                     onChange(e.detail.value);
@@ -247,12 +247,13 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                         : null}
 
                     <IonLabel className="questions">Peso (em kg):</IonLabel>
+                    <IonLabel>Se você não sabe seu peso exato, pode ser um valor aproximado</IonLabel>
                     {errors.weight && <IonText color="danger"> Campo obrigatório.</IonText>}
                     <IonItem lines="none">
 
 
                         <Controller render={({ onChange }) => (
-                            <IonInput value={props.getState("weight", "")} placeholder="Digite um valor aproximado" id="weight" type="number" onIonChange={(e) => {
+                            <IonInput value={props.getState("weight", "")} placeholder="Digite um valor" id="weight" type="number" onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined)
@@ -267,12 +268,12 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                     </IonItem>
 
                     <IonLabel className="questions">Altura (em cm): </IonLabel>
-                
+                    <IonLabel>Responda com o valor em centímetros (por ex: 1,70 m = 170 cm - escrever 170)</IonLabel>
 
                     <IonItem lines="none">
 
                         <Controller render={({ onChange }) => (
-                            <IonInput value={props.getState("height", "")} placeholder="Digite o valor em cm, por exemplo: 170" id="height" type="number" onIonChange={(e) => {
+                            <IonInput value={props.getState("height", "")} placeholder="Digite um valor" id="height" type="number" onIonChange={(e) => {
                                 console.log(e);
                                 onChange(e.detail.value);
                                 if (e.detail.value != undefined)

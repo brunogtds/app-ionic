@@ -79,7 +79,8 @@ const Habitos4 = (props: StepComponentProps) => {
         if (user) {
             firebase.firestore().collection('users').doc(user.uid).set({
 
-                workQ: String(props.state.workQ),
+                FDonWD: String(props.state.FDonWD),
+                fdQ: String(props.state.workQ),
                 workDur: String(props.state.workDur),
                 
               
@@ -101,6 +102,7 @@ const Habitos4 = (props: StepComponentProps) => {
                
                 lightReg: String(props.state.lightReg),
                 lightExposure: String(props.state.lightExposure),
+               
 
                 diaAtual_Boolean: Boolean(props.state.diaAtual_Boolean),
                 dia_Anterior1_Boolean: Boolean(props.state.dia_Anterior1_Boolean),
@@ -231,6 +233,7 @@ const Habitos4 = (props: StepComponentProps) => {
                                     Pode ser marcado mais de um horário por dia.
                                     
                                     </IonLabel>
+                                    <IonLabel></IonLabel>
 
                                 </IonItem> : null}
 

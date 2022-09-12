@@ -105,7 +105,7 @@ const Perfil1 = (props: StepComponentProps) => {
 
 
                             <Controller render={({ onChange }) => (
-                                <IonInput type="number" placeholder="Digite sua idade" value={props.getState("age", "")} onIonChange={
+                                <IonInput type="number" placeholder="Digite um valor" value={props.getState("age", "")} onIonChange={
                                     (e) => {
                                         console.log(e);
                                         onChange(e.detail.value);
@@ -156,12 +156,13 @@ const Perfil1 = (props: StepComponentProps) => {
                         </IonItem>
                        
                         <IonLabel className="questions">Peso (em kg):</IonLabel>
+                        <IonLabel>Se você não sabe seu peso exato, pode ser um valor aproximado</IonLabel>
 
                         <IonItem>
 
 
                             <Controller render={({ onChange }) => (
-                                <IonInput id="weight" type="number" min="0" placeholder="Digite um valor aproximado" onIonChange={(e) => {
+                                <IonInput id="weight" type="number" min="0" placeholder="Digite um valor" onIonChange={(e) => {
                                     console.log(e);
                                     onChange(e.detail.value);
                                     if (e.detail.value != undefined)
@@ -176,6 +177,7 @@ const Perfil1 = (props: StepComponentProps) => {
                         </IonItem>
 
                         <IonLabel className="questions">Altura (em cm): </IonLabel>
+                        <IonLabel>Responda com o valor em centímetros (por ex: 1,70 m = 170 cm - escrever 170)</IonLabel>
 
                         <IonItem>
 
