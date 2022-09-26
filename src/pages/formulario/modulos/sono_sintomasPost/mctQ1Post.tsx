@@ -2,7 +2,7 @@ import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
 
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText, IonProgressBar } from "@ionic/react";
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText, IonProgressBar, IonNote } from "@ionic/react";
 import { IonContent, IonCard, IonCardContent } from '@ionic/react';
 
 import '../../Forms.css';
@@ -104,6 +104,10 @@ const MCTQ1Post = (props: StepComponentProps) => {
                             <IonItem lines="none">
                                 <IonLabel className="questions">Normalmente dormi às: </IonLabel>
                             </IonItem> : null}
+                            {nDiasTrabalhoSemana === "0" ?
+                            <IonItem lines="none">
+                                 <IonNote>NÃO é o horário de ir para a cama, mas sim o de dormir! </IonNote>
+                            </IonItem> : null}
                         {nDiasTrabalhoSemana === "0" ?
                             <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
@@ -119,6 +123,10 @@ const MCTQ1Post = (props: StepComponentProps) => {
                         {nDiasTrabalhoSemana === "0" ?
                             <IonItem lines="none">
                                 <IonLabel className="questions">Normalmente acordei às: </IonLabel>
+                            </IonItem> : null}
+                            {nDiasTrabalhoSemana === "0" ?
+                            <IonItem lines="none">
+                                    <IonNote>NÃO é o horário de sair da cama, mas sim o de acordar! </IonNote>
                             </IonItem> : null}
                         {nDiasTrabalhoSemana === "0" ?
                             <IonItem lines="none">
@@ -169,6 +177,12 @@ const MCTQ1Post = (props: StepComponentProps) => {
                             <IonItem lines="none">
                                 <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente dormi às: </IonLabel>
                             </IonItem> : null}
+                             {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+
+
+                            <IonItem lines="none">
+                                 <IonNote>Não é o horário de ir para a cama, mas sim o de dormir! </IonNote>
+                            </IonItem> : null}
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
                             <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
@@ -185,6 +199,10 @@ const MCTQ1Post = (props: StepComponentProps) => {
                             <IonItem lines="none">
                                 <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente acordei às: </IonLabel>
                             </IonItem> : null}
+                            {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+                            <IonItem lines="none">
+                                     <IonNote>Não é o horário de sair da cama, mas sim o de acordar! </IonNote>
+                            </IonItem> : null}
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
                             <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
@@ -195,6 +213,33 @@ const MCTQ1Post = (props: StepComponentProps) => {
                                             props.setState('wakeUpWDPost14', e.detail.value)
                                     }}></IonDatetime>)} control={control} name={"wakeUpWDPost14"} rules={{ required: true }} />
                             
+                            </IonItem> : null}
+
+                            {nDiasTrabalhoSemana === "0" ?
+                            <IonItem lines="none"><IonLabel className="questions">Usei o despertador:</IonLabel>
+                            </IonItem> : null}
+                        {nDiasTrabalhoSemana === "0" ?
+                            <IonItem lines="none">
+                                <Controller render={({ onChange }) => (
+                                    <IonRadioGroup onIonChange={(e) => {
+                                        console.log(e);
+                                        onChange(e.detail.value);
+                                        if (e.detail.value != undefined)
+                                            props.setState('AlarmNoWorkPost14', e.detail.value)
+                                    }}>
+
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                            <IonLabel>Sim</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                        </IonItem>
+
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                            <IonLabel>Não</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
+                                        </IonItem>
+
+                                    </IonRadioGroup>)} control={control} name={"AlarmNoWorkPost14"} rules={{ required: true }} />
+                             
                             </IonItem> : null}
 
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?

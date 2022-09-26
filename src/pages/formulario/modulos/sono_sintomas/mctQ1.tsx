@@ -2,7 +2,7 @@ import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
 
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText, IonProgressBar } from "@ionic/react";
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonList, IonDatetime, IonText, IonProgressBar, IonNote } from "@ionic/react";
 import { IonContent, IonCard, IonCardContent } from '@ionic/react';
 
 import '../../Forms.css';
@@ -107,6 +107,10 @@ const MCTQ1 = (props: StepComponentProps) => {
                             </IonItem> : null}
                         {nDiasTrabalhoSemana === "0" ?
                             <IonItem lines="none">
+                                <IonNote>NÃO é o horário de ir para a cama, mas sim o de dormir! </IonNote>
+                            </IonItem> : null}
+                        {nDiasTrabalhoSemana === "0" ?
+                            <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
                                         console.log(e);
@@ -121,6 +125,10 @@ const MCTQ1 = (props: StepComponentProps) => {
                             <IonItem lines="none">
                                 <IonLabel className="questions">Normalmente acordei às: </IonLabel>
                             </IonItem> : null}
+                            {nDiasTrabalhoSemana === "0" ?
+                            <IonItem lines="none">
+                                <IonNote>NÃO é o horário de sair da cama, mas sim o de acordar! </IonNote>
+                            </IonItem> : null}
                         {nDiasTrabalhoSemana === "0" ?
                             <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
@@ -133,7 +141,56 @@ const MCTQ1 = (props: StepComponentProps) => {
                             
                             </IonItem> : null}
 
-                        {nDiasTrabalhoSemana === "0" ?
+                        
+
+
+
+                        {/*DIAS DE TRABALHO ->MAIS QUE 0 */}
+
+
+
+                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+                            <IonItem lines="none">
+                                <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente dormi às: </IonLabel>
+                            </IonItem> : null}
+                            
+                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+                            <IonItem lines="none">
+                                <IonNote>Não é o horário de ir para a cama, mas sim o de dormir! </IonNote>
+                            </IonItem> : null}
+                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+                            <IonItem lines="none">
+                                <Controller render={({ onChange }) => (
+                                    <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
+                                        console.log(e);
+                                        onChange(e.detail.value);
+                                        if (e.detail.value != undefined)
+                                            props.setState('sleepWD', e.detail.value)
+                                    }}></IonDatetime>)} control={control} name={"sleepWD"} rules={{ required: true }} />
+                               
+                            </IonItem> : null}
+
+                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+                            <IonItem lines="none">
+                                <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente acordei às: </IonLabel>
+                            </IonItem> : null}
+                            {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+                            <IonItem lines="none">
+                                <IonNote>Não é o horário de sair da cama, mas sim o de acordar! </IonNote>
+                            </IonItem> : null}
+                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
+                            <IonItem lines="none">
+                                <Controller render={({ onChange }) => (
+                                    <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
+                                        console.log(e);
+                                        onChange(e.detail.value);
+                                        if (e.detail.value != undefined)
+                                            props.setState('wakeUpWD', e.detail.value)
+                                    }}></IonDatetime>)} control={control} name={"wakeUpWD"} rules={{ required: true }} />
+                             
+                            </IonItem> : null}
+
+                            {nDiasTrabalhoSemana === "0" ?
                             <IonItem lines="none"><IonLabel className="questions">Usei o despertador:</IonLabel>
                             </IonItem> : null}
                         {nDiasTrabalhoSemana === "0" ?
@@ -158,44 +215,6 @@ const MCTQ1 = (props: StepComponentProps) => {
 
                                     </IonRadioGroup>)} control={control} name={"alarmNoWork"} rules={{ required: true }} />
                                
-                            </IonItem> : null}
-
-
-
-                        {/*DIAS DE TRABALHO ->MAIS QUE 0 */}
-
-
-
-                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
-                            <IonItem lines="none">
-                                <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente dormi às: </IonLabel>
-                            </IonItem> : null}
-                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
-                            <IonItem lines="none">
-                                <Controller render={({ onChange }) => (
-                                    <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
-                                        console.log(e);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('sleepWD', e.detail.value)
-                                    }}></IonDatetime>)} control={control} name={"sleepWD"} rules={{ required: true }} />
-                               
-                            </IonItem> : null}
-
-                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
-                            <IonItem lines="none">
-                                <IonLabel className="questions">Em dias de trabalho/estudo, eu normalmente acordei às: </IonLabel>
-                            </IonItem> : null}
-                        {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?
-                            <IonItem lines="none">
-                                <Controller render={({ onChange }) => (
-                                    <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
-                                        console.log(e);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('wakeUpWD', e.detail.value)
-                                    }}></IonDatetime>)} control={control} name={"wakeUpWD"} rules={{ required: true }} />
-                             
                             </IonItem> : null}
 
                         {((nDiasTrabalhoSemana == "1") || (nDiasTrabalhoSemana == "2") || (nDiasTrabalhoSemana == "3") || (nDiasTrabalhoSemana == "4") || (nDiasTrabalhoSemana == "5") || (nDiasTrabalhoSemana == "6") || (nDiasTrabalhoSemana == "7")) ?

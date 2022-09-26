@@ -2,7 +2,7 @@ import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
 
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonDatetime, IonLoading, IonText, IonProgressBar } from "@ionic/react";
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonButton, IonDatetime, IonLoading, IonText, IonProgressBar, IonNote } from "@ionic/react";
 import { IonContent } from '@ionic/react';
 
 import '../../Forms.css';
@@ -36,6 +36,7 @@ const MCTQ2Post = (props: StepComponentProps) => {
                         <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader} />
 
                         <IonLabel className="questions">Em dias livres, eu normalmente dormi às: </IonLabel>
+                        <IonNote>NÃO é o horário de ir para a cama, mas sim o de dormir! </IonNote>
                         <IonItem lines="none">
 
                             <Controller render={({ onChange }) => (
@@ -49,6 +50,7 @@ const MCTQ2Post = (props: StepComponentProps) => {
                         </IonItem>
 
                         <IonLabel className="questions">Em dias livres, quando não usei o despertador, eu normalmente acordei às: </IonLabel>
+                        <IonNote>Não é o horário de sair da cama, mas sim o de acordar!</IonNote>
                         <IonItem lines="none">
 
                             <Controller render={({ onChange }) => (
