@@ -563,7 +563,7 @@ const Tab1: React.FC = () => {
       }
 
       if (feedbackFumo(dataSmoke) === "string01") {
-        setFeedbackFumoText("Você nos contou que fuma. Já pensou em parar de fumar? O SUS oferece tratamento gratuito para auxiliar você nessa. Procure uma unidade de saúde ou um profissional de saúde para receber mais orientações.")
+        setFeedbackFumoText("Você nos contou que fuma. Já pensou em parar de fumar? O SUS oferece tratamento gratuito para auxiliar você nessa! Procure uma unidade de saúde ou um profissional de saúde para receber mais orientações.")
       }
       if (feedbackAlcool(dataAlcool) === "string01") {
         setFeedbackAlcoolText("Vimos que você relatou beber pela manhã, o que é um comportamento considerado pouco saudável. O consumo de álcool em excesso é considerado um problema de saúde. Se isso tem incomodado você, procure um profissional de saúde para uma avaliação.")
@@ -1135,7 +1135,7 @@ const Tab1: React.FC = () => {
                       </div>
                       <div>
                          
-                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
+                        <IonButton onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
                       </div>
                       <div>
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
@@ -1194,7 +1194,8 @@ const Tab1: React.FC = () => {
                                 </p>
                               </div>
                               <br />
-                              <p className={"readMore-text"}>Você sabia que cada pessoa tem um relógio interno para organizar as funções do seu corpo? O cronotipo é uma característica que representa como o seu relógio está organizado em relação ao ambiente, principalmente em relação ao dia e a noite.  Considerando seus horários de sono, estimamos que seu cronotipo é...</p>
+                              <p className={"readMore-text"}>Você receberá informações e recomendações baseadas nas suas respostas. Tente ser o mais preciso possível! Caso receba alguma informação ou recomendação não adequada a você, entre em contato conosco pelo e-mail regenteapp@gmail.com.</p>
+                              <p className={"readMore-text"}>Você já percebeu que nem todo mundo dorme e acorda naturalmente no mesmo horário? Isso é uma questão biológica. Não se sinta culpado se não conseguir acordar às 6h no seu melhor humor ou por não ter vontade de ficar acordado conversando até as 23h com seus amigos: não é só uma questão de hábito ou vontade. Cada pessoa tem seu próprio relógio biológico. Desse modo, há pessoas que se sentem mais ativas e dispostas mais cedo (os matutinos), e outras que se sentem assim mais tarde (os vespertinos). Chamamos de cronotipo as características individuais que explicam essas diferenças. Com base no que você nos contou, estimamos seu cronotipo:</p>
                               <p className={"readMore-text-var"}>{feedbackCronoText}</p>
                               <p>
 
@@ -1214,9 +1215,10 @@ const Tab1: React.FC = () => {
                               </IonToolbar>
 
 
-                              <p className={"readMore-text"}>Considerando os horários que você nos disse e, se não costuma acordar muito durante a noite, a duração do seu sono é...</p>
+                              <p className={"readMore-text"}>A duração estimada do seu sono (sem considerar acordares à noite) é...</p>
                               <p className={"readMore-text-var"}>{feedbackSonoText}</p>
                               <p className={"readMore-text-var"}>{feedbackSJLText}</p>
+                              <p className={"readMore-text"}>A necessidade de sono varia de pessoa para pessoa. Por isso, é importante que você identifique quantas horas precisa para se sentir bem. Se você dorme muito menos em dias de trabalho, por exemplo, este é um indicativo de que não está dormindo suficiente nestes dias. Dormir é imporante para a saúde e ajuda você a aprender e ter boa memória. Pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Clique <a href={'/recomendacoes'}>aqui</a> para saber mais.</p>
 
                               <div className={"arrows ion-no-padding"}>
                                 <p>
