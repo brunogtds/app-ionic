@@ -38,9 +38,9 @@ function App() {
            
                 <Steps>
                     <Step component={Habitos1} /> 
-                 {/*}   <Step component={Habitos2} /> 
-                    <Step component={Habitos3} /> */}
-   <Step component={Habitos4} />  
+                    <Step component={Habitos2} /> 
+                    <Step component={Habitos3} />
+                    <Step component={Habitos4} />  
                   
                 </Steps>
             
