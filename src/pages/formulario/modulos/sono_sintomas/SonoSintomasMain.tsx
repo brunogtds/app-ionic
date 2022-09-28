@@ -10,6 +10,7 @@ import ISI from './ISI';
 import Gad7 from './Gad7';
 import Who5 from './Who5';
 import PHQ from './PHQ';
+import rMeq from "./rMeq";
 
 import logo_regente from '../../../../img/logo_regente_branco.svg';
 
@@ -41,8 +42,9 @@ function App() {
         <IonContent fullscreen>
            
                 <Steps>
+                    <Step component={rMeq}/>
                    <Step component={mctQ1} />
-                    <Step component={mctQ2}/> 
+                  <Step component={mctQ2}/> 
                     <Step component={Gad7}/> 
                   <Step component={Who5}/> 
                     <Step component={PHQ}/> 

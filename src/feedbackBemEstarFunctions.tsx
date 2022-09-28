@@ -4,6 +4,16 @@ function bemEstar(somaGad: number, somaPHQ: number, phq09: number ){
         return ("Não preencheu  formulário")
     } 
 
+    if (phq09 >=1){
+        return "string1"
+    } 
+    if ((somaGad >=15) && (somaPHQ >= 20)){
+        return "string2"
+    }else if ((somaGad >=10 && somaGad < 15) && (somaPHQ >=10 && somaPHQ < 20)){
+        return "string3"
+    }
+
+    {/*}
     if ((somaGad >= 5) && (somaPHQ >= 15) && (phq09 == 0)){
         return "string1"
     } else if ((somaGad >= 5) && (somaPHQ >= 15) && (phq09 >= 1)){
@@ -38,7 +48,7 @@ function bemEstar(somaGad: number, somaPHQ: number, phq09: number ){
         return "string8s"
     } else if ((somaGad ==0) && (somaPHQ <=4) && (phq09 >=1)){
         return "string9"
-    }
+    } */}
 }
 
 export {bemEstar};

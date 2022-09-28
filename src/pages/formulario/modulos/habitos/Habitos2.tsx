@@ -35,41 +35,7 @@ const Habitos2 = (props: StepComponentProps) => {
                     <form className="ion-padding texto-default">
 
                         <div className="ion-text-wrap">
-                            <IonLabel className="questions">Como foram suas rotinas de sono nas últimas duas semanas? </IonLabel>
-                            <IonItem lines="none">
-
-                                <Controller render={({ onChange }) => (
-                                    <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
-                                        console.log(e);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('sleepReg', e.detail.value)
-                                    }}>
-                                        <IonSelectOption value="muito irregulares">Muito irregulares</IonSelectOption>
-                                        <IonSelectOption value="irregulares">Irregulares</IonSelectOption>
-                                        <IonSelectOption value="regulares">Regulares</IonSelectOption>
-                                        <IonSelectOption value="muito regulares">Muito regulares</IonSelectOption>
-                                    </IonSelect>)} control={control} name={"sleepReg"} rules={{ required: true }} />
-                             
-                            </IonItem>
-
-                            <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
-                            <IonItem lines="none">
-
-                                <Controller render={({ onChange }) => (
-                                    <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
-                                        console.log(e);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('sleepQual', e.detail.value)
-                                    }}>
-                                        <IonSelectOption value="muito boa">Muito boa</IonSelectOption>
-                                        <IonSelectOption value="boa">Boa</IonSelectOption>
-                                        <IonSelectOption value="ruim">Ruim</IonSelectOption>
-                                        <IonSelectOption value="muito ruim">Muito ruim</IonSelectOption>
-                                    </IonSelect>)} control={control} name={"sleepQual"} rules={{ required: true }} />
-                              
-                            </IonItem>
+                            
 
                             <IonLabel className="questions">Como foram seus horários de alimentação nas últimas duas semanas?</IonLabel>
                             <IonNote>Ser muito regular significa se alimentar sempre no mesmo horário.</IonNote>

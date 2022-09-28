@@ -487,9 +487,9 @@ const Tab1: React.FC = () => {
       }
 
       if (feedbackExercise(dataExercise) === "string1") {
-        setFeedbackExerciseText("Você nos contou que pratica exercícios físicos. Parabéns! Este é um hábito que torna sua vida mais saudável. Tente continuar praticando. O que é recomendado para adultos  é praticar, por semana, pelo menos 150 min de atividades físicas moderadas (aquelas em que você consegue conversar com dificuldade enquanto se movimenta, mas não consegue cantar; sua respiração e os batimentos do coração vão aumentar moderadamente), ou então 75 min de atividades vigorosas (em que você não vai conseguir nem conversar; sua respiração vai ser muito mais rápida que o normal, e os batimentos do seu coração vão aumentar muito). Você pode dividir a sua prática de atividade física em pequenos blocos de tempo ou fazer mais minutos por dia, de uma só vez. Faça como preferir e como puder! Ter um dia a dia fisicamente ativo é bastante seguro. Se você tiver alguma lesão ou sentir algum desconforto anormal, como alguma dor na região do peito ou tontura, procure a Unidade Básica de Saúde mais próxima de você. ")
+        setFeedbackExerciseText("Você nos contou que pratica exercícios físicos. Este é um hábito que torna sua vida mais saudável. Tente continuar praticando e atente para o mínimo recomendado pelas órgãos oficiais. O que é recomendado para adultos é praticar, por semana, pelo menos 150 min de atividades físicas moderadas (aquelas em que você consegue conversar com dificuldade enquanto se movimenta, mas não consegue cantar; sua respiração e os batimentos do coração vão aumentar moderadamente), ou então 75 min de atividades vigorosas (em que você não vai conseguir nem conversar; sua respiração vai ser muito mais rápida que o normal, e os batimentos do seu coração vão aumentar muito). Você pode dividir a sua prática de atividade física em pequenos blocos de tempo ou fazer mais minutos por dia, de uma só vez. Faça como preferir e como puder! Ter um dia a dia fisicamente ativo é bastante seguro. Se você tiver alguma lesão ou sentir algum desconforto anormal, como alguma dor na região do peito ou tontura, procure a Unidade Básica de Saúde mais próxima de você.  ")
       } else if (feedbackExercise(dataExercise) === "string2") {
-        setFeedbackExerciseText("Você nos contou que não pratica exercícios físicos. Você poderia planejar como inclui-los na sua semana. Esse é o primeiro passo e este hábito vai tornar sua vida mais saudável! O que é recomendado para adultos é praticar, por semana, pelo menos 150 min de atividades físicas moderadas (aquelas em que você consegue conversar com dificuldade enquanto se movimenta, mas não consegue cantar; sua respiração e os batimentos do coração vão aumentar moderadamente), ou então 75 min de atividades vigorosas (em que você não vai conseguir nem conversar; sua respiração vai ser muito mais rápida que o normal, e os batimentos do seu coração vão aumentar muito).  Você pode dividir a sua prática de atividade física em pequenos blocos de tempo ou fazer mais minutos por dia, de uma só vez. Faça como preferir e como puder! Ter um dia a dia fisicamente ativo é bastante seguro. Se você tiver alguma lesão ou sentir algum desconforto anormal, como alguma dor na região do peito ou tontura, procure a Unidade Básica de Saúde mais próxima de você. ")
+        setFeedbackExerciseText("Você nos contou que não pratica exercícios físicos. Você poderia planejar como incluí-los na sua semana. Esse é o primeiro passo e este hábito vai tornar sua vida mais saudável! O que é recomendado para adultos é praticar, por semana, pelo menos 150 min de atividades físicas moderadas (aquelas em que você consegue conversar com dificuldade enquanto se movimenta, mas não consegue cantar; sua respiração e os batimentos do coração vão aumentar moderadamente), ou então 75 min de atividades vigorosas (em que você não vai conseguir nem conversar; sua respiração vai ser muito mais rápida que o normal, e os batimentos do seu coração vão aumentar muito).  Você pode dividir a sua prática de atividade física em pequenos blocos de tempo ou fazer mais minutos por dia, de uma só vez. Faça como preferir e como puder! Ter um dia a dia fisicamente ativo é bastante seguro. Se você tiver alguma lesão ou sentir algum desconforto anormal, como alguma dor na região do peito ou tontura, procure a Unidade Básica de Saúde mais próxima de você.  ")
       }
 
     }
@@ -506,27 +506,19 @@ const Tab1: React.FC = () => {
       const dataHeight = data2.height;
 
 
-      if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "adp 18-64") {
-        setFeedbackIMCText("IMC: < 18,5. Através da relação do seu peso pela sua altura conseguimos identificar que o seu peso está um pouco abaixo do ideal. Fique atento e procure um médico ou um nutricionista para uma avaliação.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "pn 18-64") {
-        setFeedbackIMCText("IMC: 18,5-24,9. Através da relação do seu peso pela sua altura conseguimos identificar você está dentro do peso adequado! Você já ouviu falar sobre IMC? O Índice de Massa Corporal é calculado com base no seu peso e na sua altura (peso(kg)/(altura(m) x altura(m)) e identifica se seu peso está adequado para sua altura. O IMC normal varia de 18,5 a 24,9.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "s m 18-64") {
-        setFeedbackIMCText("IMC: 25,0-29,9. Através da relação do seu peso pela sua altura conseguimos identificar que você está um pouco acima do peso ideal para você. Você pode procurar um médico ou um nutricionista para uma avaliação. A prática de exercício físico regular, alimentação saudável e rotina de sono também podem auxiliar você.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "s f 18-64") {
-        setFeedbackIMCText("IMC: 25,0-29,9. Através da relação do seu peso pela sua altura conseguimos identificar que você está um pouco acima do peso ideal para você. Você pode procurar um médico ou um nutricionista para uma avaliação. A prática de exercício físico regular, alimentação saudável e rotina de sono também podem auxiliar você. Nota: se você está grávida, não se aplica ao seu caso; converse com o seu obstetra.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "o m 18-64") {
-        setFeedbackIMCText("IMC: ≥ 30,0. Identificamos através do cálculo da relação do seu peso pela altura que você está acima do seu peso. Você pode procurar um médico ou um nutricionista para uma avaliação. A prática de exercício físico regular, alimentação saudável e rotina de sono também podem auxiliar você.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "o f 18-64") {
-        setFeedbackIMCText("IMC: ≥ 30,0. Identificamos através do cálculo da relação do seu peso pela altura que você está acima do seu peso. Você pode procurar um médico ou um nutricionista para uma avaliação. A prática de exercício físico regular, alimentação saudável e rotina de sono podem auxiliar você. Nota: se você está grávida, não se aplica ao seu caso; converse com o seu obstetra.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "adp 65") {
-        setFeedbackIMCText("IMC: ≤ 22,9. Através da relação do seu peso pela sua altura conseguimos identificar que o seu peso está um pouco abaixo do ideal para a sua idade. Fique atento e procure um médico ou um nutricionista para uma avaliação.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "pn 65") {
-        setFeedbackIMCText("IMC: 23,0-30,9. Através da relação do seu peso pela sua altura conseguimos identificar que seu está na faixa de peso ideal para a sua idade. A prática regular de exercícios, dentro das suas possibilidades, e uma alimentação saudável e rotina de sono regular podem auxiliar você a se manter no seu peso.")
-      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "o 65") {
-        setFeedbackIMCText("IMC: ≥ 31,0. Através da relação do seu peso pela sua altura conseguimos identificar que você está acima do peso ideal para a sua idade. A prática regular de exercícios, dentro das suas possibilidades, e uma alimentação saudável e rotina de sono regular podem auxiliar você no controle do peso.Procure um médico ou um nutricionista para uma avaliação.")
-      } else {
-        setFeedbackIMCText("Erro no cálculo do IMC! Por favor, preencha os dados novamente.")
-      }
+      if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string1") {
+        setFeedbackIMCText("IMC: < 18,5. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que o seu peso está abaixo do ideal. Fique atento e procure um médico ou um nutricionista para uma avaliação. Um IMC abaixo de 18,5 é considerado baixo peso.")
+      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string2") {
+        setFeedbackIMCText("IMC: 18,5-24,9. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que seu peso está na faixa normal. O IMC é considerado normal quando entre 18,5 e 24,9.")
+      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string3") {
+        setFeedbackIMCText("IMC: >25. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que você está um pouco acima do peso ideal. Você pode procurar um médico ou um nutricionista para uma avaliação. A prática de exercício físico regular, alimentação saudável e rotina de sono também podem auxiliar você.")
+      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string4") {
+        setFeedbackIMCText("IMC: < 18,5. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que o seu peso está abaixo do ideal. Na sua faixa etária, baixo peso pode estar associado com outros problemas de saúde. Fique atento e procure um médico ou um nutricionista para uma avaliação. Um IMC abaixo de 18,5 é considerado baixo peso.")
+      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string5") {
+        setFeedbackIMCText("IMC: 18,5-24,9. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que seu peso está na faixa normal para a população adulta. No entanto, na sua faixa etária, os valores podem ser um pouco diferentes. Para uma avaliação nutricional, mais completa procure sua unidade de saúde ou médico de referência.")
+      } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string6") {
+        setFeedbackIMCText("IMC: >25. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que você está um pouco acima do peso ideal para a população adulta. No entanto, na sua faixa etária, os valores podem ser um pouco diferentes. Para uma avaliação nutricional mais completa, procure sua unidade de saúde ou médico de referência. A prática de exercício físico regular, alimentação saudável e rotina de sono também podem auxiliar você.")
+      } 
     }
   }
 
@@ -538,13 +530,22 @@ const Tab1: React.FC = () => {
       
       const dataLight = data2.lightExposure;
       const dataLightReg = data2.lightReg;
+      const dataLightFreq = data2.lightFreq;
 
-      if (feedbackLight(dataLight, dataLightReg) === "string1") {
-        setFeedbackLightText("Você sabia que se expor à luz natural traz benefícios para a saúde, o bem estar e até para seu sono? Você acha que conseguiria se expor mais a luz natural? Você pode se sentar próximo à uma janela em alguns momentos do dia ou realizar as suas atividades em um ambiente com luz natural. Tente manter uma exposição regular e dê preferência a exposição no turno da manhã.")
+      console.log('datas da luz: ' + dataLight );
+      console.log('datas da luz: ' + dataLightReg );
+      console.log('datas da luz: ' + dataLightFreq );
 
-      } else if (feedbackLight(dataLight, dataLightReg) === "string2") {
-        setFeedbackLightText("Que bom que você tem se exposto a luz natural! Siga assim, esse hábito é super importante para a sua saúde. Tente manter uma exposição regular e dê preferência a exposição no turno da manhã.")
+      if (feedbackLight(dataLight, dataLightReg, dataLightFreq) === "string1") {
+        setFeedbackLightText("Você nos contou que não tem se exposto à luz natural. Você sabia que a exposição à luz natural traz benefícios para a saúde, bem-estar e sono? Se permanece muito em espaços internos, tente realizar suas atividades ou se sentar de frente para uma janela. Se puder estar em espaços externos, lembre que para se expor à luz natural não precisa estar exposto diretamente ao sol. Nesse caso, cuide com o sol nos horários mais nocivos à pele e use filtro solar. Dê preferência ao turno da manhã e tente ter exposição à luz natural todos os dias. Quanto mais melhor, mas trinta minutos já ajudam!")
+
+      } else if (feedbackLight(dataLight, dataLightReg, dataLightFreq) === "string2") {
+        setFeedbackLightText("Você nos contou que se expõe à luz natural, mas será que consegue melhorar esse hábito? A luz natural traz benefícios para a saúde, bem-estar e sono. Tente se expor todos os dias e dê preferência ao turno da manhã. Quanto mais melhor, mas trinta minutos já ajudam! Se permanece muito em espaços internos, tente realizar suas atividades ou se sentar de frente para uma janela. No caso de espaços externos, lembre que para se expor à luz natural não precisa estar exposto diretamente ao sol. Cuide com o sol nos horários mais nocivos à pele e use filtro solar.")
       }
+
+     else if (feedbackLight(dataLight, dataLightReg, dataLightFreq) === "string3") {
+      setFeedbackLightText("Você tem se exposto à luz natural e esse hábito é super importante para a sua saúde! Tente manter uma exposição diária e dê preferência ao turno da manhã.")
+    }
 
     }
   }
@@ -610,41 +611,14 @@ const Tab1: React.FC = () => {
       const dataSomaPHQ = data2.phq01 + data2.phq02 + data2.phq03 + data2.phq04 + data2.phq05 + data2.phq06 + data2.phq07 + data2.phq08 + data2.phq09 + data2.phq10;
       const dataPHQ09 = data2.phq09;
 
+      
       if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string1") {
-        setFeedbackBemEstarText("Percebemos  que você tem apresentado sintomas relacionados à ansiedade e depressão. Apesar de notarmos que seus níveis de ansiedade e depressão parecem altos estes questionários não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos ou afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Busque ajuda, depressão e ansiedade tem tratamento!")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string1s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado sintomas relacionados à ansiedade e depressão. Apesar de notarmos que seus níveis de ansiedade e depressão parecem altos estes questionários não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e convívio com outras pessoas, sugerimos que você busque ajuda de um profissional (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, depressão e ansiedade tem tratamento!")
+        setFeedbackBemEstarText("Pelas suas respostas, percebemos que talvez você não esteja se sentindo bem emocionalmente. Caso você note que isso lhe incomoda ou que esteja causando prejuízos, afetando no seu trabalho, em atividades de casa e no convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda com os pensamentos de se ferir ou de morte, ligue para o Centro de Valorização da Vida (CVV) ou procure o posto de saúde ou o Centro de Atenção Psicossocial (CAPS) ou o Serviço de Emergência. O número do CVV é 188 e o website é https://www.cvv.org.br/.")
       } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string2") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado sintomas relacionados à ansiedade e alguns relacionados à depressão. Apesar de notarmos a presença desses sintomas, estes questionários não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que estejam causando prejuízos e afetando sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude).")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string2s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado sintomas relacionados à ansiedade e alguns relacionados à depressão. Apesar de notarmos a presença desses sintomas, estes questionários não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e no convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, depressão e ansiedade tem tratamento!")
+        setFeedbackBemEstarText("Pelas suas respostas, percebemos que talvez você não esteja se sentindo bem emocionalmente. Caso você note que isso lhe incomoda ou que esteja causando prejuízos, afetando no seu trabalho, em atividades de casa e no convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude).")
       } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string3") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à ansiedade. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude).")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string3s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à ansiedade. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda para lidar com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/.")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string4") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado sintomas relacionados à depressão e alguns relacionados à ansiedade. Apesar de estes questionários nos ajudarem a entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional de saúde (psicólogo, psiquiatra ou médico do posto de sáude).")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string4s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado sintomas relacionados à depressão e alguns relacionados à ansiedade. Apesar de estes questionários nos ajudarem a entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional de saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda para lidar com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, depressão e ansiedade tem tratamento!")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string5") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à depressão e à ansiedade. Apesar desses questionários nos ajudarem para entender sobre os sintomas de ansiedade e depressão, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude).")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string5s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à depressão e à ansiedade. Apesar desses questionários nos ajudarem para entender sobre os sintomas de ansiedade e depressão, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, depressão e ansiedade tem tratamento!")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string6") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à ansiedade. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude).")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string6s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à ansiedade. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, ansiedade tem tratamento!")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string7") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à depressão. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude).")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string7s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à depressão. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda para lidar com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, depressão tem tratamento!")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string8") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à depressão. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude)")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string8s") {
-        setFeedbackBemEstarText("Percebemos que você tem apresentado alguns sintomas relacionados à depressão. Apesar desses questionários nos ajudarem à entender sobre os sintomas de humor, eles não devem ser usados para diagnóstico. Caso você note que esses sintomas te incomodam ou que eles estejam causando prejuízos e afetando a sua funcionalidade no trabalho, atividades em casa e o convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). Caso você precise de ajuda para lidar com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, conversar é a melhor opção!")
-      } else if (bemEstar(dataSomaGad, dataSomaPHQ, dataPHQ09) === "string9") {
-        setFeedbackBemEstarText("Caso você precise de ajuda para lidar com os pensamentos de se ferir, ligue para o Centro de Valorização da Vida (CVV). O número é 188 e o website é https://www.cvv.org.br/. Busque ajuda, conversar é a melhor opção!")
-      }
+        setFeedbackBemEstarText("Pelas suas respostas, percebemos que talvez você esteja se sentindo um pouco incomodado com algumas questões. Caso você note que isso lhe incomoda ou que esteja causando prejuízos, afetando no seu trabalho, em atividades de casa e no convívio com outras pessoas, sugerimos que você busque a ajuda de um profissional da saúde (psicólogo, psiquiatra ou médico do posto de sáude). ")
+      } 
     }
   }
 
@@ -1135,7 +1109,7 @@ const Tab1: React.FC = () => {
                       </div>
                       <div>
                          
-                        <IonButton onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
+                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
                       </div>
                       <div>
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
@@ -1303,7 +1277,8 @@ const Tab1: React.FC = () => {
                               </IonToolbar>
 
 
-                              <p className={"readMore-text-var"}>{feedbackExerciseText} Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p>
+                              <p className={"readMore-text-var"}>{feedbackExerciseText}</p>
+                              <p className={"readMore-text"}>Para saber mais sobre exercícios você pode acessar <a target="_blank" className={"link-text"} href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">aqui</a>.</p>
                               <div className={"arrows ion-no-padding"}>
                                 <p>
                                   <IonButton className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>
@@ -1329,6 +1304,7 @@ const Tab1: React.FC = () => {
                                 </div>
                               </IonToolbar>
 
+                             
                               <p className={"readMore-text-var"}>{feedbackIMCText}</p>
                               <p className={"readMore-text-var"}>{feedbackMedText}</p>
                               <p className={"readMore-text-var"}>{feedbackFumoText}</p>
@@ -1345,30 +1321,6 @@ const Tab1: React.FC = () => {
                               <br />
                             </IonSlide>
 
-                            <IonSlide>
-                              <IonToolbar color="white">
-                                <div id="header-items">
-
-                                  <p className={"header-title"}>Resultados</p>
-                                  <IonButton className={"button-header"} fill="clear" slot="clear" onClick={() => setShowModalFeedbackInicial(false)}>Fechar</IonButton>
-
-                                </div>
-                              </IonToolbar>
-                              <p className={"readMore-text"}>Considerando o que você nos contou sobre contato social e que ainda estamos em pandemia, fizemos algumas sugestões.</p>
-                              {/*  <p className={"readMore-text-var"}>{feedbackCIText}</p>
-                              <p className={"readMore-text-var"}>{feedbackCI2Text}</p> */}
-                              <p className={"readMore-text-var"}>{feedbackSD4Text}</p>
-                              <div className={"arrows ion-no-padding"}>
-                                <p>
-                                  <IonButton className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>
-
-                                  <IonButton className={"arrow-forward"} onClick={handleNext}><IonIcon src={arrowForwardOutline}></IonIcon></IonButton>
-                                </p>
-                              </div>
-                              <br />
-                              <p><img src={contato_social} className="img-slides" alt={"Mascote do Regente matutino, em cor laranja, e o mascote do Regente intermediário, em cor azul claro, de pé e separados em distanciamento social. Entre eles uma marcação em vermelho indicando 2 metros de distância."} /> </p>
-                              <br />
-                            </IonSlide>
 
                             <IonSlide>
                               <IonToolbar color="white">
