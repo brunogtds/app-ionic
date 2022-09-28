@@ -16,7 +16,7 @@ import { bemEstar } from '../../src/feedbackBemEstarFunctions';
 import { feedbackSono } from '../../src/feedbackSono';
 import { regularides } from '../../src/feedbackRegularidesFunction';
 import { feedbackSD4 } from '../../src/feedbackContatoFunctions';
-
+import {feedbackRMEQ} from '../../src/feedbackRMEQfunction';
 
 import { IonButton, IonLoading } from '@ionic/react';
 import { construct, share, shareSocial, shareSocialOutline } from 'ionicons/icons';
@@ -241,6 +241,7 @@ const Tab1: React.FC = () => {
   const [feedbackCronoText, setFeedbackCronoText] = React.useState('Carregando feedback...')
   const [feedbackRegularidadesText, setFeedbackRegularidadesText] = React.useState("Carregando o feedback...")
   const [feedbackSD4Text, setFeedbackSD4Text] = React.useState("Carregando o feedback...")
+  const [feedbackRMEQText, setFeedbackRMEQText] = React.useState("Carregando o feedback...")
 
   const [cronoImage, setCronoImage] = React.useState("Carregando feedback...")
 
@@ -639,6 +640,16 @@ const Tab1: React.FC = () => {
 
       const dataAge = data2.age;
 
+      const dataSomaRmeq = data2.rmeq01 + data2.rmeq02 + data2.rmeq03 + data2.rmeq04 + data2.rmeq05;
+      if (feedbackRMEQ(dataSomaRmeq) === "mat"){
+        setFeedbackRMEQText("...matutino. Isso significa que você se sente melhor dormindo mais cedo. Pessoas muito matutinas podem forçar-se a dormir mais tarde e por menos tempo quando têm alguma atividade social à noite.")
+      } else if (feedbackRMEQ(dataSomaRmeq) === "int"){
+        setFeedbackRMEQText("...intermediário. Isso significa que você se sente bem com horários de sono nem tão cedo, nem tão tarde. A maioria das pessoas se encontra nesta categoria.")
+      } 
+      else if (feedbackRMEQ(dataSomaRmeq) === "ves"){
+        setFeedbackRMEQText("...vespertino. Isso significa que você se sente bem acordando e dormindo mais tarde. Isso não quer dizer que você tem preguiça, já que essa é uma característica biológica sua.")
+      } 
+
       /*  if (feedbackSono(dataWakeUpFD, dataSleepFD, dataSleepWD, dataWakeUpWD) === "valores válidos"){
           console.log('deu errado');
         } else if (feedbackSono(dataWakeUpFD, dataSleepFD, dataSleepWD, dataWakeUpWD) === "valores inválidos"){
@@ -835,7 +846,7 @@ const Tab1: React.FC = () => {
       if (regularides(dataFeedReg, dataSleepReg) === 1) {
         setFeedbackRegularidadesText("Vimos que seus horários de alimentação são regulares, o que é muito bom para sua saúde! No entanto, tome cuidado com suas rotinas de sono, pois dormir e acordar em horários regulares é essencial para manter uma vida e um corpo saudável.")
       } else if (regularides(dataFeedReg, dataSleepReg) === 2) {
-        setFeedbackRegularidadesText("Sensacional! Vimos que seus horários alimentação e sono são regulares, o que é muito bom para sua saúde. Continue assim!")
+        setFeedbackRegularidadesText("Vimos que seus horários alimentação e sono são regulares, o que é muito bom para sua saúde. Continue assim!")
       } else if (regularides(dataFeedReg, dataSleepReg) === 3) {
         setFeedbackRegularidadesText("É muito importante manter uma regularidade nas rotinas de alimentação e nos horários de sono. Que tal organizar o cardápio e suas compras do supermercado para tentar manter uma regularidade no horário de alimentação? Além disso, não esqueça de que cuidar da rotina de sono é importante para manter uma vida e um corpo saudável.")
       } else if (regularides(dataFeedReg, dataSleepReg) === 4) {
@@ -1100,7 +1111,7 @@ const Tab1: React.FC = () => {
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."} /></IonButton>
+                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado}  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."} /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
@@ -1170,7 +1181,7 @@ const Tab1: React.FC = () => {
                               <br />
                               <p className={"readMore-text"}>Você receberá informações e recomendações baseadas nas suas respostas. Tente ser o mais preciso possível! Caso receba alguma informação ou recomendação não adequada a você, entre em contato conosco pelo e-mail regenteapp@gmail.com.</p>
                               <p className={"readMore-text"}>Você já percebeu que nem todo mundo dorme e acorda naturalmente no mesmo horário? Isso é uma questão biológica. Não se sinta culpado se não conseguir acordar às 6h no seu melhor humor ou por não ter vontade de ficar acordado conversando até as 23h com seus amigos: não é só uma questão de hábito ou vontade. Cada pessoa tem seu próprio relógio biológico. Desse modo, há pessoas que se sentem mais ativas e dispostas mais cedo (os matutinos), e outras que se sentem assim mais tarde (os vespertinos). Chamamos de cronotipo as características individuais que explicam essas diferenças. Com base no que você nos contou, estimamos seu cronotipo:</p>
-                              <p className={"readMore-text-var"}>{feedbackCronoText}</p>
+                              <p className={"readMore-text-var"}>{feedbackRMEQText}</p>
                               <p>
 
                                 <IonButton onClick={sharingSocial} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /> Compartilhar resultados </IonButton>
@@ -1252,7 +1263,7 @@ const Tab1: React.FC = () => {
                               </IonToolbar>
                               <p className={"readMore-text"}>Você nos contou um pouco sobre os seus hábitos. A partir disso, fazemos algumas sugestões abaixo.</p>
                               <p className={"readMore-text-var"}>{feedbackLightText}</p>
-                              <p className={"readMore-text-var"}>{feedbackHobbiesText}</p>
+                              
                               <div className={"arrows ion-no-padding"}>
                                 <p>
                                   <IonButton className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>

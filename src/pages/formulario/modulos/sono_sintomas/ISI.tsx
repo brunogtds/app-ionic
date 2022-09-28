@@ -74,6 +74,11 @@ const ISI = (props: StepComponentProps) => {
                 isi_isi02: Number(props.state.isi_isi02),
                 isi_isi03: Number(props.state.isi_isi03),
                 sleepQual: Number(props.state.sleepQual),
+                rmeq01: Number(props.state.rmeq01),
+                rmeq02: Number(props.state.rmeq02),
+                rmeq03: Number(props.state.rmeq03),
+                rmeq04: Number(props.state.rmeq04),
+                rmeq05: Number(props.state.rmeq05),
                 dateSonoSintomasModule1: new Date()
             }, { merge: true })
         }

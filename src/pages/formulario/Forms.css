@@ -366,10 +366,11 @@ ion-select::part(icon) {
 
 .tickmarksSDS{
   display: flex;
+  width: 100%;
   justify-content: space-between;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 2;
   background-color: #FDF5EB;
 }
 
