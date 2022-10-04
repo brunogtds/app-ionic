@@ -232,7 +232,7 @@ const Recommendation: React.FC = () => {
                 <br/>
                
 
-                 <p className={"main-text"}>Quando sair de casa, prefira ambientes abertos ou bem ventilados.</p>
+                 <p className={"main-text"}>Prefira ambientes abertos ou bem ventilados.</p>
                 
               
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid1(!saibaMaisCovid1)}}>{saibaMaisTextCovid1}</IonButton>
@@ -241,16 +241,17 @@ const Recommendation: React.FC = () => {
                
                 {saibaMaisCovid1 ? 
                
-                <p className={"readMore-text"}>Evite aglomerações e espaços fechados ou
-                mal ventilados, onde aerossóis contendo o
-                vírus podem ficar em suspensão no ar por
-                várias horas. Quando estiver em lugares
-                fechados ou com aglomeração de pessoas,
-                use máscara, cobrindo o nariz, a boca e o
-                queixo e higienize frequentemente as mãos.
-                Ao retornar a casa, observe os cuidados de
-                higienização necessários, especialmente das
-                mãos e de objetos.
+                <p className={"readMore-text"}>A ventilação dos ambientes é muito
+                importante para a saúde. Espaços fechados
+                e sem ventilação adequada aumentam a
+                probabilidade de transmissão de doenças
+                infecciosas pelo ar (como gripe, Covid-19,
+                etc) e também a ocorrência de alergias. Ainda,
+                a ventilação adequada dos ambientes pode
+                contribuir para o bem-estar. Espaços fechados
+                ou com muitas pessoas tendem a ficar
+                com a temperatura do ar elevada, gerando
+                desconforto.
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
@@ -272,7 +273,7 @@ const Recommendation: React.FC = () => {
                 </div>
                 <br/>
                
-                <p className={"main-text"}>Use máscara de proteção.</p>
+                <p className={"main-text"}>Use máscara de proteção quando necessário.</p>
                 
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid2(!saibaMaisCovid2)}}>{saibaMaisTextCovid2}</IonButton>
                 
@@ -360,8 +361,7 @@ const Recommendation: React.FC = () => {
                 {saibaMaisCovid3 ? 
                 <p className={"readMore-text"}>Higienize as mãos frequentemente, sobretudo se estiver fora de casa e ao retornar, e sempre que tocar objetos que possam estar contaminados (maçanetas de portas, corrimãos, objetos tocados por outras pessoas, etc.).
                 Caso não tenha uma pia disponível, aplique álcool 70% nas mãos e espalhe bem nas palmas, dorso, dedos e punhos.
-                Embora não seja a via principal, o contato com superfícies contaminadas também pode contribuir para a transmissão da COVID-19.
-                Lavar as mãos frequentemente previne o contato da mão contaminada com o rosto, especialmente olhos e nariz, diminuindo a transmissão do vírus.
+                Lavar as mãos frequentemente previne o contato da mão contaminada com o rosto, especialmente olhos e nariz.
 
                 </p> : <p></p>
                 }<br/>
@@ -447,9 +447,19 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisCovid6(!saibaMaisCovid6)}}>{saibaMaisTextCovid6}</IonButton>
                 
                 {saibaMaisCovid6 ? 
-                <p className={"readMore-text"}>Se tiver sintomas de COVID-19 ou tiver suspeita de estar infectado, faça o isolamento profilático:
-                Fique em casa, se possível isolado em um cômodo, use máscara na presença dos outros habitantes da casa e não partilhe nenhum objeto de uso pessoal (talheres, toalhas, lençóis, escova de dentes, etc.). Desinfete frequentemente superfícies comuns como maçanetas de portas.
-                Se sentir falta de ar, muito cansaço e/ou febre alta, procure atendimento médico. 
+                <p className={"readMore-text"}>Se tiver sintomas de gripe ou resfriado, ou
+                tiver suspeita de estar com alguma doença
+                respiratória contagiosa (como Covid-19),
+                faça o isolamento profilático: fique em casa,
+                use máscara na presença de outras pessoas
+                e considere recomendações locais sobre o
+                tempo de isolamento necessário.
+                Não compartilhe objetos de uso pessoal
+                (talheres, toalhas, lençóis, escova de dentes,
+                etc.). Limpe frequentemente superfícies
+                comuns, como mesas e maçanetas de portas.
+                Se sentir falta de ar, muito cansaço e/ou febre
+                alta, procure atendimento médico.
                
                 
                 </p> : <p></p>
@@ -694,9 +704,26 @@ const Recommendation: React.FC = () => {
                 <IonButton className={"readMore-button"} fill="clear" onClick={()=>{setSaibaMaisBonsHabitos7(!saibaMaisBonsHabitos7)}}>{saibaMaisTextBonsHabitos7}</IonButton>
                 
                 {saibaMaisBonsHabitos7 ? 
-                <p className={"readMore-text"}>Elabore um cardápio semanal com as refeições e planeje a lista de compras baseada nele. Sempre que possível, faça no mínimo 4 refeições ao dia e evite fazer refeições na frente da TV. 
-                Faça refeições com grãos integrais, legumes, frutas e menores porções de carne, isso ajuda a controlar a gordura saturada da dieta. Cuidado com a frequência de consumo de alimentos industrializados, frituras, molhos a base de nata, queijos gordurosos e maioneses e tente não abusar do sal e das bebidas alcoólicas. Também é importantíssimo hidratar-se bem ao longo do dia. 
-                 
+                <p className={"readMore-text"}>Faça refeições saudáveis e coloridas, incluindo
+                grãos integrais, proteínas magras, legumes
+                e frutas. Prefira frutas e verduras da estação
+                e nas saladas, prefira azeite de oliva e pouco
+                óleo. Evite molhos à base de maioneses e de
+                natas, queijos gordurosos e frituras. Também
+                evite alimentos ultraprocessados - são ricos
+                em açúcares, gorduras, sal e uma gama
+                enorme de aditivos. Não abuse do sal e das
+                bebidas alcoólicas.
+                Se possível faça suas refeições em casa.
+                Elabore um cardápio saudável e faça lista de
+                compras antes de ir ao supermercado. O jantar
+                pode ser o repeteco do almoço, mas mais leve.
+                Se dormir muito tarde, inclua um lanche antes
+                de dormir. Não fique muito tempo sem comer,
+                pequenos lanches podem ocorrer entre as
+                refeições. Evite fazer as refeições na frente do
+                computador ou da TV. Também é importante
+                hidratar-se bem ao longo do dia.
                 </p> : <p></p>
                 }<br/>
                 </IonSlide>
@@ -1087,14 +1114,12 @@ const Recommendation: React.FC = () => {
     </IonModal>
 
       <div className="subtitle">
-      <h2 className="texto-sobre-titulo">Sobre a pesquisa</h2>
+      <h2 className="texto-sobre-titulo">Sobre a pesquisa e o aplicativo</h2>
       </div>
-      <h4 className="texto-sobre-explicacao">O impacto do distanciamento social nos ritmos biológicos e na saúde mental</h4>
+      
       <div className="texto-padrao">
-        Agradecemos a sua disposição em nos ajudar a entender as consequências do <b>distanciamento social</b>.
-        Com esse estudo, pretendemos encontrar maneiras de estar melhor preparados e munidos de mais informação para diminuir as consequências 
-           do distanciamento social na saúde mental. 
-        Além disso, poderemos avaliar quais são as recomendações mais para quem está passando por tal situação. Muito obrigado! </div>
+      ReGente é um aplicativo para a promoção de saúde física e mental a partir de recomendações e do acompanhamento de rotinas.
+      A origem do aplicativo foi um estudo que ocorreu durante o período de distanciamento social e que testou a efetividade das recomendações, com potencial para promoção de saúde mesmo após esse período. </div>
 
       <div className="subtitle">
       <h2 className="texto-sobre-titulo">Sobre a equipe</h2>

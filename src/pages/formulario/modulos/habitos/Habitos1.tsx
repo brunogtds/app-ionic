@@ -297,13 +297,13 @@ const Habitos1 = (props: StepComponentProps) => {
                             </IonList> 
 
 
-                            {(FDonWD === "sim") || (props.state.fdQ != null)  ? 
+                            {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias"))  ? 
 
                             <IonLabel className="questions">Quantas horas, em média, você trabalhou/estudou nos dias de trabalho/ estudo?</IonLabel>
                             
                             :null}
 
-                             {(FDonWD === "sim") || (props.state.fdQ != null) ? 
+                             {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias")) ? 
                                     <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
                                             <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
@@ -321,13 +321,13 @@ const Habitos1 = (props: StepComponentProps) => {
                                        
                                         </IonItem> : null}
 
-                              {(FDonWD === "sim") || (props.state.fdQ != null)  ? 
+                              {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias"))  ? 
 
                             <IonLabel className="questions">Você pode escolher seus horários de trabalho e estudo?</IonLabel>
                             
                             :null}      
 
-                            {(FDonWD === "sim") || (props.state.fdQ != null) ? 
+                            {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias")) ? 
 
                             <IonItem mode="md" className={"ion-no-padding"} lines="none">
 
@@ -341,14 +341,24 @@ const Habitos1 = (props: StepComponentProps) => {
                                     }}>
 
                                         <IonItem lines="none" className={"ion-no-padding"}>
-                                            <IonLabel>Sim</IonLabel>
-                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
+                                            <IonLabel>Todos os dias</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="0"></IonRadio>
                                         </IonItem>
 
 
                                         <IonItem lines="none" className={"ion-no-padding"}>
-                                            <IonLabel>Não</IonLabel>
-                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
+                                            <IonLabel>Mais da metade dos dias</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="1"></IonRadio>
+                                        </IonItem>
+
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                            <IonLabel>Menos da metade dos dias</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="2"></IonRadio>
+                                        </IonItem>
+
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                            <IonLabel>Nunca</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="3"></IonRadio>
                                         </IonItem>
                                     </IonRadioGroup>
                                 )}
@@ -360,13 +370,13 @@ const Habitos1 = (props: StepComponentProps) => {
 
                             :null}
 
-                             {(FDonWD === "sim") || (props.state.fdQ != null)  ? 
+                             {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias"))  ? 
 
                             <IonLabel className="questions">O quão regulares foram seus horários de trabalho/estudo nas últimas duas semanas:</IonLabel>
                             
                             :null}        
 
-                             {(FDonWD === "sim") || (props.state.fdQ != null)  ? 
+                             {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias"))  ? 
 
                              <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
@@ -387,13 +397,13 @@ const Habitos1 = (props: StepComponentProps) => {
 
                                :null}   
 
-                              {(FDonWD === "sim") || (props.state.fdQ != null)  ? 
+                              {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias"))  ? 
 
                             <IonLabel className="questions">Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel>
                             
                             :null}   
 
-                            {(FDonWD === "sim") || (props.state.fdQ != null) ? 
+                            {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias")) ? 
 
                              <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
@@ -527,6 +537,7 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightDurationIrreg', e.detail.value)
                                                 }
                                             }}>
+                                                <IonSelectOption value={1}>não sei</IonSelectOption>
                                                 <IonSelectOption value={0}>até meia hora</IonSelectOption>
                                                 <IonSelectOption value={1}>até 1 hora</IonSelectOption>
                                                 <IonSelectOption value={2}>até 2 horas</IonSelectOption>

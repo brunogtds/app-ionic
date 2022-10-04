@@ -85,20 +85,12 @@ const RMeq = (props: StepComponentProps) => {
                                                     props.setState('rmeq01', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={"5"}>5h-5h30</IonSelectOption>
-                                                <IonSelectOption value={"5"}>5h30-6h</IonSelectOption>
-                                                <IonSelectOption value={"5"}>6h-6h30</IonSelectOption>
-                                                <IonSelectOption value={"4"}>6h30-7h</IonSelectOption>
-                                                <IonSelectOption value={"4"}>7h-7h30</IonSelectOption>
-                                                <IonSelectOption value={"3"}>7h30-8h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>8h-8h30</IonSelectOption>
-                                                <IonSelectOption value={"3"}>8h30-9h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>9h-9h30</IonSelectOption>
-                                                <IonSelectOption value={"2"}>9h30-10h</IonSelectOption>
-                                                <IonSelectOption value={"2"}>10h-10h30</IonSelectOption>
-                                                <IonSelectOption value={"2"}>10h30-11h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>11h-11h30</IonSelectOption>
-                                                <IonSelectOption value={"1"}>11h30-12h</IonSelectOption>
+                                                <IonSelectOption value={"5"}>5h-6h30</IonSelectOption>
+                                                <IonSelectOption value={"4"}>6h31-7h45</IonSelectOption>
+                                                <IonSelectOption value={"3"}>7h46-9h45</IonSelectOption>
+                                                <IonSelectOption value={"2"}>9h46-11h</IonSelectOption>
+                                                <IonSelectOption value={"1"}>11h01-12h</IonSelectOption>
+                                                
                                             </IonSelect>)} control={control} name={"rmeq01"} rules={{ required: true }} />
                                        
                             </IonItem>
@@ -168,20 +160,12 @@ const RMeq = (props: StepComponentProps) => {
                                                     props.setState('rmeq03', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={"5"}>20h-20h30</IonSelectOption>
-                                                <IonSelectOption value={"5"}>20h30-21h</IonSelectOption>
-                                                <IonSelectOption value={"4"}>21h-21h30</IonSelectOption>
-                                                <IonSelectOption value={"4"}>21h30-22h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>22h-22h30</IonSelectOption>
-                                                <IonSelectOption value={"3"}>22h30-23h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>23h-23h30</IonSelectOption>
-                                                <IonSelectOption value={"3"}>23h30-00h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>00h-00h30</IonSelectOption>
-                                                <IonSelectOption value={"2"}>00h30-1h</IonSelectOption>
-                                                <IonSelectOption value={"2"}>1h-1h30</IonSelectOption>
-                                                <IonSelectOption value={"2"}>1h30-2h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>2h-2h30</IonSelectOption>
-                                                <IonSelectOption value={"1"}>2h30-3h</IonSelectOption>
+                                                <IonSelectOption value={"5"}>20h-21h</IonSelectOption>
+                                                <IonSelectOption value={"4"}>21h01-22h15</IonSelectOption>
+                                                <IonSelectOption value={"3"}>22h16-00h45</IonSelectOption>
+                                                <IonSelectOption value={"2"}>00h46-2h</IonSelectOption>
+                                                <IonSelectOption value={"1"}>2h01-3h</IonSelectOption>
+                                               
                                             </IonSelect>)} control={control} name={"rmeq03"} rules={{ required: true }} />
                                        
                             </IonItem>
@@ -198,30 +182,12 @@ const RMeq = (props: StepComponentProps) => {
                                                     props.setState('rmeq04', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={"1"}>00h-1h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>1h-2h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>2h-3h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>3h-4h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>4h-5h</IonSelectOption>
-                                                <IonSelectOption value={"5"}>5h-6h</IonSelectOption>
-                                                <IonSelectOption value={"5"}>6h-7h</IonSelectOption>
-                                                <IonSelectOption value={"5"}>7h-8h</IonSelectOption>
-                                                <IonSelectOption value={"4"}>8h-9h</IonSelectOption>
-                                                <IonSelectOption value={"4"}>9h-10h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>10h-11h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>11h-12h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>12h-13h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>13h-14h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>14h-15h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>15h-16h</IonSelectOption>
-                                                <IonSelectOption value={"3"}>16h-17h</IonSelectOption>
-                                                <IonSelectOption value={"2"}>17h-18h</IonSelectOption>
-                                                <IonSelectOption value={"2"}>18h-19h</IonSelectOption>
-                                                <IonSelectOption value={"2"}>19h-20h</IonSelectOption>
-                                                <IonSelectOption value={"2"}>20h-21h</IonSelectOption>
-                                                <IonSelectOption value={"2"}>21h-22h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>22h-23h</IonSelectOption>
-                                                <IonSelectOption value={"1"}>23h-00h</IonSelectOption>
+                                                <IonSelectOption value={"5"}>5h-8h</IonSelectOption>
+                                                <IonSelectOption value={"4"}>8h01-10h</IonSelectOption>
+                                                <IonSelectOption value={"3"}>10h01-17h</IonSelectOption>
+                                                <IonSelectOption value={"2"}>17h01-22h</IonSelectOption>
+                                                <IonSelectOption value={"1"}>22h01-4h</IonSelectOption>
+                                            
                                             </IonSelect>)} control={control} name={"rmeq04"} rules={{ required: true }} />
                                        
                             </IonItem>
@@ -291,7 +257,7 @@ const RMeq = (props: StepComponentProps) => {
 
 
                         <div id="progress-bar-div" >
-                            <IonProgressBar className={"progress-bar"} value={0.32} color="orange"></IonProgressBar>
+                            <IonProgressBar className={"progress-bar"} value={0.42} color="orange"></IonProgressBar>
                         </div>
 
                         <IonButton disabled={props.isFirst()} onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>

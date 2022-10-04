@@ -333,7 +333,7 @@ const Gad7 = (props: StepComponentProps) => {
 
 
                         <div id="progress-bar-div" >
-                            <IonProgressBar className={"progress-bar"} value={0.48} color="orange"></IonProgressBar>
+                            <IonProgressBar className={"progress-bar"} value={0.56} color="orange"></IonProgressBar>
                         </div>
 
 

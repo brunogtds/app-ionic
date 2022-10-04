@@ -42,9 +42,10 @@ function App() {
         <IonContent fullscreen>
            
                 <Steps>
-                    <Step component={rMeq}/>
+                 
                    <Step component={mctQ1} />
                   <Step component={mctQ2}/> 
+                  <Step component={rMeq}/>
                     <Step component={Gad7}/> 
                   <Step component={Who5}/> 
                     <Step component={PHQ}/> 

@@ -296,7 +296,7 @@ const Who5 = (props: StepComponentProps) => {
 
 
                         <div id="progress-bar-div" >
-                            <IonProgressBar className={"progress-bar"} value={0.64} color="orange"></IonProgressBar>
+                            <IonProgressBar className={"progress-bar"} value={0.7} color="orange"></IonProgressBar>
                         </div>
 
 

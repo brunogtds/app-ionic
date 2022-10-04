@@ -312,7 +312,7 @@ const Tab1: React.FC = () => {
 
       if (!(dataSonoSintomas === undefined)) {
         setSonoSintomasModulo1Enviado(true)
-        setFirstPartText("Parabéns! Acesse agora as dicas personalizadas e defina suas metas!")
+        setFirstPartText("Obrigado! Acesse agora as dicas personalizadas e defina suas metas!")
       }
 
       console.log("dataSonoSintomas: " + verifyTimeLeft(dataSonoSintomas))
@@ -1106,12 +1106,12 @@ const Tab1: React.FC = () => {
                    
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloHabitosEnviado || !moduloSaudeEnviado}  onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Sono e hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
+                        <IonButton  disabled={moduloHabitosEnviado || !moduloSaudeEnviado} onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Sono e hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado}  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."} /></IonButton>
+                        <IonButton  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."} /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>

@@ -35,7 +35,7 @@ const MCTQ2 = (props: StepComponentProps) => {
                     <form className={"ion-padding texto-default"}>
                         <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader} />
 
-                        <IonLabel className="questions">Em dias livres, eu normalmente dormi às: </IonLabel>
+                        <IonLabel className="questions">Em dias livres, quando não usei o despertador, eu normalmente dormi às: </IonLabel>
                         <IonNote>NÃO é o horário de ir para a cama, mas sim o de dormir! </IonNote>
                         <IonItem lines="none">
 
@@ -100,7 +100,7 @@ const MCTQ2 = (props: StepComponentProps) => {
 
 
                         <div id="progress-bar-div" >
-                            <IonProgressBar className={"progress-bar"} value={0.32} color="orange"></IonProgressBar>
+                            <IonProgressBar className={"progress-bar"} value={0.28} color="orange"></IonProgressBar>
                         </div>
 
                         <IonButton disabled={props.isFirst()} onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>

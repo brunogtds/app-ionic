@@ -161,6 +161,10 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                                             <IonRadio slot="start" className={"radio-options"} color="primary" value="menopausa"></IonRadio>
                                         </IonItem>
 
+                                        <IonItem lines="none" className={"ion-no-padding"}>
+                                            <IonLabel>Gravidez</IonLabel>
+                                            <IonRadio slot="start" className={"radio-options"} color="primary" value="gravidez"></IonRadio>
+                                        </IonItem>
 
                                          <IonItem lines="none">
 
@@ -332,7 +336,7 @@ const Perfil_Cadastro1 = (props: StepComponentProps) => {
                                 <IonSelectOption>SE</IonSelectOption>
                                 <IonSelectOption>SP</IonSelectOption>
                                 <IonSelectOption>TO</IonSelectOption>
-                                <IonSelectOption>Moro fora do país</IonSelectOption>
+                                <IonSelectOption>Moro fora do Brasil</IonSelectOption>
                             </IonSelect>
 
                         )}

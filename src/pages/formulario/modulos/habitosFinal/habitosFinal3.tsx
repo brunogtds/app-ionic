@@ -102,7 +102,7 @@ const HabitosFinal3 = (props: StepComponentProps) => {
                                                     props.setState('exerciseFreqFinal', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value="menos de 1 vez por semana">menos de 1 vezes por semana</IonSelectOption>
+                                                <IonSelectOption value="menos de 1 vez por semana">menos de 1 vez por semana</IonSelectOption>
                                                 <IonSelectOption value="1 vez por semana">1 vez por semana</IonSelectOption>
                                                 <IonSelectOption value="2 vezes por semana">2 vezes por semana</IonSelectOption>
                                                 <IonSelectOption value="3 vezes por semana">3 vezes por semana</IonSelectOption>

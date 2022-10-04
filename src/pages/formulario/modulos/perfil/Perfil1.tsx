@@ -211,34 +211,34 @@ const Perfil1 = (props: StepComponentProps) => {
                                         props.setState('BRstate', e.detail.value)
                                 }} >
 
-                                    <IonSelectOption>RS</IonSelectOption>
-                                    <IonSelectOption>SP</IonSelectOption>
-                                    <IonSelectOption>Moro fora do país</IonSelectOption>
                                     <IonSelectOption>AC</IonSelectOption>
-                                    <IonSelectOption>AL</IonSelectOption>
-                                    <IonSelectOption>AP</IonSelectOption>
-                                    <IonSelectOption>AM</IonSelectOption>
-                                    <IonSelectOption>BA</IonSelectOption>
-                                    <IonSelectOption>CE</IonSelectOption>
-                                    <IonSelectOption>ES</IonSelectOption>
-                                    <IonSelectOption>GO</IonSelectOption>
-                                    <IonSelectOption>MA</IonSelectOption>
-                                    <IonSelectOption>MT</IonSelectOption>
-                                    <IonSelectOption>MS</IonSelectOption>
-                                    <IonSelectOption>MG</IonSelectOption>
-                                    <IonSelectOption>PA</IonSelectOption>
-                                    <IonSelectOption>PB</IonSelectOption>
-                                    <IonSelectOption>PR</IonSelectOption>
-                                    <IonSelectOption>PE</IonSelectOption>
-                                    <IonSelectOption>PI</IonSelectOption>
-                                    <IonSelectOption>RJ</IonSelectOption>
-                                    <IonSelectOption>RN</IonSelectOption>
-                                    <IonSelectOption>RO</IonSelectOption>
-                                    <IonSelectOption>RR</IonSelectOption>
-                                    <IonSelectOption>SC</IonSelectOption>
-                                    <IonSelectOption>SE</IonSelectOption>
-                                    <IonSelectOption>TO</IonSelectOption>
-                                    <IonSelectOption>DF</IonSelectOption>
+                                <IonSelectOption>AL</IonSelectOption>
+                                <IonSelectOption>AP</IonSelectOption>
+                                <IonSelectOption>AM</IonSelectOption>
+                                <IonSelectOption>BA</IonSelectOption>
+                                <IonSelectOption>CE</IonSelectOption>
+                                <IonSelectOption>DF</IonSelectOption>
+                                <IonSelectOption>ES</IonSelectOption>
+                                <IonSelectOption>GO</IonSelectOption>
+                                <IonSelectOption>MA</IonSelectOption>
+                                <IonSelectOption>MT</IonSelectOption>
+                                <IonSelectOption>MS</IonSelectOption>
+                                <IonSelectOption>MG</IonSelectOption>
+                                <IonSelectOption>PA</IonSelectOption>
+                                <IonSelectOption>PB</IonSelectOption>
+                                <IonSelectOption>PR</IonSelectOption>
+                                <IonSelectOption>PE</IonSelectOption>
+                                <IonSelectOption>PI</IonSelectOption>
+                                <IonSelectOption>RJ</IonSelectOption>
+                                <IonSelectOption>RN</IonSelectOption>
+                                <IonSelectOption>RS</IonSelectOption>
+                                <IonSelectOption>RO</IonSelectOption>
+                                <IonSelectOption>RR</IonSelectOption>
+                                <IonSelectOption>SC</IonSelectOption>
+                                <IonSelectOption>SE</IonSelectOption>
+                                <IonSelectOption>SP</IonSelectOption>
+                                <IonSelectOption>TO</IonSelectOption>
+                                <IonSelectOption>Moro fora do Brasil</IonSelectOption>
                                 </IonSelect>
 
                             )}
