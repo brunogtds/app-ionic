@@ -100,7 +100,7 @@ const Tab1: React.FC = () => {
   const [showModalFeedbackPost, setShowModalFeedbackPost] = useState(false);
   const [showModalFeedbackFinal, setShowModalFeedbackFinal] = useState(false);
   const [showModalSonoSintomas, setShowModalSonoSintomas] = useState(false);
-
+  const [showModalInicial, setShowModalInicial] = useState(false);
 
   function chamaSobre() {
     history.push('/sobre');
@@ -130,6 +130,7 @@ const Tab1: React.FC = () => {
 
   function saude() {
     history.push('/saude');
+    setShowModalInicial(true);
   }
 
   function contato() {
@@ -488,7 +489,7 @@ const Tab1: React.FC = () => {
       }
 
       if (feedbackExercise(dataExercise) === "string1") {
-        setFeedbackExerciseText("Você nos contou que pratica exercícios físicos. Este é um hábito que torna sua vida mais saudável. Tente continuar praticando e atente para o mínimo recomendado pelas órgãos oficiais. O que é recomendado para adultos é praticar, por semana, pelo menos 150 min de atividades físicas moderadas (aquelas em que você consegue conversar com dificuldade enquanto se movimenta, mas não consegue cantar; sua respiração e os batimentos do coração vão aumentar moderadamente), ou então 75 min de atividades vigorosas (em que você não vai conseguir nem conversar; sua respiração vai ser muito mais rápida que o normal, e os batimentos do seu coração vão aumentar muito). Você pode dividir a sua prática de atividade física em pequenos blocos de tempo ou fazer mais minutos por dia, de uma só vez. Faça como preferir e como puder! Ter um dia a dia fisicamente ativo é bastante seguro. Se você tiver alguma lesão ou sentir algum desconforto anormal, como alguma dor na região do peito ou tontura, procure a Unidade Básica de Saúde mais próxima de você.  ")
+        setFeedbackExerciseText("Você nos contou que pratica exercícios físicos. Este é um hábito que torna sua vida mais saudável. Tente continuar praticando e atente para o mínimo recomendado pelas órgãos oficiais. O que é recomendado para adultos é praticar por semana, pelo menos 150 min de atividades físicas moderadas (aquelas em que você consegue conversar com dificuldade enquanto se movimenta, mas não consegue cantar; sua respiração e os batimentos do coração vão aumentar moderadamente), ou então 75 min de atividades vigorosas (em que você não vai conseguir nem conversar; sua respiração vai ser muito mais rápida que o normal, e os batimentos do seu coração vão aumentar muito). Você pode dividir a sua prática de atividade física em pequenos blocos de tempo ou fazer mais minutos por dia, de uma só vez. Faça como preferir e como puder! Ter um dia a dia fisicamente ativo é bastante seguro. Se você tiver alguma lesão ou sentir algum desconforto anormal, como alguma dor na região do peito ou tontura, procure a Unidade Básica de Saúde mais próxima de você.  ")
       } else if (feedbackExercise(dataExercise) === "string2") {
         setFeedbackExerciseText("Você nos contou que não pratica exercícios físicos. Você poderia planejar como incluí-los na sua semana. Esse é o primeiro passo e este hábito vai tornar sua vida mais saudável! O que é recomendado para adultos é praticar, por semana, pelo menos 150 min de atividades físicas moderadas (aquelas em que você consegue conversar com dificuldade enquanto se movimenta, mas não consegue cantar; sua respiração e os batimentos do coração vão aumentar moderadamente), ou então 75 min de atividades vigorosas (em que você não vai conseguir nem conversar; sua respiração vai ser muito mais rápida que o normal, e os batimentos do seu coração vão aumentar muito).  Você pode dividir a sua prática de atividade física em pequenos blocos de tempo ou fazer mais minutos por dia, de uma só vez. Faça como preferir e como puder! Ter um dia a dia fisicamente ativo é bastante seguro. Se você tiver alguma lesão ou sentir algum desconforto anormal, como alguma dor na região do peito ou tontura, procure a Unidade Básica de Saúde mais próxima de você.  ")
       }
@@ -568,7 +569,7 @@ const Tab1: React.FC = () => {
         setFeedbackFumoText("Você nos contou que fuma. Já pensou em parar de fumar? O SUS oferece tratamento gratuito para auxiliar você nessa! Procure uma unidade de saúde ou um profissional de saúde para receber mais orientações.")
       }
       if (feedbackAlcool(dataAlcool) === "string01") {
-        setFeedbackAlcoolText("Vimos que você relatou beber pela manhã, o que é um comportamento considerado pouco saudável. O consumo de álcool em excesso é considerado um problema de saúde. Se isso tem incomodado você, procure um profissional de saúde para uma avaliação.")
+        setFeedbackAlcoolText("Vimos que você relatou beber pela manhã para diminuir o nervosismo ou a ressaca, o que é um comportamento considerado pouco saudável. O consumo de álcool em excesso é considerado um problema de saúde. Se isso tem incomodado você, procure um profissional de saúde para uma avaliação.")
       }
     }
   }
@@ -721,11 +722,11 @@ const Tab1: React.FC = () => {
 
         //feedback duração do sono
         if (dataAge >= 18 && dataAge <= 25) {
-          setFeedbackSonoText(durationSonoWDString + " em dias de escola ou trabalho e " + durationSonoFDString + " em dias livres. É recomendado que jovens adultos (18-25 anos) durmam de 7 a 9 horas (podendo também ser 6 a 10 ou 11 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir. ")
+          setFeedbackSonoText(durationSonoWDString + " em dias de escola ou trabalho e " + durationSonoFDString + " em dias livres.")
         } else if (dataAge >= 26 && dataAge <= 64) {
-          setFeedbackSonoText(durationSonoWDString + " em dias de trabalho e " + durationSonoFDString + " em dias livres. É recomendado que adultos (26 - 64 anos) durmam de 7 a 9 horas (podendo também ser 6 a 10 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir.")
+          setFeedbackSonoText(durationSonoWDString + " em dias de trabalho e " + durationSonoFDString + " em dias livres.")
         } else if (dataAge >= 65) {
-          setFeedbackSonoText(durationSonoWDString + " em dias de trabalho e " + durationSonoFDString + " em dias livres. É recomendado que idosos (≥ 65 anos anos) durmam de 7 a 8 horas (podendo também ser 5 ou 6 a 9 horas). A falta de sono pode prejudicar a sua saúde. Dormir é imporante para guardar as informações que você aprendeu, para que seu corpo possa se defender de vírus e bactérias que causam doenças e para que as suas células funcionem bem. Se você acha que está dormindo pouco, pense em como organizar seus horários de acordo com seu cronotipo e a sua necessidade de sono. Repare no quanto você se expõe à luz, como é o ambiente do seu quarto e se você se prepara para dormir.")
+          setFeedbackSonoText(durationSonoWDString + " em dias de trabalho e " + durationSonoFDString + " em dias livres.")
         }
 
         //feedback regularidades e SJL
@@ -848,7 +849,7 @@ const Tab1: React.FC = () => {
       } else if (regularides(dataFeedReg, dataSleepReg) === 2) {
         setFeedbackRegularidadesText("Vimos que seus horários alimentação e sono são regulares, o que é muito bom para sua saúde. Continue assim!")
       } else if (regularides(dataFeedReg, dataSleepReg) === 3) {
-        setFeedbackRegularidadesText("É muito importante manter uma regularidade nas rotinas de alimentação e nos horários de sono. Que tal organizar o cardápio e suas compras do supermercado para tentar manter uma regularidade no horário de alimentação? Além disso, não esqueça de que cuidar da rotina de sono é importante para manter uma vida e um corpo saudável.")
+        setFeedbackRegularidadesText("É muito importante manter uma regularidade nas rotinas de alimentação e nos horários de sono. Que tal tentar organizar essas rotinas?")
       } else if (regularides(dataFeedReg, dataSleepReg) === 4) {
         setFeedbackRegularidadesText("Vimos que seus horários de sono são regulares. Isso pode ajudar a manter seu corpo saudável! No entanto, seus horários de alimentação são irregulares. Que tal organizar o cardápio e suas compras do supermercado para tentar manter uma regularidade no horário de alimentação?")
       }
@@ -1099,7 +1100,7 @@ const Tab1: React.FC = () => {
                     <AccordionItemPanel>
 
                       <div>
-                        <IonButton disabled={moduloSaudeEnviado}  onClick={saude} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."} /></IonButton>
+                        <IonButton disabled={moduloSaudeEnviado} onClick={saude} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."} /></IonButton>
                       </div>
 
                     </AccordionItemPanel>
@@ -1111,7 +1112,7 @@ const Tab1: React.FC = () => {
                     </AccordionItemPanel>
                     <AccordionItemPanel>
                       <div>
-                        <IonButton  onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."} /></IonButton>
+                        <IonButton disabled={moduloSonoSintomasEnviado || !moduloHabitosEnviado} onClick={sonoSintomas} color="orange" fill="solid" className="button-forms"><div className="texto-button">Bem-estar</div><img className="img-button" src={button_sono} width="80" height="80" alt={" Mascote do Regente matutino de olhos fechados dormindo segurando um ursinho de pelúcia."} /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
@@ -1125,6 +1126,26 @@ const Tab1: React.FC = () => {
                       <div>
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
                       </div>
+
+                      <IonModal isOpen={showModalInicial} showBackdrop={true}
+                        cssClass='custom-modal selectable'
+                        onDidDismiss={() => setShowModalInicial(false)}>
+                        <IonContent color="primary">
+
+                          <div className={"div-sonoSintomas"}>
+                          <img src={matutino_feliz} alt="mascote no celular" className={"img-sonoSintomas"} />
+                            <br />
+                            <p className='sono-sintomas-modalText'>Tente ser preciso ao responder os questionários. </p>
+                            <p className='sono-sintomas-modalText'>Após o preenchimento, você receberá recomendações baseadas nas suas respostas.</p>
+                          </div>
+                          <div className="ion-text-center">
+                            <IonButton color="white" onClick={() => setShowModalInicial(false)}>OK, entendi!</IonButton>
+                          </div>
+
+                        </IonContent>
+
+                      </IonModal>
+
 
                       <IonModal isOpen={showModalSonoSintomas} showBackdrop={true}
                         cssClass='custom-modal selectable'
@@ -1179,7 +1200,7 @@ const Tab1: React.FC = () => {
                                 </p>
                               </div>
                               <br />
-                              <p className={"readMore-text"}>Você receberá informações e recomendações baseadas nas suas respostas. Tente ser o mais preciso possível! Caso receba alguma informação ou recomendação não adequada a você, entre em contato conosco pelo e-mail regenteapp@gmail.com.</p>
+                              <p className={"readMore-text"}>Lembre que as recomendações que você está recebendo são baseadas no que você nos contou nos questionários. Se algo parecer muito inadequado, entre em contato conosco pelo e-mail regenteapp@gmail.com.</p>
                               <p className={"readMore-text"}>Você já percebeu que nem todo mundo dorme e acorda naturalmente no mesmo horário? Isso é uma questão biológica. Não se sinta culpado se não conseguir acordar às 6h no seu melhor humor ou por não ter vontade de ficar acordado conversando até as 23h com seus amigos: não é só uma questão de hábito ou vontade. Cada pessoa tem seu próprio relógio biológico. Desse modo, há pessoas que se sentem mais ativas e dispostas mais cedo (os matutinos), e outras que se sentem assim mais tarde (os vespertinos). Chamamos de cronotipo as características individuais que explicam essas diferenças. Com base no que você nos contou, estimamos seu cronotipo:</p>
                               <p className={"readMore-text-var"}>{feedbackRMEQText}</p>
                               <p>
@@ -1342,10 +1363,11 @@ const Tab1: React.FC = () => {
 
                                 </div>
                               </IonToolbar>
+                              
+                              <p className={"readMore-text-var"}>{feedbackBemEstarText}</p>
                               <p className={"readMore-text"}>É sempre importante manter acompanhamento médico regularmente. De forma geral, quanto antes uma doença for identificada mais fácil e barato é seu tratamento, além de lhe causar menos transtornos. Faça suas revisões regulares e evite surpresas.</p>
 
-                              <p className={"readMore-text-var"}>{feedbackBemEstarText}</p>
-                              <p className={"readMore-text"}>Para saber mais sobre a pandemia do COVID-19, bons hábitos, relógio biológico e sono acesse no Menu a página de Recomendações!</p>
+                              <p className={"readMore-text"}>Para saber mais sobre recomendações de bons hábitos e relógio biológico acesse no Menu a página de Recomendações!</p>
                               <div className={"arrows ion-no-padding"}>
                                 <p>
                                   <IonButton className={"arrow-back"} onClick={handlePrevious}><IonIcon src={arrowBackOutline}></IonIcon></IonButton>

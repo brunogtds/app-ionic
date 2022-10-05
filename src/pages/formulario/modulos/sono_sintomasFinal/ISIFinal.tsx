@@ -73,6 +73,11 @@ const ISIFinal = (props: StepComponentProps) => {
                 isiFinal_isi02: Number(props.state.isiFinal_isi02),
                 isiFinal_isi03: Number(props.state.isiFinal_isi03),
                 sleepQualFinal: Number(props.state.sleepQualFinal),
+                rmeq01Final: Number(props.state.rmeq01Final),
+                rmeq02Final: Number(props.state.rmeq02Final),
+                rmeq03Final: Number(props.state.rmeq03Final),
+                rmeq04Final: Number(props.state.rmeq04Final),
+                rmeq05Final: Number(props.state.rmeq05Final),
                 dateSonoSintomasFinal: new Date()
             }, { merge: true })
         }

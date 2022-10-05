@@ -68,6 +68,11 @@ const ISIPost = (props: StepComponentProps) => {
                 phq08Post14: Number(props.state.phq08Post14),
                 phq09Post14: Number(props.state.phq09Post14),
                 phq10Post14: Number(props.state.phq10Post14),
+                rmeq01Post: Number(props.state.rmeq01Post),
+                rmeq02Post: Number(props.state.rmeq02Post),
+                rmeq03Post: Number(props.state.rmeq03Post),
+                rmeq04Post: Number(props.state.rmeq04Post),
+                rmeq05Post: Number(props.state.rmeq05Post),
 
                 sleepProblemPost14: String(props.state.sleepProblemPost14), //STEP 8 
                 isiPost14_isi01: Number(props.state.isiPost14_isi01),

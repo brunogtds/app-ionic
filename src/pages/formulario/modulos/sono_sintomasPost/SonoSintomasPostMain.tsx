@@ -9,7 +9,8 @@ import MCTQ1Post from "./mctQ1Post";
 import MCTQ2Post from "./mctq2Post";
 import Gad7Post from './Gad7Post';
 import PHQPost from './PHQPost';
-import Who5Post from './Who5Post'
+import Who5Post from './Who5Post';
+import RMeqPost from "./rMeqPost";
   
 import logo_regente from '../../../../img/logo_regente_branco.svg';
   /*React-multi-step form 
@@ -39,9 +40,10 @@ function App() {
            
                 <Steps>
                     
-                   <Step component={MCTQ1Post} /> 
+                    <Step component={MCTQ1Post} /> 
                     <Step component={MCTQ2Post} />  
-                  <Step component={Gad7Post}/> 
+                    <Step component={RMeqPost}/>
+                    <Step component={Gad7Post}/> 
                     <Step component={Who5Post}/> 
                     <Step component={PHQPost}/> 
                     <Step component={ISIPost} /> 

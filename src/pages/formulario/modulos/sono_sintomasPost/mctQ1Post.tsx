@@ -279,8 +279,8 @@ const MCTQ1Post = (props: StepComponentProps) => {
                         :null}
 
 
-                        <div id="progress-bar-div" >
-                            <IonProgressBar className={"progress-bar"} value={0.16} color="orange"></IonProgressBar>
+                         <div id="progress-bar-div" >
+                            <IonProgressBar className={"progress-bar"} value={0.14} color="orange"></IonProgressBar>
                         </div>
 
                         <IonButton disabled={props.isFirst()} onClick={props.prev} className="btnAnterior" size="default" shape="round" fill="outline">Anterior</IonButton>

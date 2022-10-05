@@ -7,6 +7,7 @@ import '../../Forms.css';
 import ISIFinal from './ISIFinal';
 import MCTQ1Final from "./mctQ1Final";
 import MCTQ2Final from "./mctq2Final";
+import RMeqFinal from "./rMeqFinal";
 
 import Gad7Final from './Gad7Final';
 import PHQFinal from './PHQFinal';
@@ -42,9 +43,10 @@ function App() {
                 <Steps>
                     
                     <Step component={MCTQ1Final} /> 
-                   <Step component={MCTQ2Final} />  
+                    <Step component={MCTQ2Final} />  
+                    <Step component={RMeqFinal}/>
                     <Step component={Gad7Final}/>  
-                  <Step component={Who5Final}/> 
+                    <Step component={Who5Final}/> 
                     <Step component={PHQFinal}/> 
                     <Step component={ISIFinal} /> 
                 </Steps>
