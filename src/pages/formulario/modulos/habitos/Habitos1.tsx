@@ -186,114 +186,7 @@ const Habitos1 = (props: StepComponentProps) => {
                                                             </IonItem>
                                     
                                     : null}
-
-                                {/*MAIS QUE 0*/}
-
-
-                                {/*}           
-
-                                { (props.state.fdQ != null) ?
-
-                                    <IonItem lines="none">
-                                        <IonLabel className="questions">Nos dias em que você teve compromissos (por exemplo: estudo, trabalho, trabalho doméstico), duraram quantas horas do dia? </IonLabel> </IonItem> : null}
-
-                                {(props.state.fdQ != null) ? 
-                                    <IonItem lines="none">
-                                        <Controller render={({ onChange }) => (
-                                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
-                                                console.log(e);
-                                                onChange(e.detail.value);
-                                                if (e.detail.value != undefined)
-                                                    props.setState('workDur', e.detail.value)
-                                            }}>
-                                                <IonSelectOption value="até 1 hora">até 1 hora</IonSelectOption>
-                                                <IonSelectOption value="até 2 horas">até 2 horas</IonSelectOption>
-                                                <IonSelectOption value="até 4 horas">até 4 horas</IonSelectOption>
-                                                <IonSelectOption value="até 8 horas">até 8 horas</IonSelectOption>
-                                                <IonSelectOption value="mais de 8 horas">mais de 8 horas</IonSelectOption>
-                                            </IonSelect>)} control={control} name={"workDur"} rules={{ required: true }} />
-                                       
-                                        </IonItem> : null} */}
-
-                                   
-
-                                {/** 
-
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
-                                    <IonItem lines="none">
-                                        <IonLabel className="questions texto-default">Você pôde escolher seus horários de trabalho/estudo?</IonLabel>
-                                    </IonItem> : null}
-
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
-                                    <IonItem lines="none">
-                                        <Controller render={({ onChange }) => (
-                                            <IonRadioGroup onIonChange={(e) => {
-                                                console.log(e);
-                                                onChange(e.detail.value);
-                                                if (e.detail.value != undefined)
-                                                    props.setState('workChoice', e.detail.value)
-                                            }}>
-
-                                                <IonItem lines="none" className={"ion-no-padding"}>
-                                                    <IonLabel>Sim</IonLabel>
-                                                    <IonRadio slot="start" className={"radio-options"} color="primary" value="sim"></IonRadio>
-                                                </IonItem>
-
-                                                <IonItem lines="none" className={"ion-no-padding"}>
-                                                    <IonLabel>Não</IonLabel>
-                                                    <IonRadio slot="start" className={"radio-options"} color="primary" value="não"></IonRadio>
-                                                </IonItem>
-
-                                            </IonRadioGroup>)} control={control} name={"workChoice"} rules={{ required: true }} />
-                                        {errors.workChoice && <IonText color="danger">Campo obrigatório.</IonText>}
-                                    </IonItem> : null}
-
-
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
-                                    <IonItem lines="none">
-                                        <IonLabel className="questions">O quão regular foram seus horários de trabalho/estudo nas últimas duas semanas: </IonLabel>
-                                    </IonItem> : null}
-
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) ?
-                                    <IonItem lines="none">
-
-                                        <Controller render={({ onChange }) => (
-                                            <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." value={horasTrabalhoRegulares} onIonChange={(e) => {
-                                                setHorasTrabalhoRegulares(e.detail.value);
-                                                onChange(e.detail.value);
-                                                if (e.detail.value != undefined)
-                                                    props.setState('workReg', e.detail.value)
-                                            }}>
-                                                <IonSelectOption value="muitoIrregulares">Muito irregulares</IonSelectOption>
-                                                <IonSelectOption value="irregulares">Irregulares</IonSelectOption>
-                                                <IonSelectOption value="regulares">Regulares</IonSelectOption>
-                                                <IonSelectOption value="muitoRegulares">Muito regulares</IonSelectOption>
-                                            </IonSelect>)} control={control} name={"workReg"} rules={{ required: true }} />
-                                        {errors.workReg && <IonText color="danger">Campo obrigatório.</IonText>}
-                                    </IonItem> : null}
-
-
-
-                                {/*REGULARES OU MUITO REGULARES: */
-
-                                /*
-
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) && ((horasTrabalhoRegulares === "regulares") || (horasTrabalhoRegulares === "muitoRegulares")) ?
-
-                                    <IonItem lines="none">
-                                        <IonLabel className="questions">Em que horário, em média, você começou a trabalhar/estudar nas últimas duas semanas?</IonLabel> </IonItem> : null}
-
-                                {((diasTrabalho === "1") || (diasTrabalho === "2") || (diasTrabalho === "3") || (diasTrabalho === "4") || (diasTrabalho === "5") || (diasTrabalho === "6") || (diasTrabalho === "7") || (diasTrabalho === "8") || (diasTrabalho === "9") || (diasTrabalho === "10") || (diasTrabalho === "11") || (diasTrabalho === "12") || (diasTrabalho === "13") || (diasTrabalho === "14")) && ((horasTrabalhoRegulares === "regulares") || (horasTrabalhoRegulares === "muitoRegulares")) ?
-                                    <IonItem lines="none">
-                                        <Controller render={({ onChange }) => (
-                                            <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
-                                                console.log(e);
-                                                onChange(e.detail.value);
-                                                if (e.detail.value != undefined)
-                                                    props.setState('workStart', e.detail.value)
-                                            }}></IonDatetime>)} control={control} name={"workStart"} rules={{ required: true }} />
-                                        {errors.workStart && <IonText color="danger">Campo obrigatório.</IonText>}
-                                        </IonItem> : null} */ }
+                               
                             </IonList> 
 
 
@@ -411,8 +304,8 @@ const Habitos1 = (props: StepComponentProps) => {
                                         console.log(e);
                                         onChange(e.detail.value);
                                         if (e.detail.value != undefined)
-                                            props.setState('wakeUpWD', e.detail.value)
-                                    }}></IonDatetime>)} control={control} name={"wakeUpWD"} rules={{ required: true }} />
+                                            props.setState('workStart', e.detail.value)
+                                    }}></IonDatetime>)} control={control} name={"workStart"} rules={{ required: true }} />
                              
                             </IonItem>
                             
@@ -537,12 +430,12 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightDurationIrreg', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={1}>não sei</IonSelectOption>
-                                                <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                                <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                                <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"1"}>não sei</IonSelectOption>
+                                                <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                                <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                                <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                                <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"3"}>mais de 4 horas</IonSelectOption>
                                             </IonSelect>)} control={control} name={"lightDurationIrreg"} rules={{ required: true }} />
                                        
                                     </IonItem> :null} 
@@ -564,8 +457,8 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightExposureRegWknd', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={0}>Diferentes em dias de semana comparado a finais de semana</IonSelectOption>
-                                                <IonSelectOption value={1}>Semelhantes em todos os dias</IonSelectOption>
+                                                <IonSelectOption value={"0"}>Diferentes em dias de semana comparado a finais de semana</IonSelectOption>
+                                                <IonSelectOption value={"1"}>Semelhantes em todos os dias</IonSelectOption>
                                             </IonSelect>)} control={control} name={"lightExposureRegWknd"} rules={{ required: true }} />
                                        
                                     </IonItem>
@@ -588,21 +481,21 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightExposureReg', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={0}>Diferentes em dias de semana comparado a finais de semana</IonSelectOption>
-                                                <IonSelectOption value={1}>Diferentes em dias de trabalho comparado a dias livres</IonSelectOption>
-                                                <IonSelectOption value={2}>Semelhantes em todos os dias</IonSelectOption>
+                                                <IonSelectOption value={"0"}>Diferentes em dias de semana comparado a finais de semana</IonSelectOption>
+                                                <IonSelectOption value={"1"}>Diferentes em dias de trabalho comparado a dias livres</IonSelectOption>
+                                                <IonSelectOption value={"2"}>Semelhantes em todos os dias</IonSelectOption>
                                             </IonSelect>)} control={control} name={"lightExposureReg"} rules={{ required: true }} />
                                        
                                     </IonItem>
                            :null}
 
 
-                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === 1) ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === 2))  ? 
+                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === "1") ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === "2"))  ? 
                         
                         <IonLabel className="questions">Em que horário, em média, você começou a se expôr à luz natural, nas duas últimas semanas?</IonLabel>
                     
                         :null}
-                         {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === 1) ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === 2))  ? 
+                         {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === "1") ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === "2"))  ? 
                         
                         <IonNote> Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                         Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.</IonNote>
@@ -610,7 +503,7 @@ const Habitos1 = (props: StepComponentProps) => {
                         :null}
 
 
-                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === 1) ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === 2))  ?
+                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === "1") ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === "2"))  ?
                          <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -623,14 +516,14 @@ const Habitos1 = (props: StepComponentProps) => {
                             </IonItem>
                          :null}
 
-                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === 1) ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === 2))  ? 
+                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === "1") ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === "2"))  ? 
                         
                         <IonLabel className="questions">Por quanto tempo, em média, você se expôs?</IonLabel>
                     
                         :null}
 
                             
-                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === 1) ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === 2))  ? 
+                        {( (props.state.lightExposureRegWknd !== null) && (props.state.lightExposureRegWknd === "1") ) || ((props.state.lightExposureReg !== null) && (props.state.lightExposureReg === "2"))  ? 
                          <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
                                             <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e) => {
@@ -641,24 +534,24 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightExposureDuration', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                                <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                                <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                                <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                                <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                                <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                             </IonSelect>)} control={control} name={"lightExposureDuration"} rules={{ required: true }} />
                                        
                                     </IonItem>
                                 :null}
                           
 
-                          {( (props.state.lightExposureReg !== null) && (props.state.lightExposureReg === 1) )  ? 
+                          {( (props.state.lightExposureReg !== null) && (props.state.lightExposureReg === "1") )  ? 
                           
                           <IonLabel className="questions">Você se expôs à luz natural: </IonLabel>
                           
                           :null}
 
-                        {( (props.state.lightExposureReg !== null) && (props.state.lightExposureReg === 1) )  ? 
+                        {( (props.state.lightExposureReg !== null) && (props.state.lightExposureReg === "1") )  ? 
                           
                           <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
@@ -670,9 +563,9 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightExposureCheckWorkD', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={0}>nos dias de trabalho</IonSelectOption>
-                                                <IonSelectOption value={1}>nos dias livres</IonSelectOption>
-                                                <IonSelectOption value={2}>em ambos</IonSelectOption>
+                                                <IonSelectOption value={"0"}>nos dias de trabalho</IonSelectOption>
+                                                <IonSelectOption value={"1"}>nos dias livres</IonSelectOption>
+                                                <IonSelectOption value={"2"}>em ambos</IonSelectOption>
                                           
                                             </IonSelect>)} control={control} name={"lightExposureCheckWorkD"} rules={{ required: true }} />
                                        
@@ -680,20 +573,20 @@ const Habitos1 = (props: StepComponentProps) => {
                           
                           :null}
 
-                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 0)  )  ? 
+                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "0")  )  ? 
                                 <IonLabel className="questions">Nos seus dias de trabalho, nas duas últimas semanas, você se expôs à luz natural:</IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 0) )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "0") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?</IonLabel>
                         :null}
 
-                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 0)  )  ? 
+                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "0")  )  ? 
                                 <IonNote> Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                 Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.</IonNote>
                         :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 0)  )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "0")  )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -705,11 +598,11 @@ const Habitos1 = (props: StepComponentProps) => {
                              
                             </IonItem> :null}
 
-                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 0)  )  ? 
+                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "0")  )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?</IonLabel>
                         :null}
 
-                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 0))  ? 
+                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "0"))  ? 
 
                                  <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
@@ -721,32 +614,32 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightExposureWorkDuration', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                                <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                                <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                                <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                                <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                                <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                             </IonSelect>)} control={control} name={"lightExposureWorkDuration"} rules={{ required: true }} />
                                        
                                     </IonItem>
 
                             :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 1) )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "1") )  ? 
                                 <IonLabel className="questions">Nos seus dias livres, nas duas últimas semanas, você se expôs à luz natural:
                                 :</IonLabel>
                         :null}
 
-                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 1) )  ? 
+                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "1") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?</IonLabel>
                         :null}
 
-                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 1) )  ? 
+                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "1") )  ? 
                                  <IonNote> Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                  Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.</IonNote>
                         :null}
 
-                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 1) )  ? 
+                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "1") )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -758,11 +651,11 @@ const Habitos1 = (props: StepComponentProps) => {
                              
                             </IonItem> :null}
 
-                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 1) )  ? 
+                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "1") )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?</IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 1) )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "1") )  ? 
                               <IonItem lines="none">
                               <Controller render={({ onChange }) => (
                                   <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e) => {
@@ -773,11 +666,11 @@ const Habitos1 = (props: StepComponentProps) => {
                                           props.setState('lightExposureWorkFDDuration', e.detail.value)
                                       }
                                   }}>
-                                      <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                      <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                      <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                      <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                      <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                      <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                   </IonSelect>)} control={control} name={"lightExposureWorkFDDuration"} rules={{ required: true }} />
                              
                           </IonItem>
@@ -790,20 +683,20 @@ const Habitos1 = (props: StepComponentProps) => {
 
 
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2)  )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2")  )  ? 
                                 <IonLabel className="questions">Nos seus dias de trabalho, nas duas últimas semanas, você se expôs à luz natural:</IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2) )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?</IonLabel>
                         :null}
 
-                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2)  )  ? 
+                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2")  )  ? 
                                 <IonNote> Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                 Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.</IonNote>
                         :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2)  )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2")  )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -815,11 +708,11 @@ const Habitos1 = (props: StepComponentProps) => {
                              
                             </IonItem> :null}
 
-                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2)  )  ? 
+                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2")  )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?</IonLabel>
                         :null}
 
-                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2))  ? 
+                            {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2"))  ? 
 
                                  <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
@@ -831,32 +724,32 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightExposureWorkDuration', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                                <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                                <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                                <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                                <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                                <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                                <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                                <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                             </IonSelect>)} control={control} name={"lightExposureWorkDuration"} rules={{ required: true }} />
                                        
                                     </IonItem>
 
                             :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2) )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2") )  ? 
                                 <IonLabel className="questions">Nos seus dias livres, nas duas últimas semanas, você se expôs à luz natural:
                                 :</IonLabel>
                         :null}
 
-                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2) )  ? 
+                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?</IonLabel>
                         :null}
 
-                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2) )  ? 
+                          {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2") )  ? 
                                  <IonNote> Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                  Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.</IonNote>
                         :null}
 
-                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2) )  ? 
+                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2") )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -868,11 +761,11 @@ const Habitos1 = (props: StepComponentProps) => {
                              
                             </IonItem> :null}
 
-                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2) )  ? 
+                         {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2") )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?</IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === 2) )  ? 
+                        {( (props.state.lightExposureCheckWorkD !== null) && (props.state.lightExposureCheckWorkD === "2") )  ? 
                               <IonItem lines="none">
                               <Controller render={({ onChange }) => (
                                   <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e) => {
@@ -883,24 +776,24 @@ const Habitos1 = (props: StepComponentProps) => {
                                           props.setState('lightExposureWorkFDDuration', e.detail.value)
                                       }
                                   }}>
-                                      <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                      <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                      <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                      <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                      <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                      <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                   </IonSelect>)} control={control} name={"lightExposureWorkFDDuration"} rules={{ required: true }} />
                              
                           </IonItem>
                         :null}
 
 
-                        { ((props.state.lightExposureReg !== null) && (props.state.lightExposureRegWknd === 0)) || ((props.state.lightExposureReg !==null) && (props.state.lightExposureReg === 0))   ? 
+                        { ((props.state.lightExposureReg !== null) && (props.state.lightExposureRegWknd === "0")) || ((props.state.lightExposureReg !==null) && (props.state.lightExposureReg === "0"))   ? 
                           
                           <IonLabel className="questions">Você se expôs à luz natural: </IonLabel>
                           
                           :null}
 
-                     { ((props.state.lightExposureReg !== null) && (props.state.lightExposureRegWknd === 0)) || ((props.state.lightExposureReg !==null) && (props.state.lightExposureReg === 0))   ?
+                     { ((props.state.lightExposureReg !== null) && (props.state.lightExposureRegWknd === "0")) || ((props.state.lightExposureReg !==null) && (props.state.lightExposureReg === "0"))   ?
                           
                           <IonItem lines="none">
                                         <Controller render={({ onChange }) => (
@@ -912,9 +805,9 @@ const Habitos1 = (props: StepComponentProps) => {
                                                     props.setState('lightExposureCheckWeekD', e.detail.value)
                                                 }
                                             }}>
-                                                <IonSelectOption value={0}>nos dias de semana</IonSelectOption>
-                                                <IonSelectOption value={1}>nos finais de semana</IonSelectOption>
-                                                <IonSelectOption value={2}>em ambos</IonSelectOption>
+                                                <IonSelectOption value={"0"}>nos dias de semana</IonSelectOption>
+                                                <IonSelectOption value={"1"}>nos finais de semana</IonSelectOption>
+                                                <IonSelectOption value={"2"}>em ambos</IonSelectOption>
                                           
                                             </IonSelect>)} control={control} name={"lightExposureCheckWeekD"} rules={{ required: true }} />
                                        
@@ -922,22 +815,22 @@ const Habitos1 = (props: StepComponentProps) => {
                           
                           :null}
 
-                           {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 0) )  ? 
+                           {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "0") )  ? 
                                 <IonLabel className="questions">Nos dias de semana, nas duas últimas semanas, você se expôs à luz natural:</IonLabel>
                         :null}
 
-                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 0) )  ? 
+                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "0") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?
                                 </IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 0) )  ? 
+                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "0") )  ? 
                                 <IonNote>Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                 Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.
                                 </IonNote>
                         :null}
 
-                       {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 0) )  ? 
+                       {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "0") )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -949,12 +842,12 @@ const Habitos1 = (props: StepComponentProps) => {
                              
                             </IonItem> :null}
 
-                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 0) )  ? 
+                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "0") )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?
                                 </IonLabel>
                         :null}
 
-                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 0) )  ? 
+                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "0") )  ? 
                               <IonItem lines="none">
                               <Controller render={({ onChange }) => (
                                   <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e) => {
@@ -965,33 +858,33 @@ const Habitos1 = (props: StepComponentProps) => {
                                           props.setState('lightExposureWeekDuration', e.detail.value)
                                       }
                                   }}>
-                                      <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                      <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                      <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                      <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                      <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                      <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                   </IonSelect>)} control={control} name={"lightExposureWeekDuration"} rules={{ required: true }} />
                              
                           </IonItem>
                         :null}
 
-                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 1) )  ? 
+                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "1") )  ? 
                                 <IonLabel className="questions">Nos finais de semana, nas duas últimas semanas, você se expôs à luz natural:
                                 </IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 1) )  ? 
+                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "1") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?
                                 </IonLabel>
                         :null}
 
-                           {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 1) )  ? 
+                           {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "1") )  ? 
                                 <IonNote>Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                 Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.
                                 </IonNote>
                         :null}
 
-                          {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 1) )  ? 
+                          {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "1") )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -1004,12 +897,12 @@ const Habitos1 = (props: StepComponentProps) => {
                             </IonItem> :null}
                         
                         
-                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 1) )  ? 
+                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "1") )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?
                                 </IonLabel>
                         :null}
 
-                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 1) )  ? 
+                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "1") )  ? 
                               <IonItem lines="none">
                               <Controller render={({ onChange }) => (
                                   <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e) => {
@@ -1020,11 +913,11 @@ const Habitos1 = (props: StepComponentProps) => {
                                           props.setState('lightExposureWkndDuration', e.detail.value)
                                       }
                                   }}>
-                                      <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                      <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                      <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                      <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                      <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                      <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                   </IonSelect>)} control={control} name={"lightExposureWkndDuration"} rules={{ required: true }} />
                              
                           </IonItem>
@@ -1037,22 +930,22 @@ const Habitos1 = (props: StepComponentProps) => {
 
 
 
-                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonLabel className="questions">Nos dias de semana, nas duas últimas semanas, você se expôs à luz natural:</IonLabel>
                         :null}
 
-                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?
                                 </IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonNote>Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                 Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.
                                 </IonNote>
                         :null}
 
-                       {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                       {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -1064,12 +957,12 @@ const Habitos1 = (props: StepComponentProps) => {
                              
                             </IonItem> :null}
 
-                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?
                                 </IonLabel>
                         :null}
 
-                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                               <IonItem lines="none">
                               <Controller render={({ onChange }) => (
                                   <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e) => {
@@ -1080,33 +973,33 @@ const Habitos1 = (props: StepComponentProps) => {
                                           props.setState('lightExposureWeekDuration', e.detail.value)
                                       }
                                   }}>
-                                      <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                      <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                      <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                      <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                      <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                      <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                   </IonSelect>)} control={control} name={"lightExposureWeekDuration"} rules={{ required: true }} />
                              
                           </IonItem>
                         :null}
 
-                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonLabel className="questions">Nos finais de semana, nas duas últimas semanas, você se expôs à luz natural:
                                 </IonLabel>
                         :null}
 
-                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                        {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonLabel className="questions">Em que horário, aproximadamente, você começou a se expôr?
                                 </IonLabel>
                         :null}
 
-                           {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                           {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonNote>Use o formato de 24:00. Por exemplo, caso tenha começado a se expor à luz natural às cinco da tarde, responda 17:00.
                                 Se você se expõe mais de uma vez por dia, considere o primeiro horário do dia.
                                 </IonNote>
                         :null}
 
-                          {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                          {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                         <IonItem lines="none">
                                 <Controller render={({ onChange }) => (
                                     <IonDatetime placeholder="Por favor, selecione..." display-format="HH:mm " picker-format="HH:mm" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -1119,12 +1012,12 @@ const Habitos1 = (props: StepComponentProps) => {
                             </IonItem> :null}
                         
                         
-                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                            {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                                 <IonLabel className="questions">Por quanto tempo, em média, você se expôs?
                                 </IonLabel>
                         :null}
 
-                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === 2) )  ? 
+                         {( (props.state.lightExposureCheckWeekD !== null) && (props.state.lightExposureCheckWeekD === "2") )  ? 
                               <IonItem lines="none">
                               <Controller render={({ onChange }) => (
                                   <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..."  onIonChange={(e) => {
@@ -1135,11 +1028,11 @@ const Habitos1 = (props: StepComponentProps) => {
                                           props.setState('lightExposureWkndDuration', e.detail.value)
                                       }
                                   }}>
-                                      <IonSelectOption value={0}>até meia hora</IonSelectOption>
-                                      <IonSelectOption value={1}>até 1 hora</IonSelectOption>
-                                      <IonSelectOption value={2}>até 2 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>até 4 horas</IonSelectOption>
-                                      <IonSelectOption value={3}>mais de 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"0"}>até meia hora</IonSelectOption>
+                                      <IonSelectOption value={"1"}>até 1 hora</IonSelectOption>
+                                      <IonSelectOption value={"2"}>até 2 horas</IonSelectOption>
+                                      <IonSelectOption value={"3"}>até 4 horas</IonSelectOption>
+                                      <IonSelectOption value={"4"}>mais de 4 horas</IonSelectOption>
                                   </IonSelect>)} control={control} name={"lightExposureWkndDuration"} rules={{ required: true }} />
                              
                           </IonItem>

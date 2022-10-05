@@ -82,7 +82,10 @@ const Habitos4 = (props: StepComponentProps) => {
                 FDonWD: String(props.state.FDonWD),
                 fdQ: String(props.state.workQ),
                 workDur: String(props.state.workDur),
-                
+                workChoice: Number(props.state.workChoice),
+                workReg: String(props.state.workReg),
+                workStart: String(props.state.workStart),
+
               
                 sleepReg: String(props.state.sleepReg),
                 sleepQual: String(props.state.sleepQual),
@@ -103,7 +106,21 @@ const Habitos4 = (props: StepComponentProps) => {
                 lightReg: Number(props.state.lightReg),
                 lightFreq: Number(props.state.lightReg),
                 lightExposure: String(props.state.lightExposure),
-               
+                lightDurationIrreg: Number(props.state.lightDurationIrreg),
+                lightExposureRegWknd: Number(props.state.lightExposureRegWknd),
+                lightExposureReg: Number(props.state.lightExposureReg),
+                lightExposureStart: String(props.state.lightExposureStart),
+                lightExposureDuration: Number(props.state.lightExposureDuration),
+                lightExposureCheckWorkD: Number(props.state.lightExposureCheckWorkD),
+                lightExposureWorkStart: String(props.state.lightExposureWorkStart),
+                lightExposureWorkDuration: Number(props.state.lightExposureWorkDuration),
+                lightExposureWorkFDStart: String(props.state.lightExposureWorkFDStart),
+                lightExposureWorkFDDuration: Number(props.state.lightExposureWorkFDDuration),
+                lightExposureCheckWeekD: Number(props.state.lightExposureCheckWeekD),
+                lightExposureWeekStart: String(props.state.lightExposureWeekStart),
+                lightExposureWeekDuration: Number(props.state.lightExposureWeekDuration),
+                lightExposureWkndStart: String(props.state.lightExposureWkndStart),
+                lightExposureWkndDuration: Number(props.state.lightExposureWkndDuration),
 
                 diaAtual_Boolean: Boolean(props.state.diaAtual_Boolean),
                 dia_Anterior1_Boolean: Boolean(props.state.dia_Anterior1_Boolean),
