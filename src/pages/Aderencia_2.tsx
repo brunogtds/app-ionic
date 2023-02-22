@@ -135,13 +135,13 @@ const Aderencia_2= (props: StepComponentProps) => {
 
       <IonContent fullscreen className="ion-padding" color="background">
     
-      <p className="texto-main aderencia">Acompanhe seu progresso!</p>
-      <p className="texto-padrão aderencia ">Para acompanhar seu progresso, selecione quais hábitos você deseja acompanhar e defina uma meta principal para conquistar!</p>
+      <p className="texto-main aderencia">Defina uma meta</p>
+      <p className="texto-padrão aderencia ">Você poderá registrar e acompanhar seu progresso.</p>
 
       <form className="ion-padding texto-default">
 
       <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
-      <IonLabel className="questions">Selecione sua meta principal:</IonLabel>
+      <IonLabel className="questions">Qual rotina você quer melhorar?</IonLabel>
               
               <IonItem lines="none">
             

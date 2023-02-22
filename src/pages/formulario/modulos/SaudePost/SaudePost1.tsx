@@ -42,7 +42,7 @@ const SaudePost1 = (props: StepComponentProps) => {
                     <form className="ion-padding texto-default" >
 
                         <div className="texto-title">Saúde</div>
-                        <div className="texto-default">Para continuar marcando suas atividades, preencha para sabermos mais sobre você e sua saúde!</div>
+                        <div className="texto-default">Se soubermos mais sobre você poderemos dar mais dicas personalizadas!</div>
 
                         <IonLabel className="questions">Você conseguiu finalizar sua meta principal?
                         </IonLabel>

@@ -57,7 +57,10 @@ import { buildStyles } from 'react-circular-progressbar';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 import 'react-circular-progressbar/dist/styles.css';
+
 import './ProgressBar.css'
+
+
 
 const CalendarPage= (props: StepComponentProps) => {
 
@@ -154,6 +157,7 @@ const CalendarPage= (props: StepComponentProps) => {
     
     setLoader(true);
     toast('Meta marcada com sucesso!', 2000);
+   
     backCalendar();
     
   }
@@ -460,6 +464,7 @@ const CalendarPage= (props: StepComponentProps) => {
     getMeta06();
     getMetaDaily();
     setShowModalDay(true);
+    handleDataClick(new Date());
   }
   
   function checkMetas(){
@@ -594,9 +599,6 @@ const CalendarPage= (props: StepComponentProps) => {
     
     SocialSharing.share('', '', imgs[index]);
    }
-
-
-
     const history= useHistory();
     const [value, onChange] = useState(new Date());
 
@@ -609,8 +611,24 @@ const CalendarPage= (props: StepComponentProps) => {
       cssClass: 'my-custom-interface'
     };
     
+    const [markedDates, setMarkedDates] = useState<Date[]>([]);
 
+    const handleDataClick = (date: Date) => {
+      if (!markedDates.includes(date)) {
+        setMarkedDates([...markedDates, date]);
+        console.log('dia marcado');
+      } else {
+        setMarkedDates(markedDates.filter((d: Date) => d !== date));
+      }
+    };
 
+    const tileClassName = ({ date }: { date: Date }) => {
+      if (markedDates.find((d) => d.getTime() === date.getTime())) {
+        return 'marked';
+      } else {
+        return null;
+      }
+    };
 
   return (
    
@@ -625,7 +643,7 @@ const CalendarPage= (props: StepComponentProps) => {
       <div className="texto-padrão bold">Lembre que sugerimos que você faça seu desafio em 14 dias!</div>
         
       <div className={"calendar-div"}>
-          <Calendar className={"react-calendar"} onChange={onChange} onClickDay={openDay} value={value}/>
+          <Calendar className={"react-calendar"}  tileClassName={tileClassName} onChange={onChange} onClickDay={openDay} value={value}/>
       </div>
       
       <IonModal isOpen={showModalDay} showBackdrop={true} 

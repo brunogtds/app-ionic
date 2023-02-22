@@ -517,7 +517,7 @@ const Tab1: React.FC = () => {
       } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string4") {
         setFeedbackIMCText("IMC: < 18,5. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que o seu peso está abaixo do ideal. Na sua faixa etária, baixo peso pode estar associado com outros problemas de saúde. Fique atento e procure um médico ou um nutricionista para uma avaliação. Um IMC abaixo de 18,5 é considerado baixo peso.")
       } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string5") {
-        setFeedbackIMCText("IMC: 18,5-24,9. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que seu peso está na faixa normal para a população adulta. No entanto, na sua faixa etária, os valores podem ser um pouco diferentes. Para uma avaliação nutricional, mais completa procure sua unidade de saúde ou médico de referência.")
+        setFeedbackIMCText("IMC: 18,5-24,9. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que seu peso está na faixa normal para a população adulta. No entanto, na sua faixa etária, os valores podem ser um pouco diferentes. Para uma avaliação nutricional mais completa, procure sua unidade de saúde ou médico de referência.")
       } else if (IMC(dataAge, dataSex, dataWeight, dataHeight) === "string6") {
         setFeedbackIMCText("IMC: >25. Considerando o que você nos contou sobre seu peso e sua altura, conseguimos identificar que você está um pouco acima do peso ideal para a população adulta. No entanto, na sua faixa etária, os valores podem ser um pouco diferentes. Para uma avaliação nutricional mais completa, procure sua unidade de saúde ou médico de referência. A prática de exercício físico regular, alimentação saudável e rotina de sono também podem auxiliar você.")
       } 
@@ -1124,7 +1124,7 @@ const Tab1: React.FC = () => {
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
                       </div>
                       <div>
-                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
                       </div>
 
                       <IonModal isOpen={showModalInicial} showBackdrop={true}
@@ -1430,7 +1430,7 @@ const Tab1: React.FC = () => {
                       Finalize a segunda etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida} onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida} onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
                     </div>
 
 
@@ -1470,7 +1470,7 @@ const Tab1: React.FC = () => {
                       Finalize a última etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasFinalEnviado || meta3Definida} onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Acompanhe seu progresso</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasFinalEnviado || meta3Definida} onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
                     </div>
 
                   </AccordionItemPanel>

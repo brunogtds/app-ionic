@@ -366,7 +366,7 @@ const HabitosFinal1 = (props: StepComponentProps) => {
                             <IonLabel className="questions">Com que frequência você se expôs à luz natural (em um ambiente aberto) nas duas últimas semanas?</IonLabel>
                             :null}     
                             {(lightExposureFinal === "sim") ? 
-                            <IonNote>Considere apenas exposição à luz natural em um ambiente aberto, incluindo sacadas, terraços, pátio, jardim, etc.?</IonNote>
+                            <IonNote>Considere apenas exposição à luz natural em um ambiente aberto, incluindo sacadas, terraços, pátio, jardim, etc.</IonNote>
                             :null}      
                             {(lightExposureFinal === "sim") ? 
                              <IonItem lines="none">
@@ -391,7 +391,7 @@ const HabitosFinal1 = (props: StepComponentProps) => {
                             <IonLabel className="questions">Quão regulares foram os horários em que se expôs à luz natural?</IonLabel>
                             :null}   
                              {(lightExposureFinal === "sim") ? 
-                            <IonNote>Considere apenas exposição à luz natural em um ambiente aberto, incluindo sacadas, terraços, pátio, jardim, etc.?</IonNote>
+                            <IonNote>Considere apenas exposição à luz natural em um ambiente aberto, incluindo sacadas, terraços, pátio, jardim, etc.</IonNote>
                             :null} 
 
                              {(lightExposureFinal === "sim") ? 

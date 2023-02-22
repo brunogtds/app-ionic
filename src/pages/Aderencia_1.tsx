@@ -68,9 +68,10 @@ const Aderencia_1: React.FC = () => {
 
       <IonContent fullscreen className="ion-text-center ion-padding texto-padrão" color="background">
     
-      <p className="texto-main aderencia">Acompanhe seu progresso!</p>
-        <p className="texto-padrão aderencia ">Pense que para um melhor desempenho, você poderá começar definindo uma meta menor e que seja mais possível de conquistar.</p>
-        <p className="texto-padrão aderencia  ">Caso prefira se desafiar mais, após duas semanas você poderá refinar a sua meta principal ou escolher outra.</p>
+      <p className="texto-main aderencia">Quero melhorar minha rotina!</p>
+        <p className="texto-padrão aderencia ">O Regente pode ajudar você a desenvolver rotinas mais saudáveis a partir de metas que você mesmo define.</p>
+        <p className="texto-padrão aderencia  ">Defina uma meta que seja possível de conquistar.</p>
+        <p className="texto-padrão aderencia  ">Caso prefira se desafiar mais, após duas semanas você poderá redefinir sua meta.</p>
         <p className="texto-padrão aderencia ">Vamos lá?</p>
 
         <div>

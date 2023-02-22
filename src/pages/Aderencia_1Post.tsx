@@ -68,7 +68,7 @@ const Aderencia_1Post: React.FC = () => {
 
       <IonContent fullscreen className="ion-text-center ion-padding texto-padrão" color="background">
     
-      <p className="texto-main aderencia">Acompanhe seu progresso!</p>
+      <p className="texto-main aderencia">Quero melhorar minha rotina!</p>
       <p className="texto-padrão aderencia ">Obrigado por ter finalizada a segunda etapa da pesquisa! Agora você poderá continuar acompanhando sua meta principal.</p>
         <p className="texto-padrão aderencia ">Pense que para um melhor desempenho, você poderá começar definindo uma meta menor e que seja mais possível de conquistar.</p>
         <p className="texto-padrão aderencia  ">Caso prefira se desafiar mais, após duas semanas você poderá refinar a sua meta principal ou escolher outra.</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { StepComponentProps } from "react-step-builder";
 
-import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonDatetime, IonText } from "@ionic/react";
+import { IonItem, IonLabel, IonInput, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton, IonCheckbox, IonList, IonNote, IonDatetime, IonText } from "@ionic/react";
 import { IonContent } from '@ionic/react';
 
 import '../../Forms.css';
@@ -37,44 +37,10 @@ const HabitosPost2 = (props: StepComponentProps) => {
                     <form className="ion-padding">
 
                         <div className="ion-text-wrap texto-default">
-                            <IonLabel className="questions">Como foram suas rotinas de sono nas últimas duas semanas? </IonLabel>
-                            <IonItem lines="none">
-
-                                <Controller render={({ onChange }) => (
-                                    <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
-                                        console.log(e);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('sleepRegPost14', e.detail.value)
-                                    }}>
-                                        <IonSelectOption value="muito irregulares">Muito irregulares</IonSelectOption>
-                                        <IonSelectOption value="irregulares">Irregulares</IonSelectOption>
-                                        <IonSelectOption value="regulares">Regulares</IonSelectOption>
-                                        <IonSelectOption value="muito regulares">Muito regulares</IonSelectOption>
-                                    </IonSelect>)} control={control} name={"sleepRegPost14"} rules={{ required: true }} />
-                              
-                            </IonItem>
-
-                            <IonLabel className="questions">Como você classificaria a qualidade do seu sono nas últimas duas semanas?</IonLabel>
-                            <IonItem lines="none">
-
-                                <Controller render={({ onChange }) => (
-                                    <IonSelect interfaceOptions={options} className={"select-interface-option"} okText="ok" cancelText="Cancelar" placeholder="Por favor, selecione..." onIonChange={(e) => {
-                                        console.log(e);
-                                        onChange(e.detail.value);
-                                        if (e.detail.value != undefined)
-                                            props.setState('sleepQualPost14', e.detail.value)
-                                    }}>
-                                        <IonSelectOption value="muito boa">Muito boa</IonSelectOption>
-                                        <IonSelectOption value="boa">Boa</IonSelectOption>
-                                        <IonSelectOption value="ruim">Ruim</IonSelectOption>
-                                        <IonSelectOption value="muito ruim">Muito ruim</IonSelectOption>
-                                    </IonSelect>)} control={control} name={"sleepQualPost14"} rules={{ required: true }} />
-                             
-                            </IonItem>
-
+                            
+                           
                             <IonLabel className="questions">Como foram suas rotinas de alimentação nas últimas duas semanas?</IonLabel>
-
+                            <IonNote>Ser muito regular significa se alimentar sempre no mesmo horário.</IonNote>
 
 
                             <IonItem lines="none">
@@ -164,7 +130,7 @@ const HabitosPost2 = (props: StepComponentProps) => {
 
 
 
-
+                            {/*}
                             <IonLabel className="questions">Seus horários de alimentação foram diferentes em dias de trabalho comparados a dias livres (ou em dias de semana comparados a fins de semana) nas últimas duas semanas?</IonLabel>
                             <IonItem lines="none" className={"ion-no-padding"} >
 
@@ -188,13 +154,13 @@ const HabitosPost2 = (props: StepComponentProps) => {
 
                                     </IonRadioGroup>)} control={control} name={"feedFDYNPost14"} rules={{ required: true }} />
                            
-                            </IonItem>
+                                </IonItem> */}
 
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {(rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")  ?
                                 <IonItem lines="none">
-                                    <IonLabel className="questions">Em que horário, em média, você se alimentou pela primeira vez no dia, nas últimas duas semanas?</IonLabel>
+                                    <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você se alimentou pela primeira vez no dia, nos dias livres ou fins de semana?</IonLabel>
                                 </IonItem> : null}
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {(rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")  ?
                                 <IonItem lines="none">
                                     <Controller render={({ onChange }) => (
                                         <IonDatetime display-format="HH:mm " picker-format="HH:mm" placeholder="Por favor, selecione..." minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
@@ -206,11 +172,11 @@ const HabitosPost2 = (props: StepComponentProps) => {
                                   
                                 </IonItem> : null}
 
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {(rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")  ?
                                 <IonItem lines="none">
-                                    <IonLabel className="questions">Em que horário, em média, você se alimentou pela última vez no dia, nas últimas duas semanas?</IonLabel>
+                                    <IonLabel className="questions">Em que horário, em média, nas últimas duas semanas, você se alimentou pela última vez no dia, nos dias livres ou fins de semana?</IonLabel>
                                 </IonItem> : null}
-                            {((rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares") || (horarioAlimento === "sim")) ?
+                            {(rotinaAlimento === "regulares") || (rotinaAlimento === "muitoRegulares")  ?
                                 <IonItem lines="none">
                                     <Controller render={({ onChange }) => (
                                         <IonDatetime display-format="HH:mm " picker-format="HH:mm" placeholder="Por favor, selecione..." minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" onIonChange={(e) => {
