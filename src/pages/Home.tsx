@@ -1430,7 +1430,7 @@ const Tab1: React.FC = () => {
                       Finalize a segunda etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida} onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida}  onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
                     </div>
 
 
