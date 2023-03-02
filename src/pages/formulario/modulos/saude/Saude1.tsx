@@ -16,6 +16,8 @@ const Saude1 = (props: StepComponentProps) => {
     const [selected, setSelected] = useState();
     const [selectedNoOrientation, setSelectedNoOrientation] = useState();
 
+    const [checkNenhuma, setCheckNenhuma] = useState(false);
+
 
 
     return (
@@ -47,17 +49,18 @@ const Saude1 = (props: StepComponentProps) => {
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersNenhuma", false)} onIonChange={(e) => {
                                            
                                              if (e.detail.checked) {
-                                                        props.setState('disordersNenhuma', true)                                                
+                                                        props.setState('disordersNenhuma', true)  
+                                                        setCheckNenhuma(true)                                                  
                                                     } else {
                                                         props.setState('disordersNenhuma', false)
-                                                        
+                                                        setCheckNenhuma(false)
                                                     }
                                         }}></IonCheckbox>
                                         <IonLabel >Nenhuma</IonLabel>
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersDiabetes", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} disabled={checkNenhuma} color="primary" value={props.getState("disordersDiabetes", false)} onIonChange={(e) => {
                                           
                                              if (e.detail.checked) {
                                                 props.setState('disordersDiabetes', true)                                                
@@ -69,7 +72,7 @@ const Saude1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersHipert", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} disabled={checkNenhuma} color="primary" value={props.getState("disordersHipert", false)} onIonChange={(e) => {
                                            
                                             if (e.detail.checked) {
                                                 props.setState('disordersHipert', true)                                                
@@ -81,7 +84,7 @@ const Saude1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersAsma", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} disabled={checkNenhuma} color="primary" value={props.getState("disordersAsma", false)} onIonChange={(e) => {
                                          
                                             if (e.detail.checked) {
                                                 props.setState('disordersAsma', true)                                                
@@ -93,7 +96,7 @@ const Saude1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersDep", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} disabled={checkNenhuma} color="primary" value={props.getState("disordersDep", false)} onIonChange={(e) => {
                                            
                                             if (e.detail.checked) {
                                                 props.setState('disordersDep', true)                                                
@@ -105,7 +108,7 @@ const Saude1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersImunod", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} disabled={checkNenhuma} color="primary" value={props.getState("disordersImunod", false)} onIonChange={(e) => {
                                           
                                             if (e.detail.checked) {
                                                 props.setState('disordersImunod', true)                                                
@@ -118,7 +121,7 @@ const Saude1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none">
 
-                                        <IonInput placeholder="Outros" type="text" onIonChange={(e) => {
+                                        <IonInput disabled={checkNenhuma} placeholder="Outros" type="text" onIonChange={(e) => {
                                        
                                           if (e.detail.value != undefined)
                                                 props.setState('disorders', e.detail.value)        

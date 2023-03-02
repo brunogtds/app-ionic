@@ -21,6 +21,8 @@ const SaudeFinal1 = (props: StepComponentProps) => {
     const [medsChange, setmedsChange] = useState();
     const [selectedMedsNoOrientation, setSelectedMedsNoOrientation] = useState();
 
+    const [checkNenhuma, setCheckNenhuma] = useState(false);
+
     function createDatabaseQuest2() {
 
         if (user) {
@@ -107,16 +109,18 @@ const SaudeFinal1 = (props: StepComponentProps) => {
                                     <IonItem lines="none"  >
                                         <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChangeFinalNenhuma", false)} onIonChange={(e) => {
                                              if (e.detail.checked) {
-                                                props.setState('disordersChangeFinalNenhuma', true)                                                
+                                                props.setState('disordersChangeFinalNenhuma', true)        
+                                                setCheckNenhuma(true)                                          
                                                 } else {
-                                                props.setState('disordersChangeFinalNenhuma', false)                                                
+                                                props.setState('disordersChangeFinalNenhuma', false) 
+                                                setCheckNenhuma(false)                                                 
                                              }
                                         }}></IonCheckbox>
                                         <IonLabel >Nenhuma</IonLabel>
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChangeFinalDiabetes", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"}  disabled={checkNenhuma} color="primary" value={props.getState("disordersChangeFinalDiabetes", false)} onIonChange={(e) => {
                                            if (e.detail.checked) {
                                             props.setState('disordersChangeFinalDiabetes', true)                                                
                                             } else {
@@ -127,7 +131,7 @@ const SaudeFinal1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChangeFinalHipert", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"}  disabled={checkNenhuma} color="primary" value={props.getState("disordersChangeFinalHipert", false)} onIonChange={(e) => {
                                             if (e.detail.checked) {
                                                 props.setState('disordersChangeFinalHipert', true)                                                
                                                 } else {
@@ -138,7 +142,7 @@ const SaudeFinal1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChangeFinalAsma", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"}  disabled={checkNenhuma} color="primary" value={props.getState("disordersChangeFinalAsma", false)} onIonChange={(e) => {
                                             if (e.detail.checked) {
                                                 props.setState('disordersChangeFinalAsma', true)                                                
                                                 } else {
@@ -149,7 +153,7 @@ const SaudeFinal1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChangeFinalDep", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"}  disabled={checkNenhuma} color="primary" value={props.getState("disordersChangeFinalDep", false)} onIonChange={(e) => {
                                             if (e.detail.checked) {
                                                 props.setState('disordersChangeFinalDep', true)                                                
                                                 } else {
@@ -160,7 +164,7 @@ const SaudeFinal1 = (props: StepComponentProps) => {
                                     </IonItem>
 
                                     <IonItem lines="none">
-                                        <IonCheckbox className={"checkbox-options"} color="primary" value={props.getState("disordersChangeFinalImunod", false)} onIonChange={(e) => {
+                                        <IonCheckbox className={"checkbox-options"} disabled={checkNenhuma} color="primary" value={props.getState("disordersChangeFinalImunod", false)} onIonChange={(e) => {
                                              if (e.detail.checked) {
                                                 props.setState('disordersChangeFinalImunod', true)                                                
                                                 } else {
@@ -172,7 +176,7 @@ const SaudeFinal1 = (props: StepComponentProps) => {
 
                                     <IonItem lines="none">
 
-                                        <IonInput placeholder="Outros" type="text" onIonChange={(e) => {
+                                        <IonInput  disabled={checkNenhuma} placeholder="Outros" type="text" onIonChange={(e) => {
                                             if (e.detail.value != undefined)
                                                 props.setState('disordersChangeFinal', e.detail.value)
                                                

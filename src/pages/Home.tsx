@@ -1107,7 +1107,7 @@ const Tab1: React.FC = () => {
                    
                     <AccordionItemPanel>
                       <div>
-                        <IonButton  disabled={moduloHabitosEnviado || !moduloSaudeEnviado} onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Sono e hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
+                        <IonButton disabled={moduloHabitosEnviado || !moduloSaudeEnviado}  onClick={habitos} color="orange" fill="solid" className="button-forms"><div className="texto-button">Sono e hábitos</div><img className="img-button" src={button_habitos} width="80" height="80" alt={"Mascote do Regente vespertino sentado de olhos fechados com uma toquinha para dormir na cabeça."} /></IonButton>
                       </div>
                     </AccordionItemPanel>
                     <AccordionItemPanel>
@@ -1124,9 +1124,10 @@ const Tab1: React.FC = () => {
                         <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1)} onClick={() => modalFeedbackInicial()} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={shareSocialOutline} /><div>Acessar dicas</div></IonButton>
                       </div>
                       <div>
-                        <IonButton disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida} onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
+                        <IonButton  onClick={toAderencia} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
                       </div>
 
+                    {/*disabled={!moduloSonoSintomasEnviado || (moduloSonoSintomasEnviado && minDaysPart1) || meta1Definida}*/}
                       <IonModal isOpen={showModalInicial} showBackdrop={true}
                         cssClass='custom-modal selectable'
                         onDidDismiss={() => setShowModalInicial(false)}>
@@ -1430,7 +1431,7 @@ const Tab1: React.FC = () => {
                       Finalize a segunda etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida}  onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
+                      <IonButton  disabled={!moduloSonoSintomasPostEnviado || (moduloSonoSintomasPostEnviado && minDaysPart2) || meta2Definida} onClick={toAderenciaPost} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
                     </div>
 
 
@@ -1449,7 +1450,7 @@ const Tab1: React.FC = () => {
                     <p>{thirdPartText}</p>
 
                     <div>
-                      <IonButton  disabled={moduloSaudeFinalEnviado || !minDaysPart2} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."} /></IonButton>
+                      <IonButton disabled={moduloSaudeFinalEnviado || !minDaysPart2} onClick={saudeFinal} color="orange" fill="solid" className="button-forms"><div className="texto-button">Saúde</div><img className="img-button" src={button_saude} width="80" height="80" alt={"Mascote do Regente matutino sorrindo e pulando corda com uma testeira branca e vermelha."} /></IonButton>
                     </div>
                   </AccordionItemPanel>
 
@@ -1470,7 +1471,7 @@ const Tab1: React.FC = () => {
                       Finalize a última etapa e escolha mais metas para acompanhar!
                     </div>
                     <div>
-                      <IonButton disabled={!moduloSonoSintomasFinalEnviado || meta3Definida} onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
+                      <IonButton disabled={!moduloSonoSintomasFinalEnviado || meta3Definida}  onClick={toAderenciaFinal} color="orange" fill="solid" shape="round" size="small"><IonIcon slot="start" icon={statsChartOutline} /><div>Quero melhorar minha rotina</div></IonButton>
                     </div>
 
                   </AccordionItemPanel>

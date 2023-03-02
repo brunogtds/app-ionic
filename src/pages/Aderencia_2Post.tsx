@@ -7,7 +7,7 @@ import './Home.css';
 
 import { IonGrid, IonRow, IonCol, IonSlides, IonSlide } from '@ionic/react';
 
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider, IonButton, IonLoading, IonLabel, IonInput, IonButtons, IonMenuButton, IonSelect, IonSelectOption} from '@ionic/react';
+import { IonCard, IonModal, IonNote, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonItemDivider, IonButton, IonLoading, IonLabel, IonInput, IonButtons, IonMenuButton, IonSelect, IonSelectOption} from '@ionic/react';
 
 
 import distanciamentoExp from '../../src/img/distanciamentoExp.png';
@@ -46,6 +46,8 @@ import {StepComponentProps} from "react-step-builder";
 import firebase from 'firebase';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
+import matutino_feliz from '../img/Matutino_feliz.svg';
+
 const Aderencia_2Post= (props: StepComponentProps) => {
 
   
@@ -63,6 +65,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
   const [meta01CompletaText, setMeta01CompletaText]= React.useState("");
   const [meta01Completa, setMeta01Completa]= React.useState("");
+  const [showModalInicial, setShowModalInicial] = useState(false);
 
   
   const db = firebase.firestore();
@@ -111,8 +114,18 @@ const Aderencia_2Post= (props: StepComponentProps) => {
     const history= useHistory();
 
     function calendar(){
+      setShowModalInicial(false)
       history.push('/calendar');
     }
+
+    function home(){
+      setShowModalInicial(false)
+      history.push('/tab1');
+    }
+
+    const modalMeta = (data: any) => {
+      setShowModalInicial(true);
+     }
 
     let metaShare = 0
     function socialSharingMetas() {
@@ -154,7 +167,8 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       setData(dataUser);
       setLoader(true);
       updateUserDataQuest1(dataUser);
-      calendar();
+      setShowModalInicial(true);
+      //calendar();
    }
 
   return (
@@ -162,8 +176,8 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
       <IonContent fullscreen className="ion-padding" color="background">
     
-      <p className="texto-main aderencia">Acompanhe seu progresso!</p>
-      <p className="texto-padrão aderencia ">Para acompanhar seu progresso, selecione quais hábitos você deseja acompanhar e defina uma meta principal para conquistar!</p>
+      <p className="texto-main aderencia">Defina uma meta</p>
+      <p className="texto-padrão aderencia ">Você poderá registrar e acompanhar seu progresso.</p>
       <p className="texto-padrão aderencia ">{meta01CompletaText}</p>
       <form className="ion-padding texto-default">
 
@@ -209,6 +223,11 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       <IonLabel className="questions">Quantas vezes por semana você quer se expor à luz natural?</IonLabel> :null
       } 
 
+      {(meta1 === "luz") || (meta1 === "sono") || (meta1 === "alimentação") || (meta1 === "exercicio") ?
+
+      <IonNote className="questions">O número deve estar entre 1 e 7.</IonNote> :null
+      } 
+
       {errors.metaFreqSemanal && <IonText color="danger">Campo obrigatório.</IonText>}    
 
 
@@ -218,7 +237,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
                             
                                    
                             <Controller render={({onChange}) => (
-                <IonInput type="number" placeholder="Digite o valor em dias" value= {props.getState("meta01Coleta02FreqSemanal", "")} onIonChange={
+                <IonInput type="number" min='1' max='7' placeholder="Digite o valor em dias" value= {props.getState("meta01Coleta02FreqSemanal", "")} onIonChange={
                     (e)=> {
                     console.log(e);
                     onChange(e.detail.value);
@@ -287,6 +306,11 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       <IonLabel className="questions">Quantas vezes por semana você quer se expor à luz natural?</IonLabel> :null
       } 
 
+      {(meta2 === "luz") || (meta2 === "sono") || (meta2 === "alimentação") || (meta2 === "exercicio") ?
+
+      <IonNote className="questions">O número deve estar entre 1 e 7.</IonNote> :null
+      } 
+
       {errors.meta02Coleta02FreqSemanal && <IonText color="danger">Campo obrigatório.</IonText>}    
 
 
@@ -296,7 +320,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
                       
                              
                       <Controller render={({onChange}) => (
-          <IonInput type="number" placeholder="Digite o valor em dias" value= {props.getState("meta02Coleta02FreqSemanal", "")} onIonChange={
+          <IonInput type="number" min='1' max='7' placeholder="Digite o valor em dias" value= {props.getState("meta02Coleta02FreqSemanal", "")} onIonChange={
               (e)=> {
               console.log(e);
               onChange(e.detail.value);
@@ -316,9 +340,24 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       </IonItem> :null
 } 
 
+      {((props.state.meta01Coleta02FreqSemanal !== undefined) && ((props.state.meta01Coleta02FreqSemanal <= 0) || (props.state.meta01Coleta02FreqSemanal > 7)) ) ?
+
+      <div className="texto-confirma">
+        <IonText  color="danger">Insira um valor entre 1 e 7.</IonText>
+      </div> :null
+
+      }
+
+      {((props.state.meta02Coleta02FreqSemanal !== undefined) && ((props.state.meta02Coleta02FreqSemanal <= 0) || (props.state.meta02Coleta02FreqSemanal > 7)) ) ?
+
+      <div className="texto-confirma">
+        <IonText  color="danger">Atenção para a segunda meta! Insira um valor entre 1 e 7.</IonText>
+      </div> :null
+
+      }
       
 
-      {((meta1 === "exercicio")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+      {((meta1 === "exercicio")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7)) ) ?
 
       <div className="texto-confirma">
       Sua meta principal então é... se exercitar {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -328,7 +367,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       }
 
       
-      {((meta1 === "alimentação")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+      {((meta1 === "alimentação")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7)) ) ?
 
       <div className="texto-confirma">
       Sua meta principal então é... controlar alimentação {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -338,7 +377,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       }
 
 
-      {((meta1 === "sono")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+      {((meta1 === "sono")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n")  && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7))) ?
 
       <div className="texto-confirma">
       Sua meta principal então é... controlar sono {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -348,7 +387,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       }
 
 
-      {((meta1 === "luz")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") ) ?
+      {((meta1 === "luz")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && (meta01Completa === "n") && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7))) ?
 
       <div className="texto-confirma">
       Sua meta principal então é... controlar exposição à luz natural {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -358,7 +397,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
       }
 
 
-      {((meta1 === "exercicio")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+      {((meta1 === "exercicio")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7))) ?
 
       <div className="texto-confirma">
         Sua meta principal então é... se exercitar {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -366,7 +405,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
       }
 
-      {((meta1 === "alimentação")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+      {((meta1 === "alimentação")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7))) ?
 
       <div className="texto-confirma">
         Sua meta principal então é... controlar alimentação {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -374,7 +413,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
       }
 
-      {((meta1 === "sono")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+      {((meta1 === "sono")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7))) ?
 
       <div className="texto-confirma">
         Sua meta principal então é... controlar sono {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -382,7 +421,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
       }
 
-      {((meta1 === "luz")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined)) ?
+      {((meta1 === "luz")  &&  (props.state.meta01Coleta02FreqSemanal !== undefined) && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7))) ?
 
       <div className="texto-confirma">
         Sua meta principal então é... controlar exposição à luz natural {props.state.meta01Coleta02FreqSemanal} vezes por semana!
@@ -390,7 +429,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
       }
 
-      {((meta2 === "exercicio")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+      {((meta2 === "exercicio")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined) && ((props.state.meta02Coleta02FreqSemanal >= 1) && (props.state.meta02Coleta02FreqSemanal <= 7))) ?
 
       <div className="texto-confirma">
         Sua segunda meta então é... se exercitar {props.state.meta02Coleta02FreqSemanal} vezes por semana!
@@ -398,7 +437,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
       }
 
-    {((meta2 === "alimentação")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+    {((meta2 === "alimentação")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined) && ((props.state.meta02Coleta02FreqSemanal >= 1) && (props.state.meta02Coleta02FreqSemanal <= 7))) ?
 
     <div className="texto-confirma">
       Sua segunda meta então é... controlar alimentação {props.state.meta02Coleta02FreqSemanal} vezes por semana!
@@ -406,7 +445,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
     }
 
-    {((meta2 === "sono")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+    {((meta2 === "sono")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined) && ((props.state.meta02Coleta02FreqSemanal >= 1) && (props.state.meta02Coleta02FreqSemanal <= 7))) ?
 
     <div className="texto-confirma">
       Sua segunda meta então é... controlar sono {props.state.meta02Coleta02FreqSemanal} vezes por semana!
@@ -414,7 +453,7 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
     }
 
-    {((meta2 === "luz")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
+    {((meta2 === "luz")  &&  (props.state.meta02Coleta02FreqSemanal !== undefined) && ((props.state.meta02Coleta02FreqSemanal >= 1) && (props.state.meta02Coleta02FreqSemanal <= 7))) ?
 
     <div className="texto-confirma">
       Sua segunda meta então é... controlar exposição à luz natural {props.state.meta02Coleta02FreqSemanal} vezes por semana!
@@ -422,36 +461,63 @@ const Aderencia_2Post= (props: StepComponentProps) => {
 
     }
 
-      {(((meta2 === "exercicio") || (meta2 === "alimentação") || (meta2 === "sono") || (meta2 === "luz") ) &&  (props.state.meta02Coleta02FreqSemanal !== undefined)) ?
-
-      <div className="texto-confirma">
-            Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
-      </div> :null
-
-      }
-
-{(((meta2 === "exercicio") || (meta2 === "alimentação") || (meta2 === "sono") || (meta2 === "luz") ) &&  (props.state.meta02Coleta02FreqSemanal !== undefined) && (meta01Completa === "n")) ?
-
-<div className="texto-confirma">
-      Clique em definir para confirmar. Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!
-</div> :null
-
-}
+     
 
 
+
+{(  (meta01Completa === "n") && (props.state.meta01Coleta02FreqSemanal !== undefined) && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7)) ) ?
+<div className='button-mid'>
+<IonButton disabled={formState.isValid === false} color="orange" className='button-mid' onClick={onSubmit} size="default" shape="round" fill="outline">Definir</IonButton>
+</div> 
+:null
+
+} 
+
+{(  (meta01Completa === "y") && (props.state.meta01Coleta02FreqSemanal !== undefined) && ((props.state.meta01Coleta02FreqSemanal >= 1) && (props.state.meta01Coleta02FreqSemanal <= 7)) && (props.state.meta02Coleta02FreqSemanal !== undefined) && ((props.state.meta02Coleta02FreqSemanal >= 1) && (props.state.meta02Coleta02FreqSemanal <= 7)) ) ?
+<div className='button-mid'>
+<IonButton disabled={formState.isValid === false} color="orange" className='button-mid' onClick={onSubmit} size="default" shape="round" fill="outline">Definir</IonButton>
+</div> 
+:null
+
+} 
+
+{/*Você também pode compartilhar sua meta e acompanhar seu progresso na aba Progresso!*/}
+
+
+<IonModal isOpen={showModalInicial} showBackdrop={true}
+                        cssClass='custom-modal selectable'
+                        onDidDismiss={() => setShowModalInicial(false)}>
+                        <IonContent color="primary">
+
+                        <div className={"div-sonoSintomas"}>
+                          <img src={matutino_feliz} alt="mascote no celular" className={"img-sonoSintomas"} />
+                            <br />
+                            <p className='sono-sintomas-modalText'>Meta definida!</p>
+                            <p className='sono-sintomas-modalText'>A partir de agora você pode marcar os dias que realizou sua meta e a acompanhar. Para isso, clique e acesse 'Progresso'.</p>
+                            <p className='sono-sintomas-modalText'>Você também pode compartilhar sua meta nas redes sociais clicando em 'Compartilhar'.</p>
+                            <p className='sono-sintomas-modalText'>Ou se preferir, pode voltar para a página inicial clicando em 'Home'.</p>
+                          </div>
+                         
+                          <div className="ion-text-center">
+                            <IonButton className={"button-left"} color="white" onClick={calendar}>Progresso</IonButton>
+                            <IonButton color="white" onClick={socialSharingMetas}>Compartilhar</IonButton>
+                            
+                            <IonButton className={"button-right"} color="white" onClick={home}>Home</IonButton>
+                          </div>
+                          
+
+                        </IonContent>
+
+                      </IonModal>
 
       
       </form>
 
 
-      <IonButton disabled={formState.isValid === false} color="orange" onClick={socialSharingMetas}  className={"btnAnterior"} size="default" shape="round" fill="outline">Compartilhar</IonButton>
-      <IonButton disabled={formState.isValid === false} color="orange"  className={"btnProximo"} onClick={onSubmit} size="default" shape="round" fill="outline">Definir</IonButton>
+    
+     
         
       
-      
-      
-    
-
       </IonContent>
 
     

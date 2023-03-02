@@ -216,7 +216,7 @@ const Habitos1 = (props: StepComponentProps) => {
 
                               {(FDonWD === "sim") || ((props.state.fdQ != null) && (props.state.fdQ != "todosDias"))  ? 
 
-                            <IonLabel className="questions">Você pode escolher seus horários de trabalho e estudo?</IonLabel>
+                            <IonLabel className="questions">Com que frequência você pode escolher seus horários de trabalho e estudo?</IonLabel>
                             
                             :null}      
 

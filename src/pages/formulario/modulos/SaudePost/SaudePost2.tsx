@@ -80,7 +80,7 @@ const SaudePost2 = (props: StepComponentProps) => {
             <form className="ion-padding texto-default" onSubmit={handleSubmit(onSubmit)}>
             <IonLoading message="Por favor aguarde..." duration={2000} isOpen={loader}/>
 
-            <IonLabel className="questions">O seu consumo de bebidas alcóolicas, em comparação a antes da pandemia:</IonLabel>
+            <IonLabel className="questions">O seu consumo de bebidas alcóolicas, nas últimas duas semanas:</IonLabel>
                 <IonItem lines="none" className={"ion-no-padding"}>
                     
                     
@@ -114,7 +114,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     />
                 </IonItem>
 
-                <IonLabel className="questions">O seu consumo de estimulantes (café, chimarrão), em comparação a antes da pandemia:</IonLabel>
+                <IonLabel className="questions">O seu consumo de estimulantes (café, chimarrão), nas últimas duas semanas:</IonLabel>
                 <IonItem lines="none" className={"ion-no-padding"}>
                    
                     
@@ -148,7 +148,7 @@ const SaudePost2 = (props: StepComponentProps) => {
                     />
                 </IonItem>
 
-                <IonLabel className="questions">Se você fuma, em comparação a antes da pandemia, o número de cigarros que você fuma por dia:</IonLabel>
+                <IonLabel className="questions">Se você fuma, nas últimas duas semanas, o número de cigarros que você fuma por dia:</IonLabel>
 
                 <IonItem lines="none" className={"ion-no-padding"}>
                     

@@ -68,12 +68,10 @@ const Aderencia_1Final: React.FC = () => {
 
       <IonContent fullscreen className="ion-text-center ion-padding texto-padrão" color="background">
     
-      <p className="texto-main aderencia">Acompanhe seu progresso!</p>
+      <p className="texto-main aderencia">Quero melhorar minha rotina!</p>
       <p className="texto-padrão aderencia ">Obrigado por ter finalizado a pesquisa! Em breve teremos atualizações, buscando melhorar ainda mais sua experiência no aplicativo!</p>
-      <p className="texto-padrão aderencia ">Agora você pode escolher novamente sua meta para acompanhar!</p>
-        <p className="texto-padrão aderencia ">Pense que para um melhor desempenho, você poderá começar definindo uma meta menor e que seja mais possível de conquistar.</p>
-        <p className="texto-padrão aderencia  ">Caso prefira se desafiar mais, após duas semanas você poderá refinar a sua meta principal ou escolher outra.</p>
-        <p className="texto-padrão aderencia ">Vamos lá?</p>
+      <p className="texto-padrão aderencia ">Por enquanto, você pode escolher novamente metas para acompanhar por 2 semanas!</p>
+      <p className="texto-padrão aderencia ">Vamos lá?</p>
 
         <div>
            <IonButton onClick={toAderencia_2} color="orange" fill="solid" className="button-forms"><div className="texto-button">Começar</div><img className="img-button" src={Neutro_feliz} width="80" height="80"/></IonButton>
